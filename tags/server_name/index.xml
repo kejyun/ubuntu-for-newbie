@@ -1,0 +1,52 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – server_name</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/server_name/</link>
+    <description>Recent content in server_name on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/server_name/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: server_name</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/server-name/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/server-name/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;取得所有的-server-name&#34;&gt;取得所有的 Server Name&lt;/h2&gt;
+&lt;p&gt;使用 &lt;code&gt;_&lt;/code&gt; 特殊符號取得所有傳進來的 Server Name&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    listen       80&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    server_name  example.org
+                 www.example.org
+                 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+                 192.168.1.1
+                 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    ...
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    listen       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;  default_server&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    server_name  _&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt;       444&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;參考資料&#34;&gt;參考資料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://nginx.org/en/docs/http/server_names.html&#34;&gt;Nginx Server names&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

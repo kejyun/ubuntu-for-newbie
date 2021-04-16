@@ -1,0 +1,56 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – fastcgi_pass</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/categories/fastcgi_pass/</link>
+    <description>Recent content in fastcgi_pass on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/fastcgi_pass/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: fastcgi_pass</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/fastcgi-pass/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/fastcgi-pass/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;fastcgi_pass&#34;&gt;fastcgi_pass&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;fastcgi_pass&lt;/code&gt; 是指定用來解譯 PHP 程式的端口&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;設定檔&#34;&gt;設定檔&lt;/h2&gt;
+&lt;p&gt;路徑：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/nginx/site-enabled/xxx&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;location ~ &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    fastcgi_pass unix:/run/php/php7.0-fpm.sock&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# fastcgi_pass 127.0.0.1:9000;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;路徑：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/php/7.0/fpm/pool.d/www.conf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;listen&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /run/php/php7.0-fpm.sock
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;listen&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; 127.0.0.1:9000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/understanding-and-implementing-fastcgi-proxying-in-nginx&#34;&gt;Understanding and Implementing FastCGI Proxying in Nginx | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.nginx.com/resources/wiki/start/topics/examples/phpfcgi/&#34;&gt;PHP FastCGI Example | NGINX&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

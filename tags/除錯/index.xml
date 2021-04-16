@@ -1,0 +1,204 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – 除錯</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/%E9%99%A4%E9%8C%AF/</link>
+    <description>Recent content in 除錯 on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/%E9%99%A4%E9%8C%AF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 除錯</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/debug/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/debug/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;php-fpm-除錯&#34;&gt;PHP FPM 除錯&lt;/h2&gt;
+&lt;h3 id=&#34;recv-failed-104-connection-reset-by-peer-while-reading-response-header-from-upstream&#34;&gt;recv() failed (104: Connection reset by peer) while reading response header from upstream&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Nginx 錯誤 Log&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;在 nginx 發現 php-fpm.sock 的錯誤&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;2018/10/24 03:47:05 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;error&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; 1231#1231: *324 recv&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt; failed &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;104: Connection reset by peer&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;while&lt;/span&gt; reading response header from upstream, client: 172.31.22.62, server: _, request: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;POST /post/article HTTP/1.1&amp;#34;&lt;/span&gt;, upstream: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fastcgi://unix:/run/php/php7.1-fpm.sock:&amp;#34;&lt;/span&gt;, host: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;kejyun.com&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;PHP 錯誤 log&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;在 php fpm error log 發現 &lt;code&gt;pm.max_children setting (5), consider raising it&lt;/code&gt; 的錯誤&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /var/log/php7.1-fpm.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 01:09:33&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 07:20:16&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 07:43:58&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 08:27:52&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;提高請求中斷時間（request_terminate_timeout）&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/php/7.1/fpm/pool.d/www.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;request_terminate_timeout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;300&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;提高 Server fastcgi read timeout&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;vim /etc/nginx/sites-available/kejyun.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;location ~ &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    fastcgi_connect_timeout 300&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    fastcgi_send_timeout 300&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    fastcgi_read_timeout 300&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;提高 php fpm max_children&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;請參考 &lt;a href=&#34;./web-php-max-children.md&#34;&gt;PHP FPM Max Children&lt;/a&gt; 這篇文章，根據自己主機的狀況需求去提高可以使用的 php-fpm children 數量，提高存取效率&lt;/p&gt;
+&lt;h3 id=&#34;使用-sudo-add-apt-repository-ppaondrejphp-發生錯誤&#34;&gt;使用 &lt;code&gt;sudo add-apt-repository ppa:ondrej/php&lt;/code&gt; 發生錯誤&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo add-apt-repository ppa:ondrej/php
+ Co-installable PHP versions: PHP 5.6, PHP 7.x and most requested extensions are included. Only Supported Versions of PHP &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;http://php.net/supported-versions.php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; Supported Ubuntu Releases &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;https://wiki.ubuntu.com/Releases&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; are provided. Don&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;t ask for end-of-life PHP versions or Ubuntu release, they won&amp;#39;&lt;/span&gt;t be provided.
+
+Debian oldstable and stable packages are provided as well: https://deb.sury.org/#debian-dpa
+
+You can get more information about the packages at https://deb.sury.org
+
+BUGS&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;FEATURES: This PPA now has a issue tracker:
+https://deb.sury.org/#bug-reporting
+
+CAVEATS:
+1. If you are using php-gearman, you need to add ppa:ondrej/pkg-gearman
+2. If you are using apache2, you are advised to add ppa:ondrej/apache2
+3. If you are using nginx, you are advise to add ppa:ondrej/nginx-mainline
+   or ppa:ondrej/nginx
+
+PLEASE READ: If you like my work and want to give me a little motivation, please consider donating regularly: https://donate.sury.org/
+
+WARNING: add-apt-repository is broken with non-UTF-8 locales, see
+https://github.com/oerdnj/deb.sury.org/issues/56 &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; workaround:
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php&lt;/span&gt;
+ More info: https://launchpad.net/~ondrej/+archive/ubuntu/php
+Press &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;ENTER&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; to &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;continue&lt;/span&gt; or ctrl-c to cancel adding it
+
+gpg: keyring &lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;/tmp/tmpw76p12wa/secring.gpg&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39; created
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;gpg: keyring `/tmp/tmpw76p12wa/pubring.gpg&amp;#39;&lt;/span&gt; created
+gpg: requesting key E5267A6C from hkp server keyserver.ubuntu.com
+gpg: /tmp/tmpw76p12wa/trustdb.gpg: trustdb created
+gpg: key E5267A6C: public key &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Launchpad PPA for Ond\xc5\x99ej Sur�&amp;#34;&lt;/span&gt; imported
+gpg: Total number processed: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+gpg:               imported: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;RSA: 1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+Exception in thread Thread-1:
+Traceback &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;most recent call last&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;:
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/threading.py&amp;#34;&lt;/span&gt;, line 920, in _bootstrap_inner
+    self.run&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/threading.py&amp;#34;&lt;/span&gt;, line 868, in run
+    self._target&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;*self._args, **self._kwargs&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/SoftwareProperties.py&amp;#34;&lt;/span&gt;, line 687, in addkey_func
+    func&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;**kwargs&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 370, in add_key
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; apsk.add_ppa_signing_key&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 261, in add_ppa_signing_key
+    tmp_export_keyring, signing_key_fingerprint, tmp_keyring_dir&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;:
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 210, in _verify_fingerprint
+    &lt;span style=&#34;color:#000&#34;&gt;got_fingerprints&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; self._get_fingerprints&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;keyring, keyring_dir&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 202, in _get_fingerprints
+    &lt;span style=&#34;color:#000&#34;&gt;output&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; subprocess.check_output&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;cmd, &lt;span style=&#34;color:#000&#34;&gt;universal_newlines&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;True&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/subprocess.py&amp;#34;&lt;/span&gt;, line 609, in check_output
+    output, &lt;span style=&#34;color:#000&#34;&gt;unused_err&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; process.communicate&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;inputdata, &lt;span style=&#34;color:#000&#34;&gt;timeout&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;timeout&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/subprocess.py&amp;#34;&lt;/span&gt;, line 947, in communicate
+    &lt;span style=&#34;color:#000&#34;&gt;stdout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; _eintr_retry_call&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;self.stdout.read&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/subprocess.py&amp;#34;&lt;/span&gt;, line 491, in _eintr_retry_call
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; func&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;*args&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/encodings/ascii.py&amp;#34;&lt;/span&gt;, line 26, in decode
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; codecs.ascii_decode&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;input, self.errors&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)[&lt;/span&gt;0&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+UnicodeDecodeError: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ascii&amp;#39;&lt;/span&gt; codec can&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;t decode byte 0xc5 in position 92: ordinal not in range&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;128&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+$
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;由於當系統不是 UTF-8 的 locales，會發生這個錯誤，只要在指令前方加入 locales 指令即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo &lt;span style=&#34;color:#000&#34;&gt;LC_ALL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;C.UTF-8 add-apt-repository ppa:ondrej/php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;sudo-apt-get-update-時出現-failed-to-fetch-httpppalaunchpadnetondrejphp5-56ubuntudiststrustymainbinary-amd64packages--403--forbidden-訊息&#34;&gt;&lt;code&gt;sudo apt-get update&lt;/code&gt; 時出現 &lt;code&gt;Failed to fetch http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu/dists/trusty/main/binary-amd64/Packages  403  Forbidden&lt;/code&gt; 訊息&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo apt-get update
+
+W: Failed to fetch http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu/dists/trusty/main/binary-amd64/Packages  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;403&lt;/span&gt;  Forbidden
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;由於 php 資源庫的位置已更新，可以移除資源庫清單資料即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo rm /etc/apt/sources.list.d/ondrej-php5-5_6-trusty.list
+sudo add-apt-repository -y ppa:ondrej/php
+sudo apt-get -y update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://easyengine.io/tutorials/php/increase-script-execution-time/&#34;&gt;Increase PHP script execution time with Nginx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hk.saowen.com/a/00daab29e1dfee5e8354f200fe27332a159c0de9dff687600e312585ef630f7a&#34;&gt;php-fpm超時時間設置request_terminate_timeout分析 - 掃文資訊&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.onepx.com/php-fpm-request-terminate-timeout.html&#34;&gt;php-fpm中的request_terminate_timeout最好不要设置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.apkfuns.com/-e8-bd-ac-e8-a7-a3-e5-86-b3-recv-failed-104-connection-reset-by-peer-while-reading-response-header-from-upstream/&#34;&gt;解决 recv() failed (104: Connection reset by peer) while reading response header from upstream&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.111cn.net/sys/nginx/56291.htm&#34;&gt;经验之谈：nginx php 502 bad gateway 解决方法_壹聚教程网&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mokiee.com/code/150&#34;&gt;解决 添加 ppa:ondrej/php 时出现无法解码的报错 - 墨客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tedshd.logdown.com/posts/2472689&#34;&gt;ubuntu - apt-get install php repository 403 « tedshd&amp;rsquo;s DevNote&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-upgrade-to-php-7-on-ubuntu-14-04&#34;&gt;How To Upgrade to PHP 7 on Ubuntu 14.04 | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 除錯</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/debug/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/debug/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;回傳參數&#34;&gt;回傳參數&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;location ~ &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$document_root&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$request_uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;$args：get 參數（e.g. ?page=2）&lt;/li&gt;
+&lt;li&gt;$uri：網址路徑（e.g. /tag/laravel）&lt;/li&gt;
+&lt;li&gt;$document_root：網頁路徑（e.g. /var/web/laravel/public）&lt;/li&gt;
+&lt;li&gt;$request_uri：完整請求 URI（/tag/laravel?page=2）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;測試-site-enabled-設定&#34;&gt;測試 &lt;code&gt;site-enabled&lt;/code&gt; 設定&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;nginx -t
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;413-request-entity-too-large&#34;&gt;413 Request entity too large&lt;/h2&gt;
+&lt;p&gt;Nginx 預設檔案上傳大小為 100M，可以修改設定值提高上傳檔案大小&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/nginx/nginx.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打開 &lt;code&gt;nginx.conf&lt;/code&gt; 後，在 &lt;code&gt;http&lt;/code&gt; 設定值中加入 &lt;code&gt;client_max_body_size&lt;/code&gt; 並修改上傳檔案大小&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;若沒有此設定值可自行加入&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;http &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    client_max_body_size 100M&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;could-not-build-server_names_hash-you-should-increase-server_names_hash_bucket_size-64&#34;&gt;could not build server_names_hash, you should increase server_names_hash_bucket_size: 64&lt;/h2&gt;
+&lt;p&gt;在新增 Nginx 主機時，發現網址名稱有過長的問題&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ systemctl status nginx.service
+
+● nginx.service - A high performance web server and a reverse proxy server
+   Loaded: loaded &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;/lib/systemd/system/nginx.service&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; enabled&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; vendor preset: enabled&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+   Active: failed &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;Result: exit-code&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; since Thu 2019-03-07 08:28:21 UTC&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; 7s ago
+  Process: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9595&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ExecStop&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited, &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;0/SUCCESS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  Process: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9827&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ExecStartPre&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/usr/sbin/nginx -t -q -g daemon on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; master_process on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited, &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;1/FAILURE&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+ Main PID: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31527&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited, &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;0/SUCCESS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: Starting A high performance web server and a reverse proxy server...
+Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev nginx&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;9827&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;emerg&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; could not build server_names_hash, you should increase server_names_hash_bucket_size: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;64&lt;/span&gt;
+Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev nginx&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;9827&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx: configuration file /etc/nginx/nginx.conf &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt; failed
+Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx.service: Control process exited, &lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: Failed to start A high performance web server and a reverse proxy server.
+Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx.service: Unit entered failed state.
+Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx.service: Failed with result &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;exit-code&amp;#39;&lt;/span&gt;.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此時可以到 &lt;code&gt;/etc/nginx/nginx.conf&lt;/code&gt; 將 &lt;code&gt;server_names_hash_max_size&lt;/code&gt; 設定更高的數值&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server_names_hash_max_size 512&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+server_names_hash_max_size 1024&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定完後重新啟動 Nginx 就可以正常啟動了&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.phpini.com/linux/fix-nginx-error-413-request-entity-too-large&#34;&gt;解決 Nginx 錯誤: 413 Request entity too large&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://segmentfault.com/q/1010000004853184&#34;&gt;nginx配置server_names_hash_max_size放在什么地方？ - SegmentFault 思否&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1274 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – Build website</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/build-website/</link>
+    <description>Recent content in Build website on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/build-website/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Apache</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/apache/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/apache/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;測試設定檔&#34;&gt;測試設定檔&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;apachectl configtest
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;啟動關閉-apache-服務&#34;&gt;啟動關閉 Apache 服務&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo service apache2 stop
+
+sudo service apache2 start
+
+sudo service apache2 restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;關閉-apache-避免開機執行-apache&#34;&gt;關閉 Apache 避免開機執行 Apache&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 關閉&lt;/span&gt;
+sudo update-rc.d -f apache2 remove
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 恢復自動啟動&lt;/span&gt;
+sudo update-rc.d apache2 defaults
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo update-rc.d apache2 disable
+sudo update-rc.d apache2 &lt;span style=&#34;color:#204a87&#34;&gt;enable&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;移除-apache&#34;&gt;移除 Apache&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get purge -y apache2*
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/170640/how-to-disable-apache2-server-from-auto-starting-on-boot&#34;&gt;How to disable apache2 server from auto starting on boot - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ce.teiep.gr/e-class/modules/document/file.php/129/Linux_networking/Installing_and_working_with__Apache_web_server.pdf&#34;&gt;Microsoft Word - Installing_and_working_with_ Apache_web server&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/1074035/how-can-i-stop-apache2-on-ubuntu-18-04&#34;&gt;uninstall - How Can I stop Apache2 on Ubuntu 18.04? - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Log</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/log/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/log/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;access-log&#34;&gt;Access Log&lt;/h2&gt;
+&lt;h3 id=&#34;依照日期儲存&#34;&gt;依照日期儲存&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;$time_iso8601&lt;/code&gt; 格式&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;2014-05-04T18:12:02+02:00
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;擷取時間-yyyy-mm-dd&#34;&gt;擷取時間 YYYY-MM-DD&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$time_iso8601&lt;/span&gt; ~ &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;^(\d{4})-(\d{2})-(\d{2})&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$year&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$month&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$day&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$3&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+access_log /var/log/nginx/&lt;span style=&#34;color:#000&#34;&gt;$year&lt;/span&gt;-&lt;span style=&#34;color:#000&#34;&gt;$month&lt;/span&gt;-&lt;span style=&#34;color:#000&#34;&gt;$day&lt;/span&gt;-access.log&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;使用-perl-擷取時間&#34;&gt;使用 Perl 擷取時間&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$time_iso8601&lt;/span&gt; ~ &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;^(?&amp;lt;year&amp;gt;\d{4})-(?&amp;lt;month&amp;gt;\d{2})-(?&amp;lt;day&amp;gt;\d{2})&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{}&lt;/span&gt;
+
+access_log /var/log/nginx/&lt;span style=&#34;color:#000&#34;&gt;$year&lt;/span&gt;-&lt;span style=&#34;color:#000&#34;&gt;$month&lt;/span&gt;-&lt;span style=&#34;color:#000&#34;&gt;$day&lt;/span&gt;-access.log&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;擷取-yyyy-mm-dd-hhiiss&#34;&gt;擷取 YYYY-MM-DD HH:II:SS&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$time_iso8601&lt;/span&gt; ~ &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$year&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$month&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$day&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$3&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$hour&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$4&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$minutes&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$5&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$seconds&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$6&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;log-路徑&#34;&gt;Log 路徑&lt;/h2&gt;
+&lt;p&gt;設定檔：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/nginx/nginx.conf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;access_log /var/log/nginx/access.log&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+error_log /var/log/nginx/error.log&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cambus.net/log-rotation-directly-within-nginx-configuration-file/&#34;&gt;Log rotation directly within Nginx configuration file - Cambus.net&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 安裝最新 PHP</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/install/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/install/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;安裝必要套件&#34;&gt;安裝必要套件&lt;/h2&gt;
+&lt;p&gt;如果安裝 php 指令無法執行，請先安裝下列套件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install  ca-certificates apt-transport-https software-properties-common
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;加入-ondrejphp&#34;&gt;加入 ondrej/php&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo add-apt-repository ppa:ondrej/php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;列出-php-套件&#34;&gt;列出 PHP 套件&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;apt-cache pkgnames &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; grep php7.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;安裝-php&#34;&gt;安裝 php&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install php7.1 php7.1-common
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install php7.1-curl php7.1-xml php7.1-zip php7.1-gd php7.1-mysql php7.1-mbstring
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;測試-php&#34;&gt;測試 PHP&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;php -v
+PHP 7.1.8-2+ubuntu16.04.1+deb.sury.org+4 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;cli&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;built: Aug  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2017&lt;/span&gt; 13:04:12&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; NTS &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+Copyright &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; 1997-2017 The PHP Group
+Zend Engine v3.1.0, Copyright &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; 1998-2017 Zend Technologies
+    with Zend OPcache v7.1.8-2+ubuntu16.04.1+deb.sury.org+4, Copyright &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; 1999-2017, by Zend Technologies
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;在-ubuntu-安裝並執行不同-php-版本&#34;&gt;在 ubuntu 安裝並執行不同 php 版本&lt;/h2&gt;
+&lt;h2 id=&#34;安裝其他-php-版本&#34;&gt;安裝其他 php 版本&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;------------ Install PHP Modules ------------
+$ sudo apt install php5.6-cli php5.6-xml php5.6-mysql
+$ sudo apt install php7.0-cli php7.0-xml php7.0-mysql
+$ sudo apt install php7.1-cli php7.1-xml php7.1-mysql
+$ sudo apt install php7.2-cli php7.2-xml php7.2-mysql
+$ sudo apt install php7.3-cli php7.3-xml php7.3-mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;執行指定-php-版本&#34;&gt;執行指定 php 版本&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;/usr/bin/php -v
+/usr/bin/php7.0 -v
+/usr/bin/php7.1 -v
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;變更預設-php-執行路徑&#34;&gt;變更預設 php 執行路徑&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;------------ For PHP 5.6 ------------
+$ sudo update-alternatives --set php /usr/bin/php5.6
+$ php -i | grep &amp;quot;Loaded Configuration File&amp;quot;
+
+------------ For PHP 7.0 ------------
+$ sudo update-alternatives --set php /usr/bin/php7.0
+$ php -i | grep &amp;quot;Loaded Configuration File&amp;quot;
+
+------------ For PHP 7.1 ------------
+$ sudo update-alternatives --set php /usr/bin/php7.1
+$ php -i | grep &amp;quot;Loaded Configuration File&amp;quot;
+
+------------ For PHP 7.2 ------------
+$ sudo update-alternatives --set php /usr/bin/php7.2
+$ php -i | grep &amp;quot;Loaded Configuration File&amp;quot;
+
+------------ For PHP 7.3 ------------
+$ sudo update-alternatives --set php /usr/bin/php7.3
+$ php -i | grep &amp;quot;Loaded Configuration File&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;安裝-memcached&#34;&gt;安裝 Memcached&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install -y php-memcached
+sudo service php7.0-fpm restart
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.tecmint.com/install-php-8-on-ubuntu/&#34;&gt;How to Install PHP 8.0 on Ubuntu 20.04 / 18.04&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ayesh.me/Ubuntu-PHP-7.1&#34;&gt;How to upgrade to PHP 7.1 on Ubuntu | Ayesh Karunaratne&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.vultr.com/docs/how-to-install-and-configure-php-70-or-php-71-on-ubuntu-16-04&#34;&gt;How to Install and Configure PHP 7.0 or PHP 7.1 on Ubuntu 16.04 - Vultr.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.tecmint.com/install-different-php-versions-in-ubuntu/&#34;&gt;How to Install Different PHP (5.6, 7.0 and 7.1) Versions in Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: fastcgi_pass</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/fastcgi-pass/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/fastcgi-pass/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;fastcgi_pass&#34;&gt;fastcgi_pass&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;fastcgi_pass&lt;/code&gt; 是指定用來解譯 PHP 程式的端口&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;設定檔&#34;&gt;設定檔&lt;/h2&gt;
+&lt;p&gt;路徑：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/nginx/site-enabled/xxx&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;location ~ &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    fastcgi_pass unix:/run/php/php7.0-fpm.sock&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# fastcgi_pass 127.0.0.1:9000;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;路徑：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/php/7.0/fpm/pool.d/www.conf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;listen&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /run/php/php7.0-fpm.sock
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;listen&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; 127.0.0.1:9000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/understanding-and-implementing-fastcgi-proxying-in-nginx&#34;&gt;Understanding and Implementing FastCGI Proxying in Nginx | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.nginx.com/resources/wiki/start/topics/examples/phpfcgi/&#34;&gt;PHP FastCGI Example | NGINX&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Nginx</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;強制重新導向-http-到-https&#34;&gt;強制重新導向 HTTP 到 HTTPS&lt;/h2&gt;
+&lt;p&gt;修改 &lt;code&gt;/etc/nginx/site-available/default&lt;/code&gt; 裡的網址設定&lt;/p&gt;
+&lt;h3 id=&#34;重新導向所有網址&#34;&gt;重新導向所有網址&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    listen &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt; default_server&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    listen &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;::&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;:80 default_server&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    server_name _&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;301&lt;/span&gt; https://&lt;span style=&#34;color:#000&#34;&gt;$host$request_uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;重新導向指定網址&#34;&gt;重新導向指定網址&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    listen &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt; default_server&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    listen &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;::&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;:80 default_server&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    server_name example.com www.example.com&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;301&lt;/span&gt; https://&lt;span style=&#34;color:#000&#34;&gt;$server_name$request_uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;worker-設定&#34;&gt;Worker 設定&lt;/h2&gt;
+&lt;p&gt;worker_processes 可以設定 worker 行程的數量，可以設定成 CPU 的核心數&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 4 核心的 CPU&lt;/span&gt;
+worker_processes 4&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設為自動偵測 CPU 核心數&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 自動偵測 CPU 核心數&lt;/span&gt;
+worker_processes auto&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定每個 worker 可同時處理的連線數上限值&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;events &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 同時可處理 1024 條連線&lt;/span&gt;
+  worker_connections 1024&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;連線數上限值&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;worker_processes * worker_connections&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://bjornjohansen.no/redirect-to-https-with-nginx&#34;&gt;Redirect all HTTP requests to HTTPS with Nginx&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: server_name</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/server-name/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/server-name/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;取得所有的-server-name&#34;&gt;取得所有的 Server Name&lt;/h2&gt;
+&lt;p&gt;使用 &lt;code&gt;_&lt;/code&gt; 特殊符號取得所有傳進來的 Server Name&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    listen       80&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    server_name  example.org
+                 www.example.org
+                 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+                 192.168.1.1
+                 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    ...
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    listen       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;  default_server&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    server_name  _&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt;       444&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;參考資料&#34;&gt;參考資料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://nginx.org/en/docs/http/server_names.html&#34;&gt;Nginx Server names&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: MySQL</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/mysql/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/mysql/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;在-ubuntu-1604-安裝-mysql-57&#34;&gt;在 Ubuntu 16.04 安裝 MySQL 5.7&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get update
+sudo apt-get install mysql-server mysql-client
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: php-fpm</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/php-fpm/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/php-fpm/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;檢測&#34;&gt;檢測&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;/etc/init.d/php7.0-fpm status
+/etc/init.d/php5-fpm status
+
+* php-fpm7.0 is running
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;ps aux | grep php-fpm
+root      1030  0.0  0.6 326692 23604 ?        Ss    5月03   0:03 php-fpm: master process (/etc/php/7.0/fpm/php-fpm.conf)
+www-data 13671 17.9  0.8 337704 32332 ?        S    07:13   0:06 php-fpm: pool www
+www-data 13672 16.5  0.7 335796 29880 ?        S    07:13   0:05 php-fpm: pool www
+www-data 13692 18.8  0.6 333608 26172 ?        S    07:14   0:01 php-fpm: pool www
+www-data 13695 40.0  0.7 335568 27848 ?        S    07:14   0:00 php-fpm: pool www
+ubuntu   13697  0.0  0.0  12968   956 pts/0    S+   07:14   0:00 grep --color=auto php-fpm
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;netstat -an | grep :9000
+
+nmap localhost -p 9000
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;日誌log&#34;&gt;日誌（Log）&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1. php-fpm.conf&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[global]
+error_log = log/error_log
+
+[www]
+catch_workers_output = yes
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;2. php.ini&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;log_errors = On
+error_log = &amp;quot;/usr/local/php/var/log/error_log&amp;quot;
+error_reporting=E_ALL&amp;amp;~E_NOTICE
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/14915147/php-fpm-check-if-running&#34;&gt;PHP FPM - check if running - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 認證</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/auth/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/auth/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;設定需要驗證網址路徑&#34;&gt;設定需要驗證網址路徑&lt;/h2&gt;
+&lt;p&gt;在網站設定中，設定需要驗證的目錄&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;location / &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 驗證方式&lt;/span&gt;
+    auth_basic &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Restricted&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 驗證檔案&lt;/span&gt;
+    auth_basic_user_file htpasswd&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$query_string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;驗證檔案&#34;&gt;驗證檔案&lt;/h2&gt;
+&lt;p&gt;在 &lt;code&gt;/etc/nginx/&lt;/code&gt; 目錄下建立 &lt;code&gt;htpasswd&lt;/code&gt; 檔案（&lt;code&gt;/etc/nginx/htpasswd&lt;/code&gt;）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;/etc/nginx $ touch htpasswd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;建立驗證密碼&#34;&gt;建立驗證密碼&lt;/h2&gt;
+&lt;p&gt;使用 &lt;code&gt;openssl&lt;/code&gt; 建立加密的密碼&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;openssl passwd
+Password:
+Verifying - Password:
+ZEmF5bjIAXRb6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;設定帳號密碼&#34;&gt;設定帳號密碼&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;auth_basic_user_file&lt;/code&gt; 檔案格式&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;帳號1:密碼1
+帳號2:密碼2:註解
+帳號3:密碼3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;將建立的密碼設定在 &lt;code&gt;/etc/nginx/htpasswd&lt;/code&gt; 檔案中&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;test:ZEmF5bjIAXRb6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定完成之後，重新啟動 nginx，就可以使用 nginx 限制連線存取的帳號密碼了～&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/nginx-restricting-access-authenticated-user-ip-address-tutorial/&#34;&gt;NGINX 設定密碼認證與限制可存取的 IP 位址，控制頻寬與連線數 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: log</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/log/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/log/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;php-fpm-error-log&#34;&gt;PHP FPM Error log&lt;/h2&gt;
+&lt;p&gt;設定檔：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/php/7.0/fpm/php-fpm.conf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;error_log&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /var/log/php7.0-fpm.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: PHP</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;檔案路徑&#34;&gt;檔案路徑&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;設定檔&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/php/7.1/fpm/php-fpm.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;核心設定檔案&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/php/7.1/fpm/pool.d/www.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;Log 檔案&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /var/log/php7.1-fpm.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 憑證</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/cert/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/cert/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;建立放憑證目錄&#34;&gt;建立放憑證目錄&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo mkdir /etc/nginx/ssl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;建立憑證&#34;&gt;建立憑證&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo openssl req -x509 -nodes -days &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;365&lt;/span&gt; -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Country Name &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt; letter code&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;AU&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;:TW
+State or Province Name &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;full name&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;Some-State&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;:Taiwan
+Locality Name &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;eg, city&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;:Taipei
+Organization Name &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;eg, company&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;Internet Widgits Pty Ltd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;:My Company
+Organizational Unit Name &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;eg, section&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;:My Unit
+Common Name &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;e.g. server FQDN or YOUR name&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;:
+Email Address &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;:kj@kejyun.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;加入憑證至設定檔&#34;&gt;加入憑證至設定檔&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  listen &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt; default_server&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  listen &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;::&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;:80 default_server&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 加入 SSL 設定&lt;/span&gt;
+  listen &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;443&lt;/span&gt; ssl default_server&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  listen &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;::&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;:443 ssl default_server&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 憑證與金鑰的路徑&lt;/span&gt;
+  ssl_certificate /etc/nginx/ssl/nginx.crt&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  ssl_certificate_key /etc/nginx/ssl/nginx.key&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# ...&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo service nginx restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/nginx-create-and-install-ssl-certificate-on-ubuntu-linux/&#34;&gt;NGINX 設定 HTTPS 網頁加密連線，建立自行簽署的 SSL 憑證 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Gzip</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/gzip/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/gzip/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;參數說明&#34;&gt;參數說明&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;參數&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip on&lt;/td&gt;
+&lt;td&gt;on = enable, off = disable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip_buffers 16 8k&lt;/td&gt;
+&lt;td&gt;壓縮回應內容&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip_comp_level 6&lt;/td&gt;
+&lt;td&gt;壓縮等級，可設定 1 ~ 9 的整數，數字越大表示壓縮的量越大，也越吃資源，請看個人環境而定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip_disable &amp;ldquo;msie6&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;設定不壓縮的條件，視 Request Header 中的 User-Agent 而定。可以設定 Regular Expression，例如: msie[4-6]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip_min_length 1k&lt;/td&gt;
+&lt;td&gt;文件內容小於 n 以下不壓縮，這裡的文件內容指的是 Response Header 的 Content-Length，一樣視個人需求而定，沒有標準值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip_http_version 1.1&lt;/td&gt;
+&lt;td&gt;設定至少接受的 Http Version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip_proxied any&lt;/td&gt;
+&lt;td&gt;決定對來自 Proxy 的 Request 如何處理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip_types [mime-types]&lt;/td&gt;
+&lt;td&gt;指定需要壓縮的 MIME types，或用 * 表示所有 MIME types&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gzip_vary on&lt;/td&gt;
+&lt;td&gt;要不要在 Response Header &amp;ldquo;Vary: Accept-Encoding&amp;rdquo;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;gzip_comp_level---壓縮等級&#34;&gt;gzip_comp_level - 壓縮等級&lt;/h3&gt;
+&lt;h4 id=&#34;texthtml---phpinfo&#34;&gt;text/html - phpinfo():&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    55.38 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;100.00% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;    11.22 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 20.26% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;    10.89 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 19.66% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;    10.60 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 19.14% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;    10.17 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 18.36% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;     9.79 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 17.68% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt;     9.62 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 17.37% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7&lt;/span&gt;     9.50 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 17.15% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;     9.45 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 17.06% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;     9.44 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 17.05% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;applicationx-javascript---jquery-183-uncompressed&#34;&gt;application/x-javascript - jQuery 1.8.3 (Uncompressed)&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    261.46 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;100.00% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;     95.01 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 36.34% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;     90.60 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 34.65% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;     87.16 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 33.36% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;     81.89 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 31.32% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;     79.33 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 30.34% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt;     78.04 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 29.85% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;7&lt;/span&gt;     77.85 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 29.78% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;     77.74 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 29.73% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;     77.75 KiB &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; 29.74% of original size&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;如果有更多的 CPU 資源，可以將壓縮等級設為 9，因為壓縮比例在 1 之後並沒有差異太大，對大部分的網站，gzip 設為 2 應該就足夠了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;http &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    gzip on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_min_length 1000&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_types  *&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_comp_level 2&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_proxied any&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_buffers &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 8k&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_http_version 1.1&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.norman-chen.me/post/16&#34;&gt;Enable gzip compression with nginx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip_types&#34;&gt;Module ngx_http_gzip_module&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://serverfault.com/questions/253074/what-is-the-best-nginx-compression-gzip-level&#34;&gt;What is the best nginx compression gzip level? - Server Fault&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mjanja.ch/2015/03/finding-the-nginx-gzip_comp_level-sweet-spot/&#34;&gt;Finding the Nginx gzip_comp_level Sweet Spot | Mjanja Tech&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: max_children</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/max-children/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/max-children/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;php-fpm-max-children&#34;&gt;PHP FPM Max Children&lt;/h2&gt;
+&lt;p&gt;在 php fpm 的 error log 發現執行緒不太夠用，需要設定開啟新執行緒&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 07:43:58&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 08:27:52&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 10:57:17&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 11:37:32&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;設定檔路徑&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;/etc/php/7.1/fpm/pool.d/www.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在設定檔中可以看到類似以下的設定方式&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pm.max_children &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10&lt;/span&gt;
+pm.start_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;
+pm.min_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;
+pm.max_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;process-manager-行程調配規則參數說明&#34;&gt;Process Manager 行程調配規則參數說明&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;參數&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;pm&lt;/td&gt;
+&lt;td&gt;PHP-FPM Process Manager 行程調配規則&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pm.start_servers&lt;/td&gt;
+&lt;td&gt;PHP-FPM 服務在一開始啟動時，要配置多少個行程&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pm.min_spare_servers&lt;/td&gt;
+&lt;td&gt;PHP-FPM 最小閒置行程的數量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pm.max_spare_servers&lt;/td&gt;
+&lt;td&gt;PHP-FPM 最大閒置行程的數量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pm.max_requests&lt;/td&gt;
+&lt;td&gt;單一 PHP-FPM 最多可以處理多少個連線，當一個工作行程處理的連線數達到這個值的時候，就會強制關閉此行程，重新產生另一個新的行程&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;pm&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; dynamic
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;參數&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;static&lt;/td&gt;
+&lt;td&gt;固定行程數量（數量為 pm.max_children） ，效能很好，但很佔記憶體&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;dynamic&lt;/td&gt;
+&lt;td&gt;動態行程數量（根據 pm.max_children、pm.start_servers、pm.min_spare_servers、pm.max_spare_servers 動態調整），根據使用量用多少開多少，但當使用量比較低時，會保留一些行程，隨時等著接收新的連線&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ondemand&lt;/td&gt;
+&lt;td&gt;動態行程數量（根據 pm.max_children、pm.start_servers、pm.min_spare_servers、pm.max_spare_servers 動態調整），用多少開多少&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;pmmax_children-最大執行程序數量&#34;&gt;pm.max_children 最大執行程序數量&lt;/h2&gt;
+&lt;p&gt;最大執行程序數量是針對自己的主機規格不同去做設定的，當你主機有較大的記憶體，則可以設定更多的執行程序&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Total Max Processes = (Total Ram - (Used Ram + Buffer)) / (Memory per php process)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最大執行程序 = (總記憶體 - (已使用記憶體 + Buffer)) / (每個 php 執行緒需要記憶體)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pm.max_children 數量：可用記憶體(MB) / 大約 50MB&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;確認每個 php 執行緒需要記憶體&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;因為每個 php 執行的記憶體及效率會針對不同的程式環境不同，而有不同的消耗記憶體，可以使用下列指令去取得 php-fpm 執行緒消耗的記憶體數量&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ps -ylC &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt; &amp;ndash;sort:rss&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;範例&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;其中的 &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt; 要看看你系統是用哪個版本的 php，而會有不同版本名稱的 php-fpm，像是：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ps -ylC php-fpm --sort:rss
+ps -ylC php-fpm7.0 --sort:rss
+ps -ylC php-fpm7.1 --sort:rss
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在列出來 php-fpm 使用的資源後，可以看到 &lt;code&gt;RSS&lt;/code&gt; 欄位為使用的記憶體大小，&lt;code&gt;31692&lt;/code&gt; 表示為 &lt;code&gt;31692 kb&lt;/code&gt;，大概就是 &lt;code&gt;31M&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ ps -ylC php-fpm7.1 --sort:rss
+S   UID   PID  PPID  C PRI  NI   RSS    SZ WCHAN  TTY          TIME CMD
+S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22275&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31692&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;212882&lt;/span&gt; -     ?        00:00:00 php-fpm7.0
+S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22092&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;40708&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;231684&lt;/span&gt; -     ?        00:00:02 php-fpm7.0
+S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22023&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;41136&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;231888&lt;/span&gt; -     ?        00:00:05 php-fpm7.0
+S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22038&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;41204&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;231744&lt;/span&gt; -     ?        00:00:04 php-fpm7.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但每個 php-fpm 程序的記憶體不盡相同，我們可以用下列指令去計算平均使用的記憶體大小是多少&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ps &amp;ndash;no-headers -o &amp;ldquo;rss,cmd&amp;rdquo; -C &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt;  | awk &amp;lsquo;{ sum+=$1 } END { printf (&amp;quot;%d%s\n&amp;quot;, sum/NR/1024,&amp;ldquo;Mb&amp;rdquo;) }&amp;rsquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;也是一樣針對你系統是用哪個版本的 php，而會有不同版本名稱的 php-fpm，像是：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ps --no-headers -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rss,cmd&amp;#34;&lt;/span&gt; -C php-fpm  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{ sum+=$1 } END { printf (&amp;#34;%d%s\n&amp;#34;, sum/NR/1024,&amp;#34;Mb&amp;#34;) }&amp;#39;&lt;/span&gt;
+ps --no-headers -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rss,cmd&amp;#34;&lt;/span&gt; -C php-fpm7.0  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{ sum+=$1 } END { printf (&amp;#34;%d%s\n&amp;#34;, sum/NR/1024,&amp;#34;Mb&amp;#34;) }&amp;#39;&lt;/span&gt;
+ps --no-headers -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rss,cmd&amp;#34;&lt;/span&gt; -C php-fpm7.1  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{ sum+=$1 } END { printf (&amp;#34;%d%s\n&amp;#34;, sum/NR/1024,&amp;#34;Mb&amp;#34;) }&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;抓出來的平均使用記憶體大概為 &lt;code&gt;44 MB&lt;/code&gt;，但為了抓 Buffer，我們大概抓 &lt;code&gt;50 MB&lt;/code&gt; 左右&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ ps --no-headers -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rss,cmd&amp;#34;&lt;/span&gt; -C php-fpm7.0  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{ sum+=$1 } END { printf (&amp;#34;%d%s\n&amp;#34;, sum/NR/1024,&amp;#34;Mb&amp;#34;) }&amp;#39;&lt;/span&gt;
+44Mb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;確認可用的記憶體數量&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;php-fpm 可以用的記憶體為：剩餘還可用的記憶體 + (php-fpm 平均使用記憶體 * 目前 php-fpm 開啟數量)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用 &lt;code&gt;free -m&lt;/code&gt; 取得目前的記憶體使用狀況，總記憶體是 &lt;code&gt;3272 M&lt;/code&gt;，已經使用了 &lt;code&gt;1539M&lt;/code&gt;，剩餘還可用的記憶體有 &lt;code&gt;1021 M&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ free -m
+              total        used        free      shared  buff/cache   available
+Mem:           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3762&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1539&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1021&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;84&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2417&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2686&lt;/span&gt;
+Swap:             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;而從下列指令中，取得 php-fpm 平均使用記憶體為 &lt;code&gt;44M&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ps &amp;ndash;no-headers -o &amp;ldquo;rss,cmd&amp;rdquo; -C &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt;  | awk &amp;lsquo;{ sum+=$1 } END { printf (&amp;quot;%d%s\n&amp;quot;, sum/NR/1024,&amp;ldquo;Mb&amp;rdquo;) }&amp;rsquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;從下列指令中列出目前所有 php-fpm 執行緒數量為 &lt;code&gt;41 個&lt;/code&gt;（直接去計算清單出現幾行 php-fpm 資源狀況即可知道總共開了幾個 php-fpm 執行緒）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ps -ylC &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt; &amp;ndash;sort:rss&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;所以 php-fpm 可以用的記憶體為 &lt;code&gt;1021 M&lt;/code&gt; + &lt;code&gt;44 M&lt;/code&gt; * &lt;code&gt;41 個&lt;/code&gt; = 2743M&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最大執行程序數量 = php-fpm 可以用的記憶體 / 每個 php 執行緒需要記憶體(Buffer 數值)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2743M / 50M = 54.86&lt;/p&gt;
+&lt;p&gt;為了不要讓所有記憶題全部消耗完，而沒有空間去執行其他非 php 的程序，所以我們這邊會抓 &lt;code&gt;pm.max_children&lt;/code&gt; 大概最多使用個 &lt;code&gt;50 個&lt;/code&gt; 執行緒&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pm.max_children &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;50&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;start_server 官方建議算法是 min_spare_servers + (max_spare_servers - min_spare_servers) / 2&lt;/p&gt;
+&lt;p&gt;min_spare_servers 跟 max_spare_servers 就取個大概就好，不要讓他一直開開關關即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pm.start_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;20&lt;/span&gt;
+pm.min_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;13&lt;/span&gt;
+pm.max_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;防止-php-fpm-執行緒處理過多-request-導致-memory-leak&#34;&gt;防止 php-fpm 執行緒處理過多 request 導致 Memory leak&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pm.max_requests &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;500&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;request_terminate_timeout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; 30s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;讓每個子執行緒同時處理超過 500 個 request 就自動移除此執行緒，避免 Memory Leak 執行緒卡在那邊動彈不得&lt;/p&gt;
+&lt;p&gt;而執行時間超過 30 秒的請求則自動中斷掉，建議設定為與 &lt;code&gt;php.ini&lt;/code&gt; 的 &lt;code&gt;max_execution_time&lt;/code&gt; 相同&lt;/p&gt;
+&lt;p&gt;最後設定值會像是：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;pm&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; dynamic
+pm.max_children &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;50&lt;/span&gt;
+pm.start_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;20&lt;/span&gt;
+pm.min_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;13&lt;/span&gt;
+pm.max_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt;
+pm.max_requests &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;500&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;request_terminate_timeout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; 30s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;記錄觀察&#34;&gt;記錄觀察&lt;/h2&gt;
+&lt;p&gt;為了持續觀察 php-fpm 執行序地處理狀況，我們可以把請求執行時間過慢的 Request 記錄下來，在之後後續可以持續做除錯改進，這裡設定紀錄執行超過 10 秒的執行緒狀況&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;slowlog&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /var/log/php7.0-fpm-&lt;span style=&#34;color:#000&#34;&gt;$pool&lt;/span&gt;.log.slow
+&lt;span style=&#34;color:#000&#34;&gt;slowlog&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /var/log/php7.1-fpm-&lt;span style=&#34;color:#000&#34;&gt;$pool&lt;/span&gt;.log.slow
+&lt;span style=&#34;color:#000&#34;&gt;request_slowlog_timeout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; 10s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定完成後可以進行測試，確認改過的設定檔案沒有問題&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;php-fpm7.0 -t
+php-fpm7.1 -t
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ php-fpm7.1 -t
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;03-Jul-2019 15:53:15&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; NOTICE: configuration file /etc/php/7.1/fpm/php-fpm.conf &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt; is successful
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;確認後記得重啟 php-fpm 服務即可生效&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo service php7.0-fpm restart
+sudo service php7.1-fpm restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/nginx-php-fpm-configuration-optimization/&#34;&gt;Nginx 與 PHP-FPM 最佳化效能設定教學與技巧 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.kinamo.be/en/support/faq/determining-the-correct-number-of-child-processes-for-php-fpm-on-nginx&#34;&gt;Determining the correct number of child processes for PHP-FPM on NGinx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.crifan.com/php_fpm_conf_pm_max_children_should_set_which_value/&#34;&gt;【整理】php-fpm.conf中的pm.max_children到底应该设置为多少 – 在路上&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://serversforhackers.com/c/php-fpm-process-management&#34;&gt;PHP-FPM: Process Management | Servers for Hackers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.kinamo.be/en/support/faq/determining-the-correct-number-of-child-processes-for-php-fpm-on-nginx&#34;&gt;Determining the correct number of child processes for PHP-FPM on NGinx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://community.webcore.cloud/tutorials/how_to_solve_php_fpm_server_reached_max_children/&#34;&gt;How To: Solve PHP-FPM server reached max_children | Webcore Community | Webcore Cloud&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 網站</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Cache</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/cache/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/cache/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;site-conf-設定&#34;&gt;site conf 設定&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;http &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 靜態檔案快取規則&lt;/span&gt;
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 快取設定及 HTML 檔案及資料&lt;/span&gt;
+    location ~* &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;?:manifest&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;appcache&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;html?&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;xml&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;json&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      expires -1&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+      &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# access_log logs/static.log; # I don&amp;#39;t usually include a static log&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Feed&lt;/span&gt;
+    location ~* &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;?:rss&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;atom&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      expires 1h&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+      add_header Cache-Control &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 媒體：圖片、圖示、影片、音樂&lt;/span&gt;
+    location ~* &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;?:jpg&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;jpeg&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;gif&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;png&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;ico&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;cur&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;gz&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;svg&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;svgz&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;mp4&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;ogg&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;ogv&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;webm&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;htc&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      expires 1M&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+      access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+      add_header Cache-Control &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# CSS 及 Javascript&lt;/span&gt;
+    location ~* &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;?:css&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;js&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      expires 1y&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+      access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+      add_header Cache-Control &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://serversforhackers.com/nginx-caching&#34;&gt;Nginx Caching - Servers for Hackers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 除錯</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/debug/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/debug/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;php-fpm-除錯&#34;&gt;PHP FPM 除錯&lt;/h2&gt;
+&lt;h3 id=&#34;recv-failed-104-connection-reset-by-peer-while-reading-response-header-from-upstream&#34;&gt;recv() failed (104: Connection reset by peer) while reading response header from upstream&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Nginx 錯誤 Log&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;在 nginx 發現 php-fpm.sock 的錯誤&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;2018/10/24 03:47:05 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;error&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; 1231#1231: *324 recv&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt; failed &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;104: Connection reset by peer&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;while&lt;/span&gt; reading response header from upstream, client: 172.31.22.62, server: _, request: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;POST /post/article HTTP/1.1&amp;#34;&lt;/span&gt;, upstream: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fastcgi://unix:/run/php/php7.1-fpm.sock:&amp;#34;&lt;/span&gt;, host: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;kejyun.com&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;PHP 錯誤 log&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;在 php fpm error log 發現 &lt;code&gt;pm.max_children setting (5), consider raising it&lt;/code&gt; 的錯誤&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /var/log/php7.1-fpm.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 01:09:33&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 07:20:16&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 07:43:58&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 08:27:52&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;提高請求中斷時間（request_terminate_timeout）&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/php/7.1/fpm/pool.d/www.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;request_terminate_timeout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;300&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;提高 Server fastcgi read timeout&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;vim /etc/nginx/sites-available/kejyun.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;location ~ &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    fastcgi_connect_timeout 300&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    fastcgi_send_timeout 300&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    fastcgi_read_timeout 300&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;提高 php fpm max_children&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;請參考 &lt;a href=&#34;./web-php-max-children.md&#34;&gt;PHP FPM Max Children&lt;/a&gt; 這篇文章，根據自己主機的狀況需求去提高可以使用的 php-fpm children 數量，提高存取效率&lt;/p&gt;
+&lt;h3 id=&#34;使用-sudo-add-apt-repository-ppaondrejphp-發生錯誤&#34;&gt;使用 &lt;code&gt;sudo add-apt-repository ppa:ondrej/php&lt;/code&gt; 發生錯誤&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo add-apt-repository ppa:ondrej/php
+ Co-installable PHP versions: PHP 5.6, PHP 7.x and most requested extensions are included. Only Supported Versions of PHP &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;http://php.net/supported-versions.php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; Supported Ubuntu Releases &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;https://wiki.ubuntu.com/Releases&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; are provided. Don&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;t ask for end-of-life PHP versions or Ubuntu release, they won&amp;#39;&lt;/span&gt;t be provided.
+
+Debian oldstable and stable packages are provided as well: https://deb.sury.org/#debian-dpa
+
+You can get more information about the packages at https://deb.sury.org
+
+BUGS&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;FEATURES: This PPA now has a issue tracker:
+https://deb.sury.org/#bug-reporting
+
+CAVEATS:
+1. If you are using php-gearman, you need to add ppa:ondrej/pkg-gearman
+2. If you are using apache2, you are advised to add ppa:ondrej/apache2
+3. If you are using nginx, you are advise to add ppa:ondrej/nginx-mainline
+   or ppa:ondrej/nginx
+
+PLEASE READ: If you like my work and want to give me a little motivation, please consider donating regularly: https://donate.sury.org/
+
+WARNING: add-apt-repository is broken with non-UTF-8 locales, see
+https://github.com/oerdnj/deb.sury.org/issues/56 &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; workaround:
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php&lt;/span&gt;
+ More info: https://launchpad.net/~ondrej/+archive/ubuntu/php
+Press &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;ENTER&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; to &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;continue&lt;/span&gt; or ctrl-c to cancel adding it
+
+gpg: keyring &lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;/tmp/tmpw76p12wa/secring.gpg&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39; created
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;gpg: keyring `/tmp/tmpw76p12wa/pubring.gpg&amp;#39;&lt;/span&gt; created
+gpg: requesting key E5267A6C from hkp server keyserver.ubuntu.com
+gpg: /tmp/tmpw76p12wa/trustdb.gpg: trustdb created
+gpg: key E5267A6C: public key &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Launchpad PPA for Ond\xc5\x99ej Sur�&amp;#34;&lt;/span&gt; imported
+gpg: Total number processed: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+gpg:               imported: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;RSA: 1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+Exception in thread Thread-1:
+Traceback &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;most recent call last&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;:
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/threading.py&amp;#34;&lt;/span&gt;, line 920, in _bootstrap_inner
+    self.run&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/threading.py&amp;#34;&lt;/span&gt;, line 868, in run
+    self._target&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;*self._args, **self._kwargs&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/SoftwareProperties.py&amp;#34;&lt;/span&gt;, line 687, in addkey_func
+    func&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;**kwargs&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 370, in add_key
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; apsk.add_ppa_signing_key&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 261, in add_ppa_signing_key
+    tmp_export_keyring, signing_key_fingerprint, tmp_keyring_dir&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;:
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 210, in _verify_fingerprint
+    &lt;span style=&#34;color:#000&#34;&gt;got_fingerprints&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; self._get_fingerprints&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;keyring, keyring_dir&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 202, in _get_fingerprints
+    &lt;span style=&#34;color:#000&#34;&gt;output&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; subprocess.check_output&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;cmd, &lt;span style=&#34;color:#000&#34;&gt;universal_newlines&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;True&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/subprocess.py&amp;#34;&lt;/span&gt;, line 609, in check_output
+    output, &lt;span style=&#34;color:#000&#34;&gt;unused_err&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; process.communicate&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;inputdata, &lt;span style=&#34;color:#000&#34;&gt;timeout&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;timeout&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/subprocess.py&amp;#34;&lt;/span&gt;, line 947, in communicate
+    &lt;span style=&#34;color:#000&#34;&gt;stdout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; _eintr_retry_call&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;self.stdout.read&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/subprocess.py&amp;#34;&lt;/span&gt;, line 491, in _eintr_retry_call
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; func&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;*args&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/encodings/ascii.py&amp;#34;&lt;/span&gt;, line 26, in decode
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; codecs.ascii_decode&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;input, self.errors&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)[&lt;/span&gt;0&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+UnicodeDecodeError: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ascii&amp;#39;&lt;/span&gt; codec can&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;t decode byte 0xc5 in position 92: ordinal not in range&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;128&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+$
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;由於當系統不是 UTF-8 的 locales，會發生這個錯誤，只要在指令前方加入 locales 指令即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo &lt;span style=&#34;color:#000&#34;&gt;LC_ALL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;C.UTF-8 add-apt-repository ppa:ondrej/php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;sudo-apt-get-update-時出現-failed-to-fetch-httpppalaunchpadnetondrejphp5-56ubuntudiststrustymainbinary-amd64packages--403--forbidden-訊息&#34;&gt;&lt;code&gt;sudo apt-get update&lt;/code&gt; 時出現 &lt;code&gt;Failed to fetch http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu/dists/trusty/main/binary-amd64/Packages  403  Forbidden&lt;/code&gt; 訊息&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo apt-get update
+
+W: Failed to fetch http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu/dists/trusty/main/binary-amd64/Packages  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;403&lt;/span&gt;  Forbidden
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;由於 php 資源庫的位置已更新，可以移除資源庫清單資料即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo rm /etc/apt/sources.list.d/ondrej-php5-5_6-trusty.list
+sudo add-apt-repository -y ppa:ondrej/php
+sudo apt-get -y update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://easyengine.io/tutorials/php/increase-script-execution-time/&#34;&gt;Increase PHP script execution time with Nginx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hk.saowen.com/a/00daab29e1dfee5e8354f200fe27332a159c0de9dff687600e312585ef630f7a&#34;&gt;php-fpm超時時間設置request_terminate_timeout分析 - 掃文資訊&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.onepx.com/php-fpm-request-terminate-timeout.html&#34;&gt;php-fpm中的request_terminate_timeout最好不要设置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.apkfuns.com/-e8-bd-ac-e8-a7-a3-e5-86-b3-recv-failed-104-connection-reset-by-peer-while-reading-response-header-from-upstream/&#34;&gt;解决 recv() failed (104: Connection reset by peer) while reading response header from upstream&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.111cn.net/sys/nginx/56291.htm&#34;&gt;经验之谈：nginx php 502 bad gateway 解决方法_壹聚教程网&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mokiee.com/code/150&#34;&gt;解决 添加 ppa:ondrej/php 时出现无法解码的报错 - 墨客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tedshd.logdown.com/posts/2472689&#34;&gt;ubuntu - apt-get install php repository 403 « tedshd&amp;rsquo;s DevNote&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-upgrade-to-php-7-on-ubuntu-14-04&#34;&gt;How To Upgrade to PHP 7 on Ubuntu 14.04 | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Virtual Host</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/virtual-host/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/virtual-host/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;virtual-host-設定&#34;&gt;Virtual Host 設定&lt;/h2&gt;
+&lt;p&gt;在 &lt;code&gt;server_name&lt;/code&gt; 設定不同的網址名稱，可以在同一台主機將請求導向到不同的程序去處理&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    listen 80&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    server_name kejyun.com&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;301&lt;/span&gt; https://&lt;span style=&#34;color:#000&#34;&gt;$server_name$request_uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    listen &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;443&lt;/span&gt; ssl&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    server_name kejyun.com&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+    root &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/kejyun/tnl/web/tnl_frontend_laravel/public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    charset utf-8&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    index index.htm index.html index.php&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    error_page &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;404&lt;/span&gt; /404.html&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# add_header X-Frame-Options SAMEORIGIN;&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#add_header X-W &amp;#34;if you are reading this, come talk to us. job(at)thenewslens.com&amp;#34;;&lt;/span&gt;
+
+    location / &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$query_string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+
+    location ~ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;^/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;/&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;$&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+            fastcgi_split_path_info ^&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;.+?&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)(&lt;/span&gt;/.*&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;!-f &lt;span style=&#34;color:#000&#34;&gt;$document_root$fastcgi_script_name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+                    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; 404&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+            fastcgi_param SCRIPT_FILENAME &lt;span style=&#34;color:#000&#34;&gt;$document_root$fastcgi_script_name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            fastcgi_pass unix:/run/php/php7.1-fpm.sock&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            fastcgi_index index.php&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            include fastcgi_params&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+
+    location ~* &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;jpg&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;jpeg&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;gif&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;png&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;css&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;js&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;ico&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;xml&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        access_log  off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        log_not_found off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    error_log  /var/log/nginx/kejyun.com-error.log error&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    access_log /var/log/nginx/kejyun.com.access.log&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    ssl_prefer_server_ciphers on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    ssl_dhparam /etc/ssl/certs/dhparam.pem&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    ssl_ciphers &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM    -SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES    256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES25    6-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3    -SHA:!KRB5-DES-CBC3-SHA&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    ssl_session_timeout 1d&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    ssl_session_cache shared:SSL:50m&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+    ssl_certificate /etc/letsencrypt/live/kejyun.com/fullchain.pem&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# managed by Certbot&lt;/span&gt;
+    ssl_certificate_key /etc/letsencrypt/live/kejyun.com/privkey.pem&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# managed by Certbot&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 安全</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/security/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/security/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;不顯示-nginx-版本&#34;&gt;不顯示 Nginx 版本&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;http &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 不顯示 Nginx 版本&lt;/span&gt;
+  server_tokens off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;禁止存取隱藏檔&#34;&gt;禁止存取隱藏檔&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  location ~ /&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    log_not_found off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    deny all&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;其他&#34;&gt;其他&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;events &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 使用 epoll 效能較好&lt;/span&gt;
+  use epoll&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 可同時接受多條連線&lt;/span&gt;
+  multi_accept on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/nginx-php-fpm-configuration-optimization/&#34;&gt;Nginx 與 PHP-FPM 最佳化效能設定教學與技巧 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 參數</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/parameter/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/parameter/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;error_page&#34;&gt;error_page&lt;/h2&gt;
+&lt;p&gt;Nginx 自訂錯誤頁&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    error_page &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;404&lt;/span&gt; https://kejyun.com/404&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 錯誤頁&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;proxy_intercept_errors&#34;&gt;proxy_intercept_errors&lt;/h2&gt;
+&lt;p&gt;若被代理伺服器回傳 400 或大於 400 的狀態碼，啟用設定的 error_page 設定，預設為 &lt;code&gt;off&lt;/code&gt; 不啟用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Determines whether proxied responses with codes greater than or equal to 300 should be passed to a client or be intercepted and redirected to nginx for processing with the error_page directive.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    proxy_intercept_errors on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;fastcgi_intercept_errors&#34;&gt;fastcgi_intercept_errors&lt;/h2&gt;
+&lt;p&gt;若被 FastCGI 伺服器回傳 300 或大於 300 的狀態碼，啟用設定的 error_page 設定，預設為 &lt;code&gt;off&lt;/code&gt; 不啟用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Determines whether FastCGI server responses with codes greater than or equal to 300 should be passed to a client or be intercepted and redirected to nginx for processing with the error_page directive.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    proxy_intercept_errors on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://nginx.org/en/docs/http/ngx_http_proxy_module.html&#34;&gt;Module ngx_http_proxy_module&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://nginx.org/en/docs/http/ngx_http_fastcgi_module.html&#34;&gt;Module ngx_http_fastcgi_module&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/knowledgesea/p/5199046.html&#34;&gt;Nginx代理功能与负载均衡详解 - 张龙豪 - 博客园&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 同網站不同 root</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/multiple-root/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/multiple-root/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;nginx-multiple-root-同網站不同-root&#34;&gt;Nginx Multiple Root 同網站不同 Root&lt;/h2&gt;
+&lt;p&gt;在做網站改版的時候，可能因為專案太大而無法一次全部改版，所以希望能夠針對部分的 頁面或API 進行改版，然後慢慢的全部迭代改版完成，為了做到這樣的效果，可以透過 Nginx 指定不同的網址路徑，去執行不同的程式，這邊以 PHP Laravel Framework 為例。&lt;/p&gt;
+&lt;p&gt;由於舊專案是 &lt;code&gt;Laravel 4.2&lt;/code&gt; 但新專案是 &lt;code&gt;Laravel 5.5&lt;/code&gt;，程式改版過程中將改版完成的網址路徑導向至 &lt;code&gt;Laravel 5.5&lt;/code&gt;，但尚未完成改版的項目則還是繼續導向至 &lt;code&gt;Laravel 4.2&lt;/code&gt;，由 nginx 判斷請求路徑，去控制判斷要執行哪一部分的程式。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    listen 80&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    server_name _&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 預設使用 Laravel 5.5&lt;/span&gt;
+    root &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/deploy/laravel55/public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    charset utf-8&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    index index.htm index.html index.php&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    error_page &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;404&lt;/span&gt; /404.html&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$request_uri&lt;/span&gt; ~* &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;^(.*/)index\.php/*(.*)&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;301&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$1$2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    location / &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    location /elb-status &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; 200&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    access_log /var/log/nginx/web-access.log cloudflare&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    error_log  /var/log/nginx/web-error.log error&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /robots.txt &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt; access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; log_not_found off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /favicon.ico &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt; access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; log_not_found off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    location ~ ^/assets/ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        expires max&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        add_header Cache-Control public&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+
+    location ~ ^/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;api&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path1&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path2&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)(&lt;/span&gt;.*&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 指定舊網址，變更網站路徑為 Laravel 4&lt;/span&gt;
+        root &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/deploy/laravel4/current/public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Rewrite $uri=/api/v1/xyz back to just $uri=/xyz&lt;/span&gt;
+        rewrite ^&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;.*&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ /&lt;span style=&#34;color:#000&#34;&gt;$1&lt;/span&gt; break&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Try to send static file at $url or $uri/&lt;/span&gt;
+        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Else try /index.php (which will hit location ~\.php$ below)&lt;/span&gt;
+        try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    location ~ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;^/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;/&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;$&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$newurl&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$request_uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 預設使用 php 7.1 fpm 執行&lt;/span&gt;
+
+        fastcgi_pass unix:/run/php/php7.1-fpm.sock&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$newurl&lt;/span&gt; ~ ^/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;api&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path1&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path2&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)(&lt;/span&gt;.*&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 變更網站路徑為 Laravel 4.2&lt;/span&gt;
+            root &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/deploy/laravel4/current/public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 舊網址使用 php 7.0 fpm 執行&lt;/span&gt;
+            fastcgi_pass unix:/run/php/php7.0-fpm.sock&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+        fastcgi_split_path_info ^&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;.+&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)(&lt;/span&gt;/.+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        fastcgi_index index.php&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        include fastcgi_params&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        fastcgi_param REQUEST_URI &lt;span style=&#34;color:#000&#34;&gt;$newurl&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        fastcgi_param SCRIPT_FILENAME &lt;span style=&#34;color:#000&#34;&gt;$document_root$fastcgi_script_name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        fastcgi_intercept_errors off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        fastcgi_buffer_size 16k&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        fastcgi_buffers &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; 16k&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+
+    proxy_intercept_errors on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    fastcgi_intercept_errors on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# gzip&lt;/span&gt;
+    gzip on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_min_length 1000&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_types  *&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_comp_level 3&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_proxied any&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_buffers &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 8k&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_http_version 1.1&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;預設是執行 &lt;code&gt;Laravel 5.5&lt;/code&gt;，而設定的例外路徑則是存取 &lt;code&gt;Laravel 4.2&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/mreschke/27bfafb84add38d3bab8&#34;&gt;Nginx config for multiple laravel sites based on /api/v1 url paths&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html&#34;&gt;Setting up Django and your web server with uWSGI and nginx — uWSGI 2.0 documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_tw/elasticloadbalancing/latest/application/tutorial-load-balancer-routing.html&#34;&gt;教學課程：使用以路徑為基礎的路由與 Application Load Balancer 搭配使用 - Elastic Load Balancing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/13999069/nginx-nodejs-php&#34;&gt;node.js - nginx + nodejs + php - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://unix.stackexchange.com/questions/134087/nginx-server-config-with-multiple-locations-does-not-work&#34;&gt;debian - nginx server config with multiple locations does not work - Unix &amp;amp; Linux Stack Exchange&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.hi-linux.com/posts/53878.html&#34;&gt;Nginx 的 try_files 指令使用实例 - 运维之美&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.51cto.com/10546390/1754757&#34;&gt;Nginx的try_files参数保证能懂的讲解-10536390-51CTO博客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/35220769/nginx-changing-the-server-root-make-location-root-not-working&#34;&gt;Nginx - Changing the server root make location root not working - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/34082831/nginx-configuration-with-multiple-location-blocks?rq=1&#34;&gt;php - nginx configuration with multiple location blocks - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms&#34;&gt;Understanding Nginx Server and Location Block Selection Algorithms | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/soheilhy/8b94347ff8336d971ad0&#34;&gt;How to proxy web apps using nginx? · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.bluehat-lab.org/nginx-multiple-server-setting-with-single-ip/&#34;&gt;Nginx multiple server setting&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 除錯</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/debug/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/debug/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;回傳參數&#34;&gt;回傳參數&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;location ~ &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$document_root&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$request_uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;$args：get 參數（e.g. ?page=2）&lt;/li&gt;
+&lt;li&gt;$uri：網址路徑（e.g. /tag/laravel）&lt;/li&gt;
+&lt;li&gt;$document_root：網頁路徑（e.g. /var/web/laravel/public）&lt;/li&gt;
+&lt;li&gt;$request_uri：完整請求 URI（/tag/laravel?page=2）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;測試-site-enabled-設定&#34;&gt;測試 &lt;code&gt;site-enabled&lt;/code&gt; 設定&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;nginx -t
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;413-request-entity-too-large&#34;&gt;413 Request entity too large&lt;/h2&gt;
+&lt;p&gt;Nginx 預設檔案上傳大小為 100M，可以修改設定值提高上傳檔案大小&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/nginx/nginx.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打開 &lt;code&gt;nginx.conf&lt;/code&gt; 後，在 &lt;code&gt;http&lt;/code&gt; 設定值中加入 &lt;code&gt;client_max_body_size&lt;/code&gt; 並修改上傳檔案大小&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;若沒有此設定值可自行加入&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;http &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    client_max_body_size 100M&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;could-not-build-server_names_hash-you-should-increase-server_names_hash_bucket_size-64&#34;&gt;could not build server_names_hash, you should increase server_names_hash_bucket_size: 64&lt;/h2&gt;
+&lt;p&gt;在新增 Nginx 主機時，發現網址名稱有過長的問題&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ systemctl status nginx.service
+
+● nginx.service - A high performance web server and a reverse proxy server
+   Loaded: loaded &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;/lib/systemd/system/nginx.service&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; enabled&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; vendor preset: enabled&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+   Active: failed &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;Result: exit-code&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; since Thu 2019-03-07 08:28:21 UTC&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; 7s ago
+  Process: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9595&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ExecStop&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited, &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;0/SUCCESS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  Process: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9827&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ExecStartPre&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/usr/sbin/nginx -t -q -g daemon on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; master_process on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited, &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;1/FAILURE&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+ Main PID: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31527&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited, &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;0/SUCCESS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: Starting A high performance web server and a reverse proxy server...
+Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev nginx&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;9827&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;emerg&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; could not build server_names_hash, you should increase server_names_hash_bucket_size: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;64&lt;/span&gt;
+Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev nginx&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;9827&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx: configuration file /etc/nginx/nginx.conf &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt; failed
+Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx.service: Control process exited, &lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: Failed to start A high performance web server and a reverse proxy server.
+Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx.service: Unit entered failed state.
+Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx.service: Failed with result &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;exit-code&amp;#39;&lt;/span&gt;.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此時可以到 &lt;code&gt;/etc/nginx/nginx.conf&lt;/code&gt; 將 &lt;code&gt;server_names_hash_max_size&lt;/code&gt; 設定更高的數值&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server_names_hash_max_size 512&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+server_names_hash_max_size 1024&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定完後重新啟動 Nginx 就可以正常啟動了&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.phpini.com/linux/fix-nginx-error-413-request-entity-too-large&#34;&gt;解決 Nginx 錯誤: 413 Request entity too large&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://segmentfault.com/q/1010000004853184&#34;&gt;nginx配置server_names_hash_max_size放在什么地方？ - SegmentFault 思否&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

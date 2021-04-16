@@ -1,0 +1,514 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – PHP</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/php/</link>
+    <description>Recent content in PHP on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 安裝最新 PHP</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/install/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/install/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;安裝必要套件&#34;&gt;安裝必要套件&lt;/h2&gt;
+&lt;p&gt;如果安裝 php 指令無法執行，請先安裝下列套件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install  ca-certificates apt-transport-https software-properties-common
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;加入-ondrejphp&#34;&gt;加入 ondrej/php&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo add-apt-repository ppa:ondrej/php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;列出-php-套件&#34;&gt;列出 PHP 套件&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;apt-cache pkgnames &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; grep php7.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;安裝-php&#34;&gt;安裝 php&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install php7.1 php7.1-common
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install php7.1-curl php7.1-xml php7.1-zip php7.1-gd php7.1-mysql php7.1-mbstring
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;測試-php&#34;&gt;測試 PHP&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;php -v
+PHP 7.1.8-2+ubuntu16.04.1+deb.sury.org+4 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;cli&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;built: Aug  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2017&lt;/span&gt; 13:04:12&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; NTS &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+Copyright &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; 1997-2017 The PHP Group
+Zend Engine v3.1.0, Copyright &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; 1998-2017 Zend Technologies
+    with Zend OPcache v7.1.8-2+ubuntu16.04.1+deb.sury.org+4, Copyright &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; 1999-2017, by Zend Technologies
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;在-ubuntu-安裝並執行不同-php-版本&#34;&gt;在 ubuntu 安裝並執行不同 php 版本&lt;/h2&gt;
+&lt;h2 id=&#34;安裝其他-php-版本&#34;&gt;安裝其他 php 版本&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;------------ Install PHP Modules ------------
+$ sudo apt install php5.6-cli php5.6-xml php5.6-mysql
+$ sudo apt install php7.0-cli php7.0-xml php7.0-mysql
+$ sudo apt install php7.1-cli php7.1-xml php7.1-mysql
+$ sudo apt install php7.2-cli php7.2-xml php7.2-mysql
+$ sudo apt install php7.3-cli php7.3-xml php7.3-mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;執行指定-php-版本&#34;&gt;執行指定 php 版本&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;/usr/bin/php -v
+/usr/bin/php7.0 -v
+/usr/bin/php7.1 -v
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;變更預設-php-執行路徑&#34;&gt;變更預設 php 執行路徑&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;------------ For PHP 5.6 ------------
+$ sudo update-alternatives --set php /usr/bin/php5.6
+$ php -i | grep &amp;quot;Loaded Configuration File&amp;quot;
+
+------------ For PHP 7.0 ------------
+$ sudo update-alternatives --set php /usr/bin/php7.0
+$ php -i | grep &amp;quot;Loaded Configuration File&amp;quot;
+
+------------ For PHP 7.1 ------------
+$ sudo update-alternatives --set php /usr/bin/php7.1
+$ php -i | grep &amp;quot;Loaded Configuration File&amp;quot;
+
+------------ For PHP 7.2 ------------
+$ sudo update-alternatives --set php /usr/bin/php7.2
+$ php -i | grep &amp;quot;Loaded Configuration File&amp;quot;
+
+------------ For PHP 7.3 ------------
+$ sudo update-alternatives --set php /usr/bin/php7.3
+$ php -i | grep &amp;quot;Loaded Configuration File&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;安裝-memcached&#34;&gt;安裝 Memcached&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install -y php-memcached
+sudo service php7.0-fpm restart
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.tecmint.com/install-php-8-on-ubuntu/&#34;&gt;How to Install PHP 8.0 on Ubuntu 20.04 / 18.04&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ayesh.me/Ubuntu-PHP-7.1&#34;&gt;How to upgrade to PHP 7.1 on Ubuntu | Ayesh Karunaratne&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.vultr.com/docs/how-to-install-and-configure-php-70-or-php-71-on-ubuntu-16-04&#34;&gt;How to Install and Configure PHP 7.0 or PHP 7.1 on Ubuntu 16.04 - Vultr.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.tecmint.com/install-different-php-versions-in-ubuntu/&#34;&gt;How to Install Different PHP (5.6, 7.0 and 7.1) Versions in Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: fastcgi_pass</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/fastcgi-pass/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/fastcgi-pass/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;fastcgi_pass&#34;&gt;fastcgi_pass&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;fastcgi_pass&lt;/code&gt; 是指定用來解譯 PHP 程式的端口&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;設定檔&#34;&gt;設定檔&lt;/h2&gt;
+&lt;p&gt;路徑：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/nginx/site-enabled/xxx&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;location ~ &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    fastcgi_pass unix:/run/php/php7.0-fpm.sock&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# fastcgi_pass 127.0.0.1:9000;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;路徑：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/php/7.0/fpm/pool.d/www.conf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;listen&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /run/php/php7.0-fpm.sock
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;listen&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; 127.0.0.1:9000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/understanding-and-implementing-fastcgi-proxying-in-nginx&#34;&gt;Understanding and Implementing FastCGI Proxying in Nginx | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.nginx.com/resources/wiki/start/topics/examples/phpfcgi/&#34;&gt;PHP FastCGI Example | NGINX&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: php-fpm</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/php-fpm/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/php-fpm/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;檢測&#34;&gt;檢測&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;/etc/init.d/php7.0-fpm status
+/etc/init.d/php5-fpm status
+
+* php-fpm7.0 is running
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;ps aux | grep php-fpm
+root      1030  0.0  0.6 326692 23604 ?        Ss    5月03   0:03 php-fpm: master process (/etc/php/7.0/fpm/php-fpm.conf)
+www-data 13671 17.9  0.8 337704 32332 ?        S    07:13   0:06 php-fpm: pool www
+www-data 13672 16.5  0.7 335796 29880 ?        S    07:13   0:05 php-fpm: pool www
+www-data 13692 18.8  0.6 333608 26172 ?        S    07:14   0:01 php-fpm: pool www
+www-data 13695 40.0  0.7 335568 27848 ?        S    07:14   0:00 php-fpm: pool www
+ubuntu   13697  0.0  0.0  12968   956 pts/0    S+   07:14   0:00 grep --color=auto php-fpm
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;netstat -an | grep :9000
+
+nmap localhost -p 9000
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;日誌log&#34;&gt;日誌（Log）&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1. php-fpm.conf&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[global]
+error_log = log/error_log
+
+[www]
+catch_workers_output = yes
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;2. php.ini&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;log_errors = On
+error_log = &amp;quot;/usr/local/php/var/log/error_log&amp;quot;
+error_reporting=E_ALL&amp;amp;~E_NOTICE
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/14915147/php-fpm-check-if-running&#34;&gt;PHP FPM - check if running - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: log</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/log/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/log/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;php-fpm-error-log&#34;&gt;PHP FPM Error log&lt;/h2&gt;
+&lt;p&gt;設定檔：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/etc/php/7.0/fpm/php-fpm.conf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;error_log&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /var/log/php7.0-fpm.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: PHP</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;檔案路徑&#34;&gt;檔案路徑&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;設定檔&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/php/7.1/fpm/php-fpm.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;核心設定檔案&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/php/7.1/fpm/pool.d/www.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;Log 檔案&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /var/log/php7.1-fpm.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: max_children</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/max-children/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/max-children/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;php-fpm-max-children&#34;&gt;PHP FPM Max Children&lt;/h2&gt;
+&lt;p&gt;在 php fpm 的 error log 發現執行緒不太夠用，需要設定開啟新執行緒&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 07:43:58&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 08:27:52&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 10:57:17&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 11:37:32&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;設定檔路徑&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;/etc/php/7.1/fpm/pool.d/www.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在設定檔中可以看到類似以下的設定方式&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pm.max_children &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10&lt;/span&gt;
+pm.start_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;
+pm.min_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;
+pm.max_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;process-manager-行程調配規則參數說明&#34;&gt;Process Manager 行程調配規則參數說明&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;參數&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;pm&lt;/td&gt;
+&lt;td&gt;PHP-FPM Process Manager 行程調配規則&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pm.start_servers&lt;/td&gt;
+&lt;td&gt;PHP-FPM 服務在一開始啟動時，要配置多少個行程&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pm.min_spare_servers&lt;/td&gt;
+&lt;td&gt;PHP-FPM 最小閒置行程的數量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pm.max_spare_servers&lt;/td&gt;
+&lt;td&gt;PHP-FPM 最大閒置行程的數量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pm.max_requests&lt;/td&gt;
+&lt;td&gt;單一 PHP-FPM 最多可以處理多少個連線，當一個工作行程處理的連線數達到這個值的時候，就會強制關閉此行程，重新產生另一個新的行程&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;pm&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; dynamic
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;參數&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;static&lt;/td&gt;
+&lt;td&gt;固定行程數量（數量為 pm.max_children） ，效能很好，但很佔記憶體&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;dynamic&lt;/td&gt;
+&lt;td&gt;動態行程數量（根據 pm.max_children、pm.start_servers、pm.min_spare_servers、pm.max_spare_servers 動態調整），根據使用量用多少開多少，但當使用量比較低時，會保留一些行程，隨時等著接收新的連線&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ondemand&lt;/td&gt;
+&lt;td&gt;動態行程數量（根據 pm.max_children、pm.start_servers、pm.min_spare_servers、pm.max_spare_servers 動態調整），用多少開多少&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;pmmax_children-最大執行程序數量&#34;&gt;pm.max_children 最大執行程序數量&lt;/h2&gt;
+&lt;p&gt;最大執行程序數量是針對自己的主機規格不同去做設定的，當你主機有較大的記憶體，則可以設定更多的執行程序&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Total Max Processes = (Total Ram - (Used Ram + Buffer)) / (Memory per php process)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最大執行程序 = (總記憶體 - (已使用記憶體 + Buffer)) / (每個 php 執行緒需要記憶體)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pm.max_children 數量：可用記憶體(MB) / 大約 50MB&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;確認每個 php 執行緒需要記憶體&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;因為每個 php 執行的記憶體及效率會針對不同的程式環境不同，而有不同的消耗記憶體，可以使用下列指令去取得 php-fpm 執行緒消耗的記憶體數量&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ps -ylC &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt; &amp;ndash;sort:rss&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;範例&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;其中的 &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt; 要看看你系統是用哪個版本的 php，而會有不同版本名稱的 php-fpm，像是：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ps -ylC php-fpm --sort:rss
+ps -ylC php-fpm7.0 --sort:rss
+ps -ylC php-fpm7.1 --sort:rss
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在列出來 php-fpm 使用的資源後，可以看到 &lt;code&gt;RSS&lt;/code&gt; 欄位為使用的記憶體大小，&lt;code&gt;31692&lt;/code&gt; 表示為 &lt;code&gt;31692 kb&lt;/code&gt;，大概就是 &lt;code&gt;31M&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ ps -ylC php-fpm7.1 --sort:rss
+S   UID   PID  PPID  C PRI  NI   RSS    SZ WCHAN  TTY          TIME CMD
+S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22275&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31692&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;212882&lt;/span&gt; -     ?        00:00:00 php-fpm7.0
+S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22092&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;40708&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;231684&lt;/span&gt; -     ?        00:00:02 php-fpm7.0
+S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22023&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;41136&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;231888&lt;/span&gt; -     ?        00:00:05 php-fpm7.0
+S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22038&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;41204&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;231744&lt;/span&gt; -     ?        00:00:04 php-fpm7.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但每個 php-fpm 程序的記憶體不盡相同，我們可以用下列指令去計算平均使用的記憶體大小是多少&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ps &amp;ndash;no-headers -o &amp;ldquo;rss,cmd&amp;rdquo; -C &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt;  | awk &amp;lsquo;{ sum+=$1 } END { printf (&amp;quot;%d%s\n&amp;quot;, sum/NR/1024,&amp;ldquo;Mb&amp;rdquo;) }&amp;rsquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;也是一樣針對你系統是用哪個版本的 php，而會有不同版本名稱的 php-fpm，像是：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ps --no-headers -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rss,cmd&amp;#34;&lt;/span&gt; -C php-fpm  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{ sum+=$1 } END { printf (&amp;#34;%d%s\n&amp;#34;, sum/NR/1024,&amp;#34;Mb&amp;#34;) }&amp;#39;&lt;/span&gt;
+ps --no-headers -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rss,cmd&amp;#34;&lt;/span&gt; -C php-fpm7.0  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{ sum+=$1 } END { printf (&amp;#34;%d%s\n&amp;#34;, sum/NR/1024,&amp;#34;Mb&amp;#34;) }&amp;#39;&lt;/span&gt;
+ps --no-headers -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rss,cmd&amp;#34;&lt;/span&gt; -C php-fpm7.1  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{ sum+=$1 } END { printf (&amp;#34;%d%s\n&amp;#34;, sum/NR/1024,&amp;#34;Mb&amp;#34;) }&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;抓出來的平均使用記憶體大概為 &lt;code&gt;44 MB&lt;/code&gt;，但為了抓 Buffer，我們大概抓 &lt;code&gt;50 MB&lt;/code&gt; 左右&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ ps --no-headers -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rss,cmd&amp;#34;&lt;/span&gt; -C php-fpm7.0  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{ sum+=$1 } END { printf (&amp;#34;%d%s\n&amp;#34;, sum/NR/1024,&amp;#34;Mb&amp;#34;) }&amp;#39;&lt;/span&gt;
+44Mb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;確認可用的記憶體數量&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;php-fpm 可以用的記憶體為：剩餘還可用的記憶體 + (php-fpm 平均使用記憶體 * 目前 php-fpm 開啟數量)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用 &lt;code&gt;free -m&lt;/code&gt; 取得目前的記憶體使用狀況，總記憶體是 &lt;code&gt;3272 M&lt;/code&gt;，已經使用了 &lt;code&gt;1539M&lt;/code&gt;，剩餘還可用的記憶體有 &lt;code&gt;1021 M&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ free -m
+              total        used        free      shared  buff/cache   available
+Mem:           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3762&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1539&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1021&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;84&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2417&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2686&lt;/span&gt;
+Swap:             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;而從下列指令中，取得 php-fpm 平均使用記憶體為 &lt;code&gt;44M&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ps &amp;ndash;no-headers -o &amp;ldquo;rss,cmd&amp;rdquo; -C &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt;  | awk &amp;lsquo;{ sum+=$1 } END { printf (&amp;quot;%d%s\n&amp;quot;, sum/NR/1024,&amp;ldquo;Mb&amp;rdquo;) }&amp;rsquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;從下列指令中列出目前所有 php-fpm 執行緒數量為 &lt;code&gt;41 個&lt;/code&gt;（直接去計算清單出現幾行 php-fpm 資源狀況即可知道總共開了幾個 php-fpm 執行緒）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ps -ylC &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt; &amp;ndash;sort:rss&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;所以 php-fpm 可以用的記憶體為 &lt;code&gt;1021 M&lt;/code&gt; + &lt;code&gt;44 M&lt;/code&gt; * &lt;code&gt;41 個&lt;/code&gt; = 2743M&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最大執行程序數量 = php-fpm 可以用的記憶體 / 每個 php 執行緒需要記憶體(Buffer 數值)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2743M / 50M = 54.86&lt;/p&gt;
+&lt;p&gt;為了不要讓所有記憶題全部消耗完，而沒有空間去執行其他非 php 的程序，所以我們這邊會抓 &lt;code&gt;pm.max_children&lt;/code&gt; 大概最多使用個 &lt;code&gt;50 個&lt;/code&gt; 執行緒&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pm.max_children &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;50&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;start_server 官方建議算法是 min_spare_servers + (max_spare_servers - min_spare_servers) / 2&lt;/p&gt;
+&lt;p&gt;min_spare_servers 跟 max_spare_servers 就取個大概就好，不要讓他一直開開關關即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pm.start_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;20&lt;/span&gt;
+pm.min_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;13&lt;/span&gt;
+pm.max_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;防止-php-fpm-執行緒處理過多-request-導致-memory-leak&#34;&gt;防止 php-fpm 執行緒處理過多 request 導致 Memory leak&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pm.max_requests &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;500&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;request_terminate_timeout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; 30s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;讓每個子執行緒同時處理超過 500 個 request 就自動移除此執行緒，避免 Memory Leak 執行緒卡在那邊動彈不得&lt;/p&gt;
+&lt;p&gt;而執行時間超過 30 秒的請求則自動中斷掉，建議設定為與 &lt;code&gt;php.ini&lt;/code&gt; 的 &lt;code&gt;max_execution_time&lt;/code&gt; 相同&lt;/p&gt;
+&lt;p&gt;最後設定值會像是：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;pm&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; dynamic
+pm.max_children &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;50&lt;/span&gt;
+pm.start_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;20&lt;/span&gt;
+pm.min_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;13&lt;/span&gt;
+pm.max_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt;
+pm.max_requests &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;500&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;request_terminate_timeout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; 30s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;記錄觀察&#34;&gt;記錄觀察&lt;/h2&gt;
+&lt;p&gt;為了持續觀察 php-fpm 執行序地處理狀況，我們可以把請求執行時間過慢的 Request 記錄下來，在之後後續可以持續做除錯改進，這裡設定紀錄執行超過 10 秒的執行緒狀況&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;slowlog&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /var/log/php7.0-fpm-&lt;span style=&#34;color:#000&#34;&gt;$pool&lt;/span&gt;.log.slow
+&lt;span style=&#34;color:#000&#34;&gt;slowlog&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /var/log/php7.1-fpm-&lt;span style=&#34;color:#000&#34;&gt;$pool&lt;/span&gt;.log.slow
+&lt;span style=&#34;color:#000&#34;&gt;request_slowlog_timeout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; 10s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定完成後可以進行測試，確認改過的設定檔案沒有問題&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;php-fpm7.0 -t
+php-fpm7.1 -t
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ php-fpm7.1 -t
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;03-Jul-2019 15:53:15&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; NOTICE: configuration file /etc/php/7.1/fpm/php-fpm.conf &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt; is successful
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;確認後記得重啟 php-fpm 服務即可生效&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo service php7.0-fpm restart
+sudo service php7.1-fpm restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/nginx-php-fpm-configuration-optimization/&#34;&gt;Nginx 與 PHP-FPM 最佳化效能設定教學與技巧 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.kinamo.be/en/support/faq/determining-the-correct-number-of-child-processes-for-php-fpm-on-nginx&#34;&gt;Determining the correct number of child processes for PHP-FPM on NGinx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.crifan.com/php_fpm_conf_pm_max_children_should_set_which_value/&#34;&gt;【整理】php-fpm.conf中的pm.max_children到底应该设置为多少 – 在路上&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://serversforhackers.com/c/php-fpm-process-management&#34;&gt;PHP-FPM: Process Management | Servers for Hackers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.kinamo.be/en/support/faq/determining-the-correct-number-of-child-processes-for-php-fpm-on-nginx&#34;&gt;Determining the correct number of child processes for PHP-FPM on NGinx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://community.webcore.cloud/tutorials/how_to_solve_php_fpm_server_reached_max_children/&#34;&gt;How To: Solve PHP-FPM server reached max_children | Webcore Community | Webcore Cloud&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 除錯</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/debug/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/debug/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;php-fpm-除錯&#34;&gt;PHP FPM 除錯&lt;/h2&gt;
+&lt;h3 id=&#34;recv-failed-104-connection-reset-by-peer-while-reading-response-header-from-upstream&#34;&gt;recv() failed (104: Connection reset by peer) while reading response header from upstream&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Nginx 錯誤 Log&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;在 nginx 發現 php-fpm.sock 的錯誤&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;2018/10/24 03:47:05 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;error&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; 1231#1231: *324 recv&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt; failed &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;104: Connection reset by peer&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;while&lt;/span&gt; reading response header from upstream, client: 172.31.22.62, server: _, request: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;POST /post/article HTTP/1.1&amp;#34;&lt;/span&gt;, upstream: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fastcgi://unix:/run/php/php7.1-fpm.sock:&amp;#34;&lt;/span&gt;, host: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;kejyun.com&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;PHP 錯誤 log&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;在 php fpm error log 發現 &lt;code&gt;pm.max_children setting (5), consider raising it&lt;/code&gt; 的錯誤&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /var/log/php7.1-fpm.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 01:09:33&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 07:20:16&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 07:43:58&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 08:27:52&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;提高請求中斷時間（request_terminate_timeout）&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/php/7.1/fpm/pool.d/www.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;request_terminate_timeout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;300&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;提高 Server fastcgi read timeout&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;vim /etc/nginx/sites-available/kejyun.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;location ~ &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    fastcgi_connect_timeout 300&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    fastcgi_send_timeout 300&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    fastcgi_read_timeout 300&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;提高 php fpm max_children&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;請參考 &lt;a href=&#34;./web-php-max-children.md&#34;&gt;PHP FPM Max Children&lt;/a&gt; 這篇文章，根據自己主機的狀況需求去提高可以使用的 php-fpm children 數量，提高存取效率&lt;/p&gt;
+&lt;h3 id=&#34;使用-sudo-add-apt-repository-ppaondrejphp-發生錯誤&#34;&gt;使用 &lt;code&gt;sudo add-apt-repository ppa:ondrej/php&lt;/code&gt; 發生錯誤&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo add-apt-repository ppa:ondrej/php
+ Co-installable PHP versions: PHP 5.6, PHP 7.x and most requested extensions are included. Only Supported Versions of PHP &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;http://php.net/supported-versions.php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; Supported Ubuntu Releases &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;https://wiki.ubuntu.com/Releases&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; are provided. Don&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;t ask for end-of-life PHP versions or Ubuntu release, they won&amp;#39;&lt;/span&gt;t be provided.
+
+Debian oldstable and stable packages are provided as well: https://deb.sury.org/#debian-dpa
+
+You can get more information about the packages at https://deb.sury.org
+
+BUGS&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;FEATURES: This PPA now has a issue tracker:
+https://deb.sury.org/#bug-reporting
+
+CAVEATS:
+1. If you are using php-gearman, you need to add ppa:ondrej/pkg-gearman
+2. If you are using apache2, you are advised to add ppa:ondrej/apache2
+3. If you are using nginx, you are advise to add ppa:ondrej/nginx-mainline
+   or ppa:ondrej/nginx
+
+PLEASE READ: If you like my work and want to give me a little motivation, please consider donating regularly: https://donate.sury.org/
+
+WARNING: add-apt-repository is broken with non-UTF-8 locales, see
+https://github.com/oerdnj/deb.sury.org/issues/56 &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; workaround:
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php&lt;/span&gt;
+ More info: https://launchpad.net/~ondrej/+archive/ubuntu/php
+Press &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;ENTER&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; to &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;continue&lt;/span&gt; or ctrl-c to cancel adding it
+
+gpg: keyring &lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;/tmp/tmpw76p12wa/secring.gpg&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39; created
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;gpg: keyring `/tmp/tmpw76p12wa/pubring.gpg&amp;#39;&lt;/span&gt; created
+gpg: requesting key E5267A6C from hkp server keyserver.ubuntu.com
+gpg: /tmp/tmpw76p12wa/trustdb.gpg: trustdb created
+gpg: key E5267A6C: public key &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Launchpad PPA for Ond\xc5\x99ej Sur�&amp;#34;&lt;/span&gt; imported
+gpg: Total number processed: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+gpg:               imported: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;RSA: 1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+Exception in thread Thread-1:
+Traceback &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;most recent call last&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;:
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/threading.py&amp;#34;&lt;/span&gt;, line 920, in _bootstrap_inner
+    self.run&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/threading.py&amp;#34;&lt;/span&gt;, line 868, in run
+    self._target&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;*self._args, **self._kwargs&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/SoftwareProperties.py&amp;#34;&lt;/span&gt;, line 687, in addkey_func
+    func&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;**kwargs&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 370, in add_key
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; apsk.add_ppa_signing_key&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 261, in add_ppa_signing_key
+    tmp_export_keyring, signing_key_fingerprint, tmp_keyring_dir&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;:
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 210, in _verify_fingerprint
+    &lt;span style=&#34;color:#000&#34;&gt;got_fingerprints&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; self._get_fingerprints&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;keyring, keyring_dir&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 202, in _get_fingerprints
+    &lt;span style=&#34;color:#000&#34;&gt;output&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; subprocess.check_output&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;cmd, &lt;span style=&#34;color:#000&#34;&gt;universal_newlines&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;True&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/subprocess.py&amp;#34;&lt;/span&gt;, line 609, in check_output
+    output, &lt;span style=&#34;color:#000&#34;&gt;unused_err&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; process.communicate&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;inputdata, &lt;span style=&#34;color:#000&#34;&gt;timeout&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;timeout&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/subprocess.py&amp;#34;&lt;/span&gt;, line 947, in communicate
+    &lt;span style=&#34;color:#000&#34;&gt;stdout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; _eintr_retry_call&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;self.stdout.read&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/subprocess.py&amp;#34;&lt;/span&gt;, line 491, in _eintr_retry_call
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; func&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;*args&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/encodings/ascii.py&amp;#34;&lt;/span&gt;, line 26, in decode
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; codecs.ascii_decode&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;input, self.errors&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)[&lt;/span&gt;0&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+UnicodeDecodeError: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ascii&amp;#39;&lt;/span&gt; codec can&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;t decode byte 0xc5 in position 92: ordinal not in range&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;128&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+
+$
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;由於當系統不是 UTF-8 的 locales，會發生這個錯誤，只要在指令前方加入 locales 指令即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo &lt;span style=&#34;color:#000&#34;&gt;LC_ALL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;C.UTF-8 add-apt-repository ppa:ondrej/php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;sudo-apt-get-update-時出現-failed-to-fetch-httpppalaunchpadnetondrejphp5-56ubuntudiststrustymainbinary-amd64packages--403--forbidden-訊息&#34;&gt;&lt;code&gt;sudo apt-get update&lt;/code&gt; 時出現 &lt;code&gt;Failed to fetch http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu/dists/trusty/main/binary-amd64/Packages  403  Forbidden&lt;/code&gt; 訊息&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo apt-get update
+
+W: Failed to fetch http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu/dists/trusty/main/binary-amd64/Packages  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;403&lt;/span&gt;  Forbidden
+
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;由於 php 資源庫的位置已更新，可以移除資源庫清單資料即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo rm /etc/apt/sources.list.d/ondrej-php5-5_6-trusty.list
+sudo add-apt-repository -y ppa:ondrej/php
+sudo apt-get -y update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://easyengine.io/tutorials/php/increase-script-execution-time/&#34;&gt;Increase PHP script execution time with Nginx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hk.saowen.com/a/00daab29e1dfee5e8354f200fe27332a159c0de9dff687600e312585ef630f7a&#34;&gt;php-fpm超時時間設置request_terminate_timeout分析 - 掃文資訊&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.onepx.com/php-fpm-request-terminate-timeout.html&#34;&gt;php-fpm中的request_terminate_timeout最好不要设置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.apkfuns.com/-e8-bd-ac-e8-a7-a3-e5-86-b3-recv-failed-104-connection-reset-by-peer-while-reading-response-header-from-upstream/&#34;&gt;解决 recv() failed (104: Connection reset by peer) while reading response header from upstream&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.111cn.net/sys/nginx/56291.htm&#34;&gt;经验之谈：nginx php 502 bad gateway 解决方法_壹聚教程网&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mokiee.com/code/150&#34;&gt;解决 添加 ppa:ondrej/php 时出现无法解码的报错 - 墨客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tedshd.logdown.com/posts/2472689&#34;&gt;ubuntu - apt-get install php repository 403 « tedshd&amp;rsquo;s DevNote&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-upgrade-to-php-7-on-ubuntu-14-04&#34;&gt;How To Upgrade to PHP 7 on Ubuntu 14.04 | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

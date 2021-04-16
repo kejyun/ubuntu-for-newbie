@@ -1,0 +1,87 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – Virtual Host</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/categories/virtual-host/</link>
+    <description>Recent content in Virtual Host on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/virtual-host/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Virtual Host</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/virtual-host/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/virtual-host/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;virtual-host-設定&#34;&gt;Virtual Host 設定&lt;/h2&gt;
+&lt;p&gt;在 &lt;code&gt;server_name&lt;/code&gt; 設定不同的網址名稱，可以在同一台主機將請求導向到不同的程序去處理&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    listen 80&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    server_name kejyun.com&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;301&lt;/span&gt; https://&lt;span style=&#34;color:#000&#34;&gt;$server_name$request_uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    listen &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;443&lt;/span&gt; ssl&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    server_name kejyun.com&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+    root &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/kejyun/tnl/web/tnl_frontend_laravel/public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    charset utf-8&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    index index.htm index.html index.php&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    error_page &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;404&lt;/span&gt; /404.html&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# add_header X-Frame-Options SAMEORIGIN;&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#add_header X-W &amp;#34;if you are reading this, come talk to us. job(at)thenewslens.com&amp;#34;;&lt;/span&gt;
+
+    location / &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$query_string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+
+    location ~ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;^/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;/&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;$&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+            fastcgi_split_path_info ^&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;.+?&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)(&lt;/span&gt;/.*&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;!-f &lt;span style=&#34;color:#000&#34;&gt;$document_root$fastcgi_script_name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+                    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; 404&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+            fastcgi_param SCRIPT_FILENAME &lt;span style=&#34;color:#000&#34;&gt;$document_root$fastcgi_script_name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            fastcgi_pass unix:/run/php/php7.1-fpm.sock&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            fastcgi_index index.php&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            include fastcgi_params&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+
+    location ~* &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;jpg&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;jpeg&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;gif&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;png&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;css&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;js&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;ico&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;xml&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        access_log  off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        log_not_found off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    error_log  /var/log/nginx/kejyun.com-error.log error&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    access_log /var/log/nginx/kejyun.com.access.log&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    ssl_prefer_server_ciphers on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    ssl_dhparam /etc/ssl/certs/dhparam.pem&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    ssl_ciphers &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM    -SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES    256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES25    6-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3    -SHA:!KRB5-DES-CBC3-SHA&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    ssl_session_timeout 1d&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    ssl_session_cache shared:SSL:50m&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+    ssl_certificate /etc/letsencrypt/live/kejyun.com/fullchain.pem&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# managed by Certbot&lt;/span&gt;
+    ssl_certificate_key /etc/letsencrypt/live/kejyun.com/privkey.pem&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# managed by Certbot&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

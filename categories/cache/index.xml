@@ -1,0 +1,66 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – Cache</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/categories/cache/</link>
+    <description>Recent content in Cache on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/cache/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Cache</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/cache/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/cache/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;site-conf-設定&#34;&gt;site conf 設定&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;http &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 靜態檔案快取規則&lt;/span&gt;
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 快取設定及 HTML 檔案及資料&lt;/span&gt;
+    location ~* &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;?:manifest&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;appcache&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;html?&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;xml&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;json&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      expires -1&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+      &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# access_log logs/static.log; # I don&amp;#39;t usually include a static log&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Feed&lt;/span&gt;
+    location ~* &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;?:rss&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;atom&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      expires 1h&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+      add_header Cache-Control &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 媒體：圖片、圖示、影片、音樂&lt;/span&gt;
+    location ~* &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;?:jpg&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;jpeg&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;gif&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;png&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;ico&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;cur&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;gz&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;svg&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;svgz&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;mp4&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;ogg&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;ogv&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;webm&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;htc&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      expires 1M&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+      access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+      add_header Cache-Control &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# CSS 及 Javascript&lt;/span&gt;
+    location ~* &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;?:css&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;js&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      expires 1y&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+      access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+      add_header Cache-Control &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://serversforhackers.com/nginx-caching&#34;&gt;Nginx Caching - Servers for Hackers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

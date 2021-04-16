@@ -1,0 +1,135 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – Multiple document root on same site</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/categories/multiple-document-root-on-same-site/</link>
+    <description>Recent content in Multiple document root on same site on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/multiple-document-root-on-same-site/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 同網站不同 root</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/multiple-root/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/multiple-root/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;nginx-multiple-root-同網站不同-root&#34;&gt;Nginx Multiple Root 同網站不同 Root&lt;/h2&gt;
+&lt;p&gt;在做網站改版的時候，可能因為專案太大而無法一次全部改版，所以希望能夠針對部分的 頁面或API 進行改版，然後慢慢的全部迭代改版完成，為了做到這樣的效果，可以透過 Nginx 指定不同的網址路徑，去執行不同的程式，這邊以 PHP Laravel Framework 為例。&lt;/p&gt;
+&lt;p&gt;由於舊專案是 &lt;code&gt;Laravel 4.2&lt;/code&gt; 但新專案是 &lt;code&gt;Laravel 5.5&lt;/code&gt;，程式改版過程中將改版完成的網址路徑導向至 &lt;code&gt;Laravel 5.5&lt;/code&gt;，但尚未完成改版的項目則還是繼續導向至 &lt;code&gt;Laravel 4.2&lt;/code&gt;，由 nginx 判斷請求路徑，去控制判斷要執行哪一部分的程式。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    listen 80&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    server_name _&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 預設使用 Laravel 5.5&lt;/span&gt;
+    root &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/deploy/laravel55/public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    charset utf-8&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    index index.htm index.html index.php&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    error_page &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;404&lt;/span&gt; /404.html&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$request_uri&lt;/span&gt; ~* &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;^(.*/)index\.php/*(.*)&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;301&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$1$2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    location / &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    location /elb-status &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; 200&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    access_log /var/log/nginx/web-access.log cloudflare&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    error_log  /var/log/nginx/web-error.log error&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /robots.txt &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt; access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; log_not_found off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /favicon.ico &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt; access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; log_not_found off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    location ~ ^/assets/ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        expires max&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        add_header Cache-Control public&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+
+    location ~ ^/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;api&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path1&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path2&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)(&lt;/span&gt;.*&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 指定舊網址，變更網站路徑為 Laravel 4&lt;/span&gt;
+        root &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/deploy/laravel4/current/public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Rewrite $uri=/api/v1/xyz back to just $uri=/xyz&lt;/span&gt;
+        rewrite ^&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;.*&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ /&lt;span style=&#34;color:#000&#34;&gt;$1&lt;/span&gt; break&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Try to send static file at $url or $uri/&lt;/span&gt;
+        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Else try /index.php (which will hit location ~\.php$ below)&lt;/span&gt;
+        try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+    location ~ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;^/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;/&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;$&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$newurl&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$request_uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 預設使用 php 7.1 fpm 執行&lt;/span&gt;
+
+        fastcgi_pass unix:/run/php/php7.1-fpm.sock&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$newurl&lt;/span&gt; ~ ^/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;api&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path1&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path2&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)(&lt;/span&gt;.*&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 變更網站路徑為 Laravel 4.2&lt;/span&gt;
+            root &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/deploy/laravel4/current/public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 舊網址使用 php 7.0 fpm 執行&lt;/span&gt;
+            fastcgi_pass unix:/run/php/php7.0-fpm.sock&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+        fastcgi_split_path_info ^&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;.+&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)(&lt;/span&gt;/.+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        fastcgi_index index.php&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        include fastcgi_params&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        fastcgi_param REQUEST_URI &lt;span style=&#34;color:#000&#34;&gt;$newurl&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        fastcgi_param SCRIPT_FILENAME &lt;span style=&#34;color:#000&#34;&gt;$document_root$fastcgi_script_name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        fastcgi_intercept_errors off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        fastcgi_buffer_size 16k&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        fastcgi_buffers &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; 16k&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+
+
+    proxy_intercept_errors on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    fastcgi_intercept_errors on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# gzip&lt;/span&gt;
+    gzip on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_min_length 1000&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_types  *&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_comp_level 3&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_proxied any&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_buffers &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 8k&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    gzip_http_version 1.1&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;預設是執行 &lt;code&gt;Laravel 5.5&lt;/code&gt;，而設定的例外路徑則是存取 &lt;code&gt;Laravel 4.2&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/mreschke/27bfafb84add38d3bab8&#34;&gt;Nginx config for multiple laravel sites based on /api/v1 url paths&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html&#34;&gt;Setting up Django and your web server with uWSGI and nginx — uWSGI 2.0 documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_tw/elasticloadbalancing/latest/application/tutorial-load-balancer-routing.html&#34;&gt;教學課程：使用以路徑為基礎的路由與 Application Load Balancer 搭配使用 - Elastic Load Balancing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/13999069/nginx-nodejs-php&#34;&gt;node.js - nginx + nodejs + php - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://unix.stackexchange.com/questions/134087/nginx-server-config-with-multiple-locations-does-not-work&#34;&gt;debian - nginx server config with multiple locations does not work - Unix &amp;amp; Linux Stack Exchange&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.hi-linux.com/posts/53878.html&#34;&gt;Nginx 的 try_files 指令使用实例 - 运维之美&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.51cto.com/10546390/1754757&#34;&gt;Nginx的try_files参数保证能懂的讲解-10536390-51CTO博客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/35220769/nginx-changing-the-server-root-make-location-root-not-working&#34;&gt;Nginx - Changing the server root make location root not working - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/34082831/nginx-configuration-with-multiple-location-blocks?rq=1&#34;&gt;php - nginx configuration with multiple location blocks - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms&#34;&gt;Understanding Nginx Server and Location Block Selection Algorithms | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/soheilhy/8b94347ff8336d971ad0&#34;&gt;How to proxy web apps using nginx? · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.bluehat-lab.org/nginx-multiple-server-setting-with-single-ip/&#34;&gt;Nginx multiple server setting&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

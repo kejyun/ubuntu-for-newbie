@@ -1,0 +1,59 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – 參數</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/categories/%E5%8F%83%E6%95%B8/</link>
+    <description>Recent content in 參數 on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/%E5%8F%83%E6%95%B8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 參數</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/parameter/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/parameter/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;error_page&#34;&gt;error_page&lt;/h2&gt;
+&lt;p&gt;Nginx 自訂錯誤頁&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    error_page &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;404&lt;/span&gt; https://kejyun.com/404&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 錯誤頁&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;proxy_intercept_errors&#34;&gt;proxy_intercept_errors&lt;/h2&gt;
+&lt;p&gt;若被代理伺服器回傳 400 或大於 400 的狀態碼，啟用設定的 error_page 設定，預設為 &lt;code&gt;off&lt;/code&gt; 不啟用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Determines whether proxied responses with codes greater than or equal to 300 should be passed to a client or be intercepted and redirected to nginx for processing with the error_page directive.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    proxy_intercept_errors on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;fastcgi_intercept_errors&#34;&gt;fastcgi_intercept_errors&lt;/h2&gt;
+&lt;p&gt;若被 FastCGI 伺服器回傳 300 或大於 300 的狀態碼，啟用設定的 error_page 設定，預設為 &lt;code&gt;off&lt;/code&gt; 不啟用&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Determines whether FastCGI server responses with codes greater than or equal to 300 should be passed to a client or be intercepted and redirected to nginx for processing with the error_page directive.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    proxy_intercept_errors on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://nginx.org/en/docs/http/ngx_http_proxy_module.html&#34;&gt;Module ngx_http_proxy_module&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://nginx.org/en/docs/http/ngx_http_fastcgi_module.html&#34;&gt;Module ngx_http_fastcgi_module&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/knowledgesea/p/5199046.html&#34;&gt;Nginx代理功能与负载均衡详解 - 张龙豪 - 博客园&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

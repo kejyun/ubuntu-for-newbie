@@ -1,0 +1,62 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – php-fpm</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/php-fpm/</link>
+    <description>Recent content in php-fpm on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/php-fpm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: php-fpm</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/php-fpm/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/php-fpm/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;檢測&#34;&gt;檢測&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;/etc/init.d/php7.0-fpm status
+/etc/init.d/php5-fpm status
+
+* php-fpm7.0 is running
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;ps aux | grep php-fpm
+root      1030  0.0  0.6 326692 23604 ?        Ss    5月03   0:03 php-fpm: master process (/etc/php/7.0/fpm/php-fpm.conf)
+www-data 13671 17.9  0.8 337704 32332 ?        S    07:13   0:06 php-fpm: pool www
+www-data 13672 16.5  0.7 335796 29880 ?        S    07:13   0:05 php-fpm: pool www
+www-data 13692 18.8  0.6 333608 26172 ?        S    07:14   0:01 php-fpm: pool www
+www-data 13695 40.0  0.7 335568 27848 ?        S    07:14   0:00 php-fpm: pool www
+ubuntu   13697  0.0  0.0  12968   956 pts/0    S+   07:14   0:00 grep --color=auto php-fpm
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;netstat -an | grep :9000
+
+nmap localhost -p 9000
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;日誌log&#34;&gt;日誌（Log）&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1. php-fpm.conf&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[global]
+error_log = log/error_log
+
+[www]
+catch_workers_output = yes
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;2. php.ini&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;log_errors = On
+error_log = &amp;quot;/usr/local/php/var/log/error_log&amp;quot;
+error_reporting=E_ALL&amp;amp;~E_NOTICE
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/14915147/php-fpm-check-if-running&#34;&gt;PHP FPM - check if running - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

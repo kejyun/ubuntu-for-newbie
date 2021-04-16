@@ -1,0 +1,62 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – 認證</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/%E8%AA%8D%E8%AD%89/</link>
+    <description>Recent content in 認證 on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/%E8%AA%8D%E8%AD%89/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 認證</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/auth/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/auth/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;設定需要驗證網址路徑&#34;&gt;設定需要驗證網址路徑&lt;/h2&gt;
+&lt;p&gt;在網站設定中，設定需要驗證的目錄&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;location / &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 驗證方式&lt;/span&gt;
+    auth_basic &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Restricted&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 驗證檔案&lt;/span&gt;
+    auth_basic_user_file htpasswd&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$query_string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;驗證檔案&#34;&gt;驗證檔案&lt;/h2&gt;
+&lt;p&gt;在 &lt;code&gt;/etc/nginx/&lt;/code&gt; 目錄下建立 &lt;code&gt;htpasswd&lt;/code&gt; 檔案（&lt;code&gt;/etc/nginx/htpasswd&lt;/code&gt;）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;/etc/nginx $ touch htpasswd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;建立驗證密碼&#34;&gt;建立驗證密碼&lt;/h2&gt;
+&lt;p&gt;使用 &lt;code&gt;openssl&lt;/code&gt; 建立加密的密碼&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;openssl passwd
+Password:
+Verifying - Password:
+ZEmF5bjIAXRb6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;設定帳號密碼&#34;&gt;設定帳號密碼&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;auth_basic_user_file&lt;/code&gt; 檔案格式&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;帳號1:密碼1
+帳號2:密碼2:註解
+帳號3:密碼3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;將建立的密碼設定在 &lt;code&gt;/etc/nginx/htpasswd&lt;/code&gt; 檔案中&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;test:ZEmF5bjIAXRb6
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定完成之後，重新啟動 nginx，就可以使用 nginx 限制連線存取的帳號密碼了～&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/nginx-restricting-access-authenticated-user-ip-address-tutorial/&#34;&gt;NGINX 設定密碼認證與限制可存取的 IP 位址，控制頻寬與連線數 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
