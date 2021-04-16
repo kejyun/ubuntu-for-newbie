@@ -1,0 +1,60 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – 更新憑證</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/categories/%E6%9B%B4%E6%96%B0%E6%86%91%E8%AD%89/</link>
+    <description>Recent content in 更新憑證 on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/%E6%9B%B4%E6%96%B0%E6%86%91%E8%AD%89/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 更新憑證</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/certificate-verification-failed/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/certificate-verification-failed/</guid>
+      <description>
+        
+        
+        &lt;p&gt;在執行 curl 的時候，主機噴出 &lt;code&gt;server certificate verification failed. CAfile: /etc/ssl/certs/ca-certificates.crt&lt;/code&gt; 憑證過期的錯誤訊息，此時需要重新更新主機憑證資訊&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ curl https://www.google.com
+curl: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;60&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; server certificate verification failed. CAfile: /etc/ssl/certs/ca-certificates.crt CRLfile: none
+More details here: http://curl.haxx.se/docs/sslcerts.html
+
+curl performs SSL certificate verification by default, using a &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;bundle&amp;#34;&lt;/span&gt;
+ of Certificate Authority &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;CA&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; public keys &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;CA certs&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;. If the default
+ bundle file isn&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&lt;/span&gt;t adequate, you can specify an alternate file
+ using the --cacert option.
+If this HTTPS server uses a certificate signed by a CA represented in
+ the bundle, the certificate verification probably failed due to a
+ problem with the certificate &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;it might be expired, or the name might
+ not match the domain name in the URL&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;.
+If you&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&lt;/span&gt;d like to turn off curl&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&lt;/span&gt;s verification of the certificate, use
+ the -k &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;or --insecure&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; option.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;更新主機套件&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;因為主機套件沒有更新的話，抓取的憑證資料可能還會是舊的憑證，所以在更新憑證之前要先更新主機套件版本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;更新主機憑證&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;更新完主機套件後，就可以重新安裝憑證套件程式，讓主機抓取最新的憑證&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install --reinstall ca-certificates
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;若套件已是最新的，要直接更新憑證，可以使用下列指令直接更新即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo update-ca-certificates
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;參考資料&#34;&gt;參考資料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://hant-kb.kutu66.com/ssl-certificate/post_12157107&#34;&gt;服务器证书验证失败CAfile:/etc/ssl/certs/ca certificates.crt CRLfile: 无_ssl-certificate_酷徒编程知识库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://shazi.info/%E5%90%84%E7%B3%BB%E7%B5%B1%E6%9B%B4%E6%96%B0-ca-root%E6%A0%B9%E6%86%91%E8%AD%89%E7%9A%84%E6%96%B9%E6%B3%95/&#34;&gt;各系統更新 ca (root)根憑證的方法 – Mr. 沙先生&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

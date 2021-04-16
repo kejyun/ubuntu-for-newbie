@@ -83,5 +83,23 @@ error_log /var/log/nginx/error.log&lt;span style=&#34;color:#000;font-weight:bol
       </description>
     </item>
     
+    <item>
+      <title>Docs: 日誌</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/log/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/log/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/391082/how-to-see-time-stamps-in-bash-history&#34;&gt;command line - How to see time stamps in bash history? - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://webplay.pro/linux/syslog-log-bash-history-every-user.html&#34;&gt;Syslog: log all bash history from every user - WebPlay - And let&amp;rsquo;s play&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>

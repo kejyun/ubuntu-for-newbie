@@ -136,5 +136,18 @@ sudo apt-get install mysql-server mysql-client
       </description>
     </item>
     
+    <item>
+      <title>Docs: SSL</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
   </channel>
 </rss>

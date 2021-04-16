@@ -1,0 +1,40 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – 網站監控</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/categories/%E7%B6%B2%E7%AB%99%E7%9B%A3%E6%8E%A7/</link>
+    <description>Recent content in 網站監控 on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/%E7%B6%B2%E7%AB%99%E7%9B%A3%E6%8E%A7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 網站</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/monitor/websites/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/monitor/websites/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;監控相關網站&#34;&gt;監控相關網站&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.hyperspin.com/zhtw/&#34;&gt;Hyperspin - Free Website Monitoring&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://uptimerobot.com/&#34;&gt;Uptime Robot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://uptimebutler.com/&#34;&gt;UptimeButler&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://webmon.com/&#34;&gt;Webmon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://monitority.com/&#34;&gt;Monitority&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

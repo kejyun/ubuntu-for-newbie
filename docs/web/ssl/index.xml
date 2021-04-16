@@ -1,0 +1,180 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – SSL</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/</link>
+    <description>Recent content in SSL on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Let&#39;s Encrypt</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/lets-encrypt/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/lets-encrypt/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;lets-encrypt&#34;&gt;Let&amp;rsquo;s Encrypt&lt;/h1&gt;
+&lt;h2 id=&#34;安裝&#34;&gt;安裝&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo add-apt-repository ppa:certbot/certbot
+$ sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Nginx&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo apt-get install python-certbot-nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Apache&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo apt-get install python-certbot-apache
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;執行憑證驗證&#34;&gt;執行憑證驗證&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo certbot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;自動更新憑證&#34;&gt;自動更新憑證&lt;/h2&gt;
+&lt;!-- ```shell
+./certbot-auto renew --pre-hook &#34;service nginx stop&#34; --post-hook &#34;service nginx start&#34;
+``` --&gt;
+&lt;p&gt;&lt;strong&gt;更新憑證&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo certbot renew
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;測試更新憑證&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo certbot renew --dry-run
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;Crontab 自動更新&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;需要輸入完整執行檔案名稱，然後指定需要自動更新時間&lt;/p&gt;
+&lt;!-- ```shell
+30 2 * * 1  /full-path-to-certbot/certbot-auto renew --pre-hook &#34;service nginx stop&#34; --post-hook &#34;service nginx start&#34;
+``` --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt; * * &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  certbot renew
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;etcsslcertsdhparampem&#34;&gt;/etc/ssl/certs/dhparam.pem&lt;/h2&gt;
+&lt;p&gt;在安裝 SSL 憑證時，會出現下列訊息時，可以使用 &lt;code&gt;openssl&lt;/code&gt; 去新增 &lt;code&gt;dhparam.pem&lt;/code&gt; 憑證&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;nginx: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;emerg&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; BIO_new_file&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/etc/ssl/certs/dhparam.pem&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; failed &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;SSL: error:02001002:system library:fopen:No such file or directory:fopen&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;/etc/ssl/certs/dhparam.pem&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; error:2006D080:BIO routines:BIO_new_file:no such file&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用下列指令可以新增 &lt;code&gt;dhparam.pem&lt;/code&gt; 憑證&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2048&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;移除指定憑證&#34;&gt;移除指定憑證&lt;/h2&gt;
+&lt;p&gt;如果不需要 SSL 憑證了，可以使用下列指令將網域移除&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo certbot delete --cert-name kejyun.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;解決-certbot-auto-版本過舊問題&#34;&gt;解決 certbot-auto 版本過舊問題&lt;/h2&gt;
+&lt;p&gt;在使用舊版 &lt;code&gt;certbot-auto&lt;/code&gt; 安裝憑證時，因為 &lt;code&gt;certbot-auto&lt;/code&gt; 會自動更新自己的版本，導致發生 python 版本過舊導致無法驗證憑證&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Installing Python packages...
+/opt/eff.org/certbot/venv/bin/python: No module named pip.__main__&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;pip&amp;#39;&lt;/span&gt; is a package and cannot be directly executed
+Traceback &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;most recent call last&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;:
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/tmp/tmp.OGGbtieawI/pipstrap.py&amp;#34;&lt;/span&gt;, line 177, in &amp;lt;module&amp;gt;
+    sys.exit&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;main&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;())&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/tmp/tmp.OGGbtieawI/pipstrap.py&amp;#34;&lt;/span&gt;, line 149, in main
+    &lt;span style=&#34;color:#000&#34;&gt;pip_version&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; StrictVersion&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;check_output&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;([&lt;/span&gt;python, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;-m&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;pip&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;--version&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;])&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python2.7/subprocess.py&amp;#34;&lt;/span&gt;, line 544, in check_output
+    raise CalledProcessError&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;retcode, cmd, &lt;span style=&#34;color:#000&#34;&gt;output&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;output&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+subprocess.CalledProcessError: Command &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;[&amp;#39;&lt;/span&gt;/opt/eff.org/certbot/venv/bin/python&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-m&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;pip&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;--version&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;]&amp;#39;&lt;/span&gt; returned non-zero &lt;span style=&#34;color:#204a87&#34;&gt;exit&lt;/span&gt; status &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以使用 &lt;code&gt;--no-self-upgrade&lt;/code&gt; 參數，讓 &lt;code&gt;certbot-auto&lt;/code&gt; 不要自動更新版本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;wget https://raw.githubusercontent.com/certbot/certbot/75499277be6699fd5a9b884837546391950a3ec9/certbot-auto
+chmod +x ./certbot-auto
+./certbot-auto --no-self-upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;執行-certbot-出現錯誤-another-instance-of-certbot-is-already-running&#34;&gt;執行 certbot 出現錯誤 &lt;code&gt;Another instance of Certbot is already running&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;在執行 certbot 時出錯錯誤的訊息&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Another instance of Certbot is already running&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Certbot 不正常關閉，導致原本的 &lt;code&gt;.certbot.lock&lt;/code&gt; 檔案還存在於主機中，此時可以透過下方指令找出 &lt;code&gt;.certbot.lock&lt;/code&gt; 檔案是否還存在&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;find / -type f -name &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;.certbot.lock&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;若檔案存在，則可以用下列指令移除所有 &lt;code&gt;.certbot.lock&lt;/code&gt; 檔案&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;find / -type f -name &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;.certbot.lock&amp;#34;&lt;/span&gt; -exec rm &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{}&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;移除後再次執行 certbot 就可以正常執行了&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ceos3c.com/open-source/install-certbot-ubuntu-16-04-auto-cert-renew/&#34;&gt;How to install Certbot on Ubuntu 16.04 (Auto Cert Renew!) - Ceos3c&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04#step-5-%E2%80%94-verifying-certbot-auto-renewal&#34;&gt;How To Secure Nginx with Let&amp;rsquo;s Encrypt on Ubuntu 16.04 | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://certbot.eff.org/docs/install.html&#34;&gt;Get Certbot — Certbot 0.25.0.dev0 documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04&#34;&gt;How To Secure Nginx with Let&amp;rsquo;s Encrypt on Ubuntu 16.04 | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-16-04&#34;&gt;How To Secure Apache with Let&amp;rsquo;s Encrypt on Ubuntu 16.04 | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ummjackson/mastodon-guide/issues/10&#34;&gt;SSL and nginx missing file: /etc/ssl/certs/dhparam.pem · Issue #10 · ummjackson/mastodon-guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@mhagemann/correct-way-to-delete-a-certbot-ssl-certificate-e8ee123e6e01&#34;&gt;Correct Way to Delete a Certbot SSL Certificate – Matthew Hagemann – Medium&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/certbot/certbot/issues/6824#issuecomment-470440436&#34;&gt;With 0.32.0, certbot-auto stopped working for some EOL distributions · Issue #6824 · certbot/certbot · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.vishalvyas.com/2019/02/another-instance-of-certbot-is-already.html&#34;&gt;Another instance of Certbot is already running - Solved - Linux guru&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: NET::ERR_CERT_COMMON_NAME_INVALID</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/err-cert-common-name/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/err-cert-common-name/</guid>
+      <description>
+        
+        
+        &lt;p&gt;在設定使用 cloudflare 的憑證時，發生了 &lt;code&gt;NET::ERR_CERT_COMMON_NAME_INVALID&lt;/code&gt; 的錯誤訊息&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Your connection is not private
+Attackers might be trying to steal your information from xxx.yyy.kejyun.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; example, passwords, messages, or credit cards&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;. Learn more
+NET::ERR_CERT_COMMON_NAME_INVALID
+Subject: ssl368594.cloudflaressl.com
+
+Issuer: COMODO ECC Domain Validation Secure Server CA &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;
+
+Expires on: Jan 6, &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2020&lt;/span&gt;
+
+Current date: Oct 9, &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;
+
+PEM encoded chain:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;../images/cloudflare-err-cert-common-name-invalid.png&#34; alt=&#34;Cloudflare SSL&#34;&gt;&lt;/p&gt;
+&lt;p&gt;因為測試的關係，所以需要建立一台 &lt;code&gt;kj.test.kejyun.com&lt;/code&gt; 的網址連限制至後方主機，後方主機完全沒有經過 Cloudflare，是使用 Let&amp;rsquo;s Encrypt 取得可以正常使用的憑證，而 Let&amp;rsquo;s Encrypt 發送的憑證是給 &lt;code&gt;kj.test.kejyun.com&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;而之後要使用 Cloudflare 的憑證做測試，因為 Cloudflare 憑證的驗證方式是 &lt;code&gt;Full&lt;/code&gt; 的方式，所以 cloudflare 會驗證後方主機的憑證是否正常&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/cloudflare-cert-mode.png&#34; alt=&#34;Cloudflare SSL&#34;&gt;&lt;/p&gt;
+&lt;p&gt;但此時因為後方的主機憑證是配發給 &lt;code&gt;kj.test.kejyun.com&lt;/code&gt;，而 cloudflare 的憑證是配發給 &lt;code&gt;*.kejyun.com&lt;/code&gt;，所以 cloudflare 在驗證憑證時發生不匹配的狀況，所以才會出現 &lt;code&gt;NET::ERR_CERT_COMMON_NAME_INVALID&lt;/code&gt; 的錯誤訊息&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/cloudflare-origin-certificates.png&#34; alt=&#34;Cloudflare SSL&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;解決方式&#34;&gt;解決方式&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;上傳 &lt;code&gt;kj.test.kejyun.com&lt;/code&gt; 的憑證至 cloudflare&lt;/li&gt;
+&lt;li&gt;不要使用過多的子網域當作測試網址，可以使用 &lt;code&gt;kj.kejyun.com&lt;/code&gt; 當作測試網址即可通過憑證驗證&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 更新憑證</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/certificate-verification-failed/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/certificate-verification-failed/</guid>
+      <description>
+        
+        
+        &lt;p&gt;在執行 curl 的時候，主機噴出 &lt;code&gt;server certificate verification failed. CAfile: /etc/ssl/certs/ca-certificates.crt&lt;/code&gt; 憑證過期的錯誤訊息，此時需要重新更新主機憑證資訊&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ curl https://www.google.com
+curl: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;60&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; server certificate verification failed. CAfile: /etc/ssl/certs/ca-certificates.crt CRLfile: none
+More details here: http://curl.haxx.se/docs/sslcerts.html
+
+curl performs SSL certificate verification by default, using a &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;bundle&amp;#34;&lt;/span&gt;
+ of Certificate Authority &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;CA&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; public keys &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;CA certs&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;. If the default
+ bundle file isn&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&lt;/span&gt;t adequate, you can specify an alternate file
+ using the --cacert option.
+If this HTTPS server uses a certificate signed by a CA represented in
+ the bundle, the certificate verification probably failed due to a
+ problem with the certificate &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;it might be expired, or the name might
+ not match the domain name in the URL&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;.
+If you&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&lt;/span&gt;d like to turn off curl&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&lt;/span&gt;s verification of the certificate, use
+ the -k &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;or --insecure&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; option.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;更新主機套件&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;因為主機套件沒有更新的話，抓取的憑證資料可能還會是舊的憑證，所以在更新憑證之前要先更新主機套件版本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;更新主機憑證&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;更新完主機套件後，就可以重新安裝憑證套件程式，讓主機抓取最新的憑證&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install --reinstall ca-certificates
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;若套件已是最新的，要直接更新憑證，可以使用下列指令直接更新即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo update-ca-certificates
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;參考資料&#34;&gt;參考資料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://hant-kb.kutu66.com/ssl-certificate/post_12157107&#34;&gt;服务器证书验证失败CAfile:/etc/ssl/certs/ca certificates.crt CRLfile: 无_ssl-certificate_酷徒编程知识库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://shazi.info/%E5%90%84%E7%B3%BB%E7%B5%B1%E6%9B%B4%E6%96%B0-ca-root%E6%A0%B9%E6%86%91%E8%AD%89%E7%9A%84%E6%96%B9%E6%B3%95/&#34;&gt;各系統更新 ca (root)根憑證的方法 – Mr. 沙先生&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

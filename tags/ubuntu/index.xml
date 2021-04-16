@@ -92,6 +92,89 @@ sudo update-rc.d apache2 &lt;span style=&#34;color:#204a87&#34;&gt;enable&lt;/sp
     </item>
     
     <item>
+      <title>Docs: Let&#39;s Encrypt</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/lets-encrypt/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/lets-encrypt/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;lets-encrypt&#34;&gt;Let&amp;rsquo;s Encrypt&lt;/h1&gt;
+&lt;h2 id=&#34;安裝&#34;&gt;安裝&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo add-apt-repository ppa:certbot/certbot
+$ sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Nginx&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo apt-get install python-certbot-nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Apache&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo apt-get install python-certbot-apache
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;執行憑證驗證&#34;&gt;執行憑證驗證&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo certbot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;自動更新憑證&#34;&gt;自動更新憑證&lt;/h2&gt;
+&lt;!-- ```shell
+./certbot-auto renew --pre-hook &#34;service nginx stop&#34; --post-hook &#34;service nginx start&#34;
+``` --&gt;
+&lt;p&gt;&lt;strong&gt;更新憑證&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo certbot renew
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;測試更新憑證&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo certbot renew --dry-run
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;Crontab 自動更新&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;需要輸入完整執行檔案名稱，然後指定需要自動更新時間&lt;/p&gt;
+&lt;!-- ```shell
+30 2 * * 1  /full-path-to-certbot/certbot-auto renew --pre-hook &#34;service nginx stop&#34; --post-hook &#34;service nginx start&#34;
+``` --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt; * * &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  certbot renew
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;etcsslcertsdhparampem&#34;&gt;/etc/ssl/certs/dhparam.pem&lt;/h2&gt;
+&lt;p&gt;在安裝 SSL 憑證時，會出現下列訊息時，可以使用 &lt;code&gt;openssl&lt;/code&gt; 去新增 &lt;code&gt;dhparam.pem&lt;/code&gt; 憑證&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;nginx: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;emerg&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; BIO_new_file&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/etc/ssl/certs/dhparam.pem&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; failed &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;SSL: error:02001002:system library:fopen:No such file or directory:fopen&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;/etc/ssl/certs/dhparam.pem&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; error:2006D080:BIO routines:BIO_new_file:no such file&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用下列指令可以新增 &lt;code&gt;dhparam.pem&lt;/code&gt; 憑證&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2048&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;移除指定憑證&#34;&gt;移除指定憑證&lt;/h2&gt;
+&lt;p&gt;如果不需要 SSL 憑證了，可以使用下列指令將網域移除&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo certbot delete --cert-name kejyun.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;解決-certbot-auto-版本過舊問題&#34;&gt;解決 certbot-auto 版本過舊問題&lt;/h2&gt;
+&lt;p&gt;在使用舊版 &lt;code&gt;certbot-auto&lt;/code&gt; 安裝憑證時，因為 &lt;code&gt;certbot-auto&lt;/code&gt; 會自動更新自己的版本，導致發生 python 版本過舊導致無法驗證憑證&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Installing Python packages...
+/opt/eff.org/certbot/venv/bin/python: No module named pip.__main__&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;pip&amp;#39;&lt;/span&gt; is a package and cannot be directly executed
+Traceback &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;most recent call last&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;:
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/tmp/tmp.OGGbtieawI/pipstrap.py&amp;#34;&lt;/span&gt;, line 177, in &amp;lt;module&amp;gt;
+    sys.exit&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;main&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;())&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/tmp/tmp.OGGbtieawI/pipstrap.py&amp;#34;&lt;/span&gt;, line 149, in main
+    &lt;span style=&#34;color:#000&#34;&gt;pip_version&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; StrictVersion&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;check_output&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;([&lt;/span&gt;python, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;-m&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;pip&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;--version&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;])&lt;/span&gt;
+  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python2.7/subprocess.py&amp;#34;&lt;/span&gt;, line 544, in check_output
+    raise CalledProcessError&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;retcode, cmd, &lt;span style=&#34;color:#000&#34;&gt;output&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;output&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+subprocess.CalledProcessError: Command &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;[&amp;#39;&lt;/span&gt;/opt/eff.org/certbot/venv/bin/python&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;-m&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;pip&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;, &amp;#39;&lt;/span&gt;--version&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;]&amp;#39;&lt;/span&gt; returned non-zero &lt;span style=&#34;color:#204a87&#34;&gt;exit&lt;/span&gt; status &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以使用 &lt;code&gt;--no-self-upgrade&lt;/code&gt; 參數，讓 &lt;code&gt;certbot-auto&lt;/code&gt; 不要自動更新版本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;wget https://raw.githubusercontent.com/certbot/certbot/75499277be6699fd5a9b884837546391950a3ec9/certbot-auto
+chmod +x ./certbot-auto
+./certbot-auto --no-self-upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;執行-certbot-出現錯誤-another-instance-of-certbot-is-already-running&#34;&gt;執行 certbot 出現錯誤 &lt;code&gt;Another instance of Certbot is already running&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;在執行 certbot 時出錯錯誤的訊息&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Another instance of Certbot is already running&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Certbot 不正常關閉，導致原本的 &lt;code&gt;.certbot.lock&lt;/code&gt; 檔案還存在於主機中，此時可以透過下方指令找出 &lt;code&gt;.certbot.lock&lt;/code&gt; 檔案是否還存在&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;find / -type f -name &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;.certbot.lock&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;若檔案存在，則可以用下列指令移除所有 &lt;code&gt;.certbot.lock&lt;/code&gt; 檔案&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;find / -type f -name &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;.certbot.lock&amp;#34;&lt;/span&gt; -exec rm &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{}&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;移除後再次執行 certbot 就可以正常執行了&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ceos3c.com/open-source/install-certbot-ubuntu-16-04-auto-cert-renew/&#34;&gt;How to install Certbot on Ubuntu 16.04 (Auto Cert Renew!) - Ceos3c&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04#step-5-%E2%80%94-verifying-certbot-auto-renewal&#34;&gt;How To Secure Nginx with Let&amp;rsquo;s Encrypt on Ubuntu 16.04 | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://certbot.eff.org/docs/install.html&#34;&gt;Get Certbot — Certbot 0.25.0.dev0 documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04&#34;&gt;How To Secure Nginx with Let&amp;rsquo;s Encrypt on Ubuntu 16.04 | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-16-04&#34;&gt;How To Secure Apache with Let&amp;rsquo;s Encrypt on Ubuntu 16.04 | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ummjackson/mastodon-guide/issues/10&#34;&gt;SSL and nginx missing file: /etc/ssl/certs/dhparam.pem · Issue #10 · ummjackson/mastodon-guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@mhagemann/correct-way-to-delete-a-certbot-ssl-certificate-e8ee123e6e01&#34;&gt;Correct Way to Delete a Certbot SSL Certificate – Matthew Hagemann – Medium&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/certbot/certbot/issues/6824#issuecomment-470440436&#34;&gt;With 0.32.0, certbot-auto stopped working for some EOL distributions · Issue #6824 · certbot/certbot · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.vishalvyas.com/2019/02/another-instance-of-certbot-is-already.html&#34;&gt;Another instance of Certbot is already running - Solved - Linux guru&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Log</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/log/</link>
       <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
@@ -215,6 +298,86 @@ error_log /var/log/nginx/error.log&lt;span style=&#34;color:#000;font-weight:bol
     </item>
     
     <item>
+      <title>Docs: Vim</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/editor/vim/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/editor/vim/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;行數設定&#34;&gt;行數設定&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;設定行數&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; nu
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;取消設定行數&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; nonu
+&lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; nu!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;undo-and-redo&#34;&gt;Undo and Redo&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;th&gt;指令&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Undo&lt;/td&gt;
+&lt;td&gt;u&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Redo&lt;/td&gt;
+&lt;td&gt;ctrl+r&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;編碼&#34;&gt;編碼&lt;/h2&gt;
+&lt;p&gt;在 Vim 可能會出現文字出現亂碼的狀況，可以指定該文件的編碼，將亂碼資料轉換正確編碼&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;encoding&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;utf8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定 vim 預設編碼&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;setglobal &lt;span style=&#34;color:#000&#34;&gt;fileencoding&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;utf-8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;參考資料&#34;&gt;參考資料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://vim.fandom.com/wiki/Undo_and_Redo&#34;&gt;Undo and Redo | Vim Tips Wiki | Fandom&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/tips/vim-working-with-unicode/&#34;&gt;VIM 編輯器顯示萬國碼（Unicode）文字，解決亂碼問題 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 函式</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/shell/function/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/shell/function/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;shell-function-函式&#34;&gt;Shell Function 函式&lt;/h2&gt;
+&lt;h3 id=&#34;函式命名&#34;&gt;函式命名&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;function&lt;/span&gt; function_name &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+   command...
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;function_name &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+   command...
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;參數&#34;&gt;參數&lt;/h3&gt;
+&lt;p&gt;shell 使用 &lt;code&gt;$1&lt;/code&gt;、&lt;code&gt;$2&lt;/code&gt; 去接收參數資料&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;foo&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Parameter #1 is &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$1&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Parameter #1 is KJ&lt;/span&gt;
+foo KJ
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/6212219/passing-parameters-to-a-bash-function&#34;&gt;Passing parameters to a Bash function - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: 安裝最新 PHP</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/install/</link>
       <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
@@ -306,6 +469,27 @@ Codename:	xenial
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://help.ubuntu.com/community/CheckingYourUbuntuVersion&#34;&gt;CheckingYourUbuntuVersion - Community Help Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 網站</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/monitor/websites/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/monitor/websites/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;監控相關網站&#34;&gt;監控相關網站&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.hyperspin.com/zhtw/&#34;&gt;Hyperspin - Free Website Monitoring&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://uptimerobot.com/&#34;&gt;Uptime Robot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://uptimebutler.com/&#34;&gt;UptimeButler&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://webmon.com/&#34;&gt;Webmon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://monitority.com/&#34;&gt;Monitority&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -422,6 +606,43 @@ chsh -s /bin/zsh
 &lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/understanding-and-implementing-fastcgi-proxying-in-nginx&#34;&gt;Understanding and Implementing FastCGI Proxying in Nginx | DigitalOcean&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.nginx.com/resources/wiki/start/topics/examples/phpfcgi/&#34;&gt;PHP FastCGI Example | NGINX&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: NET::ERR_CERT_COMMON_NAME_INVALID</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/err-cert-common-name/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/err-cert-common-name/</guid>
+      <description>
+        
+        
+        &lt;p&gt;在設定使用 cloudflare 的憑證時，發生了 &lt;code&gt;NET::ERR_CERT_COMMON_NAME_INVALID&lt;/code&gt; 的錯誤訊息&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Your connection is not private
+Attackers might be trying to steal your information from xxx.yyy.kejyun.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; example, passwords, messages, or credit cards&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;. Learn more
+NET::ERR_CERT_COMMON_NAME_INVALID
+Subject: ssl368594.cloudflaressl.com
+
+Issuer: COMODO ECC Domain Validation Secure Server CA &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;
+
+Expires on: Jan 6, &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2020&lt;/span&gt;
+
+Current date: Oct 9, &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;
+
+PEM encoded chain:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;../images/cloudflare-err-cert-common-name-invalid.png&#34; alt=&#34;Cloudflare SSL&#34;&gt;&lt;/p&gt;
+&lt;p&gt;因為測試的關係，所以需要建立一台 &lt;code&gt;kj.test.kejyun.com&lt;/code&gt; 的網址連限制至後方主機，後方主機完全沒有經過 Cloudflare，是使用 Let&amp;rsquo;s Encrypt 取得可以正常使用的憑證，而 Let&amp;rsquo;s Encrypt 發送的憑證是給 &lt;code&gt;kj.test.kejyun.com&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;而之後要使用 Cloudflare 的憑證做測試，因為 Cloudflare 憑證的驗證方式是 &lt;code&gt;Full&lt;/code&gt; 的方式，所以 cloudflare 會驗證後方主機的憑證是否正常&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/cloudflare-cert-mode.png&#34; alt=&#34;Cloudflare SSL&#34;&gt;&lt;/p&gt;
+&lt;p&gt;但此時因為後方的主機憑證是配發給 &lt;code&gt;kj.test.kejyun.com&lt;/code&gt;，而 cloudflare 的憑證是配發給 &lt;code&gt;*.kejyun.com&lt;/code&gt;，所以 cloudflare 在驗證憑證時發生不匹配的狀況，所以才會出現 &lt;code&gt;NET::ERR_CERT_COMMON_NAME_INVALID&lt;/code&gt; 的錯誤訊息&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/cloudflare-origin-certificates.png&#34; alt=&#34;Cloudflare SSL&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;解決方式&#34;&gt;解決方式&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;上傳 &lt;code&gt;kj.test.kejyun.com&lt;/code&gt; 的憑證至 cloudflare&lt;/li&gt;
+&lt;li&gt;不要使用過多的子網域當作測試網址，可以使用 &lt;code&gt;kj.kejyun.com&lt;/code&gt; 當作測試網址即可通過憑證驗證&lt;/li&gt;
+&lt;/ol&gt;
 
       </description>
     </item>
@@ -784,6 +1005,47 @@ kejyun-host-name
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://computer.jges.mlc.edu.tw/index.php/ubuntu/112-ubuntu-14-04-%E8%A8%AD%E5%AE%9Ahostname&#34;&gt;ubuntu 14.04 設定hostname&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 更新憑證</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/certificate-verification-failed/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/certificate-verification-failed/</guid>
+      <description>
+        
+        
+        &lt;p&gt;在執行 curl 的時候，主機噴出 &lt;code&gt;server certificate verification failed. CAfile: /etc/ssl/certs/ca-certificates.crt&lt;/code&gt; 憑證過期的錯誤訊息，此時需要重新更新主機憑證資訊&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ curl https://www.google.com
+curl: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;60&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; server certificate verification failed. CAfile: /etc/ssl/certs/ca-certificates.crt CRLfile: none
+More details here: http://curl.haxx.se/docs/sslcerts.html
+
+curl performs SSL certificate verification by default, using a &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;bundle&amp;#34;&lt;/span&gt;
+ of Certificate Authority &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;CA&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; public keys &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;CA certs&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;. If the default
+ bundle file isn&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&lt;/span&gt;t adequate, you can specify an alternate file
+ using the --cacert option.
+If this HTTPS server uses a certificate signed by a CA represented in
+ the bundle, the certificate verification probably failed due to a
+ problem with the certificate &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;it might be expired, or the name might
+ not match the domain name in the URL&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;.
+If you&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&lt;/span&gt;d like to turn off curl&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&lt;/span&gt;s verification of the certificate, use
+ the -k &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;or --insecure&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; option.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;更新主機套件&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;因為主機套件沒有更新的話，抓取的憑證資料可能還會是舊的憑證，所以在更新憑證之前要先更新主機套件版本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;更新主機憑證&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;更新完主機套件後，就可以重新安裝憑證套件程式，讓主機抓取最新的憑證&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install --reinstall ca-certificates
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;若套件已是最新的，要直接更新憑證，可以使用下列指令直接更新即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo update-ca-certificates
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;參考資料&#34;&gt;參考資料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://hant-kb.kutu66.com/ssl-certificate/post_12157107&#34;&gt;服务器证书验证失败CAfile:/etc/ssl/certs/ca certificates.crt CRLfile: 无_ssl-certificate_酷徒编程知识库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://shazi.info/%E5%90%84%E7%B3%BB%E7%B5%B1%E6%9B%B4%E6%96%B0-ca-root%E6%A0%B9%E6%86%91%E8%AD%89%E7%9A%84%E6%96%B9%E6%B3%95/&#34;&gt;各系統更新 ca (root)根憑證的方法 – Mr. 沙先生&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -1322,6 +1584,19 @@ sudo service php7.1-fpm restart
     </item>
     
     <item>
+      <title>Docs: SSL</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: 網站</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/</link>
       <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
@@ -1411,6 +1686,19 @@ sudo dpkg-reconfigure locales
 &lt;li&gt;&lt;a href=&#34;https://serversforhackers.com/nginx-caching&#34;&gt;Nginx Caching - Servers for Hackers&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 監控</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/monitor/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/monitor/</guid>
+      <description>
+        
+        
+        
       </description>
     </item>
     
@@ -1729,6 +2017,24 @@ errors in crontab file, can&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&
     </item>
     
     <item>
+      <title>Docs: 日誌</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/log/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/log/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/391082/how-to-see-time-stamps-in-bash-history&#34;&gt;command line - How to see time stamps in bash history? - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://webplay.pro/linux/syslog-log-bash-history-every-user.html&#34;&gt;Syslog: log all bash history from every user - WebPlay - And let&amp;rsquo;s play&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: 安全</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/security/</link>
       <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
@@ -1763,6 +2069,19 @@ errors in crontab file, can&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&
 &lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/nginx-php-fpm-configuration-optimization/&#34;&gt;Nginx 與 PHP-FPM 最佳化效能設定教學與技巧 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 編輯器</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/editor/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/editor/</guid>
+      <description>
+        
+        
+        
       </description>
     </item>
     
@@ -1822,6 +2141,19 @@ Sep 25 15:54:33 ip-172-31-25-154 rc.local[793]: Deploy Done
     </item>
     
     <item>
+      <title>Docs: shell</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/shell/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/shell/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: 參數</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/parameter/</link>
       <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
@@ -1856,187 +2188,6 @@ Sep 25 15:54:33 ip-172-31-25-154 rc.local[793]: Deploy Done
 &lt;li&gt;&lt;a href=&#34;http://nginx.org/en/docs/http/ngx_http_proxy_module.html&#34;&gt;Module ngx_http_proxy_module&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://nginx.org/en/docs/http/ngx_http_fastcgi_module.html&#34;&gt;Module ngx_http_fastcgi_module&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/knowledgesea/p/5199046.html&#34;&gt;Nginx代理功能与负载均衡详解 - 张龙豪 - 博客园&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 同網站不同 root</title>
-      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/multiple-root/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
-      
-      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/multiple-root/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;nginx-multiple-root-同網站不同-root&#34;&gt;Nginx Multiple Root 同網站不同 Root&lt;/h2&gt;
-&lt;p&gt;在做網站改版的時候，可能因為專案太大而無法一次全部改版，所以希望能夠針對部分的 頁面或API 進行改版，然後慢慢的全部迭代改版完成，為了做到這樣的效果，可以透過 Nginx 指定不同的網址路徑，去執行不同的程式，這邊以 PHP Laravel Framework 為例。&lt;/p&gt;
-&lt;p&gt;由於舊專案是 &lt;code&gt;Laravel 4.2&lt;/code&gt; 但新專案是 &lt;code&gt;Laravel 5.5&lt;/code&gt;，程式改版過程中將改版完成的網址路徑導向至 &lt;code&gt;Laravel 5.5&lt;/code&gt;，但尚未完成改版的項目則還是繼續導向至 &lt;code&gt;Laravel 4.2&lt;/code&gt;，由 nginx 判斷請求路徑，去控制判斷要執行哪一部分的程式。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    listen 80&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    server_name _&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 預設使用 Laravel 5.5&lt;/span&gt;
-    root &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/deploy/laravel55/public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    charset utf-8&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    index index.htm index.html index.php&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    error_page &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;404&lt;/span&gt; /404.html&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$request_uri&lt;/span&gt; ~* &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;^(.*/)index\.php/*(.*)&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;301&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$1$2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-    location / &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-    location /elb-status &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; 200&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-    access_log /var/log/nginx/web-access.log cloudflare&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    error_log  /var/log/nginx/web-error.log error&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#000&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /robots.txt &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt; access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; log_not_found off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color:#000&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /favicon.ico &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt; access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; log_not_found off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-    location ~ ^/assets/ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        expires max&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        add_header Cache-Control public&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-
-    location ~ ^/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;api&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path1&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path2&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)(&lt;/span&gt;.*&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 指定舊網址，變更網站路徑為 Laravel 4&lt;/span&gt;
-        root &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/deploy/laravel4/current/public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Rewrite $uri=/api/v1/xyz back to just $uri=/xyz&lt;/span&gt;
-        rewrite ^&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;.*&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ /&lt;span style=&#34;color:#000&#34;&gt;$1&lt;/span&gt; break&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Try to send static file at $url or $uri/&lt;/span&gt;
-        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Else try /index.php (which will hit location ~\.php$ below)&lt;/span&gt;
-        try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-    location ~ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;^/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;/&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;$&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$newurl&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$request_uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 預設使用 php 7.1 fpm 執行&lt;/span&gt;
-
-        fastcgi_pass unix:/run/php/php7.1-fpm.sock&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$newurl&lt;/span&gt; ~ ^/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;api&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path1&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path2&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)(&lt;/span&gt;.*&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-            &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 變更網站路徑為 Laravel 4.2&lt;/span&gt;
-            root &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/deploy/laravel4/current/public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-            &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 舊網址使用 php 7.0 fpm 執行&lt;/span&gt;
-            fastcgi_pass unix:/run/php/php7.0-fpm.sock&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-        fastcgi_split_path_info ^&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;.+&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)(&lt;/span&gt;/.+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        fastcgi_index index.php&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        include fastcgi_params&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        fastcgi_param REQUEST_URI &lt;span style=&#34;color:#000&#34;&gt;$newurl&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        fastcgi_param SCRIPT_FILENAME &lt;span style=&#34;color:#000&#34;&gt;$document_root$fastcgi_script_name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        fastcgi_intercept_errors off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        fastcgi_buffer_size 16k&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        fastcgi_buffers &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; 16k&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-
-    proxy_intercept_errors on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    fastcgi_intercept_errors on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# gzip&lt;/span&gt;
-    gzip on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    gzip_min_length 1000&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    gzip_types  *&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    gzip_comp_level 3&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    gzip_proxied any&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    gzip_buffers &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 8k&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    gzip_http_version 1.1&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;預設是執行 &lt;code&gt;Laravel 5.5&lt;/code&gt;，而設定的例外路徑則是存取 &lt;code&gt;Laravel 4.2&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://gist.github.com/mreschke/27bfafb84add38d3bab8&#34;&gt;Nginx config for multiple laravel sites based on /api/v1 url paths&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html&#34;&gt;Setting up Django and your web server with uWSGI and nginx — uWSGI 2.0 documentation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_tw/elasticloadbalancing/latest/application/tutorial-load-balancer-routing.html&#34;&gt;教學課程：使用以路徑為基礎的路由與 Application Load Balancer 搭配使用 - Elastic Load Balancing&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/13999069/nginx-nodejs-php&#34;&gt;node.js - nginx + nodejs + php - Stack Overflow&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://unix.stackexchange.com/questions/134087/nginx-server-config-with-multiple-locations-does-not-work&#34;&gt;debian - nginx server config with multiple locations does not work - Unix &amp;amp; Linux Stack Exchange&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.hi-linux.com/posts/53878.html&#34;&gt;Nginx 的 try_files 指令使用实例 - 运维之美&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.51cto.com/10546390/1754757&#34;&gt;Nginx的try_files参数保证能懂的讲解-10536390-51CTO博客&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/35220769/nginx-changing-the-server-root-make-location-root-not-working&#34;&gt;Nginx - Changing the server root make location root not working - Stack Overflow&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/34082831/nginx-configuration-with-multiple-location-blocks?rq=1&#34;&gt;php - nginx configuration with multiple location blocks - Stack Overflow&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms&#34;&gt;Understanding Nginx Server and Location Block Selection Algorithms | DigitalOcean&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://gist.github.com/soheilhy/8b94347ff8336d971ad0&#34;&gt;How to proxy web apps using nginx? · GitHub&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.bluehat-lab.org/nginx-multiple-server-setting-with-single-ip/&#34;&gt;Nginx multiple server setting&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 除錯</title>
-      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/debug/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
-      
-      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/debug/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;回傳參數&#34;&gt;回傳參數&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;location ~ &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$document_root&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$request_uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;$args：get 參數（e.g. ?page=2）&lt;/li&gt;
-&lt;li&gt;$uri：網址路徑（e.g. /tag/laravel）&lt;/li&gt;
-&lt;li&gt;$document_root：網頁路徑（e.g. /var/web/laravel/public）&lt;/li&gt;
-&lt;li&gt;$request_uri：完整請求 URI（/tag/laravel?page=2）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;測試-site-enabled-設定&#34;&gt;測試 &lt;code&gt;site-enabled&lt;/code&gt; 設定&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;nginx -t
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;413-request-entity-too-large&#34;&gt;413 Request entity too large&lt;/h2&gt;
-&lt;p&gt;Nginx 預設檔案上傳大小為 100M，可以修改設定值提高上傳檔案大小&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/nginx/nginx.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打開 &lt;code&gt;nginx.conf&lt;/code&gt; 後，在 &lt;code&gt;http&lt;/code&gt; 設定值中加入 &lt;code&gt;client_max_body_size&lt;/code&gt; 並修改上傳檔案大小&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;若沒有此設定值可自行加入&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;http &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    client_max_body_size 100M&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;could-not-build-server_names_hash-you-should-increase-server_names_hash_bucket_size-64&#34;&gt;could not build server_names_hash, you should increase server_names_hash_bucket_size: 64&lt;/h2&gt;
-&lt;p&gt;在新增 Nginx 主機時，發現網址名稱有過長的問題&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ systemctl status nginx.service
-
-● nginx.service - A high performance web server and a reverse proxy server
-   Loaded: loaded &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;/lib/systemd/system/nginx.service&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; enabled&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; vendor preset: enabled&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-   Active: failed &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;Result: exit-code&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; since Thu 2019-03-07 08:28:21 UTC&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; 7s ago
-  Process: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9595&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ExecStop&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited, &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;0/SUCCESS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-  Process: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9827&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ExecStartPre&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/usr/sbin/nginx -t -q -g daemon on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; master_process on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited, &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;1/FAILURE&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
- Main PID: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31527&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited, &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;0/SUCCESS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-
-Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: Starting A high performance web server and a reverse proxy server...
-Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev nginx&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;9827&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;emerg&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; could not build server_names_hash, you should increase server_names_hash_bucket_size: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;64&lt;/span&gt;
-Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev nginx&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;9827&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx: configuration file /etc/nginx/nginx.conf &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt; failed
-Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx.service: Control process exited, &lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
-Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: Failed to start A high performance web server and a reverse proxy server.
-Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx.service: Unit entered failed state.
-Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx.service: Failed with result &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;exit-code&amp;#39;&lt;/span&gt;.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此時可以到 &lt;code&gt;/etc/nginx/nginx.conf&lt;/code&gt; 將 &lt;code&gt;server_names_hash_max_size&lt;/code&gt; 設定更高的數值&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server_names_hash_max_size 512&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-server_names_hash_max_size 1024&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定完後重新啟動 Nginx 就可以正常啟動了&lt;/p&gt;
-&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.phpini.com/linux/fix-nginx-error-413-request-entity-too-large&#34;&gt;解決 Nginx 錯誤: 413 Request entity too large&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://segmentfault.com/q/1010000004853184&#34;&gt;nginx配置server_names_hash_max_size放在什么地方？ - SegmentFault 思否&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>

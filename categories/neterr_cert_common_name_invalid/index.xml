@@ -1,0 +1,56 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – NET::ERR_CERT_COMMON_NAME_INVALID</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/categories/neterr_cert_common_name_invalid/</link>
+    <description>Recent content in NET::ERR_CERT_COMMON_NAME_INVALID on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/neterr_cert_common_name_invalid/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: NET::ERR_CERT_COMMON_NAME_INVALID</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/err-cert-common-name/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/err-cert-common-name/</guid>
+      <description>
+        
+        
+        &lt;p&gt;在設定使用 cloudflare 的憑證時，發生了 &lt;code&gt;NET::ERR_CERT_COMMON_NAME_INVALID&lt;/code&gt; 的錯誤訊息&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Your connection is not private
+Attackers might be trying to steal your information from xxx.yyy.kejyun.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; example, passwords, messages, or credit cards&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;. Learn more
+NET::ERR_CERT_COMMON_NAME_INVALID
+Subject: ssl368594.cloudflaressl.com
+
+Issuer: COMODO ECC Domain Validation Secure Server CA &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;
+
+Expires on: Jan 6, &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2020&lt;/span&gt;
+
+Current date: Oct 9, &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;
+
+PEM encoded chain:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;../images/cloudflare-err-cert-common-name-invalid.png&#34; alt=&#34;Cloudflare SSL&#34;&gt;&lt;/p&gt;
+&lt;p&gt;因為測試的關係，所以需要建立一台 &lt;code&gt;kj.test.kejyun.com&lt;/code&gt; 的網址連限制至後方主機，後方主機完全沒有經過 Cloudflare，是使用 Let&amp;rsquo;s Encrypt 取得可以正常使用的憑證，而 Let&amp;rsquo;s Encrypt 發送的憑證是給 &lt;code&gt;kj.test.kejyun.com&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;而之後要使用 Cloudflare 的憑證做測試，因為 Cloudflare 憑證的驗證方式是 &lt;code&gt;Full&lt;/code&gt; 的方式，所以 cloudflare 會驗證後方主機的憑證是否正常&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/cloudflare-cert-mode.png&#34; alt=&#34;Cloudflare SSL&#34;&gt;&lt;/p&gt;
+&lt;p&gt;但此時因為後方的主機憑證是配發給 &lt;code&gt;kj.test.kejyun.com&lt;/code&gt;，而 cloudflare 的憑證是配發給 &lt;code&gt;*.kejyun.com&lt;/code&gt;，所以 cloudflare 在驗證憑證時發生不匹配的狀況，所以才會出現 &lt;code&gt;NET::ERR_CERT_COMMON_NAME_INVALID&lt;/code&gt; 的錯誤訊息&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/cloudflare-origin-certificates.png&#34; alt=&#34;Cloudflare SSL&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;解決方式&#34;&gt;解決方式&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;上傳 &lt;code&gt;kj.test.kejyun.com&lt;/code&gt; 的憑證至 cloudflare&lt;/li&gt;
+&lt;li&gt;不要使用過多的子網域當作測試網址，可以使用 &lt;code&gt;kj.kejyun.com&lt;/code&gt; 當作測試網址即可通過憑證驗證&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
