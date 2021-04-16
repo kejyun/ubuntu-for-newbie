@@ -1,0 +1,100 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – schedule</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/schedule/</link>
+    <description>Recent content in schedule on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/schedule/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 排程</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/crontab-schedule/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/crontab-schedule/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;進入排程設定檔案&#34;&gt;進入排程設定檔案&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;sudo crontab -l
+sudo crontab -e
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;排程格式&#34;&gt;排程格式&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;* * * * * /bin/execute/this/script.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;*&lt;/code&gt; 位置代表意義&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;位置（由左至右）&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;th&gt;範圍&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;分鐘&lt;/td&gt;
+&lt;td&gt;0-59&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;小時&lt;/td&gt;
+&lt;td&gt;0-23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;每月第幾天&lt;/td&gt;
+&lt;td&gt;1-31&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;第幾個月&lt;/td&gt;
+&lt;td&gt;1-12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;星期幾&lt;/td&gt;
+&lt;td&gt;0-6，0: 禮拜日&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;*&lt;/code&gt; 代表每次條件都符合&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;特殊字元&#34;&gt;特殊字元&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;@reboot     開機後執行一次
+@yearly     一年執行一次           &amp;quot;0 0 1 1 *&amp;quot;
+@annually   (與 @yearly 功能相同)
+@monthly    一個月執行一次         &amp;quot;0 0 1 * *&amp;quot;
+@weekly     一週執行一次           &amp;quot;0 0 * * 0&amp;quot;
+@daily      一天執行一次           &amp;quot;0 0 * * *&amp;quot;
+@midnight   (與 @daily 功能相同)
+@hourly     一小時執行一次         &amp;quot;0 * * * *&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;將執行的結果丟到垃圾桶不顯示&#34;&gt;將執行的結果丟到垃圾桶不顯示&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;*/10 * * * * /bin/execute/this/script.sh &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;測試-crontab&#34;&gt;測試 crontab&lt;/h2&gt;
+&lt;p&gt;直接執行 &lt;code&gt;crontab&lt;/code&gt; 指令就可以知道 crontab 是否有設定正確&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;crontab path/to/crontab/file
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果有錯誤的狀況發生就會顯示相關的錯誤訊息&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/etc/crontab&amp;#34;&lt;/span&gt;:165: bad day-of-month
+errors in crontab file, can&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&lt;/span&gt;t install.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;參考資料&#34;&gt;參考資料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://kvz.io/schedule-tasks-on-linux-using-crontab.html&#34;&gt;Schedule Tasks on Linux Using Crontab | kvz.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://crontab.guru/#&#34;&gt;Crontab.guru - The cron schedule expression editor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://serverfault.com/questions/43733/is-there-a-way-to-validate-etc-crontab-s-format&#34;&gt;cron - Is there a way to validate /etc/crontab’s format? - Server Fault&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

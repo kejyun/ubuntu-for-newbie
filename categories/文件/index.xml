@@ -1,0 +1,791 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – 文件</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/categories/%E6%96%87%E4%BB%B6/</link>
+    <description>Recent content in 文件 on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/%E6%96%87%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 教學文件</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: grep</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/grep/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/grep/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;計算行數&#34;&gt;計算行數&lt;/h2&gt;
+&lt;p&gt;加入 &lt;code&gt;-c&lt;/code&gt; 參數即可顯示行數&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;cat * &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; grep -c
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;參考資料&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/371115/count-all-occurrences-of-a-string-in-lots-of-files-with-grep&#34;&gt;Count all occurrences of a string in lots of files with grep - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;搜尋目錄下指定字串&#34;&gt;搜尋目錄下指定字串&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;grep -r &amp;quot;[STRING TO SEARCH FOR]&amp;quot; &amp;quot;[DIRECTORY TO SEARCH]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;grep -r &amp;quot;search text&amp;quot; &amp;quot;/tmp/search/folder&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/462276/how-to-find-a-word-in-text-files-from-a-directory&#34;&gt;command line - how to find a word in text files from a directory - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: rsync</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/rsync/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/rsync/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;參數說明&#34;&gt;參數說明&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;參數&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;progress&lt;/td&gt;
+&lt;td&gt;顯示同步進度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;delete&lt;/td&gt;
+&lt;td&gt;刪除存在於目的端，但不存在於來源端的檔案&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;exclude-from&lt;/td&gt;
+&lt;td&gt;排除指定檔案不要刪除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-a&lt;/td&gt;
+&lt;td&gt;遞迴備份所有子目錄下的目錄與檔案，保留連結檔、檔案的擁有者、群組、權限以及時間戳記&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-v&lt;/td&gt;
+&lt;td&gt;顯示詳細同步的資訊&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-h&lt;/td&gt;
+&lt;td&gt;數字以比較容易閱讀的格式輸出&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;--exclude-from&#34;&gt;&amp;ndash;exclude-from&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;rsync --delete --exclude-from ./rsyn_exclusion_file
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/rsync-local-remote-file-synchronization-commands/&#34;&gt;Linux 使用 rsync 遠端檔案同步與備份工具教學與範例 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.xuite.net/jyoutw/xtech/20025390-rsync%E5%8F%83%E6%95%B8%E8%A9%B3%E8%A7%A3--20100209&#34;&gt;rsync參數詳解&amp;ndash;20100209 @ 暉獲無度的步烙閣 :: 隨意窩 Xuite日誌&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: tar</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/tar/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/tar/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://idobest.pixnet.net/blog/post/22040782-%5B%E8%BD%89%E8%B2%BC%5D-linux%E8%A7%A3%E5%A3%93-tar-%E5%91%BD%E4%BB%A4&#34;&gt;linux解壓 tar 命令 @ 胖虎的祕密基地 :: 痞客邦 ::&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://manpages.ubuntu.com/manpages/bionic/man1/tar.1.html&#34;&gt;Ubuntu Manpage: tar - an archiving utility&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/urbetter/archive/2010/09/07/1820466.html&#34;&gt;Ubuntu&amp;ndash;tar命令 - Sturtle - 博客园&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 系統</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;查詢-ubuntu-版本&#34;&gt;查詢 ubuntu 版本&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsb_release -a
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 16.04.2 LTS
+Release:	16.04
+Codename:	xenial
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://help.ubuntu.com/community/CheckingYourUbuntuVersion&#34;&gt;CheckingYourUbuntuVersion - Community Help Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 群組</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/privilege/group/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/privilege/group/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;建立群組-groupadd&#34;&gt;建立群組 groupadd&lt;/h2&gt;
+&lt;p&gt;建立一個全新的系統群組，可以透過群組統一控制使用者權限&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;groupadd &amp;lt;group-name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;查詢使用者群組&#34;&gt;查詢使用者群組&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;groups user1
+user1 : &amp;lt;other-groups&amp;gt; www-data
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;getent group www-data
+www-data:x:33:kejyun,group1
+
+getent group www-data  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; awk -F: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{print $4}&amp;#39;&lt;/span&gt;
+kejyun,group1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;將使用者加入群組&#34;&gt;將使用者加入群組&lt;/h2&gt;
+&lt;h3 id=&#34;指令加入群組&#34;&gt;指令加入群組&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo adduser &lt;span style=&#34;color:#000&#34;&gt;$USER&lt;/span&gt; www-data
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;編輯群組檔案&#34;&gt;編輯群組檔案&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/group
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在每個群組最後面加入相關的使用者，並用逗號隔開&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;www-data:x:33:kejyun,group1,group2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;將使用者加入-sudo-root&#34;&gt;將使用者加入 sudo root&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo adduser 帳號名稱 sudo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;變更檔案群組&#34;&gt;變更檔案群組&lt;/h2&gt;
+&lt;p&gt;除了 &lt;code&gt;root&lt;/code&gt; 使用者外，沒有人可以將擁有者變更為其他使用者，所以若要變更檔案擁有者的話，必須加上 &lt;code&gt;sudo&lt;/code&gt; 權限&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Non-privileged users (not root) cannot chown files to other user names. To use chown, a user must have the privileges of the target user. In other words, only root can give a file to another user.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;sudo chown -R root:root ./folder
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://superuser.com/questions/697608/chown-operation-not-permitted&#34;&gt;linux - chown - Operation not permitted - Super User&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 輔助</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/software/help/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/software/help/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;自動完成指令-bash-auto-completion&#34;&gt;自動完成指令 Bash auto completion&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;安裝&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt update
+sudo apt install bash-completion
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;測試&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;cat /etc/profile.d/bash_completion.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;載入&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;## source it from ~/.bashrc or ~/.bash_profile ##&lt;/span&gt;
+&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;source /etc/profile.d/bash_completion.sh&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;## Another example Check and load it from ~/.bashrc or ~/.bash_profile ##&lt;/span&gt;
+grep -wq &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;^source /etc/profile.d/bash_completion.sh&amp;#39;&lt;/span&gt; ~/.bashrc &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;source /etc/profile.d/bash_completion.sh&amp;#39;&lt;/span&gt;&amp;gt;&amp;gt;~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;source /etc/profile.d/bash_completion.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;變更-bash&#34;&gt;變更 Bash&lt;/h2&gt;
+&lt;p&gt;找出目前 shell&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$SHELL&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;變更 shell&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;chsh -s /bin/bash
+chsh -s /bin/zsh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cyberciti.biz/faq/add-bash-auto-completion-in-ubuntu-linux/&#34;&gt;How to add bash auto completion in Ubuntu Linux - nixCraft&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 兩階段驗證 2FA</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/privilege/two-factor-authentication/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/privilege/two-factor-authentication/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.makeuseof.com/tag/secure-linux-ubuntu-two-factor-authentication/&#34;&gt;How to Secure Linux Ubuntu With Two-Factor Authentication&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 時間</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/date/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/date/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;時區設定&#34;&gt;時區設定&lt;/h2&gt;
+&lt;h3 id=&#34;依選項選擇你在的時區&#34;&gt;依選項選擇你在的時區&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo tzselect
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;更換時區檔&#34;&gt;更換時區檔&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;對時&#34;&gt;對時&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install ntpdate
+sudo ntpdate time.stdtime.gov.tw
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;時間寫入-bios&#34;&gt;時間寫入 BIOS&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo hwclock -w
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;每日對時&#34;&gt;每日對時&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo crontab -e
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;cronjob&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; * * *  /usr/sbin/ntpdate time.stdtime.gov.tw &amp;gt; /dev/null
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;若 ntpdate 路徑與我不太一樣，可以使用 &lt;code&gt;which ntpdate&lt;/code&gt; 去查看看您的真實路徑為何&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;usrsharezoneinfoiso3166tab-no-such-file-or-directory&#34;&gt;/usr/share/zoneinfo/iso3166.tab: No such file or directory&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo tzselect
+/usr/bin/tzselect: line 180: /usr/share/zoneinfo/iso3166.tab: No such file or directory
+/usr/bin/tzselect: time zone files are not set up correctly
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;若在設定時區時出現 &lt;code&gt;/usr/share/zoneinfo/iso3166.tab: No such file or directory&lt;/code&gt; 問題，可以重新安裝時區套件即可解決&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install tzdata
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://philipatswarchy.wordpress.com/2007/03/19/ubuntu-change-time-zone/&#34;&gt;[Ubuntu]Ubuntu 更改時區 | Philip@Swarchy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://forums.debian.net/viewtopic.php?t=15348&#34;&gt;Debian User Forums • View topic - Setting time zone&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 軟體</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/software/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/software/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;add-apt-repository-指令找不到&#34;&gt;add-apt-repository 指令找不到&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo: add-apt-repository: &lt;span style=&#34;color:#204a87&#34;&gt;command&lt;/span&gt; not found
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在出現上述指令找不到時，可以安裝下列套件，就可以找到這個指令了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install software-properties-common
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;gpg-error-httpsdlyarnpkgcomdebian-stable-inrelease-no_pubkey-e074d16eb6ff4de3&#34;&gt;GPG error: &lt;a href=&#34;https://dl.yarnpkg.com/debian&#34;&gt;https://dl.yarnpkg.com/debian&lt;/a&gt; stable InRelease NO_PUBKEY E074D16EB6FF4DE3&lt;/h2&gt;
+&lt;p&gt;在執行 &lt;code&gt;sudo apt-get update&lt;/code&gt; 時，出現 &lt;code&gt;NO_PUBKEY&lt;/code&gt; 的錯誤訊息&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get update
+Hit:1 https://deb.nodesource.com/node_8.x xenial InRelease
+Hit:3 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu xenial InRelease
+Get:4 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu xenial-updates InRelease [109 kB]
+Get:5 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu xenial-backports InRelease [107 kB]
+Err:2 https://dl.yarnpkg.com/debian stable InRelease
+  The following signatures couldn&#39;t be verified because the public key is not available: NO_PUBKEY 23E7166788B63E1E
+Get:6 http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [957 kB]
+Get:7 http://security.ubuntu.com/ubuntu xenial-security InRelease [109 kB]
+Hit:8 http://ppa.launchpad.net/certbot/certbot/ubuntu xenial InRelease
+Hit:9 http://ppa.launchpad.net/chris-lea/redis-server/ubuntu xenial InRelease
+Hit:10 http://ppa.launchpad.net/ondrej/php/ubuntu xenial InRelease
+Fetched 1282 kB in 1s (744 kB/s)
+Reading package lists... Done
+W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. GPG error: https://dl.yarnpkg.com/debian stable InRelease: The following signatures couldn&#39;t be verified because the public key is not available: NO_PUBKEY 23E7166788B63E1E
+W: Failed to fetch https://dl.yarnpkg.com/debian/dists/stable/InRelease  The following signatures couldn&#39;t be verified because the public key is not available: NO_PUBKEY 23E7166788B63E1E
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;執行更新 key 即可修復這個問題&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;列出所有已安裝套件&#34;&gt;列出所有已安裝套件&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt list --installed
+sudo apt list --installed | less
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;強制安裝套件略過-cli-詢問是否安裝&#34;&gt;強制安裝套件，略過 cli 詢問是否安裝&lt;/h2&gt;
+&lt;p&gt;在安裝套件時，常常會遇到 cli 需要詢問是否繼續安裝，像是：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get install php7.2-xml
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  libzip4 php7.2-bcmath php7.2-cli php7.2-common php7.2-curl php7.2-dev php7.2-fpm php7.2-gd php7.2-gmp php7.2-imap php7.2-intl php7.2-json php7.2-ldap php7.2-mbstring php7.2-mysql php7.2-opcache php7.2-pgsql php7.2-readline php7.2-soap php7.2-sqlite3 php7.2-zip
+Suggested packages:
+  dh-php
+The following packages will be upgraded:
+  libzip4 php7.2-bcmath php7.2-cli php7.2-common php7.2-curl php7.2-dev php7.2-fpm php7.2-gd php7.2-gmp php7.2-imap php7.2-intl php7.2-json php7.2-ldap php7.2-mbstring php7.2-mysql php7.2-opcache php7.2-pgsql php7.2-readline php7.2-soap php7.2-sqlite3 php7.2-xml
+  php7.2-zip
+22 upgraded, 0 newly installed, 0 to remove and 405 not upgraded.
+Need to get 5,739 kB of archives.
+After this operation, 64.5 kB of additional disk space will be used.
+Do you want to continue? [Y/n]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果要跳過詢問的話，可以在參數加入 &lt;code&gt;-y&lt;/code&gt;，這樣就可以跳過被詢問的步驟直接安裝&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install -y php7.2-xml
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;-y, &amp;ndash;yes, &amp;ndash;assume-yes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Automatic yes to prompts; assume &amp;ldquo;yes&amp;rdquo; as answer to all prompts and
+run non-interactively. If an undesirable situation, such as
+changing a held package, trying to install a unauthenticated
+package or removing an essential package occurs then apt-get will
+abort. Configuration Item: APT::Get::Assume-Yes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yarnpkg/yarn/issues/4453&#34;&gt;GPG error: https://dl.yarnpkg.com/debian stable InRelease NO_PUBKEY E074D16EB6FF4DE3 · Issue #4453 · yarnpkg/yarn · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://linuxize.com/post/how-to-list-installed-packages-on-ubuntu/&#34;&gt;How to List Installed Packages on Ubuntu | Linuxize&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Sudo 權限免密碼</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/privilege/sudo-no-passowrd/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/privilege/sudo-no-passowrd/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;所有-sudo-免輸入密碼&#34;&gt;所有 Sudo 免輸入密碼&lt;/h2&gt;
+&lt;p&gt;編輯 &lt;code&gt;/etc/sudoers&lt;/code&gt; 檔案可以修改 Sudoer 權限&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/sudoers
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;將下列設定加上 &lt;code&gt;NOPASSWD&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 原始&lt;/span&gt;
+%sudo   &lt;span style=&#34;color:#000&#34;&gt;ALL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=(&lt;/span&gt;ALL:ALL&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; ALL
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 修改後&lt;/span&gt;
+%sudo   &lt;span style=&#34;color:#000&#34;&gt;ALL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=(&lt;/span&gt;ALL:ALL&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; NOPASSWD:ALL
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;指定帳號不需要輸入-sudo-密碼&#34;&gt;指定帳號不需要輸入 Sudo 密碼&lt;/h2&gt;
+&lt;p&gt;將所有擁有 Sudo 權限都設定不用密碼會有系統的安全性，所以可以指定特定帳號才能不用輸入密碼&lt;/p&gt;
+&lt;p&gt;所以可以在最前方不用密碼的條件設定為指定帳號&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;lt;帳號名稱&amp;gt; ALL=(ALL) NOPASSWD: ALL&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;同樣編輯 &lt;code&gt;/etc/sudoers&lt;/code&gt; 檔案，在最下方加入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# File: /etc/sudoers&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#includedir /etc/sudoers.d&lt;/span&gt;
+
+&amp;lt;帳號名稱&amp;gt; &lt;span style=&#34;color:#000&#34;&gt;ALL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=(&lt;/span&gt;ALL&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; NOPASSWD: ALL
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;指定群組不需要輸入-sudo-密碼&#34;&gt;指定群組不需要輸入 Sudo 密碼&lt;/h2&gt;
+&lt;p&gt;若有很多帳號不需要輸入 Sudo 密碼，要一筆一筆設定會很累&lt;/p&gt;
+&lt;p&gt;所以可以指定使用者群組可以不需要輸入密碼，這樣只需要將使用者加入該群組就有這樣的權限了，這樣只需要統一管理群組名單就可以了&lt;/p&gt;
+&lt;h3 id=&#34;建立不需要輸入-sudo-帳號的群組&#34;&gt;建立不需要輸入 Sudo 帳號的群組&lt;/h3&gt;
+&lt;p&gt;假設建立的群組名稱為 &lt;code&gt;sudoers-no-password-group&lt;/code&gt;，可以使用下列指令建立群組&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;groupadd sudoers-no-password-group
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;設定群組不需要輸入-sudo-密碼&#34;&gt;設定群組不需要輸入 Sudo 密碼&lt;/h3&gt;
+&lt;p&gt;接下來編輯 &lt;code&gt;/etc/sudoers&lt;/code&gt; 檔案，在最下方加入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# File: /etc/sudoers&lt;/span&gt;
+%sudoers-no-password-group &lt;span style=&#34;color:#000&#34;&gt;ALL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=(&lt;/span&gt;ALL:ALL&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; NOPASSWD:ALL
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;使用者加入免輸入密碼群組&#34;&gt;使用者加入免輸入密碼群組&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo adduser &amp;lt;使用者帳號&amp;gt; &amp;lt;免密碼使用者群組&amp;gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo adduser kejyun sudoers-no-password-group
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;加入完成後，僅需要將使用者加入此群組，在群組的使用者就可以不用輸入密碼就有 Sudo 權限了&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/147241/execute-sudo-without-password&#34;&gt;command line - Execute sudo without Password? - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 主機名稱 hostname</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/hostname/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/hostname/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;查詢主機名稱&#34;&gt;查詢主機名稱&lt;/h2&gt;
+&lt;p&gt;直接在命令列輸入 &lt;code&gt;hostname&lt;/code&gt; 就可以看到目前的主機名稱&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;hostname
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;變更主機-hostname&#34;&gt;變更主機 hostname&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1. 修改主機名稱&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用編輯器修改 &lt;code&gt;/etc/hostname&lt;/code&gt; 檔案，將 hostname 改為您要呈現的主機名稱&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/hostname
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修正完的 hostname 會長這樣&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /etc/hostname&lt;/span&gt;
+kejyun-host-name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;2. 加入主機名稱對應 ip&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在修改主機名稱後，因為有些服務 IP 是對應到舊的主機名稱，所以新的名稱需要自行指定到本機 &lt;code&gt;127.0.0.1&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/hosts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /etc/hosts&lt;/span&gt;
+127.0.0.1 kejyun-host-name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;3. 強制更改主機名稱&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;修改完成後，可以下指令強制更新主機名稱，然後再重新登入就可以看到主機名稱已經被修改了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo hostname -F /etc/hostname
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kj@kejyun-host-name:~$
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://computer.jges.mlc.edu.tw/index.php/ubuntu/112-ubuntu-14-04-%E8%A8%AD%E5%AE%9Ahostname&#34;&gt;ubuntu 14.04 設定hostname&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 權限</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/privilege/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/privilege/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;變更密碼&#34;&gt;變更密碼&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;變更指定使用者密碼&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo passwd USERNAME
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;&lt;strong&gt;變更目前使用者密碼&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo passwd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;&lt;strong&gt;變更自己帳號密碼&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;passwd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;刪除使用者&#34;&gt;刪除使用者&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo deluser USERNAME
+sudo deluser --remove-home USERNAME
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-add-and-delete-users-on-ubuntu-16-04&#34;&gt;How to Add and Delete Users on Ubuntu 16.04 | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 指令</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;指令結果不要輸出&#34;&gt;指令結果不要輸出&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&amp;gt;/dev/null 2&amp;gt;&amp;amp;1&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;/dev/null：空文件&lt;/li&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;：代表重新導向到哪里，例如：echo &amp;ldquo;123&amp;rdquo; &amp;gt; /home/123.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;1：表示 stdout 標準輸出，系統預設值是1，所以 &lt;code&gt;&amp;gt;/dev/null&lt;/code&gt; 等同於 &lt;code&gt;1&amp;gt;/dev/null&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;2：表示 stderr 標準錯誤&lt;/li&gt;
+&lt;li&gt;&amp;amp;：表示等同於的意思，2&amp;gt;&amp;amp;1，表示 2 的輸出重新導向等同於1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;renice -20 &lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;cat /home/yoursrcdspath/srcds.pid&lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt; &amp;gt;/dev/null 2&amp;gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;global-bash-profile&#34;&gt;global bash profile&lt;/h2&gt;
+&lt;p&gt;在 &lt;code&gt;/etc/profile&lt;/code&gt; 設定的指令，所有使用者都可以使用&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo vim /etc/profile
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/ithomer/article/details/9288353&#34;&gt;Linux Shell 1&amp;gt;/dev/null 2&amp;gt;&amp;amp;1 含义 - CSDN博客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ibookmen.blogspot.com/2010/11/unix-2.html&#34;&gt;孤島日誌: Unix 重新導向跟 2&amp;gt;&amp;amp;1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 虛擬記憶體（SWAP）</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/virtual-memory/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/virtual-memory/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;確認記憶體使用狀況&#34;&gt;確認記憶體使用狀況&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;free -m
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ free -m
+              total        used        free      shared  buff/cache   available
+Mem:            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;990&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;164&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;197&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;38&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;628&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;584&lt;/span&gt;
+Swap:             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+
+$ free -m
+             total       used       free     shared    buffers     cached
+Mem:           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;992&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;867&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;125&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;20&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;63&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;516&lt;/span&gt;
+-/+ buffers/cache:        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;287&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;704&lt;/span&gt;
+Swap:         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1023&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1023&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;設定-swap-file&#34;&gt;設定 Swap File&lt;/h2&gt;
+&lt;p&gt;設定 4G 的 SWAP 檔案&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo -s
+&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /var
+fallocate -l 4G swapfile.1
+chmod &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;600&lt;/span&gt; swapfile.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定此檔案只能被 root 讀寫，以防安全性問題&lt;/p&gt;
+&lt;h2 id=&#34;啟用-swap&#34;&gt;啟用 SWAP&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;mkswap /var/swapfile.1
+swapon /var/swapfile.1
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;查詢目前-swap-路徑&#34;&gt;查詢目前 SWAP 路徑&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ swapon -s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ swapon -s
+Filename				Type		Size	Used	Priority
+/var/swapfile.1                        	file    	4194300	0	-1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;讓-swap-file-重開機後也能自動啟動&#34;&gt;讓 Swap file 重開機後也能自動啟動&lt;/h2&gt;
+&lt;p&gt;請確認您的 swap 檔案路徑為 &lt;code&gt;/var/swapfile.1&lt;/code&gt;，如果有自定義其他 swap 檔案名稱，請將 swap 檔案路徑改為您的路徑，否則會導致無法開機&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/var/swapfile.1    none    swap    sw    0    0&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; /etc/fstab
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;使用-htop-監控記憶體使用狀況&#34;&gt;使用 htop 監控記憶體使用狀況&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install htop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;設定-swappiness-調整-swap-使用優先權&#34;&gt;設定 swappiness 調整 swap 使用優先權&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;swappiness&lt;/code&gt; 數值介於 0~100，越接近 100 則系統越常使用 swap，越接近 0 則系統會越常使用 RAM，預設為 60，為了系統效能，可以盡量將此設定值調低&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;查詢 swappiness&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat /proc/sys/vm/swappiness
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;設定 swappiness&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sysctl vm.swappiness=10
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;設定重新開機時 swappiness 數值&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;vm.swappiness = 10&amp;quot; &amp;gt;&amp;gt; /etc/sysctl.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://fonger.logdown.com/posts/2015/02/01/setting-swap-for-ubuntu-to-solve-out-of-memory&#34;&gt;在 Ubuntu VPS 上設定虛擬記憶體 (Swap) 來解決RAM不夠用的問題 « 峰哥的技術日誌&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/159783/how-do-i-find-out-if-i-have-a-swap-partition-on-my-hard-drive&#34;&gt;memory - How do I find out if I have a swap partition on my hard drive? - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 語系</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/language/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/language/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;解決語系-perl-warning-falling-back-to-the-standard-locale-c-錯誤訊息&#34;&gt;解決語系 &lt;code&gt;perl: warning: Falling back to the standard locale (&amp;quot;C&amp;quot;).&lt;/code&gt; 錯誤訊息&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	&lt;span style=&#34;color:#000&#34;&gt;LANGUAGE&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;unset&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;,
+	&lt;span style=&#34;color:#000&#34;&gt;LC_ALL&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;unset&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;,
+	&lt;span style=&#34;color:#000&#34;&gt;LC_CTYPE&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;UTF-8&amp;#34;&lt;/span&gt;,
+	&lt;span style=&#34;color:#000&#34;&gt;LANG&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;en_US.UTF-8&amp;#34;&lt;/span&gt;
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;C&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在命令列輸入下列指令即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;LANGUAGE&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;en_US.UTF-8
+&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;LANG&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;en_US.UTF-8
+&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;LC_ALL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;en_US.UTF-8
+locale-gen en_US.UTF-8
+sudo dpkg-reconfigure locales
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/panchicore/1269109&#34;&gt;solve perl: warning: Setting locale failed. · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 硬碟空間</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/hard-drive/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/hard-drive/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;查詢硬碟使用狀況&#34;&gt;查詢硬碟使用狀況&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;df -h
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;查詢資料夾所佔硬碟空間&#34;&gt;查詢資料夾所佔硬碟空間&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;sudo du -hs {查詢目錄}
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;sudo du -hs /home/web/laravel/*
+2.6M	/home/web/laravel/app
+4.0K	/home/web/laravel/artisan
+36K     /home/web/laravel/bootstrap
+4.0K	/home/web/laravel/bower.json
+4.0K	/home/web/laravel/composer.json
+196K	/home/web/laravel/composer.lock
+124K	/home/web/laravel/config
+132K	/home/web/laravel/database
+4.0K	/home/web/laravel/package.json
+4.0K	/home/web/laravel/phpunit.xml
+7.7G	/home/web/laravel/public
+4.0K	/home/web/laravel/readme.md
+1.6M	/home/web/laravel/resources
+276K	/home/web/laravel/routes
+4.0K	/home/web/laravel/server.php
+827M	/home/web/laravel/storage
+28K     /home/web/laravel/tests
+64M     /home/web/laravel/vendor
+4.0K	/home/web/laravel/webpack.mix.js
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;列出路徑下檔案空間使用-mb&#34;&gt;列出路徑下檔案空間，使用 MB&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;ls -al --block-size=M
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10160087&#34;&gt;Day 15 ubuntu 查詢硬碟使用量df指令 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10160234&#34;&gt;Day 16 ubuntu 查詢檔案或目錄的磁碟使用空間du指令 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/linux-df-command-check-disk-space-usage-tutorial-script-example/&#34;&gt;Linux 檢查硬碟使用量 df 指令教學與指令稿範例 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 排程</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/crontab-schedule/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/crontab-schedule/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;進入排程設定檔案&#34;&gt;進入排程設定檔案&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;sudo crontab -l
+sudo crontab -e
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;排程格式&#34;&gt;排程格式&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;* * * * * /bin/execute/this/script.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;*&lt;/code&gt; 位置代表意義&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;位置（由左至右）&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;th&gt;範圍&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;分鐘&lt;/td&gt;
+&lt;td&gt;0-59&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;小時&lt;/td&gt;
+&lt;td&gt;0-23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;每月第幾天&lt;/td&gt;
+&lt;td&gt;1-31&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;第幾個月&lt;/td&gt;
+&lt;td&gt;1-12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;星期幾&lt;/td&gt;
+&lt;td&gt;0-6，0: 禮拜日&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;*&lt;/code&gt; 代表每次條件都符合&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;特殊字元&#34;&gt;特殊字元&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;@reboot     開機後執行一次
+@yearly     一年執行一次           &amp;quot;0 0 1 1 *&amp;quot;
+@annually   (與 @yearly 功能相同)
+@monthly    一個月執行一次         &amp;quot;0 0 1 * *&amp;quot;
+@weekly     一週執行一次           &amp;quot;0 0 * * 0&amp;quot;
+@daily      一天執行一次           &amp;quot;0 0 * * *&amp;quot;
+@midnight   (與 @daily 功能相同)
+@hourly     一小時執行一次         &amp;quot;0 * * * *&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;將執行的結果丟到垃圾桶不顯示&#34;&gt;將執行的結果丟到垃圾桶不顯示&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;*/10 * * * * /bin/execute/this/script.sh &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;測試-crontab&#34;&gt;測試 crontab&lt;/h2&gt;
+&lt;p&gt;直接執行 &lt;code&gt;crontab&lt;/code&gt; 指令就可以知道 crontab 是否有設定正確&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;crontab path/to/crontab/file
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果有錯誤的狀況發生就會顯示相關的錯誤訊息&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/etc/crontab&amp;#34;&lt;/span&gt;:165: bad day-of-month
+errors in crontab file, can&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&lt;/span&gt;t install.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;參考資料&#34;&gt;參考資料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://kvz.io/schedule-tasks-on-linux-using-crontab.html&#34;&gt;Schedule Tasks on Linux Using Crontab | kvz.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://crontab.guru/#&#34;&gt;Crontab.guru - The cron schedule expression editor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://serverfault.com/questions/43733/is-there-a-way-to-validate-etc-crontab-s-format&#34;&gt;cron - Is there a way to validate /etc/crontab’s format? - Server Fault&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 開機自動執行</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/boot-auto-execute/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/boot-auto-execute/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;開機自動執行指定程式&#34;&gt;開機自動執行指定程式&lt;/h2&gt;
+&lt;p&gt;將開機需要執行的指定程式寫入 &lt;code&gt;/etc/rc.local&lt;/code&gt; 即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#!/bin/sh -e
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# rc.local&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# This script is executed at the end of each multiuser runlevel.&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Make sure that the script will &amp;#34;exit 0&amp;#34; on success or any other&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# value on error.&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# In order to enable or disable this script just change the execution&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# bits.&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# By default this script does nothing.&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 開機自動啟動&lt;/span&gt;
+bash /home/ubuntu/scripts/boot.sh &amp;gt; /dev/null 2&amp;gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 自動部署程式&lt;/span&gt;
+bash /home/ubuntu/scripts/deploy.sh &amp;gt; /dev/null 2&amp;gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;輸入下列指令可以檢查目前這個服務執行的狀態&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;systemctl status rc.local.service
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;$ systemctl status rc.local.service
+● rc-local.service - /etc/rc.local Compatibility
+   Loaded: loaded (/lib/systemd/system/rc-local.service; enabled-runtime; vendor preset: enabled)
+  Drop-In: /lib/systemd/system/rc-local.service.d
+           └─debian.conf
+   Active: active (exited) since Wed 2019-09-25 15:52:07 CST; 33min ago
+     Docs: man:systemd-rc-local-generator(8)
+  Process: 793 ExecStart=/etc/rc.local start (code=exited, status=0/SUCCESS)
+
+Sep 25 15:54:33 ip-172-31-25-154 rc.local[793]: Deploy Done
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;使用-crontab-重新開機後自動執行&#34;&gt;使用 crontab 重新開機後自動執行&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;crontab -e
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;# 開機自動啟動
+@reboot bash /home/ubuntu/scripts/boot.sh &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+# 自動部署程式
+@reboot bash /home/ubuntu/scripts/deploy.sh &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;參考資料&#34;&gt;參考資料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://raspberrypi.stackexchange.com/questions/15475/run-bash-script-on-startup&#34;&gt;boot - Run bash script on startup - Raspberry Pi Stack Exchange&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://kvz.io/schedule-tasks-on-linux-using-crontab.html&#34;&gt;Schedule Tasks on Linux Using Crontab | kvz.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

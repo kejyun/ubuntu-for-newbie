@@ -1,0 +1,46 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – grep</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/grep/</link>
+    <description>Recent content in grep on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/grep/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: grep</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/grep/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/grep/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;計算行數&#34;&gt;計算行數&lt;/h2&gt;
+&lt;p&gt;加入 &lt;code&gt;-c&lt;/code&gt; 參數即可顯示行數&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;cat * &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; grep -c
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;參考資料&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/371115/count-all-occurrences-of-a-string-in-lots-of-files-with-grep&#34;&gt;Count all occurrences of a string in lots of files with grep - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;搜尋目錄下指定字串&#34;&gt;搜尋目錄下指定字串&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;grep -r &amp;quot;[STRING TO SEARCH FOR]&amp;quot; &amp;quot;[DIRECTORY TO SEARCH]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;grep -r &amp;quot;search text&amp;quot; &amp;quot;/tmp/search/folder&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/462276/how-to-find-a-word-in-text-files-from-a-directory&#34;&gt;command line - how to find a word in text files from a directory - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,54 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – Common Command</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/common-command/</link>
+    <description>Recent content in Common Command on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/common-command/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 指令</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;指令結果不要輸出&#34;&gt;指令結果不要輸出&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;&amp;gt;/dev/null 2&amp;gt;&amp;amp;1&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;/dev/null：空文件&lt;/li&gt;
+&lt;li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;：代表重新導向到哪里，例如：echo &amp;ldquo;123&amp;rdquo; &amp;gt; /home/123.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;1：表示 stdout 標準輸出，系統預設值是1，所以 &lt;code&gt;&amp;gt;/dev/null&lt;/code&gt; 等同於 &lt;code&gt;1&amp;gt;/dev/null&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;2：表示 stderr 標準錯誤&lt;/li&gt;
+&lt;li&gt;&amp;amp;：表示等同於的意思，2&amp;gt;&amp;amp;1，表示 2 的輸出重新導向等同於1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;renice -20 &lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;cat /home/yoursrcdspath/srcds.pid&lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt; &amp;gt;/dev/null 2&amp;gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;global-bash-profile&#34;&gt;global bash profile&lt;/h2&gt;
+&lt;p&gt;在 &lt;code&gt;/etc/profile&lt;/code&gt; 設定的指令，所有使用者都可以使用&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo vim /etc/profile
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/ithomer/article/details/9288353&#34;&gt;Linux Shell 1&amp;gt;/dev/null 2&amp;gt;&amp;amp;1 含义 - CSDN博客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ibookmen.blogspot.com/2010/11/unix-2.html&#34;&gt;孤島日誌: Unix 重新導向跟 2&amp;gt;&amp;amp;1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

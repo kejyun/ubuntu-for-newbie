@@ -1,0 +1,120 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – 指令</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/docs/command/</link>
+    <description>Recent content in 指令 on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/docs/command/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: grep</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/grep/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/grep/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;計算行數&#34;&gt;計算行數&lt;/h2&gt;
+&lt;p&gt;加入 &lt;code&gt;-c&lt;/code&gt; 參數即可顯示行數&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;cat * &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; grep -c
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;參考資料&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/371115/count-all-occurrences-of-a-string-in-lots-of-files-with-grep&#34;&gt;Count all occurrences of a string in lots of files with grep - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;搜尋目錄下指定字串&#34;&gt;搜尋目錄下指定字串&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;grep -r &amp;quot;[STRING TO SEARCH FOR]&amp;quot; &amp;quot;[DIRECTORY TO SEARCH]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;grep -r &amp;quot;search text&amp;quot; &amp;quot;/tmp/search/folder&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/462276/how-to-find-a-word-in-text-files-from-a-directory&#34;&gt;command line - how to find a word in text files from a directory - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: rsync</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/rsync/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/rsync/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;參數說明&#34;&gt;參數說明&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;參數&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;progress&lt;/td&gt;
+&lt;td&gt;顯示同步進度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;delete&lt;/td&gt;
+&lt;td&gt;刪除存在於目的端，但不存在於來源端的檔案&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;ndash;exclude-from&lt;/td&gt;
+&lt;td&gt;排除指定檔案不要刪除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-a&lt;/td&gt;
+&lt;td&gt;遞迴備份所有子目錄下的目錄與檔案，保留連結檔、檔案的擁有者、群組、權限以及時間戳記&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-v&lt;/td&gt;
+&lt;td&gt;顯示詳細同步的資訊&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-h&lt;/td&gt;
+&lt;td&gt;數字以比較容易閱讀的格式輸出&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;--exclude-from&#34;&gt;&amp;ndash;exclude-from&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;rsync --delete --exclude-from ./rsyn_exclusion_file
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/rsync-local-remote-file-synchronization-commands/&#34;&gt;Linux 使用 rsync 遠端檔案同步與備份工具教學與範例 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.xuite.net/jyoutw/xtech/20025390-rsync%E5%8F%83%E6%95%B8%E8%A9%B3%E8%A7%A3--20100209&#34;&gt;rsync參數詳解&amp;ndash;20100209 @ 暉獲無度的步烙閣 :: 隨意窩 Xuite日誌&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: tar</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/tar/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/tar/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://idobest.pixnet.net/blog/post/22040782-%5B%E8%BD%89%E8%B2%BC%5D-linux%E8%A7%A3%E5%A3%93-tar-%E5%91%BD%E4%BB%A4&#34;&gt;linux解壓 tar 命令 @ 胖虎的祕密基地 :: 痞客邦 ::&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://manpages.ubuntu.com/manpages/bionic/man1/tar.1.html&#34;&gt;Ubuntu Manpage: tar - an archiving utility&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/urbetter/archive/2010/09/07/1820466.html&#34;&gt;Ubuntu&amp;ndash;tar命令 - Sturtle - 博客园&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

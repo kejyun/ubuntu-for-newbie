@@ -1,0 +1,77 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – 虛擬記憶體</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/%E8%99%9B%E6%93%AC%E8%A8%98%E6%86%B6%E9%AB%94/</link>
+    <description>Recent content in 虛擬記憶體 on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/%E8%99%9B%E6%93%AC%E8%A8%98%E6%86%B6%E9%AB%94/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 虛擬記憶體（SWAP）</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/virtual-memory/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/virtual-memory/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;確認記憶體使用狀況&#34;&gt;確認記憶體使用狀況&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;free -m
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ free -m
+              total        used        free      shared  buff/cache   available
+Mem:            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;990&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;164&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;197&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;38&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;628&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;584&lt;/span&gt;
+Swap:             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+
+$ free -m
+             total       used       free     shared    buffers     cached
+Mem:           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;992&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;867&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;125&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;20&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;63&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;516&lt;/span&gt;
+-/+ buffers/cache:        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;287&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;704&lt;/span&gt;
+Swap:         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1023&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1023&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;設定-swap-file&#34;&gt;設定 Swap File&lt;/h2&gt;
+&lt;p&gt;設定 4G 的 SWAP 檔案&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo -s
+&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /var
+fallocate -l 4G swapfile.1
+chmod &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;600&lt;/span&gt; swapfile.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定此檔案只能被 root 讀寫，以防安全性問題&lt;/p&gt;
+&lt;h2 id=&#34;啟用-swap&#34;&gt;啟用 SWAP&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;mkswap /var/swapfile.1
+swapon /var/swapfile.1
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;查詢目前-swap-路徑&#34;&gt;查詢目前 SWAP 路徑&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ swapon -s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ swapon -s
+Filename				Type		Size	Used	Priority
+/var/swapfile.1                        	file    	4194300	0	-1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;讓-swap-file-重開機後也能自動啟動&#34;&gt;讓 Swap file 重開機後也能自動啟動&lt;/h2&gt;
+&lt;p&gt;請確認您的 swap 檔案路徑為 &lt;code&gt;/var/swapfile.1&lt;/code&gt;，如果有自定義其他 swap 檔案名稱，請將 swap 檔案路徑改為您的路徑，否則會導致無法開機&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/var/swapfile.1    none    swap    sw    0    0&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; /etc/fstab
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;使用-htop-監控記憶體使用狀況&#34;&gt;使用 htop 監控記憶體使用狀況&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install htop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;設定-swappiness-調整-swap-使用優先權&#34;&gt;設定 swappiness 調整 swap 使用優先權&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;swappiness&lt;/code&gt; 數值介於 0~100，越接近 100 則系統越常使用 swap，越接近 0 則系統會越常使用 RAM，預設為 60，為了系統效能，可以盡量將此設定值調低&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;查詢 swappiness&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat /proc/sys/vm/swappiness
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;設定 swappiness&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sysctl vm.swappiness=10
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;設定重新開機時 swappiness 數值&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;vm.swappiness = 10&amp;quot; &amp;gt;&amp;gt; /etc/sysctl.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://fonger.logdown.com/posts/2015/02/01/setting-swap-for-ubuntu-to-solve-out-of-memory&#34;&gt;在 Ubuntu VPS 上設定虛擬記憶體 (Swap) 來解決RAM不夠用的問題 « 峰哥的技術日誌&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/159783/how-do-i-find-out-if-i-have-a-swap-partition-on-my-hard-drive&#34;&gt;memory - How do I find out if I have a swap partition on my hard drive? - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

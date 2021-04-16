@@ -1,0 +1,72 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – sudo no password</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/sudo-no-password/</link>
+    <description>Recent content in sudo no password on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/sudo-no-password/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Sudo 權限免密碼</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/privilege/sudo-no-passowrd/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/privilege/sudo-no-passowrd/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;所有-sudo-免輸入密碼&#34;&gt;所有 Sudo 免輸入密碼&lt;/h2&gt;
+&lt;p&gt;編輯 &lt;code&gt;/etc/sudoers&lt;/code&gt; 檔案可以修改 Sudoer 權限&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/sudoers
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;將下列設定加上 &lt;code&gt;NOPASSWD&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 原始&lt;/span&gt;
+%sudo   &lt;span style=&#34;color:#000&#34;&gt;ALL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=(&lt;/span&gt;ALL:ALL&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; ALL
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 修改後&lt;/span&gt;
+%sudo   &lt;span style=&#34;color:#000&#34;&gt;ALL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=(&lt;/span&gt;ALL:ALL&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; NOPASSWD:ALL
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;指定帳號不需要輸入-sudo-密碼&#34;&gt;指定帳號不需要輸入 Sudo 密碼&lt;/h2&gt;
+&lt;p&gt;將所有擁有 Sudo 權限都設定不用密碼會有系統的安全性，所以可以指定特定帳號才能不用輸入密碼&lt;/p&gt;
+&lt;p&gt;所以可以在最前方不用密碼的條件設定為指定帳號&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;lt;帳號名稱&amp;gt; ALL=(ALL) NOPASSWD: ALL&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;同樣編輯 &lt;code&gt;/etc/sudoers&lt;/code&gt; 檔案，在最下方加入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# File: /etc/sudoers&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#includedir /etc/sudoers.d&lt;/span&gt;
+
+&amp;lt;帳號名稱&amp;gt; &lt;span style=&#34;color:#000&#34;&gt;ALL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=(&lt;/span&gt;ALL&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; NOPASSWD: ALL
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;指定群組不需要輸入-sudo-密碼&#34;&gt;指定群組不需要輸入 Sudo 密碼&lt;/h2&gt;
+&lt;p&gt;若有很多帳號不需要輸入 Sudo 密碼，要一筆一筆設定會很累&lt;/p&gt;
+&lt;p&gt;所以可以指定使用者群組可以不需要輸入密碼，這樣只需要將使用者加入該群組就有這樣的權限了，這樣只需要統一管理群組名單就可以了&lt;/p&gt;
+&lt;h3 id=&#34;建立不需要輸入-sudo-帳號的群組&#34;&gt;建立不需要輸入 Sudo 帳號的群組&lt;/h3&gt;
+&lt;p&gt;假設建立的群組名稱為 &lt;code&gt;sudoers-no-password-group&lt;/code&gt;，可以使用下列指令建立群組&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;groupadd sudoers-no-password-group
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;設定群組不需要輸入-sudo-密碼&#34;&gt;設定群組不需要輸入 Sudo 密碼&lt;/h3&gt;
+&lt;p&gt;接下來編輯 &lt;code&gt;/etc/sudoers&lt;/code&gt; 檔案，在最下方加入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# File: /etc/sudoers&lt;/span&gt;
+%sudoers-no-password-group &lt;span style=&#34;color:#000&#34;&gt;ALL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=(&lt;/span&gt;ALL:ALL&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; NOPASSWD:ALL
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;使用者加入免輸入密碼群組&#34;&gt;使用者加入免輸入密碼群組&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo adduser &amp;lt;使用者帳號&amp;gt; &amp;lt;免密碼使用者群組&amp;gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo adduser kejyun sudoers-no-password-group
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;加入完成後，僅需要將使用者加入此群組，在群組的使用者就可以不用輸入密碼就有 Sudo 權限了&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/147241/execute-sudo-without-password&#34;&gt;command line - Execute sudo without Password? - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

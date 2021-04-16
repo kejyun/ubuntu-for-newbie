@@ -1,0 +1,55 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – 主機名稱</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/%E4%B8%BB%E6%A9%9F%E5%90%8D%E7%A8%B1/</link>
+    <description>Recent content in 主機名稱 on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/%E4%B8%BB%E6%A9%9F%E5%90%8D%E7%A8%B1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 主機名稱 hostname</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/hostname/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/hostname/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;查詢主機名稱&#34;&gt;查詢主機名稱&lt;/h2&gt;
+&lt;p&gt;直接在命令列輸入 &lt;code&gt;hostname&lt;/code&gt; 就可以看到目前的主機名稱&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;hostname
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;變更主機-hostname&#34;&gt;變更主機 hostname&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1. 修改主機名稱&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用編輯器修改 &lt;code&gt;/etc/hostname&lt;/code&gt; 檔案，將 hostname 改為您要呈現的主機名稱&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/hostname
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修正完的 hostname 會長這樣&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /etc/hostname&lt;/span&gt;
+kejyun-host-name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;2. 加入主機名稱對應 ip&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在修改主機名稱後，因為有些服務 IP 是對應到舊的主機名稱，所以新的名稱需要自行指定到本機 &lt;code&gt;127.0.0.1&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/hosts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /etc/hosts&lt;/span&gt;
+127.0.0.1 kejyun-host-name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;3. 強制更改主機名稱&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;修改完成後，可以下指令強制更新主機名稱，然後再重新登入就可以看到主機名稱已經被修改了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo hostname -F /etc/hostname
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kj@kejyun-host-name:~$
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://computer.jges.mlc.edu.tw/index.php/ubuntu/112-ubuntu-14-04-%E8%A8%AD%E5%AE%9Ahostname&#34;&gt;ubuntu 14.04 設定hostname&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

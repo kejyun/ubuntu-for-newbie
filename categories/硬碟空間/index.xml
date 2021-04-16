@@ -1,0 +1,64 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – 硬碟空間</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/categories/%E7%A1%AC%E7%A2%9F%E7%A9%BA%E9%96%93/</link>
+    <description>Recent content in 硬碟空間 on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/%E7%A1%AC%E7%A2%9F%E7%A9%BA%E9%96%93/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 硬碟空間</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/hard-drive/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/hard-drive/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;查詢硬碟使用狀況&#34;&gt;查詢硬碟使用狀況&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;df -h
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;查詢資料夾所佔硬碟空間&#34;&gt;查詢資料夾所佔硬碟空間&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;sudo du -hs {查詢目錄}
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;sudo du -hs /home/web/laravel/*
+2.6M	/home/web/laravel/app
+4.0K	/home/web/laravel/artisan
+36K     /home/web/laravel/bootstrap
+4.0K	/home/web/laravel/bower.json
+4.0K	/home/web/laravel/composer.json
+196K	/home/web/laravel/composer.lock
+124K	/home/web/laravel/config
+132K	/home/web/laravel/database
+4.0K	/home/web/laravel/package.json
+4.0K	/home/web/laravel/phpunit.xml
+7.7G	/home/web/laravel/public
+4.0K	/home/web/laravel/readme.md
+1.6M	/home/web/laravel/resources
+276K	/home/web/laravel/routes
+4.0K	/home/web/laravel/server.php
+827M	/home/web/laravel/storage
+28K     /home/web/laravel/tests
+64M     /home/web/laravel/vendor
+4.0K	/home/web/laravel/webpack.mix.js
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;列出路徑下檔案空間使用-mb&#34;&gt;列出路徑下檔案空間，使用 MB&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;ls -al --block-size=M
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10160087&#34;&gt;Day 15 ubuntu 查詢硬碟使用量df指令 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10160234&#34;&gt;Day 16 ubuntu 查詢檔案或目錄的磁碟使用空間du指令 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/linux-df-command-check-disk-space-usage-tutorial-script-example/&#34;&gt;Linux 檢查硬碟使用量 df 指令教學與指令稿範例 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

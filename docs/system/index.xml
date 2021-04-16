@@ -1,0 +1,368 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞道場 – 系統</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/docs/system/</link>
+    <description>Recent content in 系統 on Ubuntu 菜雞道場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/docs/system/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 時間</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/date/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/date/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;時區設定&#34;&gt;時區設定&lt;/h2&gt;
+&lt;h3 id=&#34;依選項選擇你在的時區&#34;&gt;依選項選擇你在的時區&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo tzselect
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;更換時區檔&#34;&gt;更換時區檔&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;對時&#34;&gt;對時&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install ntpdate
+sudo ntpdate time.stdtime.gov.tw
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;時間寫入-bios&#34;&gt;時間寫入 BIOS&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo hwclock -w
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;每日對時&#34;&gt;每日對時&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo crontab -e
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;cronjob&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; * * *  /usr/sbin/ntpdate time.stdtime.gov.tw &amp;gt; /dev/null
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;若 ntpdate 路徑與我不太一樣，可以使用 &lt;code&gt;which ntpdate&lt;/code&gt; 去查看看您的真實路徑為何&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;usrsharezoneinfoiso3166tab-no-such-file-or-directory&#34;&gt;/usr/share/zoneinfo/iso3166.tab: No such file or directory&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo tzselect
+/usr/bin/tzselect: line 180: /usr/share/zoneinfo/iso3166.tab: No such file or directory
+/usr/bin/tzselect: time zone files are not set up correctly
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;若在設定時區時出現 &lt;code&gt;/usr/share/zoneinfo/iso3166.tab: No such file or directory&lt;/code&gt; 問題，可以重新安裝時區套件即可解決&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install tzdata
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://philipatswarchy.wordpress.com/2007/03/19/ubuntu-change-time-zone/&#34;&gt;[Ubuntu]Ubuntu 更改時區 | Philip@Swarchy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://forums.debian.net/viewtopic.php?t=15348&#34;&gt;Debian User Forums • View topic - Setting time zone&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 主機名稱 hostname</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/hostname/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/hostname/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;查詢主機名稱&#34;&gt;查詢主機名稱&lt;/h2&gt;
+&lt;p&gt;直接在命令列輸入 &lt;code&gt;hostname&lt;/code&gt; 就可以看到目前的主機名稱&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;hostname
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;變更主機-hostname&#34;&gt;變更主機 hostname&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1. 修改主機名稱&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;使用編輯器修改 &lt;code&gt;/etc/hostname&lt;/code&gt; 檔案，將 hostname 改為您要呈現的主機名稱&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/hostname
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修正完的 hostname 會長這樣&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /etc/hostname&lt;/span&gt;
+kejyun-host-name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;2. 加入主機名稱對應 ip&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在修改主機名稱後，因為有些服務 IP 是對應到舊的主機名稱，所以新的名稱需要自行指定到本機 &lt;code&gt;127.0.0.1&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/hosts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /etc/hosts&lt;/span&gt;
+127.0.0.1 kejyun-host-name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;3. 強制更改主機名稱&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;修改完成後，可以下指令強制更新主機名稱，然後再重新登入就可以看到主機名稱已經被修改了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo hostname -F /etc/hostname
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;kj@kejyun-host-name:~$
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://computer.jges.mlc.edu.tw/index.php/ubuntu/112-ubuntu-14-04-%E8%A8%AD%E5%AE%9Ahostname&#34;&gt;ubuntu 14.04 設定hostname&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 虛擬記憶體（SWAP）</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/virtual-memory/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/virtual-memory/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;確認記憶體使用狀況&#34;&gt;確認記憶體使用狀況&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;free -m
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ free -m
+              total        used        free      shared  buff/cache   available
+Mem:            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;990&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;164&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;197&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;38&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;628&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;584&lt;/span&gt;
+Swap:             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+
+$ free -m
+             total       used       free     shared    buffers     cached
+Mem:           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;992&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;867&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;125&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;20&lt;/span&gt;         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;63&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;516&lt;/span&gt;
+-/+ buffers/cache:        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;287&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;704&lt;/span&gt;
+Swap:         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1023&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1023&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;設定-swap-file&#34;&gt;設定 Swap File&lt;/h2&gt;
+&lt;p&gt;設定 4G 的 SWAP 檔案&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo -s
+&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /var
+fallocate -l 4G swapfile.1
+chmod &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;600&lt;/span&gt; swapfile.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定此檔案只能被 root 讀寫，以防安全性問題&lt;/p&gt;
+&lt;h2 id=&#34;啟用-swap&#34;&gt;啟用 SWAP&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;mkswap /var/swapfile.1
+swapon /var/swapfile.1
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;查詢目前-swap-路徑&#34;&gt;查詢目前 SWAP 路徑&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ swapon -s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ swapon -s
+Filename				Type		Size	Used	Priority
+/var/swapfile.1                        	file    	4194300	0	-1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;讓-swap-file-重開機後也能自動啟動&#34;&gt;讓 Swap file 重開機後也能自動啟動&lt;/h2&gt;
+&lt;p&gt;請確認您的 swap 檔案路徑為 &lt;code&gt;/var/swapfile.1&lt;/code&gt;，如果有自定義其他 swap 檔案名稱，請將 swap 檔案路徑改為您的路徑，否則會導致無法開機&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/var/swapfile.1    none    swap    sw    0    0&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; /etc/fstab
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;使用-htop-監控記憶體使用狀況&#34;&gt;使用 htop 監控記憶體使用狀況&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt-get install htop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;設定-swappiness-調整-swap-使用優先權&#34;&gt;設定 swappiness 調整 swap 使用優先權&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;swappiness&lt;/code&gt; 數值介於 0~100，越接近 100 則系統越常使用 swap，越接近 0 則系統會越常使用 RAM，預設為 60，為了系統效能，可以盡量將此設定值調低&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;查詢 swappiness&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat /proc/sys/vm/swappiness
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;設定 swappiness&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sysctl vm.swappiness=10
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;設定重新開機時 swappiness 數值&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;vm.swappiness = 10&amp;quot; &amp;gt;&amp;gt; /etc/sysctl.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://fonger.logdown.com/posts/2015/02/01/setting-swap-for-ubuntu-to-solve-out-of-memory&#34;&gt;在 Ubuntu VPS 上設定虛擬記憶體 (Swap) 來解決RAM不夠用的問題 « 峰哥的技術日誌&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/159783/how-do-i-find-out-if-i-have-a-swap-partition-on-my-hard-drive&#34;&gt;memory - How do I find out if I have a swap partition on my hard drive? - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 語系</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/language/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/language/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;解決語系-perl-warning-falling-back-to-the-standard-locale-c-錯誤訊息&#34;&gt;解決語系 &lt;code&gt;perl: warning: Falling back to the standard locale (&amp;quot;C&amp;quot;).&lt;/code&gt; 錯誤訊息&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	&lt;span style=&#34;color:#000&#34;&gt;LANGUAGE&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;unset&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;,
+	&lt;span style=&#34;color:#000&#34;&gt;LC_ALL&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;unset&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;,
+	&lt;span style=&#34;color:#000&#34;&gt;LC_CTYPE&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;UTF-8&amp;#34;&lt;/span&gt;,
+	&lt;span style=&#34;color:#000&#34;&gt;LANG&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;en_US.UTF-8&amp;#34;&lt;/span&gt;
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;C&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在命令列輸入下列指令即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;LANGUAGE&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;en_US.UTF-8
+&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;LANG&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;en_US.UTF-8
+&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;LC_ALL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;en_US.UTF-8
+locale-gen en_US.UTF-8
+sudo dpkg-reconfigure locales
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/panchicore/1269109&#34;&gt;solve perl: warning: Setting locale failed. · GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 硬碟空間</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/hard-drive/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/hard-drive/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;查詢硬碟使用狀況&#34;&gt;查詢硬碟使用狀況&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;df -h
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;查詢資料夾所佔硬碟空間&#34;&gt;查詢資料夾所佔硬碟空間&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;sudo du -hs {查詢目錄}
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;sudo du -hs /home/web/laravel/*
+2.6M	/home/web/laravel/app
+4.0K	/home/web/laravel/artisan
+36K     /home/web/laravel/bootstrap
+4.0K	/home/web/laravel/bower.json
+4.0K	/home/web/laravel/composer.json
+196K	/home/web/laravel/composer.lock
+124K	/home/web/laravel/config
+132K	/home/web/laravel/database
+4.0K	/home/web/laravel/package.json
+4.0K	/home/web/laravel/phpunit.xml
+7.7G	/home/web/laravel/public
+4.0K	/home/web/laravel/readme.md
+1.6M	/home/web/laravel/resources
+276K	/home/web/laravel/routes
+4.0K	/home/web/laravel/server.php
+827M	/home/web/laravel/storage
+28K     /home/web/laravel/tests
+64M     /home/web/laravel/vendor
+4.0K	/home/web/laravel/webpack.mix.js
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;列出路徑下檔案空間使用-mb&#34;&gt;列出路徑下檔案空間，使用 MB&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;ls -al --block-size=M
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10160087&#34;&gt;Day 15 ubuntu 查詢硬碟使用量df指令 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10160234&#34;&gt;Day 16 ubuntu 查詢檔案或目錄的磁碟使用空間du指令 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/linux-df-command-check-disk-space-usage-tutorial-script-example/&#34;&gt;Linux 檢查硬碟使用量 df 指令教學與指令稿範例 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 排程</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/crontab-schedule/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/crontab-schedule/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;進入排程設定檔案&#34;&gt;進入排程設定檔案&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;sudo crontab -l
+sudo crontab -e
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;排程格式&#34;&gt;排程格式&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;* * * * * /bin/execute/this/script.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;*&lt;/code&gt; 位置代表意義&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;位置（由左至右）&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;th&gt;範圍&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;分鐘&lt;/td&gt;
+&lt;td&gt;0-59&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;小時&lt;/td&gt;
+&lt;td&gt;0-23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;每月第幾天&lt;/td&gt;
+&lt;td&gt;1-31&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;第幾個月&lt;/td&gt;
+&lt;td&gt;1-12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;星期幾&lt;/td&gt;
+&lt;td&gt;0-6，0: 禮拜日&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;*&lt;/code&gt; 代表每次條件都符合&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;特殊字元&#34;&gt;特殊字元&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;@reboot     開機後執行一次
+@yearly     一年執行一次           &amp;quot;0 0 1 1 *&amp;quot;
+@annually   (與 @yearly 功能相同)
+@monthly    一個月執行一次         &amp;quot;0 0 1 * *&amp;quot;
+@weekly     一週執行一次           &amp;quot;0 0 * * 0&amp;quot;
+@daily      一天執行一次           &amp;quot;0 0 * * *&amp;quot;
+@midnight   (與 @daily 功能相同)
+@hourly     一小時執行一次         &amp;quot;0 * * * *&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;將執行的結果丟到垃圾桶不顯示&#34;&gt;將執行的結果丟到垃圾桶不顯示&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;*/10 * * * * /bin/execute/this/script.sh &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;測試-crontab&#34;&gt;測試 crontab&lt;/h2&gt;
+&lt;p&gt;直接執行 &lt;code&gt;crontab&lt;/code&gt; 指令就可以知道 crontab 是否有設定正確&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;crontab path/to/crontab/file
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果有錯誤的狀況發生就會顯示相關的錯誤訊息&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/etc/crontab&amp;#34;&lt;/span&gt;:165: bad day-of-month
+errors in crontab file, can&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&lt;/span&gt;t install.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;參考資料&#34;&gt;參考資料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://kvz.io/schedule-tasks-on-linux-using-crontab.html&#34;&gt;Schedule Tasks on Linux Using Crontab | kvz.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://crontab.guru/#&#34;&gt;Crontab.guru - The cron schedule expression editor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://serverfault.com/questions/43733/is-there-a-way-to-validate-etc-crontab-s-format&#34;&gt;cron - Is there a way to validate /etc/crontab’s format? - Server Fault&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 開機自動執行</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/boot-auto-execute/</link>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/boot-auto-execute/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;開機自動執行指定程式&#34;&gt;開機自動執行指定程式&lt;/h2&gt;
+&lt;p&gt;將開機需要執行的指定程式寫入 &lt;code&gt;/etc/rc.local&lt;/code&gt; 即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#!/bin/sh -e
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# rc.local&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# This script is executed at the end of each multiuser runlevel.&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Make sure that the script will &amp;#34;exit 0&amp;#34; on success or any other&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# value on error.&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# In order to enable or disable this script just change the execution&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# bits.&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# By default this script does nothing.&lt;/span&gt;
+
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 開機自動啟動&lt;/span&gt;
+bash /home/ubuntu/scripts/boot.sh &amp;gt; /dev/null 2&amp;gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 自動部署程式&lt;/span&gt;
+bash /home/ubuntu/scripts/deploy.sh &amp;gt; /dev/null 2&amp;gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;輸入下列指令可以檢查目前這個服務執行的狀態&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;systemctl status rc.local.service
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;$ systemctl status rc.local.service
+● rc-local.service - /etc/rc.local Compatibility
+   Loaded: loaded (/lib/systemd/system/rc-local.service; enabled-runtime; vendor preset: enabled)
+  Drop-In: /lib/systemd/system/rc-local.service.d
+           └─debian.conf
+   Active: active (exited) since Wed 2019-09-25 15:52:07 CST; 33min ago
+     Docs: man:systemd-rc-local-generator(8)
+  Process: 793 ExecStart=/etc/rc.local start (code=exited, status=0/SUCCESS)
+
+Sep 25 15:54:33 ip-172-31-25-154 rc.local[793]: Deploy Done
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;使用-crontab-重新開機後自動執行&#34;&gt;使用 crontab 重新開機後自動執行&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;crontab -e
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;# 開機自動啟動
+@reboot bash /home/ubuntu/scripts/boot.sh &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+# 自動部署程式
+@reboot bash /home/ubuntu/scripts/deploy.sh &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;參考資料&#34;&gt;參考資料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://raspberrypi.stackexchange.com/questions/15475/run-bash-script-on-startup&#34;&gt;boot - Run bash script on startup - Raspberry Pi Stack Exchange&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://kvz.io/schedule-tasks-on-linux-using-crontab.html&#34;&gt;Schedule Tasks on Linux Using Crontab | kvz.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
