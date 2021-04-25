@@ -5,7 +5,7 @@
     <description>Recent content in 筆記 on Ubuntu 菜雞修煉場</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 23 Apr 2021 08:50:29 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 25 Apr 2021 08:50:29 +0800</lastBuildDate>
     
 	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/%E7%AD%86%E8%A8%98/index.xml" rel="self" type="application/rss+xml" />
     
@@ -29,11 +29,11 @@
     </item>
     
     <item>
-      <title>Docs: ssh</title>
-      <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/</link>
-      <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
+      <title>Docs: 建立金鑰</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/create-ssh-key/</link>
+      <pubDate>Sun, 25 Apr 2021 08:50:29 +0800</pubDate>
       
-      <guid>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/</guid>
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/create-ssh-key/</guid>
       <description>
         
         
@@ -97,103 +97,27 @@ tail -f /var/log/auth.log
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;在本機透過-ssh-tunnel-直接連線主機&#34;&gt;在本機透過 ssh tunnel 直接連線主機&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -t -p &amp;lt;port&amp;gt; -l &amp;lt;account&amp;gt; &amp;lt;ssh_tunnel_server&amp;gt; bash -ic &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ssh_internal_server &amp;lt;ip_address&amp;gt;&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -t -p &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22&lt;/span&gt; -l kejyun server.kj.com bash -ic &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ssh_kj 1.1.1.1&amp;#39;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;常見問題&#34;&gt;常見問題&lt;/h2&gt;
-&lt;h3 id=&#34;在-macos-mojave-版本產生的-ssh-key-無法使用&#34;&gt;在 MacOS Mojave 版本產生的 ssh key 無法使用&lt;/h3&gt;
-&lt;p&gt;Mojave 的 ssh key 產生的 key 是新版本的 &lt;code&gt;OPENSSH&lt;/code&gt; private key，所以在許多還沒支援新版本的平台使用此金鑰會無法被識別&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh-keygen -t rsa -b &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4096&lt;/span&gt; -C &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;kj@kejyun.com&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;-----BEGIN OPENSSH PRIVATE KEY-----
-b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
-NhAAAAAwEAAQAAAgEA3Vnc+Hc5835QtKskY/oC9pFrnv6JSnMi7gQHc6aLZOCBE5IKklgq
-8P+O8aImqQUEv2GhLIIkMMmRm60U7t78/JiNtLHP07BIqxXslcTaWi9D1bUWcooBgqB/qy
-Hvg8J0QAmYBwbgaYzU8vgOckUgxQ/ssiFb1VkCsyuDvjCpjCJ0nwXNPlR2P1iYEuIpen7D
-2uS+0iSCRmmJAAAAGXJheS5jaGVuZ0B0aGVuZXdzbGVucy5jb20B
------END OPENSSH PRIVATE KEY-----
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;為了解決這個問題可以加入 &lt;code&gt;-m PEM&lt;/code&gt; 參數，產生 &lt;code&gt;PEM&lt;/code&gt; 格式的 key&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh-keygen -m PEM -t rsa -b &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4096&lt;/span&gt; -C &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;kj@kejyun.com&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;-----BEGIN RSA PRIVATE KEY-----
-MIIJKQIBAAKCAgEAr+QHvQMVt5i2ZzkHMxl/PRXxkFD2rHdLx1RT+9E9Hie/FeO3
-5DJMU+ZKZiPCK3ya/hDj8xJukL7jLfjhmGNKFDnkCGTzyhU5jWlORDEez72NKHGP
-eAt4eO6w6MpvRyhg7FZakKsTvLbGu7P8ceBA2yy6LHWUUDWuXPx4ZvarSr9q5Vkf
-qgGfICykPJEa0g68kyFJORLfaHrqgsrzmuHlJwokP8Jetw53MF+dciA/nE42tW4M
-rsiU0zzbEUYpS15uuR31QZjeNzGduwOU+gPBuhTdB3IaXyXD7KfSs6vXsaIB
------END RSA PRIVATE KEY-----
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;執行遠端-ssh-登入並執行遠端主機指令&#34;&gt;執行遠端 ssh 登入並執行遠端主機指令&lt;/h2&gt;
-&lt;p&gt;在連線主機後若要立即在遠端主機執行指令的話，可以在 &lt;code&gt;ssh 指令&lt;/code&gt; 後面用單引號（&lt;code&gt;&#39;&lt;/code&gt;）或雙引號（&lt;code&gt;&amp;quot;&lt;/code&gt;）將要執行的指令包起來，這樣在 ssh 連線後就會立即在遠端主機執行該指令&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;remote_scripts&amp;gt;&amp;#39;&lt;/span&gt;
-ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;remote_scripts&amp;gt;&amp;#34;&lt;/span&gt;
-ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;/home/kejyun/shell.sh&amp;#39;&lt;/span&gt;
-ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;sudo /home/kejyun/shell.sh argument1 argument2&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;使用-ssh-複製遠端檔案scp&#34;&gt;使用 ssh 複製遠端檔案(scp)&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;使用 ssh&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;scp &amp;lt;your_username&amp;gt;@&amp;lt;your-server-domain&amp;gt;:/remote/dir/file.txt /local/dir
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;使用金鑰&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;scp -i &amp;lt;your-key&amp;gt; &amp;lt;your_username&amp;gt;@&amp;lt;your-server-domain&amp;gt;:/remote/dir/file.txt /local/dir
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;scp -i ~/.ssh/id_rsa kejyun@127.0.0.1:/home/remote-kejyun/myfile /home/kejyun
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;複製目錄&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;複製目錄加一個 &lt;code&gt;-r&lt;/code&gt; 的參數即可&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;scp -r -i &amp;lt;your-key&amp;gt; &amp;lt;your_username&amp;gt;@&amp;lt;your-server-domain&amp;gt;:/remote/dir/path /local/dir
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ssh-config&#34;&gt;ssh config&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;User&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;登入帳號&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;em&gt;PreferredAuthentications&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;偏好授權方式&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;publickey&lt;/li&gt;
-&lt;li&gt;password&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;PasswordAuthentication&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;是否使用密碼驗證，預設 yes&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;yes&lt;/li&gt;
-&lt;li&gt;no&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;PubkeyAuthentication&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;是否使用 public key 驗證，預設 yes&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;yes&lt;/li&gt;
-&lt;li&gt;no&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;IdentitiesOnly&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;是否只使用 command line 或 config 的 ssh key，預設 no，所以會去嘗試抓其他不同的 key，像是 &lt;code&gt;ssh-agent&lt;/code&gt; 的 key&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;yes&lt;/li&gt;
-&lt;li&gt;no&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;測試-ssh-連線&#34;&gt;測試 ssh 連線&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -T git@github.com
-ssh -T git@bitbucket.org
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;bad-owner-or-permissions-on-sshconfig&#34;&gt;Bad owner or permissions on &lt;code&gt;~/.ssh/config&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;當使用 ssh config 進行連線時會出現權限的問題，表示 config 設定檔案的權限過於不安全，此時只需要限縮 config 檔案的權限即可&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;chmod &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;600&lt;/span&gt; ~/.ssh/config
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;指定特定的-ssh-key-去做-git-pull&#34;&gt;指定特定的 ssh key 去做 git pull&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ &lt;span style=&#34;color:#000&#34;&gt;GIT_SSH_COMMAND&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ssh -i /Users/kejyun/.ssh/id_rsa_other&amp;#39;&lt;/span&gt;
-$ git pull
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/&#34;&gt;Generating a new SSH key and adding it to the ssh-agent - User Documentation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://serverfault.com/questions/130482/how-to-check-sshd-log&#34;&gt;ssh - How to check sshd log? - Server Fault&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.bo56.com/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86%E8%AE%BE%E7%BD%AE%E6%97%B6authentication-refused-bad-ownership-or-modes%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/&#34;&gt;ssh免密码登陆设置时Authentication refused: bad ownership or modes错误解决方法 - 博学无忧&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://serverfault.com/questions/939909/ssh-keygen-does-not-create-rsa-private-key&#34;&gt;openssl - ssh-keygen does not create RSA private key - Server Fault&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.cyberciti.biz/faq/unix-linux-execute-command-using-ssh/&#34;&gt;Run / Execute Command Using SSH - nixCraft&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/9427553/how-to-download-a-file-from-server-using-ssh&#34;&gt;linux - How to download a file from server using SSH? - Stack Overflow&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://medium.com/@xiaolishen/use-multiple-ssh-keys-for-different-github-accounts-on-the-same-computer-7d7103ca8693&#34;&gt;Use multiple ssh-keys for different GitHub accounts on the same computer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.redhat.com/sysadmin/manage-multiple-ssh-key-pairs&#34;&gt;How to manage multiple SSH key pairs | Enable Sysadmin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/&#34;&gt;OpenSSH Config File Examples - nixCraft&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.alantsai.net/posts/2016/03/ssh-config-ssh-agent-passphrase-management&#34;&gt;如何用config管理多個網站的ssh key和如何不用每一組輸入ssh的Pass Phrase @ Alan Tsai 的學習筆記｜An Asp .Net Mvc Web Developer Blog&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.jianshu.com/p/325cd01284e9&#34;&gt;Bad owner or permissions on ~/.ssh/config - 简书&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ma.ttias.be/specify-a-specific-ssh-private-key-for-git-pull-git-clone/&#34;&gt;Specify a specific SSH private key for git pull/git clone&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: ssh</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/</link>
+      <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/</guid>
+      <description>
+        
+        
+        
       </description>
     </item>
     
@@ -743,6 +667,33 @@ chsh -s /bin/zsh
     </item>
     
     <item>
+      <title>Docs: 複製遠端檔案(scp)</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/scp-sync-file/</link>
+      <pubDate>Sun, 25 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/scp-sync-file/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;使用-ssh-複製遠端檔案scp&#34;&gt;使用 ssh 複製遠端檔案(scp)&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;使用 ssh&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;scp &amp;lt;your_username&amp;gt;@&amp;lt;your-server-domain&amp;gt;:/remote/dir/file.txt /local/dir
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;使用金鑰&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;scp -i &amp;lt;your-key&amp;gt; &amp;lt;your_username&amp;gt;@&amp;lt;your-server-domain&amp;gt;:/remote/dir/file.txt /local/dir
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;scp -i ~/.ssh/id_rsa kejyun@127.0.0.1:/home/remote-kejyun/myfile /home/kejyun
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;複製目錄&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;複製目錄加一個 &lt;code&gt;-r&lt;/code&gt; 的參數即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;scp -r -i &amp;lt;your-key&amp;gt; &amp;lt;your_username&amp;gt;@&amp;lt;your-server-domain&amp;gt;:/remote/dir/path /local/dir
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cyberciti.biz/faq/unix-linux-execute-command-using-ssh/&#34;&gt;Run / Execute Command Using SSH - nixCraft&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/9427553/how-to-download-a-file-from-server-using-ssh&#34;&gt;linux - How to download a file from server using SSH? - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: 查詢 ip</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ip/</link>
       <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
@@ -1053,6 +1004,74 @@ abort. Configuration Item: APT::Get::Assume-Yes.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Docs: ssh config</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/config/</link>
+      <pubDate>Sun, 25 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/config/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;ssh-config&#34;&gt;ssh config&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;User&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;登入帳號&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;PreferredAuthentications&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;偏好授權方式&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;publickey&lt;/li&gt;
+&lt;li&gt;password&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;PasswordAuthentication&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;是否使用密碼驗證，預設 yes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;yes&lt;/li&gt;
+&lt;li&gt;no&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;PubkeyAuthentication&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;是否使用 public key 驗證，預設 yes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;yes&lt;/li&gt;
+&lt;li&gt;no&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;IdentitiesOnly&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;是否只使用 command line 或 config 的 ssh key，預設 no，所以會去嘗試抓其他不同的 key，像是 &lt;code&gt;ssh-agent&lt;/code&gt; 的 key&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;yes&lt;/li&gt;
+&lt;li&gt;no&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;測試-ssh-連線&#34;&gt;測試 ssh 連線&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -T git@github.com
+ssh -T git@bitbucket.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;bad-owner-or-permissions-on-sshconfig&#34;&gt;Bad owner or permissions on &lt;code&gt;~/.ssh/config&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;當使用 ssh config 進行連線時會出現權限的問題，表示 config 設定檔案的權限過於不安全，此時只需要限縮 config 檔案的權限即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;chmod &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;600&lt;/span&gt; ~/.ssh/config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;指定特定的-ssh-key-去做-git-pull&#34;&gt;指定特定的 ssh key 去做 git pull&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ &lt;span style=&#34;color:#000&#34;&gt;GIT_SSH_COMMAND&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ssh -i /Users/kejyun/.ssh/id_rsa_other&amp;#39;&lt;/span&gt;
+$ git pull
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@xiaolishen/use-multiple-ssh-keys-for-different-github-accounts-on-the-same-computer-7d7103ca8693&#34;&gt;Use multiple ssh-keys for different GitHub accounts on the same computer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.redhat.com/sysadmin/manage-multiple-ssh-key-pairs&#34;&gt;How to manage multiple SSH key pairs | Enable Sysadmin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/&#34;&gt;OpenSSH Config File Examples - nixCraft&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.alantsai.net/posts/2016/03/ssh-config-ssh-agent-passphrase-management&#34;&gt;如何用config管理多個網站的ssh key和如何不用每一組輸入ssh的Pass Phrase @ Alan Tsai 的學習筆記｜An Asp .Net Mvc Web Developer Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jianshu.com/p/325cd01284e9&#34;&gt;Bad owner or permissions on ~/.ssh/config - 简书&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ma.ttias.be/specify-a-specific-ssh-private-key-for-git-pull-git-clone/&#34;&gt;Specify a specific SSH private key for git pull/git clone&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: 使用不同 ssh 金鑰登入 github</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/network/multiple-ssh-key-to-same-github-site/</link>
       <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
@@ -1332,6 +1351,57 @@ ZEmF5bjIAXRb6
 &lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/nginx-restricting-access-authenticated-user-ip-address-tutorial/&#34;&gt;NGINX 設定密碼認證與限制可存取的 IP 位址，控制頻寬與連線數 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 執行遠端主機指令</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/execute-remote-scripts/</link>
+      <pubDate>Sun, 25 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/execute-remote-scripts/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;執行遠端-ssh-登入並執行遠端主機指令&#34;&gt;執行遠端 ssh 登入並執行遠端主機指令&lt;/h2&gt;
+&lt;p&gt;在連線主機後若要立即在遠端主機執行指令的話，可以在 &lt;code&gt;ssh 指令&lt;/code&gt; 後面用單引號（&lt;code&gt;&#39;&lt;/code&gt;）或雙引號（&lt;code&gt;&amp;quot;&lt;/code&gt;）將要執行的指令包起來，這樣在 ssh 連線後就會立即在遠端主機執行該指令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;remote_scripts&amp;gt;&amp;#39;&lt;/span&gt;
+ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;remote_scripts&amp;gt;&amp;#34;&lt;/span&gt;
+ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;/home/kejyun/shell.sh&amp;#39;&lt;/span&gt;
+ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;sudo /home/kejyun/shell.sh argument1 argument2&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 產生的金鑰無法使用</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/question/key-unavailable/</link>
+      <pubDate>Sun, 25 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/question/key-unavailable/</guid>
+      <description>
+        
+        
+        &lt;h3 id=&#34;在-macos-mojave-版本產生的-ssh-key-無法使用&#34;&gt;在 MacOS Mojave 版本產生的 ssh key 無法使用&lt;/h3&gt;
+&lt;p&gt;Mojave 的 ssh key 產生的 key 是新版本的 &lt;code&gt;OPENSSH&lt;/code&gt; private key，所以在許多還沒支援新版本的平台使用此金鑰會無法被識別&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh-keygen -t rsa -b &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4096&lt;/span&gt; -C &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;kj@kejyun.com&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
+NhAAAAAwEAAQAAAgEA3Vnc+Hc5835QtKskY/oC9pFrnv6JSnMi7gQHc6aLZOCBE5IKklgq
+8P+O8aImqQUEv2GhLIIkMMmRm60U7t78/JiNtLHP07BIqxXslcTaWi9D1bUWcooBgqB/qy
+Hvg8J0QAmYBwbgaYzU8vgOckUgxQ/ssiFb1VkCsyuDvjCpjCJ0nwXNPlR2P1iYEuIpen7D
+2uS+0iSCRmmJAAAAGXJheS5jaGVuZ0B0aGVuZXdzbGVucy5jb20B
+-----END OPENSSH PRIVATE KEY-----
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;為了解決這個問題可以加入 &lt;code&gt;-m PEM&lt;/code&gt; 參數，產生 &lt;code&gt;PEM&lt;/code&gt; 格式的 key&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh-keygen -m PEM -t rsa -b &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4096&lt;/span&gt; -C &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;kj@kejyun.com&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;-----BEGIN RSA PRIVATE KEY-----
+MIIJKQIBAAKCAgEAr+QHvQMVt5i2ZzkHMxl/PRXxkFD2rHdLx1RT+9E9Hie/FeO3
+5DJMU+ZKZiPCK3ya/hDj8xJukL7jLfjhmGNKFDnkCGTzyhU5jWlORDEez72NKHGP
+eAt4eO6w6MpvRyhg7FZakKsTvLbGu7P8ceBA2yy6LHWUUDWuXPx4ZvarSr9q5Vkf
+qgGfICykPJEa0g68kyFJORLfaHrqgsrzmuHlJwokP8Jetw53MF+dciA/nE42tW4M
+rsiU0zzbEUYpS15uuR31QZjeNzGduwOU+gPBuhTdB3IaXyXD7KfSs6vXsaIB
+-----END RSA PRIVATE KEY-----
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       </description>
     </item>
     
@@ -1971,331 +2041,6 @@ sudo dpkg-reconfigure locales
 &lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10160087&#34;&gt;Day 15 ubuntu 查詢硬碟使用量df指令 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10160234&#34;&gt;Day 16 ubuntu 查詢檔案或目錄的磁碟使用空間du指令 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/linux-df-command-check-disk-space-usage-tutorial-script-example/&#34;&gt;Linux 檢查硬碟使用量 df 指令教學與指令稿範例 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 除錯</title>
-      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/debug/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
-      
-      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/debug/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;php-fpm-除錯&#34;&gt;PHP FPM 除錯&lt;/h2&gt;
-&lt;h3 id=&#34;recv-failed-104-connection-reset-by-peer-while-reading-response-header-from-upstream&#34;&gt;recv() failed (104: Connection reset by peer) while reading response header from upstream&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;Nginx 錯誤 Log&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;在 nginx 發現 php-fpm.sock 的錯誤&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;2018/10/24 03:47:05 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;error&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; 1231#1231: *324 recv&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt; failed &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;104: Connection reset by peer&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;while&lt;/span&gt; reading response header from upstream, client: 172.31.22.62, server: _, request: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;POST /post/article HTTP/1.1&amp;#34;&lt;/span&gt;, upstream: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fastcgi://unix:/run/php/php7.1-fpm.sock:&amp;#34;&lt;/span&gt;, host: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;kejyun.com&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;PHP 錯誤 log&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;在 php fpm error log 發現 &lt;code&gt;pm.max_children setting (5), consider raising it&lt;/code&gt; 的錯誤&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /var/log/php7.1-fpm.log
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 01:09:33&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 07:20:16&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 07:43:58&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 08:27:52&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;提高請求中斷時間（request_terminate_timeout）&lt;/em&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/php/7.1/fpm/pool.d/www.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;request_terminate_timeout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;300&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;提高 Server fastcgi read timeout&lt;/em&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;vim /etc/nginx/sites-available/kejyun.com
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;location ~ &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    fastcgi_connect_timeout 300&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    fastcgi_send_timeout 300&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    fastcgi_read_timeout 300&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;提高 php fpm max_children&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;請參考 &lt;a href=&#34;./web-php-max-children.md&#34;&gt;PHP FPM Max Children&lt;/a&gt; 這篇文章，根據自己主機的狀況需求去提高可以使用的 php-fpm children 數量，提高存取效率&lt;/p&gt;
-&lt;h3 id=&#34;使用-sudo-add-apt-repository-ppaondrejphp-發生錯誤&#34;&gt;使用 &lt;code&gt;sudo add-apt-repository ppa:ondrej/php&lt;/code&gt; 發生錯誤&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo add-apt-repository ppa:ondrej/php
- Co-installable PHP versions: PHP 5.6, PHP 7.x and most requested extensions are included. Only Supported Versions of PHP &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;http://php.net/supported-versions.php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; Supported Ubuntu Releases &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;https://wiki.ubuntu.com/Releases&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; are provided. Don&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;t ask for end-of-life PHP versions or Ubuntu release, they won&amp;#39;&lt;/span&gt;t be provided.
-
-Debian oldstable and stable packages are provided as well: https://deb.sury.org/#debian-dpa
-
-You can get more information about the packages at https://deb.sury.org
-
-BUGS&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;FEATURES: This PPA now has a issue tracker:
-https://deb.sury.org/#bug-reporting
-
-CAVEATS:
-1. If you are using php-gearman, you need to add ppa:ondrej/pkg-gearman
-2. If you are using apache2, you are advised to add ppa:ondrej/apache2
-3. If you are using nginx, you are advise to add ppa:ondrej/nginx-mainline
-   or ppa:ondrej/nginx
-
-PLEASE READ: If you like my work and want to give me a little motivation, please consider donating regularly: https://donate.sury.org/
-
-WARNING: add-apt-repository is broken with non-UTF-8 locales, see
-https://github.com/oerdnj/deb.sury.org/issues/56 &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; workaround:
-
-&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php&lt;/span&gt;
- More info: https://launchpad.net/~ondrej/+archive/ubuntu/php
-Press &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;ENTER&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; to &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;continue&lt;/span&gt; or ctrl-c to cancel adding it
-
-gpg: keyring &lt;span style=&#34;color:#4e9a06&#34;&gt;`&lt;/span&gt;/tmp/tmpw76p12wa/secring.gpg&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39; created
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;gpg: keyring `/tmp/tmpw76p12wa/pubring.gpg&amp;#39;&lt;/span&gt; created
-gpg: requesting key E5267A6C from hkp server keyserver.ubuntu.com
-gpg: /tmp/tmpw76p12wa/trustdb.gpg: trustdb created
-gpg: key E5267A6C: public key &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Launchpad PPA for Ond\xc5\x99ej Sur�&amp;#34;&lt;/span&gt; imported
-gpg: Total number processed: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
-gpg:               imported: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;RSA: 1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-Exception in thread Thread-1:
-Traceback &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;most recent call last&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;:
-  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/threading.py&amp;#34;&lt;/span&gt;, line 920, in _bootstrap_inner
-    self.run&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt;
-  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/threading.py&amp;#34;&lt;/span&gt;, line 868, in run
-    self._target&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;*self._args, **self._kwargs&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/SoftwareProperties.py&amp;#34;&lt;/span&gt;, line 687, in addkey_func
-    func&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;**kwargs&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 370, in add_key
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; apsk.add_ppa_signing_key&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt;
-  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 261, in add_ppa_signing_key
-    tmp_export_keyring, signing_key_fingerprint, tmp_keyring_dir&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;:
-  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 210, in _verify_fingerprint
-    &lt;span style=&#34;color:#000&#34;&gt;got_fingerprints&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; self._get_fingerprints&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;keyring, keyring_dir&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3/dist-packages/softwareproperties/ppa.py&amp;#34;&lt;/span&gt;, line 202, in _get_fingerprints
-    &lt;span style=&#34;color:#000&#34;&gt;output&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; subprocess.check_output&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;cmd, &lt;span style=&#34;color:#000&#34;&gt;universal_newlines&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;True&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/subprocess.py&amp;#34;&lt;/span&gt;, line 609, in check_output
-    output, &lt;span style=&#34;color:#000&#34;&gt;unused_err&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; process.communicate&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;inputdata, &lt;span style=&#34;color:#000&#34;&gt;timeout&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;timeout&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/subprocess.py&amp;#34;&lt;/span&gt;, line 947, in communicate
-    &lt;span style=&#34;color:#000&#34;&gt;stdout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; _eintr_retry_call&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;self.stdout.read&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/subprocess.py&amp;#34;&lt;/span&gt;, line 491, in _eintr_retry_call
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; func&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;*args&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-  File &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/usr/lib/python3.4/encodings/ascii.py&amp;#34;&lt;/span&gt;, line 26, in decode
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; codecs.ascii_decode&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;input, self.errors&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)[&lt;/span&gt;0&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
-UnicodeDecodeError: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ascii&amp;#39;&lt;/span&gt; codec can&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;t decode byte 0xc5 in position 92: ordinal not in range&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;128&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-
-$
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;由於當系統不是 UTF-8 的 locales，會發生這個錯誤，只要在指令前方加入 locales 指令即可&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo &lt;span style=&#34;color:#000&#34;&gt;LC_ALL&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;C.UTF-8 add-apt-repository ppa:ondrej/php
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;sudo-apt-get-update-時出現-failed-to-fetch-httpppalaunchpadnetondrejphp5-56ubuntudiststrustymainbinary-amd64packages--403--forbidden-訊息&#34;&gt;&lt;code&gt;sudo apt-get update&lt;/code&gt; 時出現 &lt;code&gt;Failed to fetch http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu/dists/trusty/main/binary-amd64/Packages  403  Forbidden&lt;/code&gt; 訊息&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo apt-get update
-
-W: Failed to fetch http://ppa.launchpad.net/ondrej/php5-5.6/ubuntu/dists/trusty/main/binary-amd64/Packages  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;403&lt;/span&gt;  Forbidden
-
-E: Some index files failed to download. They have been ignored, or old ones used instead.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;由於 php 資源庫的位置已更新，可以移除資源庫清單資料即可&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo rm /etc/apt/sources.list.d/ondrej-php5-5_6-trusty.list
-sudo add-apt-repository -y ppa:ondrej/php
-sudo apt-get -y update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://easyengine.io/tutorials/php/increase-script-execution-time/&#34;&gt;Increase PHP script execution time with Nginx&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://hk.saowen.com/a/00daab29e1dfee5e8354f200fe27332a159c0de9dff687600e312585ef630f7a&#34;&gt;php-fpm超時時間設置request_terminate_timeout分析 - 掃文資訊&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.onepx.com/php-fpm-request-terminate-timeout.html&#34;&gt;php-fpm中的request_terminate_timeout最好不要设置&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.apkfuns.com/-e8-bd-ac-e8-a7-a3-e5-86-b3-recv-failed-104-connection-reset-by-peer-while-reading-response-header-from-upstream/&#34;&gt;解决 recv() failed (104: Connection reset by peer) while reading response header from upstream&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.111cn.net/sys/nginx/56291.htm&#34;&gt;经验之谈：nginx php 502 bad gateway 解决方法_壹聚教程网&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://mokiee.com/code/150&#34;&gt;解决 添加 ppa:ondrej/php 时出现无法解码的报错 - 墨客&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tedshd.logdown.com/posts/2472689&#34;&gt;ubuntu - apt-get install php repository 403 « tedshd&amp;rsquo;s DevNote&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-upgrade-to-php-7-on-ubuntu-14-04&#34;&gt;How To Upgrade to PHP 7 on Ubuntu 14.04 | DigitalOcean&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Virtual Host</title>
-      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/virtual-host/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
-      
-      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/virtual-host/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;virtual-host-設定&#34;&gt;Virtual Host 設定&lt;/h2&gt;
-&lt;p&gt;在 &lt;code&gt;server_name&lt;/code&gt; 設定不同的網址名稱，可以在同一台主機將請求導向到不同的程序去處理&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    listen 80&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    server_name kejyun.com&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;301&lt;/span&gt; https://&lt;span style=&#34;color:#000&#34;&gt;$server_name$request_uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    listen &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;443&lt;/span&gt; ssl&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    server_name kejyun.com&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-    root &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/kejyun/tnl/web/tnl_frontend_laravel/public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    charset utf-8&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    index index.htm index.html index.php&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    error_page &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;404&lt;/span&gt; /404.html&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# add_header X-Frame-Options SAMEORIGIN;&lt;/span&gt;
-    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#add_header X-W &amp;#34;if you are reading this, come talk to us. job(at)thenewslens.com&amp;#34;;&lt;/span&gt;
-
-    location / &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$query_string&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-
-    location ~ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;^/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;/&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;$&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-            fastcgi_split_path_info ^&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;.+?&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)(&lt;/span&gt;/.*&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;!-f &lt;span style=&#34;color:#000&#34;&gt;$document_root$fastcgi_script_name&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-                    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; 404&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-            &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-            fastcgi_param SCRIPT_FILENAME &lt;span style=&#34;color:#000&#34;&gt;$document_root$fastcgi_script_name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-            fastcgi_pass unix:/run/php/php7.1-fpm.sock&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-            fastcgi_index index.php&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-            include fastcgi_params&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-
-    location ~* &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;jpg&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;jpeg&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;gif&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;png&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;css&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;js&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;ico&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;xml&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        access_log  off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        log_not_found off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-    error_log  /var/log/nginx/kejyun.com-error.log error&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    access_log /var/log/nginx/kejyun.com.access.log&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    ssl_prefer_server_ciphers on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    ssl_dhparam /etc/ssl/certs/dhparam.pem&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    ssl_ciphers &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM    -SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES    256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES25    6-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3    -SHA:!KRB5-DES-CBC3-SHA&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    ssl_session_timeout 1d&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    ssl_session_cache shared:SSL:50m&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-    ssl_certificate /etc/letsencrypt/live/kejyun.com/fullchain.pem&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# managed by Certbot&lt;/span&gt;
-    ssl_certificate_key /etc/letsencrypt/live/kejyun.com/privkey.pem&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# managed by Certbot&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 排程</title>
-      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/crontab-schedule/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
-      
-      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/crontab-schedule/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;進入排程設定檔案&#34;&gt;進入排程設定檔案&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;sudo crontab -l
-sudo crontab -e
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;排程格式&#34;&gt;排程格式&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;* * * * * /bin/execute/this/script.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;*&lt;/code&gt; 位置代表意義&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;位置（由左至右）&lt;/th&gt;
-&lt;th&gt;說明&lt;/th&gt;
-&lt;th&gt;範圍&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;分鐘&lt;/td&gt;
-&lt;td&gt;0-59&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;小時&lt;/td&gt;
-&lt;td&gt;0-23&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;每月第幾天&lt;/td&gt;
-&lt;td&gt;1-31&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;第幾個月&lt;/td&gt;
-&lt;td&gt;1-12&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;星期幾&lt;/td&gt;
-&lt;td&gt;0-6，0: 禮拜日&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;*&lt;/code&gt; 代表每次條件都符合&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;特殊字元&#34;&gt;特殊字元&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;@reboot     開機後執行一次
-@yearly     一年執行一次           &amp;quot;0 0 1 1 *&amp;quot;
-@annually   (與 @yearly 功能相同)
-@monthly    一個月執行一次         &amp;quot;0 0 1 * *&amp;quot;
-@weekly     一週執行一次           &amp;quot;0 0 * * 0&amp;quot;
-@daily      一天執行一次           &amp;quot;0 0 * * *&amp;quot;
-@midnight   (與 @daily 功能相同)
-@hourly     一小時執行一次         &amp;quot;0 * * * *&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;將執行的結果丟到垃圾桶不顯示&#34;&gt;將執行的結果丟到垃圾桶不顯示&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;*/10 * * * * /bin/execute/this/script.sh &amp;gt; /dev/null 2&amp;gt;&amp;amp;1
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;測試-crontab&#34;&gt;測試 crontab&lt;/h2&gt;
-&lt;p&gt;直接執行 &lt;code&gt;crontab&lt;/code&gt; 指令就可以知道 crontab 是否有設定正確&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;crontab path/to/crontab/file
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果有錯誤的狀況發生就會顯示相關的錯誤訊息&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/etc/crontab&amp;#34;&lt;/span&gt;:165: bad day-of-month
-errors in crontab file, can&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&lt;/span&gt;t install.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;參考資料&#34;&gt;參考資料&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://kvz.io/schedule-tasks-on-linux-using-crontab.html&#34;&gt;Schedule Tasks on Linux Using Crontab | kvz.io&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://crontab.guru/#&#34;&gt;Crontab.guru - The cron schedule expression editor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://serverfault.com/questions/43733/is-there-a-way-to-validate-etc-crontab-s-format&#34;&gt;cron - Is there a way to validate /etc/crontab’s format? - Server Fault&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 日誌</title>
-      <link>https://ubuntu-for-newbie.kejyun.com/docs/log/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
-      
-      <guid>https://ubuntu-for-newbie.kejyun.com/docs/log/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/391082/how-to-see-time-stamps-in-bash-history&#34;&gt;command line - How to see time stamps in bash history? - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://webplay.pro/linux/syslog-log-bash-history-every-user.html&#34;&gt;Syslog: log all bash history from every user - WebPlay - And let&amp;rsquo;s play&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 安全</title>
-      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/security/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
-      
-      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/security/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;不顯示-nginx-版本&#34;&gt;不顯示 Nginx 版本&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;http &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 不顯示 Nginx 版本&lt;/span&gt;
-  server_tokens off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;禁止存取隱藏檔&#34;&gt;禁止存取隱藏檔&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-  location ~ /&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    log_not_found off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    deny all&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;其他&#34;&gt;其他&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;events &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 使用 epoll 效能較好&lt;/span&gt;
-  use epoll&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 可同時接受多條連線&lt;/span&gt;
-  multi_accept on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/nginx-php-fpm-configuration-optimization/&#34;&gt;Nginx 與 PHP-FPM 最佳化效能設定教學與技巧 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>

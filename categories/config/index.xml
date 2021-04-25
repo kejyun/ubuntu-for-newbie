@@ -1,0 +1,87 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞修煉場 – config</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/categories/config/</link>
+    <description>Recent content in config on Ubuntu 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 25 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/config/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: ssh config</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/config/</link>
+      <pubDate>Sun, 25 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/config/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;ssh-config&#34;&gt;ssh config&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;User&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;登入帳號&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;PreferredAuthentications&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;偏好授權方式&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;publickey&lt;/li&gt;
+&lt;li&gt;password&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;PasswordAuthentication&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;是否使用密碼驗證，預設 yes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;yes&lt;/li&gt;
+&lt;li&gt;no&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;PubkeyAuthentication&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;是否使用 public key 驗證，預設 yes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;yes&lt;/li&gt;
+&lt;li&gt;no&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;IdentitiesOnly&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;是否只使用 command line 或 config 的 ssh key，預設 no，所以會去嘗試抓其他不同的 key，像是 &lt;code&gt;ssh-agent&lt;/code&gt; 的 key&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;yes&lt;/li&gt;
+&lt;li&gt;no&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;測試-ssh-連線&#34;&gt;測試 ssh 連線&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -T git@github.com
+ssh -T git@bitbucket.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;bad-owner-or-permissions-on-sshconfig&#34;&gt;Bad owner or permissions on &lt;code&gt;~/.ssh/config&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;當使用 ssh config 進行連線時會出現權限的問題，表示 config 設定檔案的權限過於不安全，此時只需要限縮 config 檔案的權限即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;chmod &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;600&lt;/span&gt; ~/.ssh/config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;指定特定的-ssh-key-去做-git-pull&#34;&gt;指定特定的 ssh key 去做 git pull&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ &lt;span style=&#34;color:#000&#34;&gt;GIT_SSH_COMMAND&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ssh -i /Users/kejyun/.ssh/id_rsa_other&amp;#39;&lt;/span&gt;
+$ git pull
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@xiaolishen/use-multiple-ssh-keys-for-different-github-accounts-on-the-same-computer-7d7103ca8693&#34;&gt;Use multiple ssh-keys for different GitHub accounts on the same computer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.redhat.com/sysadmin/manage-multiple-ssh-key-pairs&#34;&gt;How to manage multiple SSH key pairs | Enable Sysadmin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/&#34;&gt;OpenSSH Config File Examples - nixCraft&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.alantsai.net/posts/2016/03/ssh-config-ssh-agent-passphrase-management&#34;&gt;如何用config管理多個網站的ssh key和如何不用每一組輸入ssh的Pass Phrase @ Alan Tsai 的學習筆記｜An Asp .Net Mvc Web Developer Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jianshu.com/p/325cd01284e9&#34;&gt;Bad owner or permissions on ~/.ssh/config - 简书&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ma.ttias.be/specify-a-specific-ssh-private-key-for-git-pull-git-clone/&#34;&gt;Specify a specific SSH private key for git pull/git clone&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

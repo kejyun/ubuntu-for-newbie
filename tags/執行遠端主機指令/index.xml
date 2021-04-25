@@ -1,0 +1,38 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞修煉場 – 執行遠端主機指令</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/%E5%9F%B7%E8%A1%8C%E9%81%A0%E7%AB%AF%E4%B8%BB%E6%A9%9F%E6%8C%87%E4%BB%A4/</link>
+    <description>Recent content in 執行遠端主機指令 on Ubuntu 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 25 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/%E5%9F%B7%E8%A1%8C%E9%81%A0%E7%AB%AF%E4%B8%BB%E6%A9%9F%E6%8C%87%E4%BB%A4/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 執行遠端主機指令</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/execute-remote-scripts/</link>
+      <pubDate>Sun, 25 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/execute-remote-scripts/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;執行遠端-ssh-登入並執行遠端主機指令&#34;&gt;執行遠端 ssh 登入並執行遠端主機指令&lt;/h2&gt;
+&lt;p&gt;在連線主機後若要立即在遠端主機執行指令的話，可以在 &lt;code&gt;ssh 指令&lt;/code&gt; 後面用單引號（&lt;code&gt;&#39;&lt;/code&gt;）或雙引號（&lt;code&gt;&amp;quot;&lt;/code&gt;）將要執行的指令包起來，這樣在 ssh 連線後就會立即在遠端主機執行該指令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;remote_scripts&amp;gt;&amp;#39;&lt;/span&gt;
+ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;remote_scripts&amp;gt;&amp;#34;&lt;/span&gt;
+ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;/home/kejyun/shell.sh&amp;#39;&lt;/span&gt;
+ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;sudo /home/kejyun/shell.sh argument1 argument2&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>
