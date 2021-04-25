@@ -5,7 +5,7 @@
     <description>Recent content in 軟體 on Ubuntu 菜雞修煉場</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0800</lastBuildDate>
     
 	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/%E8%BB%9F%E9%AB%94/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,7 +18,7 @@
     <item>
       <title>Docs: 輔助</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/software/help/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/software/help/</guid>
       <description>
@@ -53,7 +53,7 @@ chsh -s /bin/zsh
     <item>
       <title>Docs: 軟體</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/software/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/software/</guid>
       <description>

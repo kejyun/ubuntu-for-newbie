@@ -5,7 +5,7 @@
     <description>Recent content in 教學文件 on Ubuntu 菜雞修煉場</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0800</lastBuildDate>
     
 	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/docs/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,7 +18,7 @@
     <item>
       <title>Docs: grep</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/command/grep/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/grep/</guid>
       <description>
@@ -45,7 +45,7 @@
     <item>
       <title>Docs: Let&#39;s Encrypt</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/lets-encrypt/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/lets-encrypt/</guid>
       <description>
@@ -128,7 +128,7 @@ chmod +x ./certbot-auto
     <item>
       <title>Docs: Log</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/log/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/log/</guid>
       <description>
@@ -177,7 +177,7 @@ error_log /var/log/nginx/error.log&lt;span style=&#34;color:#000;font-weight:bol
     <item>
       <title>Docs: rsync</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/command/rsync/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/rsync/</guid>
       <description>
@@ -232,7 +232,7 @@ error_log /var/log/nginx/error.log&lt;span style=&#34;color:#000;font-weight:bol
     <item>
       <title>Docs: tar</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/command/tar/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/tar/</guid>
       <description>
@@ -251,7 +251,7 @@ error_log /var/log/nginx/error.log&lt;span style=&#34;color:#000;font-weight:bol
     <item>
       <title>Docs: Vim</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/editor/vim/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/editor/vim/</guid>
       <description>
@@ -299,7 +299,7 @@ error_log /var/log/nginx/error.log&lt;span style=&#34;color:#000;font-weight:bol
     <item>
       <title>Docs: 函式</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/shell/function/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/shell/function/</guid>
       <description>
@@ -331,7 +331,7 @@ foo KJ
     <item>
       <title>Docs: 安裝最新 PHP</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/install/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/install/</guid>
       <description>
@@ -404,7 +404,7 @@ sudo service php7.0-fpm restart
     <item>
       <title>Docs: 網站</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/monitor/websites/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/monitor/websites/</guid>
       <description>
@@ -425,7 +425,7 @@ sudo service php7.0-fpm restart
     <item>
       <title>Docs: 群組</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/privilege/group/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/privilege/group/</guid>
       <description>
@@ -468,7 +468,7 @@ kejyun,group1
     <item>
       <title>Docs: 輔助</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/software/help/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/software/help/</guid>
       <description>
@@ -501,9 +501,30 @@ chsh -s /bin/zsh
     </item>
     
     <item>
+      <title>Docs: 查詢 ip</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ip/</link>
+      <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/network/ip/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;用指令查詢目前主機-ip&#34;&gt;用指令查詢目前主機 ip&lt;/h2&gt;
+&lt;p&gt;執行下列指令，就可以取得目前所在主機的對外 ip&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;dig +short myip.opendns.com @resolver1.opendns.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;dig TXT +short o-o.myaddr.l.google.com @ns1.google.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;參考資料&#34;&gt;參考資料&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cyberciti.biz/faq/how-to-find-my-public-ip-address-from-command-line-on-a-linux/&#34;&gt;How To Find My Public IP Address From Command Line On a Linux - nixCraft&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: fastcgi_pass</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/fastcgi-pass/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/fastcgi-pass/</guid>
       <description>
@@ -540,7 +561,7 @@ chsh -s /bin/zsh
     <item>
       <title>Docs: NET::ERR_CERT_COMMON_NAME_INVALID</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/err-cert-common-name/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/err-cert-common-name/</guid>
       <description>
@@ -577,7 +598,7 @@ PEM encoded chain:
     <item>
       <title>Docs: server_name</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/server-name/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/server-name/</guid>
       <description>
@@ -610,7 +631,7 @@ PEM encoded chain:
     <item>
       <title>Docs: 兩階段驗證 2FA</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/privilege/two-factor-authentication/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/privilege/two-factor-authentication/</guid>
       <description>
@@ -627,7 +648,7 @@ PEM encoded chain:
     <item>
       <title>Docs: 時間</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/system/date/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/date/</guid>
       <description>
@@ -666,9 +687,33 @@ sudo ntpdate time.stdtime.gov.tw
     </item>
     
     <item>
+      <title>Docs: 使用不同 ssh 金鑰登入 github</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/network/multiple-ssh-key-to-same-github-site/</link>
+      <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/network/multiple-ssh-key-to-same-github-site/</guid>
+      <description>
+        
+        
+        &lt;p&gt;在 github 抓取 Repository 時，我們常常用 git ssh 帳號去 clone 一個 Repository，像是：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:laravel/laravel.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;而使用 ssh 去 clone Repository 時，則會需要 &lt;code&gt;ssh 金鑰&lt;/code&gt; 才能夠順利的將專案複製下來，但只要有正確的金鑰，我們在每一次對 Repository 進行 clone / push / pull / fetch 的時候，則都不需要輸入帳號密碼即可完成操作（只要你的帳號有足夠的權限的話）&lt;/p&gt;
+&lt;p&gt;但當我們有個人的專案及公司的專案都在 github 時，且不同的專案所需要的 &lt;code&gt;ssh 金鑰&lt;/code&gt; 皆不同時，則需要設定在不同的狀況需要使用不同的金鑰去存取我們的 Repository。&lt;/p&gt;
+&lt;p&gt;例如 &lt;code&gt;git@github.com:kj/kj.git&lt;/code&gt; 需要 &lt;code&gt;id_rsa_kj_personal&lt;/code&gt; 的金鑰，但 &lt;code&gt;git@github.com:kj-company/compony-project.git&lt;/code&gt; 則需要 &lt;code&gt;id_rsa_kj_company&lt;/code&gt; 的金鑰&lt;/p&gt;
+&lt;p&gt;此時可以使用的解法有下列 2 個&lt;/p&gt;
+&lt;h2 id=&#34;設定-sshconfig-檔案&#34;&gt;設定 .ssh/config 檔案&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;.ssh/config&lt;/code&gt; 的設定檔案格式像下方&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Host &amp;lt;host_alias&amp;gt;                       &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 主機別名&lt;/span&gt;
+    HostName &amp;lt;hostname_or_ip&amp;gt;           &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 主機網址或 ip&lt;/span&gt;
+    IdentityFile &amp;lt;private_key_path&amp;gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 金鑰位置&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: php-fpm</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/php-fpm/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/php-fpm/</guid>
       <description>
@@ -711,7 +756,7 @@ error_reporting=E_ALL&amp;amp;~E_NOTICE
     <item>
       <title>Docs: Sudo 權限免密碼</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/privilege/sudo-no-passowrd/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/privilege/sudo-no-passowrd/</guid>
       <description>
@@ -764,7 +809,7 @@ error_reporting=E_ALL&amp;amp;~E_NOTICE
     <item>
       <title>Docs: 主機名稱 hostname</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/system/hostname/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/hostname/</guid>
       <description>
@@ -800,7 +845,7 @@ kejyun-host-name
     <item>
       <title>Docs: 更新憑證</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/certificate-verification-failed/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/certificate-verification-failed/</guid>
       <description>
@@ -841,7 +886,7 @@ If you&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&lt;/span&gt;d like to
     <item>
       <title>Docs: 認證</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/auth/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/auth/</guid>
       <description>
@@ -884,7 +929,7 @@ ZEmF5bjIAXRb6
     <item>
       <title>Docs: log</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/log/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/log/</guid>
       <description>
@@ -903,7 +948,7 @@ ZEmF5bjIAXRb6
     <item>
       <title>Docs: 憑證</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/cert/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/cert/</guid>
       <description>
@@ -947,7 +992,7 @@ Email Address &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/
     <item>
       <title>Docs: 虛擬記憶體（SWAP）</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/system/virtual-memory/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/virtual-memory/</guid>
       <description>
@@ -1005,7 +1050,7 @@ Filename				Type		Size	Used	Priority
     <item>
       <title>Docs: Gzip</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/gzip/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/gzip/</guid>
       <description>
@@ -1108,7 +1153,7 @@ Filename				Type		Size	Used	Priority
     <item>
       <title>Docs: max_children</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/max-children/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/max-children/</guid>
       <description>
@@ -1205,10 +1250,10 @@ ps -ylC php-fpm7.1 --sort:rss
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在列出來 php-fpm 使用的資源後，可以看到 &lt;code&gt;RSS&lt;/code&gt; 欄位為使用的記憶體大小，&lt;code&gt;31692&lt;/code&gt; 表示為 &lt;code&gt;31692 kb&lt;/code&gt;，大概就是 &lt;code&gt;31M&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ ps -ylC php-fpm7.1 --sort:rss
 S   UID   PID  PPID  C PRI  NI   RSS    SZ WCHAN  TTY          TIME CMD
-S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22275&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31692&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;212882&lt;/span&gt; -     ?        00:00:00 php-fpm7.0
-S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22092&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;40708&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;231684&lt;/span&gt; -     ?        00:00:02 php-fpm7.0
-S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22023&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;41136&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;231888&lt;/span&gt; -     ?        00:00:05 php-fpm7.0
-S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22038&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;41204&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;231744&lt;/span&gt; -     ?        00:00:04 php-fpm7.0
+S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22275&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31692&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;212882&lt;/span&gt; -     ?        08:00:00 php-fpm7.0
+S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22092&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;40708&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;231684&lt;/span&gt; -     ?        08:00:02 php-fpm7.0
+S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22023&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;41136&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;231888&lt;/span&gt; -     ?        08:00:05 php-fpm7.0
+S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22038&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;41204&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;231744&lt;/span&gt; -     ?        08:00:04 php-fpm7.0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但每個 php-fpm 程序的記憶體不盡相同，我們可以用下列指令去計算平均使用的記憶體大小是多少&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;ps &amp;ndash;no-headers -o &amp;ldquo;rss,cmd&amp;rdquo; -C &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt;  | awk &amp;lsquo;{ sum+=$1 } END { printf (&amp;quot;%d%s\n&amp;quot;, sum/NR/1024,&amp;ldquo;Mb&amp;rdquo;) }&amp;rsquo;&lt;/p&gt;
@@ -1291,7 +1336,7 @@ sudo service php7.1-fpm restart
     <item>
       <title>Docs: 語系</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/system/language/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/language/</guid>
       <description>
@@ -1324,7 +1369,7 @@ sudo dpkg-reconfigure locales
     <item>
       <title>Docs: Cache</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/cache/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/cache/</guid>
       <description>
@@ -1371,7 +1416,7 @@ sudo dpkg-reconfigure locales
     <item>
       <title>Docs: 硬碟空間</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/system/hard-drive/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/hard-drive/</guid>
       <description>
@@ -1416,7 +1461,7 @@ sudo dpkg-reconfigure locales
     <item>
       <title>Docs: 除錯</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/debug/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/debug/</guid>
       <description>
@@ -1536,7 +1581,7 @@ sudo apt-get -y update
     <item>
       <title>Docs: Virtual Host</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/virtual-host/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/virtual-host/</guid>
       <description>
@@ -1604,7 +1649,7 @@ server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
     <item>
       <title>Docs: 排程</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/system/crontab-schedule/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/crontab-schedule/</guid>
       <description>
@@ -1685,7 +1730,7 @@ errors in crontab file, can&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&
     <item>
       <title>Docs: 安全</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/security/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/security/</guid>
       <description>
@@ -1723,7 +1768,7 @@ errors in crontab file, can&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&
     <item>
       <title>Docs: 開機自動執行</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/system/boot-auto-execute/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/boot-auto-execute/</guid>
       <description>
@@ -1778,7 +1823,7 @@ Sep 25 15:54:33 ip-172-31-25-154 rc.local[793]: Deploy Done
     <item>
       <title>Docs: 參數</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/parameter/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/parameter/</guid>
       <description>
@@ -1818,7 +1863,7 @@ Sep 25 15:54:33 ip-172-31-25-154 rc.local[793]: Deploy Done
     <item>
       <title>Docs: 同網站不同 root</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/multiple-root/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/multiple-root/</guid>
       <description>
@@ -1934,7 +1979,7 @@ Sep 25 15:54:33 ip-172-31-25-154 rc.local[793]: Deploy Done
     <item>
       <title>Docs: 除錯</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/debug/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/debug/</guid>
       <description>

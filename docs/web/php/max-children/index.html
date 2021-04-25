@@ -21,12 +21,12 @@
 <meta property="og:description" content="Ubuntu PHP max_children 常用指令" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ubuntu-for-newbie.kejyun.com/docs/web/php/max-children/" /><meta property="og:image" content="https://ubuntu-for-newbie.kejyun.com/images/featured-background.jpeg"/><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2021-04-16T08:50:29&#43;00:00" />
-<meta property="article:modified_time" content="2021-04-16T08:50:29&#43;00:00" />
+<meta property="article:published_time" content="2021-04-16T08:50:29&#43;08:00" />
+<meta property="article:modified_time" content="2021-04-16T08:50:29&#43;08:00" />
 
 <meta itemprop="name" content="max_children">
-<meta itemprop="description" content="Ubuntu PHP max_children 常用指令"><meta itemprop="datePublished" content="2021-04-16T08:50:29&#43;00:00" />
-<meta itemprop="dateModified" content="2021-04-16T08:50:29&#43;00:00" />
+<meta itemprop="description" content="Ubuntu PHP max_children 常用指令"><meta itemprop="datePublished" content="2021-04-16T08:50:29&#43;08:00" />
+<meta itemprop="dateModified" content="2021-04-16T08:50:29&#43;08:00" />
 <meta itemprop="wordCount" content="650"><meta itemprop="image" content="https://ubuntu-for-newbie.kejyun.com/images/featured-background.jpeg"/>
 <meta itemprop="keywords" content="Ubuntu,筆記,文件,網站,Web Software,Build website,PHP,max_children," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://ubuntu-for-newbie.kejyun.com/images/featured-background.jpeg"/>
@@ -131,14 +131,14 @@ if (!doNotTrack) {
             "height":"60"
         }
     },
-    "dateCreated":"2021-04-16T08:50:29\u002b00:00",
-    "datePublished":"2021-04-16T08:50:29\u002b00:00",
+    "dateCreated":"2021-04-16T08:50:29\u002b08:00",
+    "datePublished":"2021-04-16T08:50:29\u002b08:00",
     
     
     "author":"KeJyun",
     "creator":"KeJyun",
     
-    "dateModified":"2021-04-16T08:50:29\u002b00:00",
+    "dateModified":"2021-04-16T08:50:29\u002b08:00",
     "articleSection":"TechArticle"
 }
 </script>
@@ -158,9 +158,9 @@ if (!doNotTrack) {
 		"url": "https:\/\/ubuntu-for-newbie.kejyun.com\/docs\/web\/php\/max-children\/",
 		"headline": "max_children",
 		"alternativeHeadline": "max_children",
-		"dateCreated": "2021-04-16T08:50:29\u002b00:00",
-		"datePublished": "2021-04-16T08:50:29\u002b00:00",
-		"dateModified": "2021-04-16T08:50:29\u002b00:00",
+		"dateCreated": "2021-04-16T08:50:29\u002b08:00",
+		"datePublished": "2021-04-16T08:50:29\u002b08:00",
+		"dateModified": "2021-04-16T08:50:29\u002b08:00",
 		"inLanguage": "zh",
 		"isFamilyFriendly": "true",
 		"copyrightYear": "2021",
@@ -204,7 +204,7 @@ if (!doNotTrack) {
 		],
 		"genre":["KJ"],
 		"articleSection": "KJ",
-		"articleBody": "PHP FPM Max Children 在 php fpm 的 error log 發現執行緒不太夠用，需要設定開啟新執行緒\n[24-Oct-2018 07:43:58] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it [24-Oct-2018 08:27:52] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it [24-Oct-2018 10:57:17] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it [24-Oct-2018 11:37:32] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it 設定檔路徑\n\/etc\/php\/7.1\/fpm\/pool.d\/www.conf 在設定檔中可以看到類似以下的設定方式\npm.max_children = 10 pm.start_servers = 4 pm.min_spare_servers = 2 pm.max_spare_servers = 8 Process Manager 行程調配規則參數說明    參數 說明     pm PHP-FPM Process Manager 行程調配規則   pm.start_servers PHP-FPM 服務在一開始啟動時，要配置多少個行程   pm.min_spare_servers PHP-FPM 最小閒置行程的數量   pm.max_spare_servers PHP-FPM 最大閒置行程的數量   pm.max_requests 單一 PHP-FPM 最多可以處理多少個連線，當一個工作行程處理的連線數達到這個值的時候，就會強制關閉此行程，重新產生另一個新的行程    pm = dynamic    參數 說明     static 固定行程數量（數量為 pm.max_children） ，效能很好，但很佔記憶體   dynamic 動態行程數量（根據 pm.max_children、pm.start_servers、pm.min_spare_servers、pm.max_spare_servers 動態調整），根據使用量用多少開多少，但當使用量比較低時，會保留一些行程，隨時等著接收新的連線   ondemand 動態行程數量（根據 pm.max_children、pm.start_servers、pm.min_spare_servers、pm.max_spare_servers 動態調整），用多少開多少    pm.max_children 最大執行程序數量 最大執行程序數量是針對自己的主機規格不同去做設定的，當你主機有較大的記憶體，則可以設定更多的執行程序\n Total Max Processes = (Total Ram - (Used Ram \u002b Buffer)) \/ (Memory per php process)\n  最大執行程序 = (總記憶體 - (已使用記憶體 \u002b Buffer)) \/ (每個 php 執行緒需要記憶體)\n  pm.max_children 數量：可用記憶體(MB) \/ 大約 50MB\n 確認每個 php 執行緒需要記憶體\n因為每個 php 執行的記憶體及效率會針對不同的程式環境不同，而有不同的消耗記憶體，可以使用下列指令去取得 php-fpm 執行緒消耗的記憶體數量\n ps -ylC php-fpm 執行緒完整名稱 \u0026ndash;sort:rss\n 範例\n其中的 php-fpm 執行緒完整名稱 要看看你系統是用哪個版本的 php，而會有不同版本名稱的 php-fpm，像是：\nps -ylC php-fpm --sort:rss ps -ylC php-fpm7.0 --sort:rss ps -ylC php-fpm7.1 --sort:rss 在列出來 php-fpm 使用的資源後，可以看到 RSS 欄位為使用的記憶體大小，31692 表示為 31692 kb，大概就是 31M\n$ ps -ylC php-fpm7.1 --sort:rss S UID PID PPID C PRI NI RSS SZ WCHAN TTY TIME CMD S 33 22275 16692 1 80 0 31692 212882 - ? 00:00:00 php-fpm7.0 S 33 22092 16692 1 80 0 40708 231684 - ? 00:00:02 php-fpm7.0 S 33 22023 16692 1 80 0 41136 231888 - ? 00:00:05 php-fpm7.0 S 33 22038 16692 1 80 0 41204 231744 - ? 00:00:04 php-fpm7.0 但每個 php-fpm 程序的記憶體不盡相同，我們可以用下列指令去計算平均使用的記憶體大小是多少\n ps \u0026ndash;no-headers -o \u0026ldquo;rss,cmd\u0026rdquo; -C php-fpm 執行緒完整名稱 | awk \u0026lsquo;{ sum\u002b=$1 } END { printf (\u0026quot;%d%s\\n\u0026quot;, sum\/NR\/1024,\u0026ldquo;Mb\u0026rdquo;) }\u0026rsquo;\n 也是一樣針對你系統是用哪個版本的 php，而會有不同版本名稱的 php-fpm，像是：\nps --no-headers -o \u0026#34;rss,cmd\u0026#34; -C php-fpm | awk \u0026#39;{ sum\u002b=$1 } END { printf (\u0026#34;%d%s\\n\u0026#34;, sum\/NR\/1024,\u0026#34;Mb\u0026#34;) }\u0026#39; ps --no-headers -o \u0026#34;rss,cmd\u0026#34; -C php-fpm7.0 | awk \u0026#39;{ sum\u002b=$1 } END { printf (\u0026#34;%d%s\\n\u0026#34;, sum\/NR\/1024,\u0026#34;Mb\u0026#34;) }\u0026#39; ps --no-headers -o \u0026#34;rss,cmd\u0026#34; -C php-fpm7.1 | awk \u0026#39;{ sum\u002b=$1 } END { printf (\u0026#34;%d%s\\n\u0026#34;, sum\/NR\/1024,\u0026#34;Mb\u0026#34;) }\u0026#39; 抓出來的平均使用記憶體大概為 44 MB，但為了抓 Buffer，我們大概抓 50 MB 左右\n$ ps --no-headers -o \u0026#34;rss,cmd\u0026#34; -C php-fpm7.0 | awk \u0026#39;{ sum\u002b=$1 } END { printf (\u0026#34;%d%s\\n\u0026#34;, sum\/NR\/1024,\u0026#34;Mb\u0026#34;) }\u0026#39; 44Mb 確認可用的記憶體數量\n php-fpm 可以用的記憶體為：剩餘還可用的記憶體 \u002b (php-fpm 平均使用記憶體 * 目前 php-fpm 開啟數量)\n 使用 free -m 取得目前的記憶體使用狀況，總記憶體是 3272 M，已經使用了 1539M，剩餘還可用的記憶體有 1021 M\n$ free -m total used free shared buff\/cache available Mem: 3762 1539 1021 84 2417 2686 Swap: 0 0 0 而從下列指令中，取得 php-fpm 平均使用記憶體為 44M\n ps \u0026ndash;no-headers -o \u0026ldquo;rss,cmd\u0026rdquo; -C php-fpm 執行緒完整名稱 | awk \u0026lsquo;{ sum\u002b=$1 } END { printf (\u0026quot;%d%s\\n\u0026quot;, sum\/NR\/1024,\u0026ldquo;Mb\u0026rdquo;) }\u0026rsquo;\n 從下列指令中列出目前所有 php-fpm 執行緒數量為 41 個（直接去計算清單出現幾行 php-fpm 資源狀況即可知道總共開了幾個 php-fpm 執行緒）\n ps -ylC php-fpm 執行緒完整名稱 \u0026ndash;sort:rss\n 所以 php-fpm 可以用的記憶體為 1021 M \u002b 44 M * 41 個 = 2743M\n 最大執行程序數量 = php-fpm 可以用的記憶體 \/ 每個 php 執行緒需要記憶體(Buffer 數值)\n 2743M \/ 50M = 54.86\n為了不要讓所有記憶題全部消耗完，而沒有空間去執行其他非 php 的程序，所以我們這邊會抓 pm.max_children 大概最多使用個 50 個 執行緒\npm.max_children = 50 start_server 官方建議算法是 min_spare_servers \u002b (max_spare_servers - min_spare_servers) \/ 2\nmin_spare_servers 跟 max_spare_servers 就取個大概就好，不要讓他一直開開關關即可\npm.start_servers = 20 pm.min_spare_servers = 13 pm.max_spare_servers = 26 防止 php-fpm 執行緒處理過多 request 導致 Memory leak pm.max_requests = 500 request_terminate_timeout = 30s 讓每個子執行緒同時處理超過 500 個 request 就自動移除此執行緒，避免 Memory Leak 執行緒卡在那邊動彈不得\n而執行時間超過 30 秒的請求則自動中斷掉，建議設定為與 php.ini 的 max_execution_time 相同\n最後設定值會像是：\npm = dynamic pm.max_children = 50 pm.start_servers = 20 pm.min_spare_servers = 13 pm.max_spare_servers = 26 pm.max_requests = 500 request_terminate_timeout = 30s 記錄觀察 為了持續觀察 php-fpm 執行序地處理狀況，我們可以把請求執行時間過慢的 Request 記錄下來，在之後後續可以持續做除錯改進，這裡設定紀錄執行超過 10 秒的執行緒狀況\n; slowlog = \/var\/log\/php7.0-fpm-$pool.log.slow slowlog = \/var\/log\/php7.1-fpm-$pool.log.slow request_slowlog_timeout = 10s 設定完成後可以進行測試，確認改過的設定檔案沒有問題\nphp-fpm7.0 -t php-fpm7.1 -t $ php-fpm7.1 -t [03-Jul-2019 15:53:15] NOTICE: configuration file \/etc\/php\/7.1\/fpm\/php-fpm.conf test is successful 確認後記得重啟 php-fpm 服務即可生效\nsudo service php7.0-fpm restart sudo service php7.1-fpm restart 參考資料  Nginx 與 PHP-FPM 最佳化效能設定教學與技巧 - G. T. Wang Determining the correct number of child processes for PHP-FPM on NGinx 【整理】php-fpm.conf中的pm.max_children到底应该设置为多少 – 在路上 PHP-FPM: Process Management | Servers for Hackers Determining the correct number of child processes for PHP-FPM on NGinx How To: Solve PHP-FPM server reached max_children | Webcore Community | Webcore Cloud  "
+		"articleBody": "PHP FPM Max Children 在 php fpm 的 error log 發現執行緒不太夠用，需要設定開啟新執行緒\n[24-Oct-2018 07:43:58] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it [24-Oct-2018 08:27:52] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it [24-Oct-2018 10:57:17] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it [24-Oct-2018 11:37:32] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it 設定檔路徑\n\/etc\/php\/7.1\/fpm\/pool.d\/www.conf 在設定檔中可以看到類似以下的設定方式\npm.max_children = 10 pm.start_servers = 4 pm.min_spare_servers = 2 pm.max_spare_servers = 8 Process Manager 行程調配規則參數說明    參數 說明     pm PHP-FPM Process Manager 行程調配規則   pm.start_servers PHP-FPM 服務在一開始啟動時，要配置多少個行程   pm.min_spare_servers PHP-FPM 最小閒置行程的數量   pm.max_spare_servers PHP-FPM 最大閒置行程的數量   pm.max_requests 單一 PHP-FPM 最多可以處理多少個連線，當一個工作行程處理的連線數達到這個值的時候，就會強制關閉此行程，重新產生另一個新的行程    pm = dynamic    參數 說明     static 固定行程數量（數量為 pm.max_children） ，效能很好，但很佔記憶體   dynamic 動態行程數量（根據 pm.max_children、pm.start_servers、pm.min_spare_servers、pm.max_spare_servers 動態調整），根據使用量用多少開多少，但當使用量比較低時，會保留一些行程，隨時等著接收新的連線   ondemand 動態行程數量（根據 pm.max_children、pm.start_servers、pm.min_spare_servers、pm.max_spare_servers 動態調整），用多少開多少    pm.max_children 最大執行程序數量 最大執行程序數量是針對自己的主機規格不同去做設定的，當你主機有較大的記憶體，則可以設定更多的執行程序\n Total Max Processes = (Total Ram - (Used Ram \u002b Buffer)) \/ (Memory per php process)\n  最大執行程序 = (總記憶體 - (已使用記憶體 \u002b Buffer)) \/ (每個 php 執行緒需要記憶體)\n  pm.max_children 數量：可用記憶體(MB) \/ 大約 50MB\n 確認每個 php 執行緒需要記憶體\n因為每個 php 執行的記憶體及效率會針對不同的程式環境不同，而有不同的消耗記憶體，可以使用下列指令去取得 php-fpm 執行緒消耗的記憶體數量\n ps -ylC php-fpm 執行緒完整名稱 \u0026ndash;sort:rss\n 範例\n其中的 php-fpm 執行緒完整名稱 要看看你系統是用哪個版本的 php，而會有不同版本名稱的 php-fpm，像是：\nps -ylC php-fpm --sort:rss ps -ylC php-fpm7.0 --sort:rss ps -ylC php-fpm7.1 --sort:rss 在列出來 php-fpm 使用的資源後，可以看到 RSS 欄位為使用的記憶體大小，31692 表示為 31692 kb，大概就是 31M\n$ ps -ylC php-fpm7.1 --sort:rss S UID PID PPID C PRI NI RSS SZ WCHAN TTY TIME CMD S 33 22275 16692 1 80 0 31692 212882 - ? 08:00:00 php-fpm7.0 S 33 22092 16692 1 80 0 40708 231684 - ? 08:00:02 php-fpm7.0 S 33 22023 16692 1 80 0 41136 231888 - ? 08:00:05 php-fpm7.0 S 33 22038 16692 1 80 0 41204 231744 - ? 08:00:04 php-fpm7.0 但每個 php-fpm 程序的記憶體不盡相同，我們可以用下列指令去計算平均使用的記憶體大小是多少\n ps \u0026ndash;no-headers -o \u0026ldquo;rss,cmd\u0026rdquo; -C php-fpm 執行緒完整名稱 | awk \u0026lsquo;{ sum\u002b=$1 } END { printf (\u0026quot;%d%s\\n\u0026quot;, sum\/NR\/1024,\u0026ldquo;Mb\u0026rdquo;) }\u0026rsquo;\n 也是一樣針對你系統是用哪個版本的 php，而會有不同版本名稱的 php-fpm，像是：\nps --no-headers -o \u0026#34;rss,cmd\u0026#34; -C php-fpm | awk \u0026#39;{ sum\u002b=$1 } END { printf (\u0026#34;%d%s\\n\u0026#34;, sum\/NR\/1024,\u0026#34;Mb\u0026#34;) }\u0026#39; ps --no-headers -o \u0026#34;rss,cmd\u0026#34; -C php-fpm7.0 | awk \u0026#39;{ sum\u002b=$1 } END { printf (\u0026#34;%d%s\\n\u0026#34;, sum\/NR\/1024,\u0026#34;Mb\u0026#34;) }\u0026#39; ps --no-headers -o \u0026#34;rss,cmd\u0026#34; -C php-fpm7.1 | awk \u0026#39;{ sum\u002b=$1 } END { printf (\u0026#34;%d%s\\n\u0026#34;, sum\/NR\/1024,\u0026#34;Mb\u0026#34;) }\u0026#39; 抓出來的平均使用記憶體大概為 44 MB，但為了抓 Buffer，我們大概抓 50 MB 左右\n$ ps --no-headers -o \u0026#34;rss,cmd\u0026#34; -C php-fpm7.0 | awk \u0026#39;{ sum\u002b=$1 } END { printf (\u0026#34;%d%s\\n\u0026#34;, sum\/NR\/1024,\u0026#34;Mb\u0026#34;) }\u0026#39; 44Mb 確認可用的記憶體數量\n php-fpm 可以用的記憶體為：剩餘還可用的記憶體 \u002b (php-fpm 平均使用記憶體 * 目前 php-fpm 開啟數量)\n 使用 free -m 取得目前的記憶體使用狀況，總記憶體是 3272 M，已經使用了 1539M，剩餘還可用的記憶體有 1021 M\n$ free -m total used free shared buff\/cache available Mem: 3762 1539 1021 84 2417 2686 Swap: 0 0 0 而從下列指令中，取得 php-fpm 平均使用記憶體為 44M\n ps \u0026ndash;no-headers -o \u0026ldquo;rss,cmd\u0026rdquo; -C php-fpm 執行緒完整名稱 | awk \u0026lsquo;{ sum\u002b=$1 } END { printf (\u0026quot;%d%s\\n\u0026quot;, sum\/NR\/1024,\u0026ldquo;Mb\u0026rdquo;) }\u0026rsquo;\n 從下列指令中列出目前所有 php-fpm 執行緒數量為 41 個（直接去計算清單出現幾行 php-fpm 資源狀況即可知道總共開了幾個 php-fpm 執行緒）\n ps -ylC php-fpm 執行緒完整名稱 \u0026ndash;sort:rss\n 所以 php-fpm 可以用的記憶體為 1021 M \u002b 44 M * 41 個 = 2743M\n 最大執行程序數量 = php-fpm 可以用的記憶體 \/ 每個 php 執行緒需要記憶體(Buffer 數值)\n 2743M \/ 50M = 54.86\n為了不要讓所有記憶題全部消耗完，而沒有空間去執行其他非 php 的程序，所以我們這邊會抓 pm.max_children 大概最多使用個 50 個 執行緒\npm.max_children = 50 start_server 官方建議算法是 min_spare_servers \u002b (max_spare_servers - min_spare_servers) \/ 2\nmin_spare_servers 跟 max_spare_servers 就取個大概就好，不要讓他一直開開關關即可\npm.start_servers = 20 pm.min_spare_servers = 13 pm.max_spare_servers = 26 防止 php-fpm 執行緒處理過多 request 導致 Memory leak pm.max_requests = 500 request_terminate_timeout = 30s 讓每個子執行緒同時處理超過 500 個 request 就自動移除此執行緒，避免 Memory Leak 執行緒卡在那邊動彈不得\n而執行時間超過 30 秒的請求則自動中斷掉，建議設定為與 php.ini 的 max_execution_time 相同\n最後設定值會像是：\npm = dynamic pm.max_children = 50 pm.start_servers = 20 pm.min_spare_servers = 13 pm.max_spare_servers = 26 pm.max_requests = 500 request_terminate_timeout = 30s 記錄觀察 為了持續觀察 php-fpm 執行序地處理狀況，我們可以把請求執行時間過慢的 Request 記錄下來，在之後後續可以持續做除錯改進，這裡設定紀錄執行超過 10 秒的執行緒狀況\n; slowlog = \/var\/log\/php7.0-fpm-$pool.log.slow slowlog = \/var\/log\/php7.1-fpm-$pool.log.slow request_slowlog_timeout = 10s 設定完成後可以進行測試，確認改過的設定檔案沒有問題\nphp-fpm7.0 -t php-fpm7.1 -t $ php-fpm7.1 -t [03-Jul-2019 15:53:15] NOTICE: configuration file \/etc\/php\/7.1\/fpm\/php-fpm.conf test is successful 確認後記得重啟 php-fpm 服務即可生效\nsudo service php7.0-fpm restart sudo service php7.1-fpm restart 參考資料  Nginx 與 PHP-FPM 最佳化效能設定教學與技巧 - G. T. Wang Determining the correct number of child processes for PHP-FPM on NGinx 【整理】php-fpm.conf中的pm.max_children到底应该设置为多少 – 在路上 PHP-FPM: Process Management | Servers for Hackers Determining the correct number of child processes for PHP-FPM on NGinx How To: Solve PHP-FPM server reached max_children | Webcore Community | Webcore Cloud  "
 	}
 </script>
 
@@ -597,7 +597,7 @@ if (!doNotTrack) {
   aria-label="搜尋"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.e933e668f37347eafda00d1284ca3c65.json"
+  data-offline-search-index-json-src="/offline-search-index.25603ab2a45390737c14649857b92c96.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="25"
 >
@@ -633,7 +633,7 @@ if (!doNotTrack) {
   aria-label="搜尋"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.e933e668f37347eafda00d1284ca3c65.json"
+  data-offline-search-index-json-src="/offline-search-index.25603ab2a45390737c14649857b92c96.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="25"
 >
@@ -1096,6 +1096,103 @@ if (!doNotTrack) {
   
   <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscommandtar-li">
     <a href="/docs/command/tar/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docscommandtar"><span class="">tar</span></a>
+    
+  </li>
+
+          
+        
+      </ul>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsnetwork-li">
+    <a href="/docs/network/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section" id="m-docsnetwork"><span class="">網路</span></a>
+    
+      
+      <ul class="pr-md-3 ul-2">
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsnetworkssh-li">
+    <a href="/docs/network/ssh/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section" id="m-docsnetworkssh"><span class="">ssh</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsnetworkip-li">
+    <a href="/docs/network/ip/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsnetworkip"><span class="">查詢 ip</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsnetworkmultiple-ssh-key-to-same-github-site-li">
+    <a href="/docs/network/multiple-ssh-key-to-same-github-site/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docsnetworkmultiple-ssh-key-to-same-github-site"><span class="">使用不同 ssh 金鑰登入 github</span></a>
     
   </li>
 
@@ -1999,7 +2096,7 @@ if (!doNotTrack) {
 
 		
 		
-		
+
 		
 		
 
@@ -2007,7 +2104,7 @@ if (!doNotTrack) {
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-1990193713845546"
-     data-ad-slot="1983708858"
+     data-ad-slot="5417606383"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
 <script>
@@ -2015,8 +2112,8 @@ if (!doNotTrack) {
 </script>
 
 
- 
-	
+
+
 		
 		
 		<h2 id="php-fpm-max-children">PHP FPM Max Children</h2>
@@ -2110,10 +2207,10 @@ ps -ylC php-fpm7.1 --sort:rss
 </code></pre></div><p>在列出來 php-fpm 使用的資源後，可以看到 <code>RSS</code> 欄位為使用的記憶體大小，<code>31692</code> 表示為 <code>31692 kb</code>，大概就是 <code>31M</code></p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ps -ylC php-fpm7.1 --sort:rss
 S   UID   PID  PPID  C PRI  NI   RSS    SZ WCHAN  TTY          TIME CMD
-S    <span style="color:#0000cf;font-weight:bold">33</span> <span style="color:#0000cf;font-weight:bold">22275</span> <span style="color:#0000cf;font-weight:bold">16692</span>  <span style="color:#0000cf;font-weight:bold">1</span>  <span style="color:#0000cf;font-weight:bold">80</span>   <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">31692</span> <span style="color:#0000cf;font-weight:bold">212882</span> -     ?        00:00:00 php-fpm7.0
-S    <span style="color:#0000cf;font-weight:bold">33</span> <span style="color:#0000cf;font-weight:bold">22092</span> <span style="color:#0000cf;font-weight:bold">16692</span>  <span style="color:#0000cf;font-weight:bold">1</span>  <span style="color:#0000cf;font-weight:bold">80</span>   <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">40708</span> <span style="color:#0000cf;font-weight:bold">231684</span> -     ?        00:00:02 php-fpm7.0
-S    <span style="color:#0000cf;font-weight:bold">33</span> <span style="color:#0000cf;font-weight:bold">22023</span> <span style="color:#0000cf;font-weight:bold">16692</span>  <span style="color:#0000cf;font-weight:bold">1</span>  <span style="color:#0000cf;font-weight:bold">80</span>   <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">41136</span> <span style="color:#0000cf;font-weight:bold">231888</span> -     ?        00:00:05 php-fpm7.0
-S    <span style="color:#0000cf;font-weight:bold">33</span> <span style="color:#0000cf;font-weight:bold">22038</span> <span style="color:#0000cf;font-weight:bold">16692</span>  <span style="color:#0000cf;font-weight:bold">1</span>  <span style="color:#0000cf;font-weight:bold">80</span>   <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">41204</span> <span style="color:#0000cf;font-weight:bold">231744</span> -     ?        00:00:04 php-fpm7.0
+S    <span style="color:#0000cf;font-weight:bold">33</span> <span style="color:#0000cf;font-weight:bold">22275</span> <span style="color:#0000cf;font-weight:bold">16692</span>  <span style="color:#0000cf;font-weight:bold">1</span>  <span style="color:#0000cf;font-weight:bold">80</span>   <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">31692</span> <span style="color:#0000cf;font-weight:bold">212882</span> -     ?        08:00:00 php-fpm7.0
+S    <span style="color:#0000cf;font-weight:bold">33</span> <span style="color:#0000cf;font-weight:bold">22092</span> <span style="color:#0000cf;font-weight:bold">16692</span>  <span style="color:#0000cf;font-weight:bold">1</span>  <span style="color:#0000cf;font-weight:bold">80</span>   <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">40708</span> <span style="color:#0000cf;font-weight:bold">231684</span> -     ?        08:00:02 php-fpm7.0
+S    <span style="color:#0000cf;font-weight:bold">33</span> <span style="color:#0000cf;font-weight:bold">22023</span> <span style="color:#0000cf;font-weight:bold">16692</span>  <span style="color:#0000cf;font-weight:bold">1</span>  <span style="color:#0000cf;font-weight:bold">80</span>   <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">41136</span> <span style="color:#0000cf;font-weight:bold">231888</span> -     ?        08:00:05 php-fpm7.0
+S    <span style="color:#0000cf;font-weight:bold">33</span> <span style="color:#0000cf;font-weight:bold">22038</span> <span style="color:#0000cf;font-weight:bold">16692</span>  <span style="color:#0000cf;font-weight:bold">1</span>  <span style="color:#0000cf;font-weight:bold">80</span>   <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">41204</span> <span style="color:#0000cf;font-weight:bold">231744</span> -     ?        08:00:04 php-fpm7.0
 </code></pre></div><p>但每個 php-fpm 程序的記憶體不盡相同，我們可以用下列指令去計算平均使用的記憶體大小是多少</p>
 <blockquote>
 <p>ps &ndash;no-headers -o &ldquo;rss,cmd&rdquo; -C <code>php-fpm 執行緒完整名稱</code>  | awk &lsquo;{ sum+=$1 } END { printf (&quot;%d%s\n&quot;, sum/NR/1024,&ldquo;Mb&rdquo;) }&rsquo;</p>
@@ -2190,7 +2287,7 @@ sudo service php7.1-fpm restart
 <li><a href="https://community.webcore.cloud/tutorials/how_to_solve_php_fpm_server_reached_max_children/">How To: Solve PHP-FPM server reached max_children | Webcore Community | Webcore Cloud</a></li>
 </ul>
 
-		
+
 		
 		
 
@@ -2216,14 +2313,14 @@ sudo service php7.1-fpm restart
        data-ad-slot="3237080773"></ins>
 
 
- 
-	
+
+
 		
 		
+
 		
 		
-		
-		
+
 		
 		<div class="text-muted mt-5 pt-3 border-top">最後修改 April 16, 2021
 </div>
@@ -2248,9 +2345,9 @@ sudo service php7.1-fpm restart
         
 <ul class="list-inline mb-0">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="" aria-label="">
-    <a class="text-white" target="_blank" rel="noopener noreferrer" href="">
-      <i class=""></i>
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/kejyun">
+      <i class="fab fa-github"></i>
     </a>
   </li>
   

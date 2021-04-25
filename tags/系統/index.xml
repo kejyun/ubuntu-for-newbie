@@ -5,7 +5,7 @@
     <description>Recent content in 系統 on Ubuntu 菜雞修煉場</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0800</lastBuildDate>
     
 	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/%E7%B3%BB%E7%B5%B1/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,7 +18,7 @@
     <item>
       <title>Docs: 系統</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/system/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/</guid>
       <description>
@@ -42,7 +42,7 @@ Codename:	xenial
     <item>
       <title>Docs: 時間</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/system/date/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/date/</guid>
       <description>
@@ -83,7 +83,7 @@ sudo ntpdate time.stdtime.gov.tw
     <item>
       <title>Docs: 主機名稱 hostname</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/system/hostname/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/hostname/</guid>
       <description>
@@ -119,7 +119,7 @@ kejyun-host-name
     <item>
       <title>Docs: 虛擬記憶體（SWAP）</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/system/virtual-memory/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/virtual-memory/</guid>
       <description>
@@ -177,7 +177,7 @@ Filename				Type		Size	Used	Priority
     <item>
       <title>Docs: 語系</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/system/language/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/language/</guid>
       <description>
@@ -210,7 +210,7 @@ sudo dpkg-reconfigure locales
     <item>
       <title>Docs: 硬碟空間</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/system/hard-drive/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/hard-drive/</guid>
       <description>
@@ -255,7 +255,7 @@ sudo dpkg-reconfigure locales
     <item>
       <title>Docs: 排程</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/system/crontab-schedule/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/crontab-schedule/</guid>
       <description>
@@ -336,7 +336,7 @@ errors in crontab file, can&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&
     <item>
       <title>Docs: 開機自動執行</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/system/boot-auto-execute/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/boot-auto-execute/</guid>
       <description>

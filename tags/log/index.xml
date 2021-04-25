@@ -5,7 +5,7 @@
     <description>Recent content in Log on Ubuntu 菜雞修煉場</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0800</lastBuildDate>
     
 	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/log/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,7 +18,7 @@
     <item>
       <title>Docs: Log</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/log/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/log/</guid>
       <description>
@@ -67,7 +67,7 @@ error_log /var/log/nginx/error.log&lt;span style=&#34;color:#000;font-weight:bol
     <item>
       <title>Docs: log</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/log/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/log/</guid>
       <description>
@@ -86,7 +86,7 @@ error_log /var/log/nginx/error.log&lt;span style=&#34;color:#000;font-weight:bol
     <item>
       <title>Docs: 日誌</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/log/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/log/</guid>
       <description>

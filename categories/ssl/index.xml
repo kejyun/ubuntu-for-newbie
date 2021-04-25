@@ -5,7 +5,7 @@
     <description>Recent content in SSL on Ubuntu 菜雞修煉場</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0800</lastBuildDate>
     
 	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/ssl/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,7 +18,7 @@
     <item>
       <title>Docs: Let&#39;s Encrypt</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/lets-encrypt/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/lets-encrypt/</guid>
       <description>
@@ -101,7 +101,7 @@ chmod +x ./certbot-auto
     <item>
       <title>Docs: NET::ERR_CERT_COMMON_NAME_INVALID</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/err-cert-common-name/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/err-cert-common-name/</guid>
       <description>
@@ -138,7 +138,7 @@ PEM encoded chain:
     <item>
       <title>Docs: 更新憑證</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/certificate-verification-failed/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/certificate-verification-failed/</guid>
       <description>
@@ -179,7 +179,7 @@ If you&lt;span style=&#34;color:#4e9a06&#34;&gt;\&amp;#39;&lt;/span&gt;d like to
     <item>
       <title>Docs: SSL</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0000</pubDate>
+      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
       
       <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/</guid>
       <description>

@@ -1,0 +1,43 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞修煉場 – ssh key to same site</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/ssh-key-to-same-site/</link>
+    <description>Recent content in ssh key to same site on Ubuntu 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 23 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/ssh-key-to-same-site/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 使用不同 ssh 金鑰登入 github</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/network/multiple-ssh-key-to-same-github-site/</link>
+      <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/network/multiple-ssh-key-to-same-github-site/</guid>
+      <description>
+        
+        
+        &lt;p&gt;在 github 抓取 Repository 時，我們常常用 git ssh 帳號去 clone 一個 Repository，像是：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:laravel/laravel.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;而使用 ssh 去 clone Repository 時，則會需要 &lt;code&gt;ssh 金鑰&lt;/code&gt; 才能夠順利的將專案複製下來，但只要有正確的金鑰，我們在每一次對 Repository 進行 clone / push / pull / fetch 的時候，則都不需要輸入帳號密碼即可完成操作（只要你的帳號有足夠的權限的話）&lt;/p&gt;
+&lt;p&gt;但當我們有個人的專案及公司的專案都在 github 時，且不同的專案所需要的 &lt;code&gt;ssh 金鑰&lt;/code&gt; 皆不同時，則需要設定在不同的狀況需要使用不同的金鑰去存取我們的 Repository。&lt;/p&gt;
+&lt;p&gt;例如 &lt;code&gt;git@github.com:kj/kj.git&lt;/code&gt; 需要 &lt;code&gt;id_rsa_kj_personal&lt;/code&gt; 的金鑰，但 &lt;code&gt;git@github.com:kj-company/compony-project.git&lt;/code&gt; 則需要 &lt;code&gt;id_rsa_kj_company&lt;/code&gt; 的金鑰&lt;/p&gt;
+&lt;p&gt;此時可以使用的解法有下列 2 個&lt;/p&gt;
+&lt;h2 id=&#34;設定-sshconfig-檔案&#34;&gt;設定 .ssh/config 檔案&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;.ssh/config&lt;/code&gt; 的設定檔案格式像下方&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Host &amp;lt;host_alias&amp;gt;                       &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 主機別名&lt;/span&gt;
+    HostName &amp;lt;hostname_or_ip&amp;gt;           &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 主機網址或 ip&lt;/span&gt;
+    IdentityFile &amp;lt;private_key_path&amp;gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 金鑰位置&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

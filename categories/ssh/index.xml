@@ -1,0 +1,188 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞修煉場 – ssh</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/categories/ssh/</link>
+    <description>Recent content in ssh on Ubuntu 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 23 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/ssh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: ssh</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/</link>
+      <pubDate>Fri, 23 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;建立-ssh-key&#34;&gt;建立 ssh key&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh-keygen -t rsa -b &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4096&lt;/span&gt; -C &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;kj@example.com&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;變更-ssh-port&#34;&gt;變更 ssh port&lt;/h2&gt;
+&lt;p&gt;開啟設定檔案&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/ssh/sshd_config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;找尋 Port 並變更&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# What ports, IPs and protocols we listen for&lt;/span&gt;
+Port &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重新啟動 ssh 服務即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo service ssh restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;是否允許密碼登入&#34;&gt;是否允許密碼登入&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /etc/ssh/sshd_config&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Change to no to disable tunnelled clear text passwords&lt;/span&gt;
+PasswordAuthentication yes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;僅允許使用-key-登入&#34;&gt;僅允許使用 key 登入&lt;/h2&gt;
+&lt;p&gt;為了安全性，避免主機被使用帳號密碼 try，可以僅使用 key 登入，將密碼 ssh 登入方式關閉&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /etc/ssh/sshd_config&lt;/span&gt;
+PasswordAuthentication no
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile      %h/.ssh/authorized_keys
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;在自己電腦產生 key&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh-keygen -t rsa -b &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4096&lt;/span&gt; -C &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;kj@kejyun.com&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;id_rsa.pub：公開金鑰（public key），放在 Ubuntu 主機&lt;/li&gt;
+&lt;li&gt;id_rsa：私密金鑰（private key），不可外洩的個人金鑰&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;將 id_rsa.pub 公開金鑰放在 ~/.ssh/authorized_keys&lt;/strong&gt;*&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;~$ mkdir .ssh
+~$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; .ssh
+~/.ssh$ vim authorized_keys
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;重新啟動 ssh 服務&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;service ssh restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;使用 key 登入&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -p &amp;lt;ssh_port&amp;gt; -i /Users/kejyun/.ssh/id_rsa -l &amp;lt;account&amp;gt; &amp;lt;ip_address&amp;gt;
+ssh -p &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22&lt;/span&gt; -i /Users/kejyun/.ssh/id_rsa -l kj 127.0.0.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ssh-log&#34;&gt;SSH Log&lt;/h2&gt;
+&lt;p&gt;SSH Log 檔案放在 &lt;code&gt;/var/log/auth.log&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;grep &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;sshd&amp;#39;&lt;/span&gt; /var/log/auth.log
+
+tail -f /var/log/auth.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;authentication-refused-bad-ownership-or-modes-for-directory&#34;&gt;Authentication refused: bad ownership or modes for directory&lt;/h2&gt;
+&lt;p&gt;ssh 登入為了安全性，對於 &lt;code&gt;.ssh&lt;/code&gt; 目錄的讀寫權限有限制，需要為 &lt;code&gt;775&lt;/code&gt; 或 &lt;code&gt;700&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;id_rsa.pub&lt;/code&gt; 與 &lt;code&gt;authorized_keys&lt;/code&gt; 權限為 &lt;code&gt;644&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;id_rsa&lt;/code&gt; 權限為 &lt;code&gt;600&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;指定-key-及帳號&#34;&gt;指定 key 及帳號&lt;/h2&gt;
+&lt;p&gt;在做 ssh 連線 alias 指令時，想要直接接著需要連線的 IP，那麼就必須要把參數先指定好，後面才可以直接接著 IP&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -p &amp;lt;port&amp;gt; -i &amp;lt;ssh_key_path&amp;gt; -l &amp;lt;account&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;-p：port&lt;/li&gt;
+&lt;li&gt;-i：ssh 金鑰路徑&lt;/li&gt;
+&lt;li&gt;-l：帳號名稱&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -p &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22&lt;/span&gt; -i ~/.ssh/id_rsa -l kejyun
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;使用 shell function 做 ssh 登入&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;f&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt; ssh &amp;lt;account&amp;gt;@&lt;span style=&#34;color:#000&#34;&gt;$1&lt;/span&gt; -i &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;ssh_key_path&amp;gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; f
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;f&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt; ssh kejyun@&lt;span style=&#34;color:#000&#34;&gt;$1&lt;/span&gt; -i &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;~/.ssh/id_rsa&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; f
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;在本機透過-ssh-tunnel-直接連線主機&#34;&gt;在本機透過 ssh tunnel 直接連線主機&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -t -p &amp;lt;port&amp;gt; -l &amp;lt;account&amp;gt; &amp;lt;ssh_tunnel_server&amp;gt; bash -ic &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ssh_internal_server &amp;lt;ip_address&amp;gt;&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -t -p &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22&lt;/span&gt; -l kejyun server.kj.com bash -ic &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ssh_kj 1.1.1.1&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;常見問題&#34;&gt;常見問題&lt;/h2&gt;
+&lt;h3 id=&#34;在-macos-mojave-版本產生的-ssh-key-無法使用&#34;&gt;在 MacOS Mojave 版本產生的 ssh key 無法使用&lt;/h3&gt;
+&lt;p&gt;Mojave 的 ssh key 產生的 key 是新版本的 &lt;code&gt;OPENSSH&lt;/code&gt; private key，所以在許多還沒支援新版本的平台使用此金鑰會無法被識別&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh-keygen -t rsa -b &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4096&lt;/span&gt; -C &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;kj@kejyun.com&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
+NhAAAAAwEAAQAAAgEA3Vnc+Hc5835QtKskY/oC9pFrnv6JSnMi7gQHc6aLZOCBE5IKklgq
+8P+O8aImqQUEv2GhLIIkMMmRm60U7t78/JiNtLHP07BIqxXslcTaWi9D1bUWcooBgqB/qy
+Hvg8J0QAmYBwbgaYzU8vgOckUgxQ/ssiFb1VkCsyuDvjCpjCJ0nwXNPlR2P1iYEuIpen7D
+2uS+0iSCRmmJAAAAGXJheS5jaGVuZ0B0aGVuZXdzbGVucy5jb20B
+-----END OPENSSH PRIVATE KEY-----
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;為了解決這個問題可以加入 &lt;code&gt;-m PEM&lt;/code&gt; 參數，產生 &lt;code&gt;PEM&lt;/code&gt; 格式的 key&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh-keygen -m PEM -t rsa -b &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4096&lt;/span&gt; -C &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;kj@kejyun.com&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;-----BEGIN RSA PRIVATE KEY-----
+MIIJKQIBAAKCAgEAr+QHvQMVt5i2ZzkHMxl/PRXxkFD2rHdLx1RT+9E9Hie/FeO3
+5DJMU+ZKZiPCK3ya/hDj8xJukL7jLfjhmGNKFDnkCGTzyhU5jWlORDEez72NKHGP
+eAt4eO6w6MpvRyhg7FZakKsTvLbGu7P8ceBA2yy6LHWUUDWuXPx4ZvarSr9q5Vkf
+qgGfICykPJEa0g68kyFJORLfaHrqgsrzmuHlJwokP8Jetw53MF+dciA/nE42tW4M
+rsiU0zzbEUYpS15uuR31QZjeNzGduwOU+gPBuhTdB3IaXyXD7KfSs6vXsaIB
+-----END RSA PRIVATE KEY-----
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;執行遠端-ssh-登入並執行遠端主機指令&#34;&gt;執行遠端 ssh 登入並執行遠端主機指令&lt;/h2&gt;
+&lt;p&gt;在連線主機後若要立即在遠端主機執行指令的話，可以在 &lt;code&gt;ssh 指令&lt;/code&gt; 後面用單引號（&lt;code&gt;&#39;&lt;/code&gt;）或雙引號（&lt;code&gt;&amp;quot;&lt;/code&gt;）將要執行的指令包起來，這樣在 ssh 連線後就會立即在遠端主機執行該指令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;remote_scripts&amp;gt;&amp;#39;&lt;/span&gt;
+ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;remote_scripts&amp;gt;&amp;#34;&lt;/span&gt;
+ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;/home/kejyun/shell.sh&amp;#39;&lt;/span&gt;
+ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;sudo /home/kejyun/shell.sh argument1 argument2&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;使用-ssh-複製遠端檔案scp&#34;&gt;使用 ssh 複製遠端檔案(scp)&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;使用 ssh&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;scp &amp;lt;your_username&amp;gt;@&amp;lt;your-server-domain&amp;gt;:/remote/dir/file.txt /local/dir
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;使用金鑰&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;scp -i &amp;lt;your-key&amp;gt; &amp;lt;your_username&amp;gt;@&amp;lt;your-server-domain&amp;gt;:/remote/dir/file.txt /local/dir
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;scp -i ~/.ssh/id_rsa kejyun@127.0.0.1:/home/remote-kejyun/myfile /home/kejyun
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;複製目錄&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;複製目錄加一個 &lt;code&gt;-r&lt;/code&gt; 的參數即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;scp -r -i &amp;lt;your-key&amp;gt; &amp;lt;your_username&amp;gt;@&amp;lt;your-server-domain&amp;gt;:/remote/dir/path /local/dir
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ssh-config&#34;&gt;ssh config&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;User&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;登入帳號&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;PreferredAuthentications&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;偏好授權方式&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;publickey&lt;/li&gt;
+&lt;li&gt;password&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;PasswordAuthentication&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;是否使用密碼驗證，預設 yes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;yes&lt;/li&gt;
+&lt;li&gt;no&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;PubkeyAuthentication&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;是否使用 public key 驗證，預設 yes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;yes&lt;/li&gt;
+&lt;li&gt;no&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;IdentitiesOnly&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;是否只使用 command line 或 config 的 ssh key，預設 no，所以會去嘗試抓其他不同的 key，像是 &lt;code&gt;ssh-agent&lt;/code&gt; 的 key&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;yes&lt;/li&gt;
+&lt;li&gt;no&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;測試-ssh-連線&#34;&gt;測試 ssh 連線&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -T git@github.com
+ssh -T git@bitbucket.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;bad-owner-or-permissions-on-sshconfig&#34;&gt;Bad owner or permissions on &lt;code&gt;~/.ssh/config&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;當使用 ssh config 進行連線時會出現權限的問題，表示 config 設定檔案的權限過於不安全，此時只需要限縮 config 檔案的權限即可&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;chmod &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;600&lt;/span&gt; ~/.ssh/config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;指定特定的-ssh-key-去做-git-pull&#34;&gt;指定特定的 ssh key 去做 git pull&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ &lt;span style=&#34;color:#000&#34;&gt;GIT_SSH_COMMAND&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;ssh -i /Users/kejyun/.ssh/id_rsa_other&amp;#39;&lt;/span&gt;
+$ git pull
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/&#34;&gt;Generating a new SSH key and adding it to the ssh-agent - User Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://serverfault.com/questions/130482/how-to-check-sshd-log&#34;&gt;ssh - How to check sshd log? - Server Fault&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bo56.com/ssh%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E9%99%86%E8%AE%BE%E7%BD%AE%E6%97%B6authentication-refused-bad-ownership-or-modes%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/&#34;&gt;ssh免密码登陆设置时Authentication refused: bad ownership or modes错误解决方法 - 博学无忧&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://serverfault.com/questions/939909/ssh-keygen-does-not-create-rsa-private-key&#34;&gt;openssl - ssh-keygen does not create RSA private key - Server Fault&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cyberciti.biz/faq/unix-linux-execute-command-using-ssh/&#34;&gt;Run / Execute Command Using SSH - nixCraft&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/9427553/how-to-download-a-file-from-server-using-ssh&#34;&gt;linux - How to download a file from server using SSH? - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@xiaolishen/use-multiple-ssh-keys-for-different-github-accounts-on-the-same-computer-7d7103ca8693&#34;&gt;Use multiple ssh-keys for different GitHub accounts on the same computer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.redhat.com/sysadmin/manage-multiple-ssh-key-pairs&#34;&gt;How to manage multiple SSH key pairs | Enable Sysadmin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/&#34;&gt;OpenSSH Config File Examples - nixCraft&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.alantsai.net/posts/2016/03/ssh-config-ssh-agent-passphrase-management&#34;&gt;如何用config管理多個網站的ssh key和如何不用每一組輸入ssh的Pass Phrase @ Alan Tsai 的學習筆記｜An Asp .Net Mvc Web Developer Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jianshu.com/p/325cd01284e9&#34;&gt;Bad owner or permissions on ~/.ssh/config - 简书&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ma.ttias.be/specify-a-specific-ssh-private-key-for-git-pull-git-clone/&#34;&gt;Specify a specific SSH private key for git pull/git clone&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
