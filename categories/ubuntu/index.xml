@@ -5,7 +5,7 @@
     <description>Recent content in Ubuntu on Ubuntu 菜雞修煉場</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 25 Apr 2021 08:50:29 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 26 Apr 2021 08:50:29 +0800</lastBuildDate>
     
 	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     
@@ -1597,6 +1597,68 @@ Filename				Type		Size	Used	Priority
     </item>
     
     <item>
+      <title>Docs: ssh tunnel 連線 port 轉發</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/ssh-tunnel-port-forward/</link>
+      <pubDate>Mon, 26 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/ssh-tunnel-port-forward/</guid>
+      <description>
+        
+        
+        &lt;p&gt;有些主機會因為安全性的疑慮，所以關閉對外連線的 port，但如果我們可以透過 ssh 連線至主機時，可以透過 &lt;code&gt;ssh tunnel&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;指令&#34;&gt;指令&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;本地端 port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;遠端主機 ip / dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;遠端主機 port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;ssh 連線遠端主機 ip / dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;local-port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;remote-server-ip-or-dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;remote-port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;ssh-to-remote-server-ip-or-dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;連線資料庫範例&#34;&gt;連線資料庫範例&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -L 33306:mysql.kejyun.com:3306 kj@mysql.kejyun.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;連線完成後，就可以在本地端透過 &lt;code&gt;127.0.0.1&lt;/code&gt; 的 &lt;code&gt;33306&lt;/code&gt; port 連線至遠端的資料庫&lt;/p&gt;
+&lt;h3 id=&#34;連線網頁範例&#34;&gt;連線網頁範例&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -L 8080:web.kejyun.com:80 kj@web.kejyun.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;連線完成後就可以在本地端透過 &lt;code&gt;http://127.0.0.1:8080/&lt;/code&gt; 連線至遠端網頁的 80 port&lt;/p&gt;
+&lt;h2 id=&#34;參數說明&#34;&gt;參數說明&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;th&gt;參數&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;建立本地端 port forwarding&lt;/td&gt;
+&lt;td&gt;-L&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;背景執行&lt;/td&gt;
+&lt;td&gt;-f&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;不要執行遠端指令&lt;/td&gt;
+&lt;td&gt;-N&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;不要執行遠端指令並在背景執行範例&#34;&gt;不要執行遠端指令並在背景執行範例&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -L 33306:mysql.kejyun.com:3306 -N -f kj@mysql.kejyun.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;除錯&#34;&gt;除錯&lt;/h2&gt;
+&lt;h3 id=&#34;列出目前所有-ssh-tunnel&#34;&gt;列出目前所有 SSH Tunnel&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;lsof -i -n &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; egrep &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;\&amp;lt;ssh\&amp;gt;&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://linuxize.com/post/how-to-setup-ssh-tunneling/&#34;&gt;How to Set up SSH Tunneling (Port Forwarding) | Linuxize&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://phoenixnap.com/kb/ssh-port-forwarding&#34;&gt;How to Use SSH Port Forwarding {Ultimate Guide}&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.tecmint.com/create-ssh-tunneling-port-forwarding-in-linux/&#34;&gt;How to Create SSH Tunneling or Port Forwarding in Linux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://xenby.com/b/269-%E6%95%99%E5%AD%B8-%E9%80%8F%E9%81%8E-ssh-tunnel-%E5%B0%87%E4%BC%BA%E6%9C%8D%E5%99%A8%E5%85%A7%E9%83%A8%E6%9C%8D%E5%8B%99%E7%B6%81%E5%AE%9A%E5%88%B0%E6%9C%AC%E6%A9%9F%E9%9B%BB%E8%85%A6%E4%B8%8A&#34;&gt;[教學] 透過 SSH Tunnel 將伺服器內部服務綁定到本機電腦上 | 辛比誌&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Gzip</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/gzip/</link>
       <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
@@ -1998,51 +2060,6 @@ sudo dpkg-reconfigure locales
         
         
         
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 硬碟空間</title>
-      <link>https://ubuntu-for-newbie.kejyun.com/docs/system/hard-drive/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
-      
-      <guid>https://ubuntu-for-newbie.kejyun.com/docs/system/hard-drive/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;查詢硬碟使用狀況&#34;&gt;查詢硬碟使用狀況&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;df -h
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;查詢資料夾所佔硬碟空間&#34;&gt;查詢資料夾所佔硬碟空間&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;sudo du -hs {查詢目錄}
-&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;sudo du -hs /home/web/laravel/*
-2.6M	/home/web/laravel/app
-4.0K	/home/web/laravel/artisan
-36K     /home/web/laravel/bootstrap
-4.0K	/home/web/laravel/bower.json
-4.0K	/home/web/laravel/composer.json
-196K	/home/web/laravel/composer.lock
-124K	/home/web/laravel/config
-132K	/home/web/laravel/database
-4.0K	/home/web/laravel/package.json
-4.0K	/home/web/laravel/phpunit.xml
-7.7G	/home/web/laravel/public
-4.0K	/home/web/laravel/readme.md
-1.6M	/home/web/laravel/resources
-276K	/home/web/laravel/routes
-4.0K	/home/web/laravel/server.php
-827M	/home/web/laravel/storage
-28K     /home/web/laravel/tests
-64M     /home/web/laravel/vendor
-4.0K	/home/web/laravel/webpack.mix.js
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;列出路徑下檔案空間使用-mb&#34;&gt;列出路徑下檔案空間，使用 MB&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;ls -al --block-size=M
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10160087&#34;&gt;Day 15 ubuntu 查詢硬碟使用量df指令 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10160234&#34;&gt;Day 16 ubuntu 查詢檔案或目錄的磁碟使用空間du指令 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/linux-df-command-check-disk-space-usage-tutorial-script-example/&#34;&gt;Linux 檢查硬碟使用量 df 指令教學與指令稿範例 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
       </description>
     </item>
     
