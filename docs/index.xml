@@ -16,6 +16,28 @@
     
     
     <item>
+      <title>Docs: 建立資料庫</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/create-database/</link>
+      <pubDate>Tue, 27 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/create-database/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;使用-dbeaver-建立資料庫&#34;&gt;使用 DBeaver 建立資料庫&lt;/h2&gt;
+&lt;p&gt;在 DBeaver 左側選單點選連線的資料庫按右鍵，選擇選單中的 &lt;code&gt;Create&lt;/code&gt; / &lt;code&gt;Database&lt;/code&gt; 就可以建立資料庫&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/postgresql-create-database-1.png&#34; alt=&#34;建立資料庫&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;Database name&lt;/code&gt; 欄位輸入資料庫名稱，然後在 &lt;code&gt;Tablespaces&lt;/code&gt; 選擇 &lt;code&gt;Default&lt;/code&gt;，再按下方的 &lt;code&gt;OK&lt;/code&gt; 即可建立資料庫&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/postgresql-create-database-2.png&#34; alt=&#34;建立資料庫&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[22.6. Tablespaces - PostgreSQL 正體中文使用手冊(https://docs.postgresql.tw/server-administration/managing-databases/tablespaces)&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: 建立金鑰</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/create-ssh-key/</link>
       <pubDate>Sun, 25 Apr 2021 08:50:29 +0800</pubDate>
@@ -304,6 +326,7 @@ error_log /var/log/nginx/error.log&lt;span style=&#34;color:#000;font-weight:bol
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/rsync-local-remote-file-synchronization-commands/&#34;&gt;Linux 使用 rsync 遠端檔案同步與備份工具教學與範例 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.xuite.net/jyoutw/xtech/20025390-rsync%E5%8F%83%E6%95%B8%E8%A9%B3%E8%A7%A3--20100209&#34;&gt;rsync參數詳解&amp;ndash;20100209 @ 暉獲無度的步烙閣 :: 隨意窩 Xuite日誌&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://unix.stackexchange.com/questions/12198/preserve-the-permissions-with-rsync&#34;&gt;Preserve the permissions with rsync - Unix &amp;amp; Linux Stack Exchange&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -576,6 +599,27 @@ chsh -s /bin/zsh
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.cyberciti.biz/faq/add-bash-auto-completion-in-ubuntu-linux/&#34;&gt;How to add bash auto completion in Ubuntu Linux - nixCraft&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 建立使用者</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/create-user/</link>
+      <pubDate>Tue, 27 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/create-user/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;使用-dbeaver-建立使用者&#34;&gt;使用 DBeaver 建立使用者&lt;/h2&gt;
+&lt;p&gt;在 DBeaver 左側選單點選連線的資料庫按右鍵，選擇選單中的 &lt;code&gt;Create&lt;/code&gt; / &lt;code&gt;Role&lt;/code&gt; 就可以建立使用者&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/postgresql-create-user-1.png&#34; alt=&#34;建立使用者&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在套出的視窗輸入 &lt;code&gt;使用者帳號 Name&lt;/code&gt; 及 &lt;code&gt;密碼 Password&lt;/code&gt;，並勾選 &lt;code&gt;Is user&lt;/code&gt;，然後點選 ok 就可以建立使用者&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/postgresql-create-user-2.png&#34; alt=&#34;建立使用者&#34;&gt;&lt;/p&gt;
+&lt;p&gt;點選完 ok 後，因為還沒有進行 &lt;code&gt;commit&lt;/code&gt;，所以使用者不會立即建立，再點選視窗右下方的 &lt;code&gt;Save&lt;/code&gt; 按鈕即可建立&lt;/p&gt;
+&lt;p&gt;若不想要建立則可點選 &lt;code&gt;Revert&lt;/code&gt; 取消這次建立的使用者&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/postgresql-create-user-3.png&#34; alt=&#34;建立使用者&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>
@@ -1096,6 +1140,34 @@ ZEmF5bjIAXRb6
 &lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/nginx-restricting-access-authenticated-user-ip-address-tutorial/&#34;&gt;NGINX 設定密碼認證與限制可存取的 IP 位址，控制頻寬與連線數 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 目錄權限</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/privilege/folder-path/</link>
+      <pubDate>Tue, 27 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/privilege/folder-path/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;列出指定路徑下所有目錄階層權限擁有者&#34;&gt;列出指定路徑下所有目錄階層權限擁有者&lt;/h2&gt;
+&lt;p&gt;可以一次列出整個目錄路徑下的權限及擁有者設定狀況，避免上層有沒有開權限而導致下層目錄沒有權限存取，可以一次列出去做檢查&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;namei -om &lt;code&gt;&amp;lt;目錄路徑&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ namei -om /home/kj/www
+f: /home/kj/www
+ drwxr-xr-x root  root  /
+ drwxr-xr-x root  root  home
+ drwxr-xr-x kj    kj    kj
+ drwxrwxr-x kj    kj    www
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/6795350/nginx-403-forbidden-for-all-files&#34;&gt;centos - Nginx 403 forbidden for all files - Stack Overflow&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -2324,6 +2396,26 @@ server_names_hash_max_size 1024&lt;span style=&#34;color:#000;font-weight:bold&#
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.phpini.com/linux/fix-nginx-error-413-request-entity-too-large&#34;&gt;解決 Nginx 錯誤: 413 Request entity too large&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://segmentfault.com/q/1010000004853184&#34;&gt;nginx配置server_names_hash_max_size放在什么地方？ - SegmentFault 思否&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 權限</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/permission/</link>
+      <pubDate>Tue, 27 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/permission/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;nginx-permission-denied&#34;&gt;Nginx Permission Denied&lt;/h2&gt;
+&lt;p&gt;在執行 Nginx 要對目錄進行寫入權限時，會出現 &lt;code&gt;Permission Denied&lt;/code&gt; 的訊息，Nginx 預設會用 &lt;code&gt;www-data&lt;/code&gt; 的群組身份執行程序，所以寫入檔案時也會用此傷僨去寫入，可以將網頁目錄的權限擁有者改為 &lt;code&gt;www-data&lt;/code&gt; 即可正常寫入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;chown -R www-data:www-data /var/www
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/48619445/permission-denied-error-using-laravel-docker/48619664&#34;&gt;php - Permission Denied Error using Laravel &amp;amp; Docker - Stack Overflow&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>

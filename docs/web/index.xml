@@ -149,5 +149,22 @@ sudo apt-get install mysql-server mysql-client
       </description>
     </item>
     
+    <item>
+      <title>Docs: PostgreSQL</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/</link>
+      <pubDate>Tue, 27 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;gui-連線軟體&#34;&gt;GUI 連線軟體&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dbeaver.io/&#34;&gt;DBeaver Community | Free Universal Database Tool&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>

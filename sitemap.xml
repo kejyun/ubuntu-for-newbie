@@ -7,6 +7,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/create-database/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/create-ssh-key/</loc>
     <lastmod>2021-04-25T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -79,6 +84,11 @@
   </url><url>
     <loc>https://ubuntu-for-newbie.kejyun.com/docs/software/help/</loc>
     <lastmod>2021-04-16T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/create-user/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -172,6 +182,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/docs/privilege/folder-path/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/execute-remote-scripts/</loc>
     <lastmod>2021-04-25T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -239,6 +254,11 @@
   </url><url>
     <loc>https://ubuntu-for-newbie.kejyun.com/docs/system/language/</loc>
     <lastmod>2021-04-16T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -312,18 +332,188 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/permission/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/question/</loc>
     <lastmod>2021-04-23T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ubuntu-for-newbie.kejyun.com/</loc>
-    <lastmod>2021-04-26T08:50:29+08:00</lastmod>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/build-website/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/build-website/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ubuntu-for-newbie.kejyun.com/categories/</loc>
-    <lastmod>2021-04-26T08:50:29+08:00</lastmod>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/create-database/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/create-database/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/create-user/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/create-user/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/nginx/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/nginx/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/permission/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/permission/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/postgresql/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/postgresql/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/privilege/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/privilege/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/ubuntu/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/ubuntu/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/web-software/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/web-software/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/%E5%BB%BA%E7%AB%8B%E4%BD%BF%E7%94%A8%E8%80%85/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/%E5%BB%BA%E7%AB%8B%E4%BD%BF%E7%94%A8%E8%80%85/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/%E5%BB%BA%E7%AB%8B%E8%B3%87%E6%96%99%E5%BA%AB/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/%E5%BB%BA%E7%AB%8B%E8%B3%87%E6%96%99%E5%BA%AB/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/%E6%AC%8A%E9%99%90/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/%E6%AC%8A%E9%99%90/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/%E7%9B%AE%E9%8C%84%E6%AC%8A%E9%99%90/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/%E7%9B%AE%E9%8C%84%E6%AC%8A%E9%99%90/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/%E7%AD%86%E8%A8%98/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/%E7%AD%86%E8%A8%98/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/tags/%E7%B6%B2%E7%AB%99/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://ubuntu-for-newbie.kejyun.com/categories/%E7%B6%B2%E7%AB%99/</loc>
+    <lastmod>2021-04-27T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -377,47 +567,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/tags/</loc>
-    <lastmod>2021-04-26T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/tags/ubuntu/</loc>
-    <lastmod>2021-04-26T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/categories/ubuntu/</loc>
-    <lastmod>2021-04-26T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://ubuntu-for-newbie.kejyun.com/tags/%E5%B8%B8%E7%94%A8%E7%B6%B2%E8%B7%AF%E6%8C%87%E4%BB%A4/</loc>
     <lastmod>2021-04-26T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://ubuntu-for-newbie.kejyun.com/categories/%E5%B8%B8%E7%94%A8%E7%B6%B2%E8%B7%AF%E6%8C%87%E4%BB%A4/</loc>
-    <lastmod>2021-04-26T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/tags/%E6%96%87%E4%BB%B6/</loc>
-    <lastmod>2021-04-26T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/categories/%E6%96%87%E4%BB%B6/</loc>
-    <lastmod>2021-04-26T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/tags/%E7%AD%86%E8%A8%98/</loc>
-    <lastmod>2021-04-26T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/categories/%E7%AD%86%E8%A8%98/</loc>
     <lastmod>2021-04-26T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -558,16 +713,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://ubuntu-for-newbie.kejyun.com/categories/boot-auto-execute/</loc>
-    <lastmod>2021-04-16T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/tags/build-website/</loc>
-    <lastmod>2021-04-16T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/categories/build-website/</loc>
     <lastmod>2021-04-16T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -822,16 +967,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/tags/nginx/</loc>
-    <lastmod>2021-04-16T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/categories/nginx/</loc>
-    <lastmod>2021-04-16T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://ubuntu-for-newbie.kejyun.com/tags/parameter/</loc>
     <lastmod>2021-04-16T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -858,16 +993,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://ubuntu-for-newbie.kejyun.com/categories/php-fpm/</loc>
-    <lastmod>2021-04-16T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/tags/privilege/</loc>
-    <lastmod>2021-04-16T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/categories/privilege/</loc>
     <lastmod>2021-04-16T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1018,16 +1143,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://ubuntu-for-newbie.kejyun.com/categories/virtual-host/</loc>
-    <lastmod>2021-04-16T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/tags/web-software/</loc>
-    <lastmod>2021-04-16T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/categories/web-software/</loc>
     <lastmod>2021-04-16T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -1212,16 +1327,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/tags/%E6%AC%8A%E9%99%90/</loc>
-    <lastmod>2021-04-16T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/categories/%E6%AC%8A%E9%99%90/</loc>
-    <lastmod>2021-04-16T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>https://ubuntu-for-newbie.kejyun.com/tags/%E7%9B%A3%E6%8E%A7/</loc>
     <lastmod>2021-04-16T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -1248,16 +1353,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>https://ubuntu-for-newbie.kejyun.com/categories/%E7%B3%BB%E7%B5%B1/</loc>
-    <lastmod>2021-04-16T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/tags/%E7%B6%B2%E7%AB%99/</loc>
-    <lastmod>2021-04-16T08:50:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://ubuntu-for-newbie.kejyun.com/categories/%E7%B6%B2%E7%AB%99/</loc>
     <lastmod>2021-04-16T08:50:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

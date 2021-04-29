@@ -1,0 +1,79 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞修煉場 – PostgreSQL</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/postgresql/</link>
+    <description>Recent content in PostgreSQL on Ubuntu 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 27 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 建立資料庫</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/create-database/</link>
+      <pubDate>Tue, 27 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/create-database/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;使用-dbeaver-建立資料庫&#34;&gt;使用 DBeaver 建立資料庫&lt;/h2&gt;
+&lt;p&gt;在 DBeaver 左側選單點選連線的資料庫按右鍵，選擇選單中的 &lt;code&gt;Create&lt;/code&gt; / &lt;code&gt;Database&lt;/code&gt; 就可以建立資料庫&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/postgresql-create-database-1.png&#34; alt=&#34;建立資料庫&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;Database name&lt;/code&gt; 欄位輸入資料庫名稱，然後在 &lt;code&gt;Tablespaces&lt;/code&gt; 選擇 &lt;code&gt;Default&lt;/code&gt;，再按下方的 &lt;code&gt;OK&lt;/code&gt; 即可建立資料庫&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/postgresql-create-database-2.png&#34; alt=&#34;建立資料庫&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[22.6. Tablespaces - PostgreSQL 正體中文使用手冊(https://docs.postgresql.tw/server-administration/managing-databases/tablespaces)&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 建立使用者</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/create-user/</link>
+      <pubDate>Tue, 27 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/create-user/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;使用-dbeaver-建立使用者&#34;&gt;使用 DBeaver 建立使用者&lt;/h2&gt;
+&lt;p&gt;在 DBeaver 左側選單點選連線的資料庫按右鍵，選擇選單中的 &lt;code&gt;Create&lt;/code&gt; / &lt;code&gt;Role&lt;/code&gt; 就可以建立使用者&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/postgresql-create-user-1.png&#34; alt=&#34;建立使用者&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在套出的視窗輸入 &lt;code&gt;使用者帳號 Name&lt;/code&gt; 及 &lt;code&gt;密碼 Password&lt;/code&gt;，並勾選 &lt;code&gt;Is user&lt;/code&gt;，然後點選 ok 就可以建立使用者&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/postgresql-create-user-2.png&#34; alt=&#34;建立使用者&#34;&gt;&lt;/p&gt;
+&lt;p&gt;點選完 ok 後，因為還沒有進行 &lt;code&gt;commit&lt;/code&gt;，所以使用者不會立即建立，再點選視窗右下方的 &lt;code&gt;Save&lt;/code&gt; 按鈕即可建立&lt;/p&gt;
+&lt;p&gt;若不想要建立則可點選 &lt;code&gt;Revert&lt;/code&gt; 取消這次建立的使用者&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/postgresql-create-user-3.png&#34; alt=&#34;建立使用者&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: PostgreSQL</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/</link>
+      <pubDate>Tue, 27 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;gui-連線軟體&#34;&gt;GUI 連線軟體&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dbeaver.io/&#34;&gt;DBeaver Community | Free Universal Database Tool&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

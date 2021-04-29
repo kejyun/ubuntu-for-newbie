@@ -5,7 +5,7 @@
     <description>Recent content in 權限 on Ubuntu 菜雞修煉場</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 16 Apr 2021 08:50:29 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 Apr 2021 08:50:29 +0800</lastBuildDate>
     
 	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/%E6%AC%8A%E9%99%90/index.xml" rel="self" type="application/rss+xml" />
     
@@ -150,6 +150,54 @@ sudo deluser --remove-home USERNAME
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-add-and-delete-users-on-ubuntu-16-04&#34;&gt;How to Add and Delete Users on Ubuntu 16.04 | DigitalOcean&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 目錄權限</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/privilege/folder-path/</link>
+      <pubDate>Tue, 27 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/privilege/folder-path/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;列出指定路徑下所有目錄階層權限擁有者&#34;&gt;列出指定路徑下所有目錄階層權限擁有者&lt;/h2&gt;
+&lt;p&gt;可以一次列出整個目錄路徑下的權限及擁有者設定狀況，避免上層有沒有開權限而導致下層目錄沒有權限存取，可以一次列出去做檢查&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;namei -om &lt;code&gt;&amp;lt;目錄路徑&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ namei -om /home/kj/www
+f: /home/kj/www
+ drwxr-xr-x root  root  /
+ drwxr-xr-x root  root  home
+ drwxr-xr-x kj    kj    kj
+ drwxrwxr-x kj    kj    www
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/6795350/nginx-403-forbidden-for-all-files&#34;&gt;centos - Nginx 403 forbidden for all files - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: 權限</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/permission/</link>
+      <pubDate>Tue, 27 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/permission/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;nginx-permission-denied&#34;&gt;Nginx Permission Denied&lt;/h2&gt;
+&lt;p&gt;在執行 Nginx 要對目錄進行寫入權限時，會出現 &lt;code&gt;Permission Denied&lt;/code&gt; 的訊息，Nginx 預設會用 &lt;code&gt;www-data&lt;/code&gt; 的群組身份執行程序，所以寫入檔案時也會用此傷僨去寫入，可以將網頁目錄的權限擁有者改為 &lt;code&gt;www-data&lt;/code&gt; 即可正常寫入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;chown -R www-data:www-data /var/www
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/48619445/permission-denied-error-using-laravel-docker/48619664&#34;&gt;php - Permission Denied Error using Laravel &amp;amp; Docker - Stack Overflow&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>

@@ -1,0 +1,41 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞修煉場 – Create Database</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/categories/create-database/</link>
+    <description>Recent content in Create Database on Ubuntu 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 27 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/create-database/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 建立資料庫</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/create-database/</link>
+      <pubDate>Tue, 27 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/postgresql/create-database/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;使用-dbeaver-建立資料庫&#34;&gt;使用 DBeaver 建立資料庫&lt;/h2&gt;
+&lt;p&gt;在 DBeaver 左側選單點選連線的資料庫按右鍵，選擇選單中的 &lt;code&gt;Create&lt;/code&gt; / &lt;code&gt;Database&lt;/code&gt; 就可以建立資料庫&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/postgresql-create-database-1.png&#34; alt=&#34;建立資料庫&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;Database name&lt;/code&gt; 欄位輸入資料庫名稱，然後在 &lt;code&gt;Tablespaces&lt;/code&gt; 選擇 &lt;code&gt;Default&lt;/code&gt;，再按下方的 &lt;code&gt;OK&lt;/code&gt; 即可建立資料庫&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../images/postgresql-create-database-2.png&#34; alt=&#34;建立資料庫&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[22.6. Tablespaces - PostgreSQL 正體中文使用手冊(https://docs.postgresql.tw/server-administration/managing-databases/tablespaces)&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

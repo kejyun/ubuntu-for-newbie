@@ -1,0 +1,39 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞修煉場 – Permission</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/permission/</link>
+    <description>Recent content in Permission on Ubuntu 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 27 Apr 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/permission/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: 權限</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/permission/</link>
+      <pubDate>Tue, 27 Apr 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/permission/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;nginx-permission-denied&#34;&gt;Nginx Permission Denied&lt;/h2&gt;
+&lt;p&gt;在執行 Nginx 要對目錄進行寫入權限時，會出現 &lt;code&gt;Permission Denied&lt;/code&gt; 的訊息，Nginx 預設會用 &lt;code&gt;www-data&lt;/code&gt; 的群組身份執行程序，所以寫入檔案時也會用此傷僨去寫入，可以將網頁目錄的權限擁有者改為 &lt;code&gt;www-data&lt;/code&gt; 即可正常寫入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;chown -R www-data:www-data /var/www
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/48619445/permission-denied-error-using-laravel-docker/48619664&#34;&gt;php - Permission Denied Error using Laravel &amp;amp; Docker - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
