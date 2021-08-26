@@ -1,0 +1,117 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞修煉場 – fstab</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/fstab/</link>
+    <description>Recent content in fstab on Ubuntu 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 17 Aug 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/fstab/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: fstab</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/fstab/</link>
+      <pubDate>Tue, 17 Aug 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/fstab/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;code&gt;/etc/fstab&lt;/code&gt; 檔案的設定可以讓系統知道在開機時需要自動載入什麼磁區，在系統開機時就直接可以&lt;/p&gt;
+&lt;h2 id=&#34;使用-uuid-掛載磁區到-fstab&#34;&gt;使用 UUID 掛載磁區到 fstab&lt;/h2&gt;
+&lt;h3 id=&#34;使用-df-查詢目前磁區掛載狀況&#34;&gt;&lt;em&gt;使用 df 查詢目前磁區掛載狀況&lt;/em&gt;&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df
+檔案系統          1K-區段       已用      可用 已用% 掛載點
+udev             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;    0% /dev
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;182148&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3081468&lt;/span&gt;    6% /run
+/dev/sda2      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3841450248&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2731170308&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;915122388&lt;/span&gt;   75% /
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /dev/shm
+tmpfs                &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;    0% /run/lock
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /sys/fs/cgroup
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;使用-blkid-查詢磁區的-uuid&#34;&gt;使用 blkid 查詢磁區的 UUID&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ blkid -s UUID
+/dev/sda2: &lt;span style=&#34;color:#000&#34;&gt;UUID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;4fb9f563-7ae4-4df9-a028-fdc6b9e4f1a5&amp;#34;&lt;/span&gt;
+/dev/sda3: &lt;span style=&#34;color:#000&#34;&gt;UUID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;cf0cf85a-6fed-4c43-901d-c946d6e1c5fa&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也可以到 &lt;code&gt;/dev/disk/by-uuid&lt;/code&gt; 目錄查詢 UUID&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ ll /dev/disk/by-uuid
+總計 &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+drwxr-xr-x &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt; root root  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt; Aug &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 12:08 ./
+drwxr-xr-x &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; root root &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;120&lt;/span&gt; Aug &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 12:08 ../
+lrwxrwxrwx &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; root root  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10&lt;/span&gt; Aug &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 12:09 4fb9f563-7ae4-4df9-a028-fdc6b9e4f1a5 -&amp;gt; ../../sda2
+lrwxrwxrwx &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; root root  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10&lt;/span&gt; Aug &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 12:09 cf0cf85a-6fed-4c43-901d-c946d6e1c5fa -&amp;gt; ../../sda3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;編輯-etcfstab-加入自動要載入的磁區&#34;&gt;編輯 &lt;code&gt;/etc/fstab&lt;/code&gt; 加入自動要載入的磁區&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /etc/fstab&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /etc/fstab: static file system information.&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Use &amp;#39;blkid&amp;#39; to print the universally unique identifier for a&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# device; this may be used with UUID= as a more robust way to name devices&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# that works even if disks are added and removed. See fstab(5).&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# &amp;lt;file system&amp;gt; &amp;lt;mount point&amp;gt;   &amp;lt;type&amp;gt;  &amp;lt;options&amp;gt;       &amp;lt;dump&amp;gt;  &amp;lt;pass&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# / was on /dev/sda2 during installation&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;UUID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;4fb9f563-7ae4-4df9-a028-fdc6b9e4f1a5 /               ext4    &lt;span style=&#34;color:#000&#34;&gt;errors&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;remount-ro &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# swap was on /dev/sda3 during installation&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;UUID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;cf0cf85a-6fed-4c43-901d-c946d6e1c5fa none            swap    sw              &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;etcfstab-各欄位說明&#34;&gt;&lt;code&gt;/etc/fstab&lt;/code&gt; 各欄位說明*&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;順序&lt;/th&gt;
+&lt;th&gt;欄位&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&amp;lt;file system&amp;gt;&lt;/td&gt;
+&lt;td&gt;檔案系統或路徑（UUID）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;&amp;lt;mount point&amp;gt;&lt;/td&gt;
+&lt;td&gt;掛載點（e.g. /）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;&amp;lt;type&amp;gt;&lt;/td&gt;
+&lt;td&gt;系統類型（e.g. ext4, swap）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;&amp;lt;options&amp;gt;&lt;/td&gt;
+&lt;td&gt;掛載參數&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;&amp;lt;dump&amp;gt;&lt;/td&gt;
+&lt;td&gt;是否需要備份（0：不備份、1：每日備份、2：隔日備份）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;&amp;lt;pass&amp;gt;&lt;/td&gt;
+&lt;td&gt;不正常關機，是否用 fsck 檢查檔案系統磁區（0：不檢查、1：先檢查、2：後檢查），通常跟目錄設定為 1，其他分割區設定為 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dywang.csie.cyut.edu.tw/dywang/rhcsaNote/node59.html&#34;&gt;開機自動掛載&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.opencli.com/linux/fstab&#34;&gt;/etc/fstab 檔案說明&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.xuite.net/chingwei/blog/30943022&#34;&gt;【系統】Ubuntu : 使用 UUID 在 fstab 中掛載磁區 @ My Life :: 隨意窩 Xuite日誌&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/386536/how-to-find-the-attached-devices-uuid-through-terminal&#34;&gt;command line - How to find the attached devices UUID through terminal? - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

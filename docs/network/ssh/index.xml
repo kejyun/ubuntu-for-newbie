@@ -219,12 +219,17 @@ ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;sudo /ho
         
         
         &lt;p&gt;有些主機會因為安全性的疑慮，所以關閉對外連線的 port，但如果我們可以透過 ssh 連線至主機時，可以透過 &lt;code&gt;ssh tunnel&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;指令&#34;&gt;指令&lt;/h2&gt;
+&lt;h2 id=&#34;ssh-tunnel-指令&#34;&gt;SSH Tunnel 指令&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;原理&lt;/em&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;本地端 port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;遠端主機 ip / dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;遠端主機 port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;ssh 連線遠端主機 ip / dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;你&lt;/code&gt; =&amp;gt; &lt;code&gt;SSH Tunnel 跳板（可以存取目標的主機）&lt;/code&gt; =&amp;gt; &lt;code&gt;目標&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;指令&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;你的 port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;目標 ip / dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;目標 port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;SSH Tunnel 跳板帳號&amp;gt;&lt;/code&gt;@&lt;code&gt;&amp;lt;SSH Tunnel 跳板 ip / dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;local-port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;remote-server-ip-or-dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;remote-port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;ssh-to-remote-server-ip-or-dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;your-port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;target-server-ip-or-dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;target-port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;ssh-tunnel-account&amp;gt;&lt;/code&gt;@&lt;code&gt;&amp;lt;ssh-tunnel-ip-or-dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;連線資料庫範例&#34;&gt;連線資料庫範例&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -L 33306:mysql.kejyun.com:3306 kj@mysql.kejyun.com
@@ -257,6 +262,13 @@ ssh kejyun@127.0.0.1 &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;sudo /ho
 &lt;/table&gt;
 &lt;h3 id=&#34;不要執行遠端指令並在背景執行範例&#34;&gt;不要執行遠端指令並在背景執行範例&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -L 33306:mysql.kejyun.com:3306 -N -f kj@mysql.kejyun.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ssh-tunnel-到不對外開放連線的主機&#34;&gt;SSH Tunnel 到不對外開放連線的主機&lt;/h2&gt;
+&lt;p&gt;我們可能會有資料庫主機完全沒有對外連線，連 3306 port 都無法連線，但我們有允許其中一台 Web 主機可以連線至資料庫，我們可以 SSH Tunnel 至該 Web 主機，再連線至資料庫主機&lt;/p&gt;
+&lt;p&gt;我們允許主機 &lt;code&gt;web.kejyun.com&lt;/code&gt; 可以連線至資料庫 &lt;code&gt;mysql.kejyun.com&lt;/code&gt;，但資料庫 &lt;code&gt;mysql.kejyun.com&lt;/code&gt; 主機是完全不對外開放的，可以使用 ssh 連線至 &lt;code&gt;web.kejyun.com&lt;/code&gt;，再請求連線至資料庫 &lt;code&gt;mysql.kejyun.com&lt;/code&gt; 主機，指令會像這樣&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;本地端 port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;不對外開放資料庫主機 ip / dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;資料庫主機 port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;ssh 連線對外開放主機 ip / dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -L 33306:mysql.kejyun.com:3306 -N -f kj@web.kejyun.com
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;除錯&#34;&gt;除錯&lt;/h2&gt;
 &lt;h3 id=&#34;列出目前所有-ssh-tunnel&#34;&gt;列出目前所有 SSH Tunnel&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;lsof -i -n &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; egrep &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;\&amp;lt;ssh\&amp;gt;&amp;#39;&lt;/span&gt;

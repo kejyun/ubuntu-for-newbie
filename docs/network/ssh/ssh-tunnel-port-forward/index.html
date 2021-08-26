@@ -27,7 +27,7 @@
 <meta itemprop="name" content="ssh tunnel 連線 port 轉發">
 <meta itemprop="description" content="Ubuntu 系統網路 ssh 指令進行連線的本地端 ssh tunnel，將資料 port 轉發至遠端主機"><meta itemprop="datePublished" content="2021-04-26T08:50:29&#43;08:00" />
 <meta itemprop="dateModified" content="2021-04-26T08:50:29&#43;08:00" />
-<meta itemprop="wordCount" content="109"><meta itemprop="image" content="https://ubuntu-for-newbie.kejyun.com/images/featured-background.jpeg"/>
+<meta itemprop="wordCount" content="167"><meta itemprop="image" content="https://ubuntu-for-newbie.kejyun.com/images/featured-background.jpeg"/>
 <meta itemprop="keywords" content="Ubuntu,筆記,文件,常用網路指令,網路,Network,ssh,ssh tunnel,port 轉發,port forward," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://ubuntu-for-newbie.kejyun.com/images/featured-background.jpeg"/>
 
@@ -210,7 +210,7 @@ if (!doNotTrack) {
 		],
 		"genre":["KJ"],
 		"articleSection": "KJ",
-		"articleBody": "有些主機會因為安全性的疑慮，所以關閉對外連線的 port，但如果我們可以透過 ssh 連線至主機時，可以透過 ssh tunnel\n指令  ssh -L \u0026lt;本地端 port\u0026gt;:\u0026lt;遠端主機 ip \/ dns\u0026gt;:\u0026lt;遠端主機 port\u0026gt; \u0026lt;ssh 連線遠端主機 ip \/ dns\u0026gt;\n  ssh -L \u0026lt;local-port\u0026gt;:\u0026lt;remote-server-ip-or-dns\u0026gt;:\u0026lt;remote-port\u0026gt; \u0026lt;ssh-to-remote-server-ip-or-dns\u0026gt;\n 連線資料庫範例 ssh -L 33306:mysql.kejyun.com:3306 kj@mysql.kejyun.com 連線完成後，就可以在本地端透過 127.0.0.1 的 33306 port 連線至遠端的資料庫\n連線網頁範例 ssh -L 8080:web.kejyun.com:80 kj@web.kejyun.com 連線完成後就可以在本地端透過 http:\/\/127.0.0.1:8080\/ 連線至遠端網頁的 80 port\n參數說明    說明 參數     建立本地端 port forwarding -L   背景執行 -f   不要執行遠端指令 -N    不要執行遠端指令並在背景執行範例 ssh -L 33306:mysql.kejyun.com:3306 -N -f kj@mysql.kejyun.com 除錯 列出目前所有 SSH Tunnel lsof -i -n | egrep \u0026#39;\\\u0026lt;ssh\\\u0026gt;\u0026#39; 參考資料  How to Set up SSH Tunneling (Port Forwarding) | Linuxize How to Use SSH Port Forwarding {Ultimate Guide} How to Create SSH Tunneling or Port Forwarding in Linux [教學] 透過 SSH Tunnel 將伺服器內部服務綁定到本機電腦上 | 辛比誌  "
+		"articleBody": "有些主機會因為安全性的疑慮，所以關閉對外連線的 port，但如果我們可以透過 ssh 連線至主機時，可以透過 ssh tunnel\nSSH Tunnel 指令 原理\n 你 =\u0026gt; SSH Tunnel 跳板（可以存取目標的主機） =\u0026gt; 目標\n 指令\n ssh -L \u0026lt;你的 port\u0026gt;:\u0026lt;目標 ip \/ dns\u0026gt;:\u0026lt;目標 port\u0026gt; \u0026lt;SSH Tunnel 跳板帳號\u0026gt;@\u0026lt;SSH Tunnel 跳板 ip \/ dns\u0026gt;\n  ssh -L \u0026lt;your-port\u0026gt;:\u0026lt;target-server-ip-or-dns\u0026gt;:\u0026lt;target-port\u0026gt; \u0026lt;ssh-tunnel-account\u0026gt;@\u0026lt;ssh-tunnel-ip-or-dns\u0026gt;\n 連線資料庫範例 ssh -L 33306:mysql.kejyun.com:3306 kj@mysql.kejyun.com 連線完成後，就可以在本地端透過 127.0.0.1 的 33306 port 連線至遠端的資料庫\n連線網頁範例 ssh -L 8080:web.kejyun.com:80 kj@web.kejyun.com 連線完成後就可以在本地端透過 http:\/\/127.0.0.1:8080\/ 連線至遠端網頁的 80 port\n參數說明    說明 參數     建立本地端 port forwarding -L   背景執行 -f   不要執行遠端指令 -N    不要執行遠端指令並在背景執行範例 ssh -L 33306:mysql.kejyun.com:3306 -N -f kj@mysql.kejyun.com SSH Tunnel 到不對外開放連線的主機 我們可能會有資料庫主機完全沒有對外連線，連 3306 port 都無法連線，但我們有允許其中一台 Web 主機可以連線至資料庫，我們可以 SSH Tunnel 至該 Web 主機，再連線至資料庫主機\n我們允許主機 web.kejyun.com 可以連線至資料庫 mysql.kejyun.com，但資料庫 mysql.kejyun.com 主機是完全不對外開放的，可以使用 ssh 連線至 web.kejyun.com，再請求連線至資料庫 mysql.kejyun.com 主機，指令會像這樣\n ssh -L \u0026lt;本地端 port\u0026gt;:\u0026lt;不對外開放資料庫主機 ip \/ dns\u0026gt;:\u0026lt;資料庫主機 port\u0026gt; \u0026lt;ssh 連線對外開放主機 ip \/ dns\u0026gt;\n ssh -L 33306:mysql.kejyun.com:3306 -N -f kj@web.kejyun.com 除錯 列出目前所有 SSH Tunnel lsof -i -n | egrep \u0026#39;\\\u0026lt;ssh\\\u0026gt;\u0026#39; 參考資料  How to Set up SSH Tunneling (Port Forwarding) | Linuxize How to Use SSH Port Forwarding {Ultimate Guide} How to Create SSH Tunneling or Port Forwarding in Linux [教學] 透過 SSH Tunnel 將伺服器內部服務綁定到本機電腦上 | 辛比誌  "
 	}
 </script>
 
@@ -603,7 +603,7 @@ if (!doNotTrack) {
   aria-label="搜尋"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.01b1fa1a7e50700274f6ee7d10f15d44.json"
+  data-offline-search-index-json-src="/offline-search-index.15542373889776862ededb0562d2339e.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="25"
 >
@@ -639,7 +639,7 @@ if (!doNotTrack) {
   aria-label="搜尋"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.01b1fa1a7e50700274f6ee7d10f15d44.json"
+  data-offline-search-index-json-src="/offline-search-index.15542373889776862ededb0562d2339e.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="25"
 >
@@ -1125,6 +1125,98 @@ if (!doNotTrack) {
   
   <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscommandtar-li">
     <a href="/docs/command/tar/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docscommandtar"><span class="">tar</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscommandmount-li">
+    <a href="/docs/command/mount/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docscommandmount"><span class="">mount</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscommanddf-li">
+    <a href="/docs/command/df/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docscommanddf"><span class="">df</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscommandlsblk-li">
+    <a href="/docs/command/lsblk/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docscommandlsblk"><span class="">lsblk</span></a>
+    
+  </li>
+
+          
+        
+          
+            
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docscommandfstab-li">
+    <a href="/docs/command/fstab/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__page" id="m-docscommandfstab"><span class="">fstab</span></a>
     
   </li>
 
@@ -2325,7 +2417,7 @@ if (!doNotTrack) {
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#指令">指令</a>
+    <li><a href="#ssh-tunnel-指令">SSH Tunnel 指令</a>
       <ul>
         <li><a href="#連線資料庫範例">連線資料庫範例</a></li>
         <li><a href="#連線網頁範例">連線網頁範例</a></li>
@@ -2336,6 +2428,7 @@ if (!doNotTrack) {
         <li><a href="#不要執行遠端指令並在背景執行範例">不要執行遠端指令並在背景執行範例</a></li>
       </ul>
     </li>
+    <li><a href="#ssh-tunnel-到不對外開放連線的主機">SSH Tunnel 到不對外開放連線的主機</a></li>
     <li><a href="#除錯">除錯</a>
       <ul>
         <li><a href="#列出目前所有-ssh-tunnel">列出目前所有 SSH Tunnel</a></li>
@@ -2425,12 +2518,17 @@ if (!doNotTrack) {
 		
 		
 		<p>有些主機會因為安全性的疑慮，所以關閉對外連線的 port，但如果我們可以透過 ssh 連線至主機時，可以透過 <code>ssh tunnel</code></p>
-<h2 id="指令">指令</h2>
+<h2 id="ssh-tunnel-指令">SSH Tunnel 指令</h2>
+<p><em>原理</em></p>
 <blockquote>
-<p>ssh -L <code>&lt;本地端 port&gt;</code>:<code>&lt;遠端主機 ip / dns&gt;</code>:<code>&lt;遠端主機 port&gt;</code> <code>&lt;ssh 連線遠端主機 ip / dns&gt;</code></p>
+<p><code>你</code> =&gt; <code>SSH Tunnel 跳板（可以存取目標的主機）</code> =&gt; <code>目標</code></p>
+</blockquote>
+<p><em>指令</em></p>
+<blockquote>
+<p>ssh -L <code>&lt;你的 port&gt;</code>:<code>&lt;目標 ip / dns&gt;</code>:<code>&lt;目標 port&gt;</code> <code>&lt;SSH Tunnel 跳板帳號&gt;</code>@<code>&lt;SSH Tunnel 跳板 ip / dns&gt;</code></p>
 </blockquote>
 <blockquote>
-<p>ssh -L <code>&lt;local-port&gt;</code>:<code>&lt;remote-server-ip-or-dns&gt;</code>:<code>&lt;remote-port&gt;</code> <code>&lt;ssh-to-remote-server-ip-or-dns&gt;</code></p>
+<p>ssh -L <code>&lt;your-port&gt;</code>:<code>&lt;target-server-ip-or-dns&gt;</code>:<code>&lt;target-port&gt;</code> <code>&lt;ssh-tunnel-account&gt;</code>@<code>&lt;ssh-tunnel-ip-or-dns&gt;</code></p>
 </blockquote>
 <h3 id="連線資料庫範例">連線資料庫範例</h3>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ssh -L 33306:mysql.kejyun.com:3306 kj@mysql.kejyun.com
@@ -2463,6 +2561,13 @@ if (!doNotTrack) {
 </table>
 <h3 id="不要執行遠端指令並在背景執行範例">不要執行遠端指令並在背景執行範例</h3>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ssh -L 33306:mysql.kejyun.com:3306 -N -f kj@mysql.kejyun.com
+</code></pre></div><h2 id="ssh-tunnel-到不對外開放連線的主機">SSH Tunnel 到不對外開放連線的主機</h2>
+<p>我們可能會有資料庫主機完全沒有對外連線，連 3306 port 都無法連線，但我們有允許其中一台 Web 主機可以連線至資料庫，我們可以 SSH Tunnel 至該 Web 主機，再連線至資料庫主機</p>
+<p>我們允許主機 <code>web.kejyun.com</code> 可以連線至資料庫 <code>mysql.kejyun.com</code>，但資料庫 <code>mysql.kejyun.com</code> 主機是完全不對外開放的，可以使用 ssh 連線至 <code>web.kejyun.com</code>，再請求連線至資料庫 <code>mysql.kejyun.com</code> 主機，指令會像這樣</p>
+<blockquote>
+<p>ssh -L <code>&lt;本地端 port&gt;</code>:<code>&lt;不對外開放資料庫主機 ip / dns&gt;</code>:<code>&lt;資料庫主機 port&gt;</code> <code>&lt;ssh 連線對外開放主機 ip / dns&gt;</code></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ssh -L 33306:mysql.kejyun.com:3306 -N -f kj@web.kejyun.com
 </code></pre></div><h2 id="除錯">除錯</h2>
 <h3 id="列出目前所有-ssh-tunnel">列出目前所有 SSH Tunnel</h3>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">lsof -i -n <span style="color:#000;font-weight:bold">|</span> egrep <span style="color:#4e9a06">&#39;\&lt;ssh\&gt;&#39;</span>

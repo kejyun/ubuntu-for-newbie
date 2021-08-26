@@ -1,0 +1,76 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu 菜雞修煉場 – df</title>
+    <link>https://ubuntu-for-newbie.kejyun.com/tags/df/</link>
+    <description>Recent content in df on Ubuntu 菜雞修煉場</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 17 Aug 2021 08:50:29 +0800</lastBuildDate>
+    
+	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/tags/df/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: df</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/df/</link>
+      <pubDate>Tue, 17 Aug 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/df/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;df-顯示硬碟檔案空間&#34;&gt;df 顯示硬碟檔案空間&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df
+檔案系統          1K-區段       已用      可用 已用% 掛載點
+udev             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;    0% /dev
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;190340&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3073276&lt;/span&gt;    6% /run
+/dev/sda2      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3841450248&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2731171272&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;915121424&lt;/span&gt;   75% /
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /dev/shm
+tmpfs                &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;    0% /run/lock
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /sys/fs/cgroup
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;df--h-顯示可閱讀的硬碟檔案空間&#34;&gt;df -h 顯示可閱讀的硬碟檔案空間&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df -h
+檔案系統        容量  已用  可用 已用% 掛載點
+udev             16G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   16G    0% /dev
+tmpfs           3.2G  186M  3.0G    6% /run
+/dev/sda2       3.6T  2.6T  873G   75% /
+tmpfs            16G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   16G    0% /dev/shm
+tmpfs           5.0M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  5.0M    0% /run/lock
+tmpfs            16G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   16G    0% /sys/fs/cgroup
+tmpfs           3.2G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.2G    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;df--t-顯示檔案系統類型&#34;&gt;df -T 顯示檔案系統類型&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df -T
+檔案系統       類型        1K-區段       已用      可用 已用% 掛載點
+udev           devtmpfs   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;    0% /dev
+tmpfs          tmpfs       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;190340&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3073276&lt;/span&gt;    6% /run
+/dev/sda2      ext4     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3841450248&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2731171408&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;915121288&lt;/span&gt;   75% /
+tmpfs          tmpfs      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /dev/shm
+tmpfs          tmpfs          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;    0% /run/lock
+tmpfs          tmpfs      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /sys/fs/cgroup
+tmpfs          tmpfs       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;df--m-使用-megabyte-顯示檔案空間&#34;&gt;df -m 使用 Megabyte 顯示檔案空間&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df -m
+檔案系統       1M-區段    已用   可用 已用% 掛載點
+udev             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15915&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15915&lt;/span&gt;    0% /dev
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3188&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;186&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3002&lt;/span&gt;    6% /run
+/dev/sda2      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3751417&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2667160&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;893674&lt;/span&gt;   75% /
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;    0% /dev/shm
+tmpfs                &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;    0% /run/lock
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;    0% /sys/fs/cgroup
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3188&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3188&lt;/span&gt;    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10160087&#34;&gt;Day 15 ubuntu 查詢硬碟使用量df指令 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

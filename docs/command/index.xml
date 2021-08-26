@@ -117,5 +117,300 @@
       </description>
     </item>
     
+    <item>
+      <title>Docs: mount</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/mount/</link>
+      <pubDate>Tue, 17 Aug 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/mount/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;findmnt-找出掛載的資訊&#34;&gt;findmnt 找出掛載的資訊&lt;/h2&gt;
+&lt;h3 id=&#34;列出掛載資訊&#34;&gt;&lt;em&gt;列出掛載資訊&lt;/em&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;findmnt /&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ findmnt /
+TARGET SOURCE    FSTYPE OPTIONS
+/      /dev/sda2 ext4   rw,relatime,errors&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;remount-ro,data&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;ordered
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;列出掛載資訊-json-格式&#34;&gt;&lt;em&gt;列出掛載資訊 json 格式&lt;/em&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;findmnt / &amp;ndash;json&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ findmnt / --json
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;filesystems&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;target&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;source&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/dev/sda2&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fstype&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ext4&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;options&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rw,relatime,errors=remount-ro,data=ordered&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/583909/how-do-i-check-where-devices-are-mounted&#34;&gt;mount - How do I check where devices are mounted? - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: df</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/df/</link>
+      <pubDate>Tue, 17 Aug 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/df/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;df-顯示硬碟檔案空間&#34;&gt;df 顯示硬碟檔案空間&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df
+檔案系統          1K-區段       已用      可用 已用% 掛載點
+udev             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;    0% /dev
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;190340&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3073276&lt;/span&gt;    6% /run
+/dev/sda2      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3841450248&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2731171272&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;915121424&lt;/span&gt;   75% /
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /dev/shm
+tmpfs                &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;    0% /run/lock
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /sys/fs/cgroup
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;df--h-顯示可閱讀的硬碟檔案空間&#34;&gt;df -h 顯示可閱讀的硬碟檔案空間&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df -h
+檔案系統        容量  已用  可用 已用% 掛載點
+udev             16G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   16G    0% /dev
+tmpfs           3.2G  186M  3.0G    6% /run
+/dev/sda2       3.6T  2.6T  873G   75% /
+tmpfs            16G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   16G    0% /dev/shm
+tmpfs           5.0M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  5.0M    0% /run/lock
+tmpfs            16G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   16G    0% /sys/fs/cgroup
+tmpfs           3.2G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.2G    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;df--t-顯示檔案系統類型&#34;&gt;df -T 顯示檔案系統類型&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df -T
+檔案系統       類型        1K-區段       已用      可用 已用% 掛載點
+udev           devtmpfs   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;    0% /dev
+tmpfs          tmpfs       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;190340&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3073276&lt;/span&gt;    6% /run
+/dev/sda2      ext4     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3841450248&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2731171408&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;915121288&lt;/span&gt;   75% /
+tmpfs          tmpfs      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /dev/shm
+tmpfs          tmpfs          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;    0% /run/lock
+tmpfs          tmpfs      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /sys/fs/cgroup
+tmpfs          tmpfs       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;df--m-使用-megabyte-顯示檔案空間&#34;&gt;df -m 使用 Megabyte 顯示檔案空間&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df -m
+檔案系統       1M-區段    已用   可用 已用% 掛載點
+udev             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15915&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15915&lt;/span&gt;    0% /dev
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3188&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;186&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3002&lt;/span&gt;    6% /run
+/dev/sda2      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3751417&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2667160&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;893674&lt;/span&gt;   75% /
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;    0% /dev/shm
+tmpfs                &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;    0% /run/lock
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;    0% /sys/fs/cgroup
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3188&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3188&lt;/span&gt;    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10160087&#34;&gt;Day 15 ubuntu 查詢硬碟使用量df指令 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: lsblk</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/lsblk/</link>
+      <pubDate>Tue, 17 Aug 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/lsblk/</guid>
+      <description>
+        
+        
+        &lt;p&gt;列出系統所有區塊裝置（Block Device）&lt;/p&gt;
+&lt;h2 id=&#34;區塊裝置類型&#34;&gt;區塊裝置類型&lt;/h2&gt;
+&lt;p&gt;會列出的裝置類型&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;硬碟&lt;/li&gt;
+&lt;li&gt;USB 隨身碟&lt;/li&gt;
+&lt;li&gt;DVD-ROM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;不會列出的裝置類型&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RAM disk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;lsblk-列出區塊裝置的樹狀資訊&#34;&gt;&lt;code&gt;lsblk&lt;/code&gt; 列出區塊裝置的樹狀資訊&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda      8:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.7T  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; disk
+├─sda1   8:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    1M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part
+├─sda2   8:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.7T  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part /
+└─sda3   8:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    4G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;SWAP&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;AWS Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+loop0         7:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 33.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/3552
+loop1         7:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 32.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/snapd/12704
+loop2         7:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 55.5M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core18/2074
+loop3         7:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 70.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/lxd/21029
+loop4         7:4    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   25M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/4046
+loop6         7:6    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 55.4M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core18/2128
+loop7         7:7    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 67.6M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/lxd/20326
+loop9         7:9    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 32.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/snapd/12398
+nvme0n1     259:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  300G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; disk
+└─nvme0n1p1 259:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  300G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part /
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;lsblk--a-列出所有區塊裝置的樹狀資訊&#34;&gt;&lt;code&gt;lsblk -a&lt;/code&gt; 列出所有區塊裝置的樹狀資訊&lt;/h2&gt;
+&lt;p&gt;預設不會列出空的區塊裝置，加上 &lt;code&gt;-a&lt;/code&gt; 參數可以列出全部的裝置，包含空的區塊裝置&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk -a
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda      8:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.7T  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; disk
+├─sda1   8:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    1M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part
+├─sda2   8:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.7T  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part /
+└─sda3   8:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    4G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;SWAP&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+loop0    7:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop1    7:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop2    7:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop3    7:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop4    7:4    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop5    7:5    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop6    7:6    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop7    7:7    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;AWS Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk -a
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+loop0         7:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 33.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/3552
+loop1         7:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 32.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/snapd/12704
+loop2         7:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 55.5M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core18/2074
+loop3         7:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 70.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/lxd/21029
+loop4         7:4    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   25M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/4046
+loop5         7:5    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop
+loop6         7:6    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 55.4M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core18/2128
+loop7         7:7    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 67.6M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/lxd/20326
+loop8         7:8    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop
+loop9         7:9    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 32.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/snapd/12398
+loop10        7:10   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+md0           9:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; md
+nvme0n1     259:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  300G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; disk
+└─nvme0n1p1 259:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  300G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part /
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;lsblk--m-列出區塊裝置擁有者&#34;&gt;&lt;code&gt;lsblk -m&lt;/code&gt; 列出區塊裝置擁有者&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk -m
+NAME    SIZE OWNER GROUP MODE
+sda     3.7T root  disk  brw-rw----
+├─sda1    1M root  disk  brw-rw----
+├─sda2  3.7T root  disk  brw-rw----
+└─sda3    4G root  disk  brw-rw----
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;AWS Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk -m
+NAME         SIZE OWNER GROUP MODE
+loop0       33.3M root  disk  brw-rw----
+loop1       32.3M root  disk  brw-rw----
+loop2       55.5M root  disk  brw-rw----
+loop3       70.3M root  disk  brw-rw----
+loop4         25M root  disk  brw-rw----
+loop6       55.4M root  disk  brw-rw----
+loop7       67.6M root  disk  brw-rw----
+loop9       32.3M root  disk  brw-rw----
+nvme0n1      300G root  disk  brw-rw----
+└─nvme0n1p1  300G root  disk  brw-rw----
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.opencli.com/linux/lsblk-command-linux-list-block-device&#34;&gt;lsblk - 檢視列出 Block Device 指令&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: fstab</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/fstab/</link>
+      <pubDate>Tue, 17 Aug 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/fstab/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;code&gt;/etc/fstab&lt;/code&gt; 檔案的設定可以讓系統知道在開機時需要自動載入什麼磁區，在系統開機時就直接可以&lt;/p&gt;
+&lt;h2 id=&#34;使用-uuid-掛載磁區到-fstab&#34;&gt;使用 UUID 掛載磁區到 fstab&lt;/h2&gt;
+&lt;h3 id=&#34;使用-df-查詢目前磁區掛載狀況&#34;&gt;&lt;em&gt;使用 df 查詢目前磁區掛載狀況&lt;/em&gt;&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df
+檔案系統          1K-區段       已用      可用 已用% 掛載點
+udev             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;    0% /dev
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;182148&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3081468&lt;/span&gt;    6% /run
+/dev/sda2      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3841450248&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2731170308&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;915122388&lt;/span&gt;   75% /
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /dev/shm
+tmpfs                &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;    0% /run/lock
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /sys/fs/cgroup
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;使用-blkid-查詢磁區的-uuid&#34;&gt;使用 blkid 查詢磁區的 UUID&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ blkid -s UUID
+/dev/sda2: &lt;span style=&#34;color:#000&#34;&gt;UUID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;4fb9f563-7ae4-4df9-a028-fdc6b9e4f1a5&amp;#34;&lt;/span&gt;
+/dev/sda3: &lt;span style=&#34;color:#000&#34;&gt;UUID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;cf0cf85a-6fed-4c43-901d-c946d6e1c5fa&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也可以到 &lt;code&gt;/dev/disk/by-uuid&lt;/code&gt; 目錄查詢 UUID&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ ll /dev/disk/by-uuid
+總計 &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+drwxr-xr-x &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt; root root  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt; Aug &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 12:08 ./
+drwxr-xr-x &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; root root &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;120&lt;/span&gt; Aug &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 12:08 ../
+lrwxrwxrwx &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; root root  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10&lt;/span&gt; Aug &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 12:09 4fb9f563-7ae4-4df9-a028-fdc6b9e4f1a5 -&amp;gt; ../../sda2
+lrwxrwxrwx &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; root root  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10&lt;/span&gt; Aug &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 12:09 cf0cf85a-6fed-4c43-901d-c946d6e1c5fa -&amp;gt; ../../sda3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;編輯-etcfstab-加入自動要載入的磁區&#34;&gt;編輯 &lt;code&gt;/etc/fstab&lt;/code&gt; 加入自動要載入的磁區&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /etc/fstab&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /etc/fstab: static file system information.&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Use &amp;#39;blkid&amp;#39; to print the universally unique identifier for a&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# device; this may be used with UUID= as a more robust way to name devices&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# that works even if disks are added and removed. See fstab(5).&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# &amp;lt;file system&amp;gt; &amp;lt;mount point&amp;gt;   &amp;lt;type&amp;gt;  &amp;lt;options&amp;gt;       &amp;lt;dump&amp;gt;  &amp;lt;pass&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# / was on /dev/sda2 during installation&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;UUID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;4fb9f563-7ae4-4df9-a028-fdc6b9e4f1a5 /               ext4    &lt;span style=&#34;color:#000&#34;&gt;errors&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;remount-ro &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# swap was on /dev/sda3 during installation&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;UUID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;cf0cf85a-6fed-4c43-901d-c946d6e1c5fa none            swap    sw              &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;etcfstab-各欄位說明&#34;&gt;&lt;code&gt;/etc/fstab&lt;/code&gt; 各欄位說明*&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;順序&lt;/th&gt;
+&lt;th&gt;欄位&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&amp;lt;file system&amp;gt;&lt;/td&gt;
+&lt;td&gt;檔案系統或路徑（UUID）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;&amp;lt;mount point&amp;gt;&lt;/td&gt;
+&lt;td&gt;掛載點（e.g. /）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;&amp;lt;type&amp;gt;&lt;/td&gt;
+&lt;td&gt;系統類型（e.g. ext4, swap）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;&amp;lt;options&amp;gt;&lt;/td&gt;
+&lt;td&gt;掛載參數&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;&amp;lt;dump&amp;gt;&lt;/td&gt;
+&lt;td&gt;是否需要備份（0：不備份、1：每日備份、2：隔日備份）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;&amp;lt;pass&amp;gt;&lt;/td&gt;
+&lt;td&gt;不正常關機，是否用 fsck 檢查檔案系統磁區（0：不檢查、1：先檢查、2：後檢查），通常跟目錄設定為 1，其他分割區設定為 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dywang.csie.cyut.edu.tw/dywang/rhcsaNote/node59.html&#34;&gt;開機自動掛載&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.opencli.com/linux/fstab&#34;&gt;/etc/fstab 檔案說明&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.xuite.net/chingwei/blog/30943022&#34;&gt;【系統】Ubuntu : 使用 UUID 在 fstab 中掛載磁區 @ My Life :: 隨意窩 Xuite日誌&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/386536/how-to-find-the-attached-devices-uuid-through-terminal&#34;&gt;command line - How to find the attached devices UUID through terminal? - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>

@@ -5,7 +5,7 @@
     <description>Recent content in 筆記 on Ubuntu 菜雞修煉場</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 27 Apr 2021 08:50:29 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 17 Aug 2021 08:50:29 +0800</lastBuildDate>
     
 	  <atom:link href="https://ubuntu-for-newbie.kejyun.com/categories/%E7%AD%86%E8%A8%98/index.xml" rel="self" type="application/rss+xml" />
     
@@ -1048,6 +1048,41 @@ abort. Configuration Item: APT::Get::Assume-Yes.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Docs: mount</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/mount/</link>
+      <pubDate>Tue, 17 Aug 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/mount/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;findmnt-找出掛載的資訊&#34;&gt;findmnt 找出掛載的資訊&lt;/h2&gt;
+&lt;h3 id=&#34;列出掛載資訊&#34;&gt;&lt;em&gt;列出掛載資訊&lt;/em&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;findmnt /&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ findmnt /
+TARGET SOURCE    FSTYPE OPTIONS
+/      /dev/sda2 ext4   rw,relatime,errors&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;remount-ro,data&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;ordered
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;列出掛載資訊-json-格式&#34;&gt;&lt;em&gt;列出掛載資訊 json 格式&lt;/em&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;findmnt / &amp;ndash;json&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ findmnt / --json
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;filesystems&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;target&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;source&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/dev/sda2&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fstype&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ext4&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;options&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rw,relatime,errors=remount-ro,data=ordered&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/583909/how-do-i-check-where-devices-are-mounted&#34;&gt;mount - How do I check where devices are mounted? - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: ssh config</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/config/</link>
       <pubDate>Sun, 25 Apr 2021 08:50:29 +0800</pubDate>
@@ -1669,6 +1704,168 @@ Filename				Type		Size	Used	Priority
     </item>
     
     <item>
+      <title>Docs: df</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/df/</link>
+      <pubDate>Tue, 17 Aug 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/df/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;df-顯示硬碟檔案空間&#34;&gt;df 顯示硬碟檔案空間&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df
+檔案系統          1K-區段       已用      可用 已用% 掛載點
+udev             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;    0% /dev
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;190340&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3073276&lt;/span&gt;    6% /run
+/dev/sda2      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3841450248&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2731171272&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;915121424&lt;/span&gt;   75% /
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /dev/shm
+tmpfs                &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;    0% /run/lock
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /sys/fs/cgroup
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;df--h-顯示可閱讀的硬碟檔案空間&#34;&gt;df -h 顯示可閱讀的硬碟檔案空間&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df -h
+檔案系統        容量  已用  可用 已用% 掛載點
+udev             16G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   16G    0% /dev
+tmpfs           3.2G  186M  3.0G    6% /run
+/dev/sda2       3.6T  2.6T  873G   75% /
+tmpfs            16G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   16G    0% /dev/shm
+tmpfs           5.0M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  5.0M    0% /run/lock
+tmpfs            16G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   16G    0% /sys/fs/cgroup
+tmpfs           3.2G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.2G    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;df--t-顯示檔案系統類型&#34;&gt;df -T 顯示檔案系統類型&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df -T
+檔案系統       類型        1K-區段       已用      可用 已用% 掛載點
+udev           devtmpfs   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;    0% /dev
+tmpfs          tmpfs       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;190340&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3073276&lt;/span&gt;    6% /run
+/dev/sda2      ext4     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3841450248&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2731171408&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;915121288&lt;/span&gt;   75% /
+tmpfs          tmpfs      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /dev/shm
+tmpfs          tmpfs          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;    0% /run/lock
+tmpfs          tmpfs      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /sys/fs/cgroup
+tmpfs          tmpfs       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;df--m-使用-megabyte-顯示檔案空間&#34;&gt;df -m 使用 Megabyte 顯示檔案空間&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df -m
+檔案系統       1M-區段    已用   可用 已用% 掛載點
+udev             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15915&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15915&lt;/span&gt;    0% /dev
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3188&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;186&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3002&lt;/span&gt;    6% /run
+/dev/sda2      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3751417&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2667160&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;893674&lt;/span&gt;   75% /
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;    0% /dev/shm
+tmpfs                &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;    0% /run/lock
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;    0% /sys/fs/cgroup
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3188&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3188&lt;/span&gt;    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10160087&#34;&gt;Day 15 ubuntu 查詢硬碟使用量df指令 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: lsblk</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/lsblk/</link>
+      <pubDate>Tue, 17 Aug 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/lsblk/</guid>
+      <description>
+        
+        
+        &lt;p&gt;列出系統所有區塊裝置（Block Device）&lt;/p&gt;
+&lt;h2 id=&#34;區塊裝置類型&#34;&gt;區塊裝置類型&lt;/h2&gt;
+&lt;p&gt;會列出的裝置類型&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;硬碟&lt;/li&gt;
+&lt;li&gt;USB 隨身碟&lt;/li&gt;
+&lt;li&gt;DVD-ROM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;不會列出的裝置類型&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RAM disk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;lsblk-列出區塊裝置的樹狀資訊&#34;&gt;&lt;code&gt;lsblk&lt;/code&gt; 列出區塊裝置的樹狀資訊&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda      8:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.7T  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; disk
+├─sda1   8:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    1M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part
+├─sda2   8:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.7T  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part /
+└─sda3   8:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    4G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;SWAP&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;AWS Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+loop0         7:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 33.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/3552
+loop1         7:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 32.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/snapd/12704
+loop2         7:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 55.5M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core18/2074
+loop3         7:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 70.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/lxd/21029
+loop4         7:4    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   25M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/4046
+loop6         7:6    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 55.4M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core18/2128
+loop7         7:7    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 67.6M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/lxd/20326
+loop9         7:9    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 32.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/snapd/12398
+nvme0n1     259:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  300G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; disk
+└─nvme0n1p1 259:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  300G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part /
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;lsblk--a-列出所有區塊裝置的樹狀資訊&#34;&gt;&lt;code&gt;lsblk -a&lt;/code&gt; 列出所有區塊裝置的樹狀資訊&lt;/h2&gt;
+&lt;p&gt;預設不會列出空的區塊裝置，加上 &lt;code&gt;-a&lt;/code&gt; 參數可以列出全部的裝置，包含空的區塊裝置&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk -a
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda      8:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.7T  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; disk
+├─sda1   8:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    1M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part
+├─sda2   8:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.7T  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part /
+└─sda3   8:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    4G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;SWAP&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+loop0    7:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop1    7:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop2    7:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop3    7:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop4    7:4    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop5    7:5    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop6    7:6    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop7    7:7    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;AWS Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk -a
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+loop0         7:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 33.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/3552
+loop1         7:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 32.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/snapd/12704
+loop2         7:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 55.5M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core18/2074
+loop3         7:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 70.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/lxd/21029
+loop4         7:4    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   25M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/4046
+loop5         7:5    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop
+loop6         7:6    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 55.4M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core18/2128
+loop7         7:7    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 67.6M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/lxd/20326
+loop8         7:8    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop
+loop9         7:9    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 32.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/snapd/12398
+loop10        7:10   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+md0           9:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; md
+nvme0n1     259:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  300G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; disk
+└─nvme0n1p1 259:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  300G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part /
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;lsblk--m-列出區塊裝置擁有者&#34;&gt;&lt;code&gt;lsblk -m&lt;/code&gt; 列出區塊裝置擁有者&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk -m
+NAME    SIZE OWNER GROUP MODE
+sda     3.7T root  disk  brw-rw----
+├─sda1    1M root  disk  brw-rw----
+├─sda2  3.7T root  disk  brw-rw----
+└─sda3    4G root  disk  brw-rw----
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;AWS Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk -m
+NAME         SIZE OWNER GROUP MODE
+loop0       33.3M root  disk  brw-rw----
+loop1       32.3M root  disk  brw-rw----
+loop2       55.5M root  disk  brw-rw----
+loop3       70.3M root  disk  brw-rw----
+loop4         25M root  disk  brw-rw----
+loop6       55.4M root  disk  brw-rw----
+loop7       67.6M root  disk  brw-rw----
+loop9       32.3M root  disk  brw-rw----
+nvme0n1      300G root  disk  brw-rw----
+└─nvme0n1p1  300G root  disk  brw-rw----
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.opencli.com/linux/lsblk-command-linux-list-block-device&#34;&gt;lsblk - 檢視列出 Block Device 指令&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: ssh tunnel 連線 port 轉發</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/ssh-tunnel-port-forward/</link>
       <pubDate>Mon, 26 Apr 2021 08:50:29 +0800</pubDate>
@@ -1678,12 +1875,17 @@ Filename				Type		Size	Used	Priority
         
         
         &lt;p&gt;有些主機會因為安全性的疑慮，所以關閉對外連線的 port，但如果我們可以透過 ssh 連線至主機時，可以透過 &lt;code&gt;ssh tunnel&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;指令&#34;&gt;指令&lt;/h2&gt;
+&lt;h2 id=&#34;ssh-tunnel-指令&#34;&gt;SSH Tunnel 指令&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;原理&lt;/em&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;本地端 port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;遠端主機 ip / dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;遠端主機 port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;ssh 連線遠端主機 ip / dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;你&lt;/code&gt; =&amp;gt; &lt;code&gt;SSH Tunnel 跳板（可以存取目標的主機）&lt;/code&gt; =&amp;gt; &lt;code&gt;目標&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;指令&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;你的 port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;目標 ip / dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;目標 port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;SSH Tunnel 跳板帳號&amp;gt;&lt;/code&gt;@&lt;code&gt;&amp;lt;SSH Tunnel 跳板 ip / dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;local-port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;remote-server-ip-or-dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;remote-port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;ssh-to-remote-server-ip-or-dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;your-port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;target-server-ip-or-dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;target-port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;ssh-tunnel-account&amp;gt;&lt;/code&gt;@&lt;code&gt;&amp;lt;ssh-tunnel-ip-or-dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;連線資料庫範例&#34;&gt;連線資料庫範例&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -L 33306:mysql.kejyun.com:3306 kj@mysql.kejyun.com
@@ -1716,6 +1918,13 @@ Filename				Type		Size	Used	Priority
 &lt;/table&gt;
 &lt;h3 id=&#34;不要執行遠端指令並在背景執行範例&#34;&gt;不要執行遠端指令並在背景執行範例&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -L 33306:mysql.kejyun.com:3306 -N -f kj@mysql.kejyun.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ssh-tunnel-到不對外開放連線的主機&#34;&gt;SSH Tunnel 到不對外開放連線的主機&lt;/h2&gt;
+&lt;p&gt;我們可能會有資料庫主機完全沒有對外連線，連 3306 port 都無法連線，但我們有允許其中一台 Web 主機可以連線至資料庫，我們可以 SSH Tunnel 至該 Web 主機，再連線至資料庫主機&lt;/p&gt;
+&lt;p&gt;我們允許主機 &lt;code&gt;web.kejyun.com&lt;/code&gt; 可以連線至資料庫 &lt;code&gt;mysql.kejyun.com&lt;/code&gt;，但資料庫 &lt;code&gt;mysql.kejyun.com&lt;/code&gt; 主機是完全不對外開放的，可以使用 ssh 連線至 &lt;code&gt;web.kejyun.com&lt;/code&gt;，再請求連線至資料庫 &lt;code&gt;mysql.kejyun.com&lt;/code&gt; 主機，指令會像這樣&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;本地端 port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;不對外開放資料庫主機 ip / dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;資料庫主機 port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;ssh 連線對外開放主機 ip / dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -L 33306:mysql.kejyun.com:3306 -N -f kj@web.kejyun.com
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;除錯&#34;&gt;除錯&lt;/h2&gt;
 &lt;h3 id=&#34;列出目前所有-ssh-tunnel&#34;&gt;列出目前所有 SSH Tunnel&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;lsof -i -n &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; egrep &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;\&amp;lt;ssh\&amp;gt;&amp;#39;&lt;/span&gt;
@@ -1830,215 +2039,6 @@ Filename				Type		Size	Used	Priority
 &lt;li&gt;&lt;a href=&#34;https://mjanja.ch/2015/03/finding-the-nginx-gzip_comp_level-sweet-spot/&#34;&gt;Finding the Nginx gzip_comp_level Sweet Spot | Mjanja Tech&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: max_children</title>
-      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/php/max-children/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
-      
-      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/php/max-children/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;php-fpm-max-children&#34;&gt;PHP FPM Max Children&lt;/h2&gt;
-&lt;p&gt;在 php fpm 的 error log 發現執行緒不太夠用，需要設定開啟新執行緒&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 07:43:58&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 08:27:52&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 10:57:17&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;24-Oct-2018 11:37:32&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; WARNING: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;pool www&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; server reached pm.max_children setting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;5&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;, consider raising it
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;設定檔路徑&lt;/em&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;/etc/php/7.1/fpm/pool.d/www.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在設定檔中可以看到類似以下的設定方式&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pm.max_children &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10&lt;/span&gt;
-pm.start_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;
-pm.min_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;
-pm.max_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;process-manager-行程調配規則參數說明&#34;&gt;Process Manager 行程調配規則參數說明&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;參數&lt;/th&gt;
-&lt;th&gt;說明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;pm&lt;/td&gt;
-&lt;td&gt;PHP-FPM Process Manager 行程調配規則&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;pm.start_servers&lt;/td&gt;
-&lt;td&gt;PHP-FPM 服務在一開始啟動時，要配置多少個行程&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;pm.min_spare_servers&lt;/td&gt;
-&lt;td&gt;PHP-FPM 最小閒置行程的數量&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;pm.max_spare_servers&lt;/td&gt;
-&lt;td&gt;PHP-FPM 最大閒置行程的數量&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;pm.max_requests&lt;/td&gt;
-&lt;td&gt;單一 PHP-FPM 最多可以處理多少個連線，當一個工作行程處理的連線數達到這個值的時候，就會強制關閉此行程，重新產生另一個新的行程&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;pm&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; dynamic
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;參數&lt;/th&gt;
-&lt;th&gt;說明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;static&lt;/td&gt;
-&lt;td&gt;固定行程數量（數量為 pm.max_children） ，效能很好，但很佔記憶體&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;dynamic&lt;/td&gt;
-&lt;td&gt;動態行程數量（根據 pm.max_children、pm.start_servers、pm.min_spare_servers、pm.max_spare_servers 動態調整），根據使用量用多少開多少，但當使用量比較低時，會保留一些行程，隨時等著接收新的連線&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ondemand&lt;/td&gt;
-&lt;td&gt;動態行程數量（根據 pm.max_children、pm.start_servers、pm.min_spare_servers、pm.max_spare_servers 動態調整），用多少開多少&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;pmmax_children-最大執行程序數量&#34;&gt;pm.max_children 最大執行程序數量&lt;/h2&gt;
-&lt;p&gt;最大執行程序數量是針對自己的主機規格不同去做設定的，當你主機有較大的記憶體，則可以設定更多的執行程序&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Total Max Processes = (Total Ram - (Used Ram + Buffer)) / (Memory per php process)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;最大執行程序 = (總記憶體 - (已使用記憶體 + Buffer)) / (每個 php 執行緒需要記憶體)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;pm.max_children 數量：可用記憶體(MB) / 大約 50MB&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;em&gt;確認每個 php 執行緒需要記憶體&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;因為每個 php 執行的記憶體及效率會針對不同的程式環境不同，而有不同的消耗記憶體，可以使用下列指令去取得 php-fpm 執行緒消耗的記憶體數量&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ps -ylC &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt; &amp;ndash;sort:rss&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;em&gt;範例&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;其中的 &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt; 要看看你系統是用哪個版本的 php，而會有不同版本名稱的 php-fpm，像是：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ps -ylC php-fpm --sort:rss
-ps -ylC php-fpm7.0 --sort:rss
-ps -ylC php-fpm7.1 --sort:rss
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在列出來 php-fpm 使用的資源後，可以看到 &lt;code&gt;RSS&lt;/code&gt; 欄位為使用的記憶體大小，&lt;code&gt;31692&lt;/code&gt; 表示為 &lt;code&gt;31692 kb&lt;/code&gt;，大概就是 &lt;code&gt;31M&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ ps -ylC php-fpm7.1 --sort:rss
-S   UID   PID  PPID  C PRI  NI   RSS    SZ WCHAN  TTY          TIME CMD
-S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22275&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31692&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;212882&lt;/span&gt; -     ?        08:00:00 php-fpm7.0
-S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22092&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;40708&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;231684&lt;/span&gt; -     ?        08:00:02 php-fpm7.0
-S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22023&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;41136&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;231888&lt;/span&gt; -     ?        08:00:05 php-fpm7.0
-S    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;33&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22038&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16692&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;41204&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;231744&lt;/span&gt; -     ?        08:00:04 php-fpm7.0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但每個 php-fpm 程序的記憶體不盡相同，我們可以用下列指令去計算平均使用的記憶體大小是多少&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ps &amp;ndash;no-headers -o &amp;ldquo;rss,cmd&amp;rdquo; -C &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt;  | awk &amp;lsquo;{ sum+=$1 } END { printf (&amp;quot;%d%s\n&amp;quot;, sum/NR/1024,&amp;ldquo;Mb&amp;rdquo;) }&amp;rsquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;也是一樣針對你系統是用哪個版本的 php，而會有不同版本名稱的 php-fpm，像是：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ps --no-headers -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rss,cmd&amp;#34;&lt;/span&gt; -C php-fpm  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{ sum+=$1 } END { printf (&amp;#34;%d%s\n&amp;#34;, sum/NR/1024,&amp;#34;Mb&amp;#34;) }&amp;#39;&lt;/span&gt;
-ps --no-headers -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rss,cmd&amp;#34;&lt;/span&gt; -C php-fpm7.0  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{ sum+=$1 } END { printf (&amp;#34;%d%s\n&amp;#34;, sum/NR/1024,&amp;#34;Mb&amp;#34;) }&amp;#39;&lt;/span&gt;
-ps --no-headers -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rss,cmd&amp;#34;&lt;/span&gt; -C php-fpm7.1  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{ sum+=$1 } END { printf (&amp;#34;%d%s\n&amp;#34;, sum/NR/1024,&amp;#34;Mb&amp;#34;) }&amp;#39;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;抓出來的平均使用記憶體大概為 &lt;code&gt;44 MB&lt;/code&gt;，但為了抓 Buffer，我們大概抓 &lt;code&gt;50 MB&lt;/code&gt; 左右&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ ps --no-headers -o &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rss,cmd&amp;#34;&lt;/span&gt; -C php-fpm7.0  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{ sum+=$1 } END { printf (&amp;#34;%d%s\n&amp;#34;, sum/NR/1024,&amp;#34;Mb&amp;#34;) }&amp;#39;&lt;/span&gt;
-44Mb
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;確認可用的記憶體數量&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;php-fpm 可以用的記憶體為：剩餘還可用的記憶體 + (php-fpm 平均使用記憶體 * 目前 php-fpm 開啟數量)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;使用 &lt;code&gt;free -m&lt;/code&gt; 取得目前的記憶體使用狀況，總記憶體是 &lt;code&gt;3272 M&lt;/code&gt;，已經使用了 &lt;code&gt;1539M&lt;/code&gt;，剩餘還可用的記憶體有 &lt;code&gt;1021 M&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ free -m
-              total        used        free      shared  buff/cache   available
-Mem:           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3762&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1539&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1021&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;84&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2417&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2686&lt;/span&gt;
-Swap:             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;           &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;而從下列指令中，取得 php-fpm 平均使用記憶體為 &lt;code&gt;44M&lt;/code&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ps &amp;ndash;no-headers -o &amp;ldquo;rss,cmd&amp;rdquo; -C &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt;  | awk &amp;lsquo;{ sum+=$1 } END { printf (&amp;quot;%d%s\n&amp;quot;, sum/NR/1024,&amp;ldquo;Mb&amp;rdquo;) }&amp;rsquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;從下列指令中列出目前所有 php-fpm 執行緒數量為 &lt;code&gt;41 個&lt;/code&gt;（直接去計算清單出現幾行 php-fpm 資源狀況即可知道總共開了幾個 php-fpm 執行緒）&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ps -ylC &lt;code&gt;php-fpm 執行緒完整名稱&lt;/code&gt; &amp;ndash;sort:rss&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;所以 php-fpm 可以用的記憶體為 &lt;code&gt;1021 M&lt;/code&gt; + &lt;code&gt;44 M&lt;/code&gt; * &lt;code&gt;41 個&lt;/code&gt; = 2743M&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;最大執行程序數量 = php-fpm 可以用的記憶體 / 每個 php 執行緒需要記憶體(Buffer 數值)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;2743M / 50M = 54.86&lt;/p&gt;
-&lt;p&gt;為了不要讓所有記憶題全部消耗完，而沒有空間去執行其他非 php 的程序，所以我們這邊會抓 &lt;code&gt;pm.max_children&lt;/code&gt; 大概最多使用個 &lt;code&gt;50 個&lt;/code&gt; 執行緒&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pm.max_children &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;50&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;start_server 官方建議算法是 min_spare_servers + (max_spare_servers - min_spare_servers) / 2&lt;/p&gt;
-&lt;p&gt;min_spare_servers 跟 max_spare_servers 就取個大概就好，不要讓他一直開開關關即可&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pm.start_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;20&lt;/span&gt;
-pm.min_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;13&lt;/span&gt;
-pm.max_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;防止-php-fpm-執行緒處理過多-request-導致-memory-leak&#34;&gt;防止 php-fpm 執行緒處理過多 request 導致 Memory leak&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pm.max_requests &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;500&lt;/span&gt;
-&lt;span style=&#34;color:#000&#34;&gt;request_terminate_timeout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; 30s
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;讓每個子執行緒同時處理超過 500 個 request 就自動移除此執行緒，避免 Memory Leak 執行緒卡在那邊動彈不得&lt;/p&gt;
-&lt;p&gt;而執行時間超過 30 秒的請求則自動中斷掉，建議設定為與 &lt;code&gt;php.ini&lt;/code&gt; 的 &lt;code&gt;max_execution_time&lt;/code&gt; 相同&lt;/p&gt;
-&lt;p&gt;最後設定值會像是：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;pm&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; dynamic
-pm.max_children &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;50&lt;/span&gt;
-pm.start_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;20&lt;/span&gt;
-pm.min_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;13&lt;/span&gt;
-pm.max_spare_servers &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt;
-pm.max_requests &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;500&lt;/span&gt;
-&lt;span style=&#34;color:#000&#34;&gt;request_terminate_timeout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; 30s
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;記錄觀察&#34;&gt;記錄觀察&lt;/h2&gt;
-&lt;p&gt;為了持續觀察 php-fpm 執行序地處理狀況，我們可以把請求執行時間過慢的 Request 記錄下來，在之後後續可以持續做除錯改進，這裡設定紀錄執行超過 10 秒的執行緒狀況&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;slowlog&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /var/log/php7.0-fpm-&lt;span style=&#34;color:#000&#34;&gt;$pool&lt;/span&gt;.log.slow
-&lt;span style=&#34;color:#000&#34;&gt;slowlog&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /var/log/php7.1-fpm-&lt;span style=&#34;color:#000&#34;&gt;$pool&lt;/span&gt;.log.slow
-&lt;span style=&#34;color:#000&#34;&gt;request_slowlog_timeout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; 10s
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定完成後可以進行測試，確認改過的設定檔案沒有問題&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;php-fpm7.0 -t
-php-fpm7.1 -t
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ php-fpm7.1 -t
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;03-Jul-2019 15:53:15&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; NOTICE: configuration file /etc/php/7.1/fpm/php-fpm.conf &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt; is successful
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;確認後記得重啟 php-fpm 服務即可生效&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo service php7.0-fpm restart
-sudo service php7.1-fpm restart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.gtwang.org/linux/nginx-php-fpm-configuration-optimization/&#34;&gt;Nginx 與 PHP-FPM 最佳化效能設定教學與技巧 - G. T. Wang&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.kinamo.be/en/support/faq/determining-the-correct-number-of-child-processes-for-php-fpm-on-nginx&#34;&gt;Determining the correct number of child processes for PHP-FPM on NGinx&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.crifan.com/php_fpm_conf_pm_max_children_should_set_which_value/&#34;&gt;【整理】php-fpm.conf中的pm.max_children到底应该设置为多少 – 在路上&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://serversforhackers.com/c/php-fpm-process-management&#34;&gt;PHP-FPM: Process Management | Servers for Hackers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.kinamo.be/en/support/faq/determining-the-correct-number-of-child-processes-for-php-fpm-on-nginx&#34;&gt;Determining the correct number of child processes for PHP-FPM on NGinx&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://community.webcore.cloud/tutorials/how_to_solve_php_fpm_server_reached_max_children/&#34;&gt;How To: Solve PHP-FPM server reached max_children | Webcore Community | Webcore Cloud&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: SSL</title>
-      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
-      
-      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/ssl/</guid>
-      <description>
-        
-        
-        
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 網站</title>
-      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
-      
-      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/</guid>
-      <description>
-        
-        
-        
       </description>
     </item>
     

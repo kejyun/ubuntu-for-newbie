@@ -838,6 +838,41 @@ sudo ntpdate time.stdtime.gov.tw
     </item>
     
     <item>
+      <title>Docs: mount</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/mount/</link>
+      <pubDate>Tue, 17 Aug 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/mount/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;findmnt-找出掛載的資訊&#34;&gt;findmnt 找出掛載的資訊&lt;/h2&gt;
+&lt;h3 id=&#34;列出掛載資訊&#34;&gt;&lt;em&gt;列出掛載資訊&lt;/em&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;findmnt /&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ findmnt /
+TARGET SOURCE    FSTYPE OPTIONS
+/      /dev/sda2 ext4   rw,relatime,errors&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;remount-ro,data&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;ordered
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;列出掛載資訊-json-格式&#34;&gt;&lt;em&gt;列出掛載資訊 json 格式&lt;/em&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;findmnt / &amp;ndash;json&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ findmnt / --json
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;filesystems&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;target&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;source&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/dev/sda2&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fstype&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ext4&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;options&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rw,relatime,errors=remount-ro,data=ordered&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/583909/how-do-i-check-where-devices-are-mounted&#34;&gt;mount - How do I check where devices are mounted? - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: ssh config</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/config/</link>
       <pubDate>Sun, 25 Apr 2021 08:50:29 +0800</pubDate>
@@ -1346,6 +1381,168 @@ Filename				Type		Size	Used	Priority
     </item>
     
     <item>
+      <title>Docs: df</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/df/</link>
+      <pubDate>Tue, 17 Aug 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/df/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;df-顯示硬碟檔案空間&#34;&gt;df 顯示硬碟檔案空間&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df
+檔案系統          1K-區段       已用      可用 已用% 掛載點
+udev             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;    0% /dev
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;190340&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3073276&lt;/span&gt;    6% /run
+/dev/sda2      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3841450248&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2731171272&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;915121424&lt;/span&gt;   75% /
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /dev/shm
+tmpfs                &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;    0% /run/lock
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /sys/fs/cgroup
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;df--h-顯示可閱讀的硬碟檔案空間&#34;&gt;df -h 顯示可閱讀的硬碟檔案空間&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df -h
+檔案系統        容量  已用  可用 已用% 掛載點
+udev             16G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   16G    0% /dev
+tmpfs           3.2G  186M  3.0G    6% /run
+/dev/sda2       3.6T  2.6T  873G   75% /
+tmpfs            16G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   16G    0% /dev/shm
+tmpfs           5.0M     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  5.0M    0% /run/lock
+tmpfs            16G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   16G    0% /sys/fs/cgroup
+tmpfs           3.2G     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.2G    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;df--t-顯示檔案系統類型&#34;&gt;df -T 顯示檔案系統類型&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df -T
+檔案系統       類型        1K-區段       已用      可用 已用% 掛載點
+udev           devtmpfs   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;    0% /dev
+tmpfs          tmpfs       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;190340&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3073276&lt;/span&gt;    6% /run
+/dev/sda2      ext4     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3841450248&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2731171408&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;915121288&lt;/span&gt;   75% /
+tmpfs          tmpfs      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /dev/shm
+tmpfs          tmpfs          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;    0% /run/lock
+tmpfs          tmpfs      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /sys/fs/cgroup
+tmpfs          tmpfs       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;df--m-使用-megabyte-顯示檔案空間&#34;&gt;df -m 使用 Megabyte 顯示檔案空間&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df -m
+檔案系統       1M-區段    已用   可用 已用% 掛載點
+udev             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15915&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15915&lt;/span&gt;    0% /dev
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3188&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;186&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3002&lt;/span&gt;    6% /run
+/dev/sda2      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3751417&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2667160&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;893674&lt;/span&gt;   75% /
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;    0% /dev/shm
+tmpfs                &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;    0% /run/lock
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;15936&lt;/span&gt;    0% /sys/fs/cgroup
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3188&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3188&lt;/span&gt;    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10160087&#34;&gt;Day 15 ubuntu 查詢硬碟使用量df指令 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: lsblk</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/lsblk/</link>
+      <pubDate>Tue, 17 Aug 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/lsblk/</guid>
+      <description>
+        
+        
+        &lt;p&gt;列出系統所有區塊裝置（Block Device）&lt;/p&gt;
+&lt;h2 id=&#34;區塊裝置類型&#34;&gt;區塊裝置類型&lt;/h2&gt;
+&lt;p&gt;會列出的裝置類型&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;硬碟&lt;/li&gt;
+&lt;li&gt;USB 隨身碟&lt;/li&gt;
+&lt;li&gt;DVD-ROM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;不會列出的裝置類型&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RAM disk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;lsblk-列出區塊裝置的樹狀資訊&#34;&gt;&lt;code&gt;lsblk&lt;/code&gt; 列出區塊裝置的樹狀資訊&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda      8:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.7T  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; disk
+├─sda1   8:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    1M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part
+├─sda2   8:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.7T  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part /
+└─sda3   8:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    4G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;SWAP&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;AWS Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+loop0         7:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 33.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/3552
+loop1         7:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 32.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/snapd/12704
+loop2         7:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 55.5M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core18/2074
+loop3         7:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 70.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/lxd/21029
+loop4         7:4    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   25M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/4046
+loop6         7:6    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 55.4M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core18/2128
+loop7         7:7    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 67.6M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/lxd/20326
+loop9         7:9    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 32.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/snapd/12398
+nvme0n1     259:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  300G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; disk
+└─nvme0n1p1 259:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  300G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part /
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;lsblk--a-列出所有區塊裝置的樹狀資訊&#34;&gt;&lt;code&gt;lsblk -a&lt;/code&gt; 列出所有區塊裝置的樹狀資訊&lt;/h2&gt;
+&lt;p&gt;預設不會列出空的區塊裝置，加上 &lt;code&gt;-a&lt;/code&gt; 參數可以列出全部的裝置，包含空的區塊裝置&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk -a
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda      8:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.7T  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; disk
+├─sda1   8:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    1M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part
+├─sda2   8:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  3.7T  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part /
+└─sda3   8:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    4G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;SWAP&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+loop0    7:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop1    7:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop2    7:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop3    7:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop4    7:4    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop5    7:5    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop6    7:6    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+loop7    7:7    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;AWS Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk -a
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+loop0         7:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 33.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/3552
+loop1         7:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 32.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/snapd/12704
+loop2         7:2    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 55.5M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core18/2074
+loop3         7:3    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 70.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/lxd/21029
+loop4         7:4    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   25M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/amazon-ssm-agent/4046
+loop5         7:5    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop
+loop6         7:6    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 55.4M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/core18/2128
+loop7         7:7    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 67.6M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/lxd/20326
+loop8         7:8    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop
+loop9         7:9    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; 32.3M  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; loop /snap/snapd/12398
+loop10        7:10   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; loop
+md0           9:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;        &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; md
+nvme0n1     259:0    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  300G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; disk
+└─nvme0n1p1 259:1    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  300G  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; part /
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;lsblk--m-列出區塊裝置擁有者&#34;&gt;&lt;code&gt;lsblk -m&lt;/code&gt; 列出區塊裝置擁有者&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk -m
+NAME    SIZE OWNER GROUP MODE
+sda     3.7T root  disk  brw-rw----
+├─sda1    1M root  disk  brw-rw----
+├─sda2  3.7T root  disk  brw-rw----
+└─sda3    4G root  disk  brw-rw----
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;AWS Ubuntu 16.04&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ lsblk -m
+NAME         SIZE OWNER GROUP MODE
+loop0       33.3M root  disk  brw-rw----
+loop1       32.3M root  disk  brw-rw----
+loop2       55.5M root  disk  brw-rw----
+loop3       70.3M root  disk  brw-rw----
+loop4         25M root  disk  brw-rw----
+loop6       55.4M root  disk  brw-rw----
+loop7       67.6M root  disk  brw-rw----
+loop9       32.3M root  disk  brw-rw----
+nvme0n1      300G root  disk  brw-rw----
+└─nvme0n1p1  300G root  disk  brw-rw----
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.opencli.com/linux/lsblk-command-linux-list-block-device&#34;&gt;lsblk - 檢視列出 Block Device 指令&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: ssh tunnel 連線 port 轉發</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/network/ssh/ssh-tunnel-port-forward/</link>
       <pubDate>Mon, 26 Apr 2021 08:50:29 +0800</pubDate>
@@ -1355,12 +1552,17 @@ Filename				Type		Size	Used	Priority
         
         
         &lt;p&gt;有些主機會因為安全性的疑慮，所以關閉對外連線的 port，但如果我們可以透過 ssh 連線至主機時，可以透過 &lt;code&gt;ssh tunnel&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;指令&#34;&gt;指令&lt;/h2&gt;
+&lt;h2 id=&#34;ssh-tunnel-指令&#34;&gt;SSH Tunnel 指令&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;原理&lt;/em&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;本地端 port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;遠端主機 ip / dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;遠端主機 port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;ssh 連線遠端主機 ip / dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;你&lt;/code&gt; =&amp;gt; &lt;code&gt;SSH Tunnel 跳板（可以存取目標的主機）&lt;/code&gt; =&amp;gt; &lt;code&gt;目標&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;指令&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;你的 port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;目標 ip / dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;目標 port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;SSH Tunnel 跳板帳號&amp;gt;&lt;/code&gt;@&lt;code&gt;&amp;lt;SSH Tunnel 跳板 ip / dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;local-port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;remote-server-ip-or-dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;remote-port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;ssh-to-remote-server-ip-or-dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;your-port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;target-server-ip-or-dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;target-port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;ssh-tunnel-account&amp;gt;&lt;/code&gt;@&lt;code&gt;&amp;lt;ssh-tunnel-ip-or-dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;連線資料庫範例&#34;&gt;連線資料庫範例&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -L 33306:mysql.kejyun.com:3306 kj@mysql.kejyun.com
@@ -1393,6 +1595,13 @@ Filename				Type		Size	Used	Priority
 &lt;/table&gt;
 &lt;h3 id=&#34;不要執行遠端指令並在背景執行範例&#34;&gt;不要執行遠端指令並在背景執行範例&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -L 33306:mysql.kejyun.com:3306 -N -f kj@mysql.kejyun.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ssh-tunnel-到不對外開放連線的主機&#34;&gt;SSH Tunnel 到不對外開放連線的主機&lt;/h2&gt;
+&lt;p&gt;我們可能會有資料庫主機完全沒有對外連線，連 3306 port 都無法連線，但我們有允許其中一台 Web 主機可以連線至資料庫，我們可以 SSH Tunnel 至該 Web 主機，再連線至資料庫主機&lt;/p&gt;
+&lt;p&gt;我們允許主機 &lt;code&gt;web.kejyun.com&lt;/code&gt; 可以連線至資料庫 &lt;code&gt;mysql.kejyun.com&lt;/code&gt;，但資料庫 &lt;code&gt;mysql.kejyun.com&lt;/code&gt; 主機是完全不對外開放的，可以使用 ssh 連線至 &lt;code&gt;web.kejyun.com&lt;/code&gt;，再請求連線至資料庫 &lt;code&gt;mysql.kejyun.com&lt;/code&gt; 主機，指令會像這樣&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ssh -L &lt;code&gt;&amp;lt;本地端 port&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;不對外開放資料庫主機 ip / dns&amp;gt;&lt;/code&gt;:&lt;code&gt;&amp;lt;資料庫主機 port&amp;gt;&lt;/code&gt; &lt;code&gt;&amp;lt;ssh 連線對外開放主機 ip / dns&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ssh -L 33306:mysql.kejyun.com:3306 -N -f kj@web.kejyun.com
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;除錯&#34;&gt;除錯&lt;/h2&gt;
 &lt;h3 id=&#34;列出目前所有-ssh-tunnel&#34;&gt;列出目前所有 SSH Tunnel&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;lsof -i -n &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; egrep &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;\&amp;lt;ssh\&amp;gt;&amp;#39;&lt;/span&gt;
@@ -1939,6 +2148,104 @@ sudo apt-get -y update
     </item>
     
     <item>
+      <title>Docs: fstab</title>
+      <link>https://ubuntu-for-newbie.kejyun.com/docs/command/fstab/</link>
+      <pubDate>Tue, 17 Aug 2021 08:50:29 +0800</pubDate>
+      
+      <guid>https://ubuntu-for-newbie.kejyun.com/docs/command/fstab/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;code&gt;/etc/fstab&lt;/code&gt; 檔案的設定可以讓系統知道在開機時需要自動載入什麼磁區，在系統開機時就直接可以&lt;/p&gt;
+&lt;h2 id=&#34;使用-uuid-掛載磁區到-fstab&#34;&gt;使用 UUID 掛載磁區到 fstab&lt;/h2&gt;
+&lt;h3 id=&#34;使用-df-查詢目前磁區掛載狀況&#34;&gt;&lt;em&gt;使用 df 查詢目前磁區掛載狀況&lt;/em&gt;&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ df
+檔案系統          1K-區段       已用      可用 已用% 掛載點
+udev             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16296356&lt;/span&gt;    0% /dev
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;182148&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3081468&lt;/span&gt;    6% /run
+/dev/sda2      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3841450248&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2731170308&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;915122388&lt;/span&gt;   75% /
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /dev/shm
+tmpfs                &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5120&lt;/span&gt;    0% /run/lock
+tmpfs            &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16318076&lt;/span&gt;    0% /sys/fs/cgroup
+tmpfs             &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;          &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3263616&lt;/span&gt;    0% /run/user/1010
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;使用-blkid-查詢磁區的-uuid&#34;&gt;使用 blkid 查詢磁區的 UUID&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ blkid -s UUID
+/dev/sda2: &lt;span style=&#34;color:#000&#34;&gt;UUID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;4fb9f563-7ae4-4df9-a028-fdc6b9e4f1a5&amp;#34;&lt;/span&gt;
+/dev/sda3: &lt;span style=&#34;color:#000&#34;&gt;UUID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;cf0cf85a-6fed-4c43-901d-c946d6e1c5fa&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也可以到 &lt;code&gt;/dev/disk/by-uuid&lt;/code&gt; 目錄查詢 UUID&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ ll /dev/disk/by-uuid
+總計 &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+drwxr-xr-x &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt; root root  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt; Aug &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 12:08 ./
+drwxr-xr-x &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; root root &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;120&lt;/span&gt; Aug &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 12:08 ../
+lrwxrwxrwx &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; root root  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10&lt;/span&gt; Aug &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 12:09 4fb9f563-7ae4-4df9-a028-fdc6b9e4f1a5 -&amp;gt; ../../sda2
+lrwxrwxrwx &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; root root  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10&lt;/span&gt; Aug &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 12:09 cf0cf85a-6fed-4c43-901d-c946d6e1c5fa -&amp;gt; ../../sda3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;編輯-etcfstab-加入自動要載入的磁區&#34;&gt;編輯 &lt;code&gt;/etc/fstab&lt;/code&gt; 加入自動要載入的磁區&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /etc/fstab&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /etc/fstab: static file system information.&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Use &amp;#39;blkid&amp;#39; to print the universally unique identifier for a&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# device; this may be used with UUID= as a more robust way to name devices&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# that works even if disks are added and removed. See fstab(5).&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# &amp;lt;file system&amp;gt; &amp;lt;mount point&amp;gt;   &amp;lt;type&amp;gt;  &amp;lt;options&amp;gt;       &amp;lt;dump&amp;gt;  &amp;lt;pass&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# / was on /dev/sda2 during installation&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;UUID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;4fb9f563-7ae4-4df9-a028-fdc6b9e4f1a5 /               ext4    &lt;span style=&#34;color:#000&#34;&gt;errors&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;remount-ro &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# swap was on /dev/sda3 during installation&lt;/span&gt;
+&lt;span style=&#34;color:#000&#34;&gt;UUID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;cf0cf85a-6fed-4c43-901d-c946d6e1c5fa none            swap    sw              &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;etcfstab-各欄位說明&#34;&gt;&lt;code&gt;/etc/fstab&lt;/code&gt; 各欄位說明*&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;順序&lt;/th&gt;
+&lt;th&gt;欄位&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&amp;lt;file system&amp;gt;&lt;/td&gt;
+&lt;td&gt;檔案系統或路徑（UUID）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;&amp;lt;mount point&amp;gt;&lt;/td&gt;
+&lt;td&gt;掛載點（e.g. /）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;&amp;lt;type&amp;gt;&lt;/td&gt;
+&lt;td&gt;系統類型（e.g. ext4, swap）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;&amp;lt;options&amp;gt;&lt;/td&gt;
+&lt;td&gt;掛載參數&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;&amp;lt;dump&amp;gt;&lt;/td&gt;
+&lt;td&gt;是否需要備份（0：不備份、1：每日備份、2：隔日備份）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;&amp;lt;pass&amp;gt;&lt;/td&gt;
+&lt;td&gt;不正常關機，是否用 fsck 檢查檔案系統磁區（0：不檢查、1：先檢查、2：後檢查），通常跟目錄設定為 1，其他分割區設定為 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://dywang.csie.cyut.edu.tw/dywang/rhcsaNote/node59.html&#34;&gt;開機自動掛載&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.opencli.com/linux/fstab&#34;&gt;/etc/fstab 檔案說明&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.xuite.net/chingwei/blog/30943022&#34;&gt;【系統】Ubuntu : 使用 UUID 在 fstab 中掛載磁區 @ My Life :: 隨意窩 Xuite日誌&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/386536/how-to-find-the-attached-devices-uuid-through-terminal&#34;&gt;command line - How to find the attached devices UUID through terminal? - Ask Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Virtual Host</title>
       <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/virtual-host/</link>
       <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
@@ -2215,207 +2522,6 @@ Sep 25 15:54:33 ip-172-31-25-154 rc.local[793]: Deploy Done
 &lt;li&gt;&lt;a href=&#34;http://nginx.org/en/docs/http/ngx_http_proxy_module.html&#34;&gt;Module ngx_http_proxy_module&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://nginx.org/en/docs/http/ngx_http_fastcgi_module.html&#34;&gt;Module ngx_http_fastcgi_module&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/knowledgesea/p/5199046.html&#34;&gt;Nginx代理功能与负载均衡详解 - 张龙豪 - 博客园&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 同網站不同 root</title>
-      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/multiple-root/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
-      
-      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/multiple-root/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;nginx-multiple-root-同網站不同-root&#34;&gt;Nginx Multiple Root 同網站不同 Root&lt;/h2&gt;
-&lt;p&gt;在做網站改版的時候，可能因為專案太大而無法一次全部改版，所以希望能夠針對部分的 頁面或API 進行改版，然後慢慢的全部迭代改版完成，為了做到這樣的效果，可以透過 Nginx 指定不同的網址路徑，去執行不同的程式，這邊以 PHP Laravel Framework 為例。&lt;/p&gt;
-&lt;p&gt;由於舊專案是 &lt;code&gt;Laravel 4.2&lt;/code&gt; 但新專案是 &lt;code&gt;Laravel 5.5&lt;/code&gt;，程式改版過程中將改版完成的網址路徑導向至 &lt;code&gt;Laravel 5.5&lt;/code&gt;，但尚未完成改版的項目則還是繼續導向至 &lt;code&gt;Laravel 4.2&lt;/code&gt;，由 nginx 判斷請求路徑，去控制判斷要執行哪一部分的程式。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    listen 80&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    server_name _&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 預設使用 Laravel 5.5&lt;/span&gt;
-    root &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/deploy/laravel55/public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    charset utf-8&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    index index.htm index.html index.php&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    error_page &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;404&lt;/span&gt; /404.html&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$request_uri&lt;/span&gt; ~* &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;^(.*/)index\.php/*(.*)&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;301&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$1$2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-    location / &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-    location /elb-status &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; 200&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-    access_log /var/log/nginx/web-access.log cloudflare&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    error_log  /var/log/nginx/web-error.log error&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#000&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /robots.txt &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt; access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; log_not_found off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color:#000&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; /favicon.ico &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt; access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; log_not_found off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-    location ~ ^/assets/ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        expires max&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        add_header Cache-Control public&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        access_log off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-
-    location ~ ^/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;api&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path1&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path2&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)(&lt;/span&gt;.*&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 指定舊網址，變更網站路徑為 Laravel 4&lt;/span&gt;
-        root &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/deploy/laravel4/current/public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Rewrite $uri=/api/v1/xyz back to just $uri=/xyz&lt;/span&gt;
-        rewrite ^&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;.*&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$ /&lt;span style=&#34;color:#000&#34;&gt;$1&lt;/span&gt; break&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Try to send static file at $url or $uri/&lt;/span&gt;
-        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Else try /index.php (which will hit location ~\.php$ below)&lt;/span&gt;
-        try_files &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;/ /index.php?&lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-    location ~ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;^/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;/&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;$&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$newurl&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$request_uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 預設使用 php 7.1 fpm 執行&lt;/span&gt;
-
-        fastcgi_pass unix:/run/php/php7.1-fpm.sock&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$newurl&lt;/span&gt; ~ ^/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;api&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path1&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;old-uri-path2&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)(&lt;/span&gt;.*&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-            &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 變更網站路徑為 Laravel 4.2&lt;/span&gt;
-            root &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/home/deploy/laravel4/current/public&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-            &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# 舊網址使用 php 7.0 fpm 執行&lt;/span&gt;
-            fastcgi_pass unix:/run/php/php7.0-fpm.sock&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-        fastcgi_split_path_info ^&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;.+&lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)(&lt;/span&gt;/.+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;$&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        fastcgi_index index.php&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        include fastcgi_params&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        fastcgi_param REQUEST_URI &lt;span style=&#34;color:#000&#34;&gt;$newurl&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        fastcgi_param SCRIPT_FILENAME &lt;span style=&#34;color:#000&#34;&gt;$document_root$fastcgi_script_name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        fastcgi_intercept_errors off&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        fastcgi_buffer_size 16k&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-        fastcgi_buffers &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; 16k&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-
-
-    proxy_intercept_errors on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    fastcgi_intercept_errors on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-
-    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# gzip&lt;/span&gt;
-    gzip on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    gzip_min_length 1000&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    gzip_types  *&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    gzip_comp_level 3&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    gzip_proxied any&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    gzip_buffers &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 8k&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    gzip_http_version 1.1&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;預設是執行 &lt;code&gt;Laravel 5.5&lt;/code&gt;，而設定的例外路徑則是存取 &lt;code&gt;Laravel 4.2&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://gist.github.com/mreschke/27bfafb84add38d3bab8&#34;&gt;Nginx config for multiple laravel sites based on /api/v1 url paths&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html&#34;&gt;Setting up Django and your web server with uWSGI and nginx — uWSGI 2.0 documentation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.aws.amazon.com/zh_tw/elasticloadbalancing/latest/application/tutorial-load-balancer-routing.html&#34;&gt;教學課程：使用以路徑為基礎的路由與 Application Load Balancer 搭配使用 - Elastic Load Balancing&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/13999069/nginx-nodejs-php&#34;&gt;node.js - nginx + nodejs + php - Stack Overflow&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://unix.stackexchange.com/questions/134087/nginx-server-config-with-multiple-locations-does-not-work&#34;&gt;debian - nginx server config with multiple locations does not work - Unix &amp;amp; Linux Stack Exchange&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.hi-linux.com/posts/53878.html&#34;&gt;Nginx 的 try_files 指令使用实例 - 运维之美&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.51cto.com/10546390/1754757&#34;&gt;Nginx的try_files参数保证能懂的讲解-10536390-51CTO博客&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/35220769/nginx-changing-the-server-root-make-location-root-not-working&#34;&gt;Nginx - Changing the server root make location root not working - Stack Overflow&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/34082831/nginx-configuration-with-multiple-location-blocks?rq=1&#34;&gt;php - nginx configuration with multiple location blocks - Stack Overflow&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms&#34;&gt;Understanding Nginx Server and Location Block Selection Algorithms | DigitalOcean&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://gist.github.com/soheilhy/8b94347ff8336d971ad0&#34;&gt;How to proxy web apps using nginx? · GitHub&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.bluehat-lab.org/nginx-multiple-server-setting-with-single-ip/&#34;&gt;Nginx multiple server setting&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 除錯</title>
-      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/debug/</link>
-      <pubDate>Fri, 16 Apr 2021 08:50:29 +0800</pubDate>
-      
-      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/debug/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;回傳參數&#34;&gt;回傳參數&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;location ~ &lt;span style=&#34;color:#4e9a06&#34;&gt;\.&lt;/span&gt;php$ &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$args&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$document_root&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$request_uri&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; add_header Content-Type text/plain&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;$args：get 參數（e.g. ?page=2）&lt;/li&gt;
-&lt;li&gt;$uri：網址路徑（e.g. /tag/laravel）&lt;/li&gt;
-&lt;li&gt;$document_root：網頁路徑（e.g. /var/web/laravel/public）&lt;/li&gt;
-&lt;li&gt;$request_uri：完整請求 URI（/tag/laravel?page=2）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;測試-site-enabled-設定&#34;&gt;測試 &lt;code&gt;site-enabled&lt;/code&gt; 設定&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;nginx -t
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;413-request-entity-too-large&#34;&gt;413 Request entity too large&lt;/h2&gt;
-&lt;p&gt;Nginx 預設檔案上傳大小為 100M，可以修改設定值提高上傳檔案大小&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vim /etc/nginx/nginx.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;打開 &lt;code&gt;nginx.conf&lt;/code&gt; 後，在 &lt;code&gt;http&lt;/code&gt; 設定值中加入 &lt;code&gt;client_max_body_size&lt;/code&gt; 並修改上傳檔案大小&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;若沒有此設定值可自行加入&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;http &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    client_max_body_size 100M&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;could-not-build-server_names_hash-you-should-increase-server_names_hash_bucket_size-64&#34;&gt;could not build server_names_hash, you should increase server_names_hash_bucket_size: 64&lt;/h2&gt;
-&lt;p&gt;在新增 Nginx 主機時，發現網址名稱有過長的問題&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ systemctl status nginx.service
-
-● nginx.service - A high performance web server and a reverse proxy server
-   Loaded: loaded &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;/lib/systemd/system/nginx.service&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; enabled&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; vendor preset: enabled&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-   Active: failed &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;Result: exit-code&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; since Thu 2019-03-07 08:28:21 UTC&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; 7s ago
-  Process: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9595&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ExecStop&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited, &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;0/SUCCESS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-  Process: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9827&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ExecStartPre&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/usr/sbin/nginx -t -q -g daemon on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; master_process on&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited, &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;1/FAILURE&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
- Main PID: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31527&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited, &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;0/SUCCESS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
-
-Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: Starting A high performance web server and a reverse proxy server...
-Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev nginx&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;9827&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;emerg&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; could not build server_names_hash, you should increase server_names_hash_bucket_size: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;64&lt;/span&gt;
-Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev nginx&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;9827&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx: configuration file /etc/nginx/nginx.conf &lt;span style=&#34;color:#204a87&#34;&gt;test&lt;/span&gt; failed
-Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx.service: Control process exited, &lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;
-Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: Failed to start A high performance web server and a reverse proxy server.
-Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx.service: Unit entered failed state.
-Mar &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;07&lt;/span&gt; 08:28:21 tnl-dev systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: nginx.service: Failed with result &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;exit-code&amp;#39;&lt;/span&gt;.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此時可以到 &lt;code&gt;/etc/nginx/nginx.conf&lt;/code&gt; 將 &lt;code&gt;server_names_hash_max_size&lt;/code&gt; 設定更高的數值&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;server_names_hash_max_size 512&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-server_names_hash_max_size 1024&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定完後重新啟動 Nginx 就可以正常啟動了&lt;/p&gt;
-&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.phpini.com/linux/fix-nginx-error-413-request-entity-too-large&#34;&gt;解決 Nginx 錯誤: 413 Request entity too large&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://segmentfault.com/q/1010000004853184&#34;&gt;nginx配置server_names_hash_max_size放在什么地方？ - SegmentFault 思否&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: 權限</title>
-      <link>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/permission/</link>
-      <pubDate>Tue, 27 Apr 2021 08:50:29 +0800</pubDate>
-      
-      <guid>https://ubuntu-for-newbie.kejyun.com/docs/web/nginx/permission/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;nginx-permission-denied&#34;&gt;Nginx Permission Denied&lt;/h2&gt;
-&lt;p&gt;在執行 Nginx 要對目錄進行寫入權限時，會出現 &lt;code&gt;Permission Denied&lt;/code&gt; 的訊息，Nginx 預設會用 &lt;code&gt;www-data&lt;/code&gt; 的群組身份執行程序，所以寫入檔案時也會用此傷僨去寫入，可以將網頁目錄的權限擁有者改為 &lt;code&gt;www-data&lt;/code&gt; 即可正常寫入&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;chown -R www-data:www-data /var/www
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/48619445/permission-denied-error-using-laravel-docker/48619664&#34;&gt;php - Permission Denied Error using Laravel &amp;amp; Docker - Stack Overflow&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
